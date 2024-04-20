@@ -128,7 +128,7 @@ public class JavaHashSet {
         Random rand = new Random();
         int no = rand.nextInt();
         if (no < 0) {
-            no = no * -1
+            no = no * -1;
         }
 
         no = no % list.size();
