@@ -6,7 +6,15 @@ public class MainClass {
     public static void main(String[] args) {
         TreeNode root = createTree();
 
-        travers( root);
+//        travers(root);
+
+        Solution solution = new Solution();
+        int[] inorder = new int[]{4, 2, 5, 1, 6, 3, 7};
+        int[] postorder = new int[]{4, 5, 2, 6, 7, 3, 1};
+
+//        TreeNode rootNew = solution.buildTree(inorder, postorder);
+//        travers(rootNew);
+
     }
 
     private static TreeNode createTree() {
@@ -30,6 +38,7 @@ public class MainClass {
         System.out.print(root.val + " ");
         travers(root.left);
         travers(root.right);
+
 
     }
 
