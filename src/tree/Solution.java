@@ -94,4 +94,75 @@ public class Solution {
         averageOfLevelsUtil(root.right, sums, counts, level + 1);
 
     }
+
+    public int getMinimumDifference(TreeNode root) {
+        return 0;
+    }
+
+
+    public int getMinimumDifferenceUtil(TreeNode root) {
+        if (root == null) {
+            return Integer.MAX_VALUE;
+        }
+
+        if (root.left == null && root.right == null) {
+            return root.val;
+        }
+
+        int leftValue = getMinimumDifferenceUtil(root.left);
+        int rightValue = getMinimumDifferenceUtil(root.right);
+
+        return Math.min(root.val - leftValue, rightValue - root.val);
+    }
+
+
+    public boolean isValidBST(TreeNode root) {
+        boolean isValid = isValidBSTUtil(root, Long.MIN_VALUE, Long.MAX_VALUE);
+        System.out.print("isValid : " + isValid);
+        return isValid;
+    }
+
+
+    public boolean isValidBSTUtil(TreeNode root, Long minValue, Long maxValue) {
+
+        if (root == null)
+            return true;
+
+        long value = root.val;
+        if (root.val < minValue || root.val > maxValue) {
+            return false;
+        }
+
+        return isValidBSTUtil(root.left, minValue, value - 1) && isValidBSTUtil(root.right, value + 1, maxValue);
+    }
+
+
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+
+        List<List<Integer>> zigzag = new ArrayList<>();
+        zigzagLevelOrderUtil(root, 0, zigzag);
+        return zigzag;
+    }
+
+    public void zigzagLevelOrderUtil(TreeNode root, int level, List<List<Integer>> zigzag) {
+
+        if (root == null)
+            return;
+
+        if (zigzag.size() <= level) {
+            List<Integer> row = new ArrayList<>();
+            row.add(root.val);
+            zigzag.add(row);
+        } else {
+            if (level % 2 == 0) {
+                zigzag.get(level).add(root.val);
+            } else {
+                zigzag.get(level).add(0, root.val);
+            }
+        }
+        zigzagLevelOrderUtil(root.left, level + 1, zigzag);
+        zigzagLevelOrderUtil(root.right, level + 1, zigzag);
+
+    }
+
 }
