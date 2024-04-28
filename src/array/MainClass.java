@@ -1,11 +1,14 @@
 package array;
 
+import java.util.Arrays;
+
 public class MainClass {
 
 
     public static void main(String[] args) {
 
-        int nums[] = new int[]{0, 1, 2, 2, 3, 0, 4, 2};
+        int nums1[] = new int[]{2, 7, 11, 15};
+        int nums2[] = new int[]{0, 3, 7, 2, 5, 8, 4, 6, 0, 1};
 
         int[][] matrix = new int[][]{
                 {1, 2, 3, 4},
@@ -13,11 +16,11 @@ public class MainClass {
                 {0, 1, 1, 1},
                 {1, 1, 1, 0}
         };
-        print(matrix);
+//        print(matrix);
 
         Solution solution = new Solution();
-        solution.setZeroes(matrix);
-        System.out.println();
+        int[] ans = solution.twoSum(nums1, 9);
+        System.out.println("ans : " + Arrays.toString(ans));
 
 //        print(matrix);
     }

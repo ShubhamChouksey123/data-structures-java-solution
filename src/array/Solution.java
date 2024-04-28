@@ -1,7 +1,6 @@
 package array;
 
-import java.util.Objects;
-import java.util.Stack;
+import java.util.*;
 
 public class Solution {
 
@@ -46,48 +45,39 @@ public class Solution {
 
         int m = matrix.length;
         int n = matrix[0].length;
-        boolean isCornerElementZero = isTopCornerZero(matrix, m, n);
-        int originalValue = matrix[0][0];
+
+        boolean[] isRowZero = new boolean[m];
 
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (matrix[i][j] == 0) {
-                    matrix[i][0] = 0;
                     matrix[0][j] = 0;
+                    isRowZero[i] = true;
                 }
             }
         }
 
-        matrix[0][0] = originalValue;
-        System.out.println("Before everything");
+        System.out.println("After Setting top Row as zero");
         print(matrix);
 
-        for (int j = 1; j < n; j++) {
+        for (int j = 0; j < n; j++) {
             if (matrix[0][j] == 0) {
                 setEntireColumnZero(matrix, j, m);
             }
         }
 
-        System.out.println("Before everything");
+        System.out.println("Setting entire column zero");
         print(matrix);
 
-        for (int i = 1; i < m; i++) {
-            if (matrix[i][0] == 0) {
+        for (int i = 0; i < m; i++) {
+            if (isRowZero[i]) {
                 setEntireRowZero(matrix, i, n);
             }
         }
 
 
-        System.out.println("After 1");
-        print(matrix);
-
-        if (isCornerElementZero) {
-            matrix[0][0] = 0;
-        }
-
-
-        System.out.println("Answer");
+        System.out.println("Setting entire row zero");
         print(matrix);
 
     }
@@ -143,11 +133,58 @@ public class Solution {
             }
         }
 
-        if(st.isEmpty())
+        if (st.isEmpty())
             return true;
 
         return false;
 
+    }
+
+    public int longestConsecutive(int[] nums) {
+
+        Set<Integer> st = new HashSet<>();
+
+        for (int i : nums) {
+            st.add(i);
+        }
+
+        int n = nums.length;
+        int maxLength = 0;
+        for (int i = 0; i < n; i++) {
+            int num = nums[i];
+            if (st.contains(num - 1)) {
+                continue;
+            }
+
+            int length = 1;
+            while (st.contains(num + 1)) {
+                num = num + 1;
+                length++;
+            }
+            maxLength = Math.max(length, maxLength);
+        }
+
+        System.out.println("maxLength : " + maxLength);
+        return maxLength;
+    }
+
+    public int[] twoSum(int[] nums, int target) {
+
+        Map<Integer, Integer> valueIndexMap = new HashMap<>();
+
+        int[] ans = new int[2];
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            int num = nums[i];
+            if (valueIndexMap.containsKey(target - num)) {
+                ans[0] = i;
+                ans[1] = valueIndexMap.get(target - num);
+                break;
+            }
+
+            valueIndexMap.put(num, i);
+        }
+        return ans;
     }
 }
 

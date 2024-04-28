@@ -165,4 +165,61 @@ public class Solution {
 
     }
 
+    public int maxDepth(TreeNode root) {
+
+        if (root == null) {
+            return 0;
+        }
+
+        return 1 + Math.max(maxDepth(root.left), maxDepth((root.right)));
+
+    }
+
+    public TreeNode invertTree(TreeNode root) {
+
+        if (root == null) {
+            return null;
+        }
+
+        if (root.left != null && root.right != null) {
+            TreeNode tmp = root.left;
+            root.left = root.right;
+            root.right = tmp;
+        } else if (root.left != null) {
+            root.right = root.left;
+            root.left = null;
+        } else if (root.right != null) {
+            root.left = root.right;
+            root.right = null;
+        }
+
+        invertTree(root.left);
+        invertTree(root.right);
+        return root;
+    }
+
+
+    public boolean isMirrorImage(TreeNode root1, TreeNode root2) {
+
+        if (root1 == null && root2 == null)
+            return true;
+
+        if (root1 == null || root2 == null)
+            return false;
+
+        if (root1.val != root2.val)
+            return false;
+
+        return isMirrorImage(root1.left, root2.right) && isMirrorImage(root1.right, root2.left);
+
+    }
+
+    public boolean isSymmetric(TreeNode root) {
+
+        if (root == null)
+            return true;
+
+        return isMirrorImage(root.left, root.right);
+    }
+
 }

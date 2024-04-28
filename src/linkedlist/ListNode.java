@@ -31,7 +31,7 @@ public class ListNode {
         System.out.println();
     }
 
-    public ListNode addNode(ListNode head, int newValue) {
+    public ListNode appendBack(ListNode head, int newValue) {
         return new ListNode(newValue, head);
     }
 }
