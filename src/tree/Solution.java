@@ -95,26 +95,6 @@ public class Solution {
 
     }
 
-    public int getMinimumDifference(TreeNode root) {
-        return 0;
-    }
-
-
-    public int getMinimumDifferenceUtil(TreeNode root) {
-        if (root == null) {
-            return Integer.MAX_VALUE;
-        }
-
-        if (root.left == null && root.right == null) {
-            return root.val;
-        }
-
-        int leftValue = getMinimumDifferenceUtil(root.left);
-        int rightValue = getMinimumDifferenceUtil(root.right);
-
-        return Math.min(root.val - leftValue, rightValue - root.val);
-    }
-
 
     public boolean isValidBST(TreeNode root) {
         boolean isValid = isValidBSTUtil(root, Long.MIN_VALUE, Long.MAX_VALUE);
@@ -220,6 +200,36 @@ public class Solution {
             return true;
 
         return isMirrorImage(root.left, root.right);
+    }
+
+    public int getMinimumDifferenceUtil(TreeNode root, Integer lastNodeValue) {
+
+        if (root == null) {
+            return Integer.MAX_VALUE;
+        }
+
+        int leftDiff = getMinimumDifferenceUtil(root.left, lastNodeValue);
+        System.out.print(root.val);
+
+        int curDiff = Math.abs(root.val - lastNodeValue);
+
+        int rightDiff = getMinimumDifferenceUtil(root.right, root.val);
+
+        return Math.min(leftDiff, Math.min(curDiff, rightDiff));
+
+    }
+
+    public int getMinimumDifference(TreeNode root) {
+
+        if (root == null) {
+            return 0;
+        }
+
+        int mindif = getMinimumDifferenceUtil(root, Integer.MAX_VALUE);
+        System.out.println("mindif : " + mindif);
+        return  mindif ;
+
+
     }
 
 }

@@ -11,13 +11,10 @@ public class MainClass {
 
         travers(root);
 
-        List<Integer> arr = new ArrayList<>();
-        arr.add(3);
-        System.out.print("arr : " + arr);
-        arr.add(0, 1);
-        System.out.print("arr : " + arr);
-
         Solution solution = new Solution();
+        solution.getMinimumDifference(root);
+
+
 //        solution.rightSideView(root);
         int[] inorder = new int[]{4, 2, 5, 1, 6, 3, 7};
         int[] postorder = new int[]{4, 5, 2, 6, 7, 3, 1};

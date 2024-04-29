@@ -42,20 +42,58 @@ public class MainClass {
     }
 
 
+    public static Node appendAtStart(Node head, int newValue) {
+        Node newNode = new Node(newValue);
+        head.next = newNode;
+        return newNode;
+    }
+
+    private static Node createLinkedListNode(int[] nums) {
+
+        int n = nums.length;
+
+        if (n == 0) {
+            return null;
+        }
+
+        int value = nums[0];
+        Node head = new Node(value);
+
+        Node current = head;
+
+        for (int i = 1; i < n; i++) {
+            current = appendAtStart(current, nums[i]);
+        }
+        return head;
+    }
+
+
+    public static void traverse(Node head) {
+
+        if (head != null) {
+            System.out.print(head.val);
+            head = head.next;
+        }
+
+        while (head != null) {
+            System.out.print(" -> " + head.val);
+            head = head.next;
+        }
+        System.out.println();
+    }
+
+
     public static void main(String[] args) {
 
-        int[] nums1 = new int[]{1, 2, 4};
+        int[] nums1 = new int[]{1, 2, 3, 4, 5};
         ListNode head1 = createLinkedList(nums1);
 
-        int[] nums2 = new int[]{1, 3, 4};
-        ListNode head2 = createLinkedList(nums2);
+        head1.traverse(head1);
+        Solution solution = new Solution();
+        head1 = solution.removeNthFromEnd(head1, 5);
 
         head1.traverse(head1);
-        head2.traverse(head2);
 
 
-        Solution solution = new Solution();
-        ListNode merged = solution.mergeTwoLists(head1, head2);
-        merged.traverse(merged);
     }
 }

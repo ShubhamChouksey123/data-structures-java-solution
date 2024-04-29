@@ -18,13 +18,10 @@ public class LinkedListJava {
     private static void reverse() {
         ListNode head = createLinkedList();
         head.traverse(head);
-
-
     }
 
 
     public static void main(String[] args) {
-
         reverse();
     }
 }
