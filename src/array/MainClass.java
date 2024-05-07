@@ -1,13 +1,11 @@
 package array;
 
-import java.util.Arrays;
-
 public class MainClass {
 
 
     public static void main(String[] args) {
 
-        int nums1[] = new int[]{2, 7, 11, 15};
+        int nums1[] = new int[]{5,-3,5};
         int nums2[] = new int[]{0, 3, 7, 2, 5, 8, 4, 6, 0, 1};
 
         int[][] matrix = new int[][]{
@@ -19,8 +17,9 @@ public class MainClass {
 //        print(matrix);
 
         Solution solution = new Solution();
-        int[] ans = solution.twoSum(nums1, 9);
-        System.out.println("ans : " + Arrays.toString(ans));
+        Integer ans = solution.maxSubarraySumCircular(nums1);
+        //        int[] ans = solution.twoSum(nums1, 9);
+        System.out.println("ans : " + ans);
 
 //        print(matrix);
     }

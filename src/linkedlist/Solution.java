@@ -1,9 +1,13 @@
 package linkedlist;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Solution {
+
+    public ListNode head;
 
     public boolean hasCycle(ListNode head) {
 
@@ -64,7 +68,6 @@ public class Solution {
         return head.next;
     }
 
-
     public Node appendNode(Node copyCurrent, Node originalNode, int index, Map<Node, Integer> originalNodeIndex, Map<Integer, Node> copyIndexNode) {
 
         if (originalNode == null)
@@ -114,7 +117,6 @@ public class Solution {
         return dummy.next;
 
     }
-
 
     public ListNode addNode(ListNode current) {
 
@@ -194,11 +196,11 @@ public class Solution {
         ListNode leading = current;
         ListNode trailing = head;
 
-        if(leading == null){
+        if (leading == null) {
             return head.next;
         }
 
-        while (leading != null &&  leading.next != null) {
+        while (leading != null && leading.next != null) {
             leading = leading.next;
             trailing = trailing.next;
         }
@@ -208,5 +210,105 @@ public class Solution {
         return head;
     }
 
+    public void deleteNode(ListNode node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
+    }
+
+
+    private ListNode removeNodes(ListNode head, List<Integer> numbers, List<Integer> maxElementRight, int n) {
+
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode current = dummy;
+
+        for (int i = 0; i < n; i++) {
+            if (numbers.get(i) < maxElementRight.get(i)) {
+                /**
+                 * remove this node
+                 */
+                current.next = current.next.next;
+            } else
+                current = current.next;
+        }
+
+        return dummy.next;
+    }
+
+    public ListNode removeNodes(ListNode head) {
+
+        if (head == null || head.next == null)
+            return head;
+
+        ListNode current = head;
+        List<Integer> numbers = new ArrayList<>();
+
+        while (current != null) {
+            numbers.add(current.val);
+            current = current.next;
+        }
+
+        int n = numbers.size();
+        List<Integer> maxElementRight = new ArrayList<>(numbers);
+        maxElementRight.set(n - 1, Integer.MIN_VALUE);
+        int maxValue = numbers.get(n - 1);
+        for (int i = n - 2; i >= 0; i--) {
+            maxElementRight.set(i, maxValue);
+            maxValue = Math.max(maxValue, numbers.get(i));
+        }
+
+
+        head = removeNodes(head, numbers, maxElementRight, n);
+
+        return head;
+    }
+
+    public ListNode doubleItUtil(ListNode head) {
+
+
+        ListNode current = head;
+
+        if (head.val >= 5) {
+            ListNode carry = new ListNode(1);
+            carry.next = head;
+
+            head = carry;
+        }
+
+        while (current != null) {
+            int num = current.val * 2;
+            if (current.next != null && current.next.val >= 5) {
+                num++;
+            }
+            int val = num % 10;
+            current.val = val;
+            current = current.next;
+        }
+
+        return head;
+    }
+
+    public ListNode doubleIt(ListNode head) {
+        ListNode current = head;
+
+        if (head.val >= 5) {
+            ListNode carry = new ListNode(1);
+            carry.next = head;
+
+            head = carry;
+        }
+
+        while (current != null) {
+            int num = current.val * 2;
+            if (current.next != null && current.next.val >= 5) {
+                num++;
+            }
+            int val = num % 10;
+            current.val = val;
+            current = current.next;
+        }
+
+        return head;
+    }
 }
 

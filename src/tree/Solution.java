@@ -6,6 +6,13 @@ import java.util.List;
 public class Solution {
 
 
+    public Integer minDiff = Integer.MAX_VALUE;
+
+    public Integer prev = null;
+    public Integer nodeVisitedCount = 0;
+    public Integer kthSmallestNode = 0;
+    public Integer maxPathSum = Integer.MIN_VALUE;
+
     public Node connect(Node root) {
 
         if (root == null) {
@@ -95,13 +102,11 @@ public class Solution {
 
     }
 
-
     public boolean isValidBST(TreeNode root) {
         boolean isValid = isValidBSTUtil(root, Long.MIN_VALUE, Long.MAX_VALUE);
         System.out.print("isValid : " + isValid);
         return isValid;
     }
-
 
     public boolean isValidBSTUtil(TreeNode root, Long minValue, Long maxValue) {
 
@@ -115,7 +120,6 @@ public class Solution {
 
         return isValidBSTUtil(root.left, minValue, value - 1) && isValidBSTUtil(root.right, value + 1, maxValue);
     }
-
 
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
 
@@ -178,7 +182,6 @@ public class Solution {
         return root;
     }
 
-
     public boolean isMirrorImage(TreeNode root1, TreeNode root2) {
 
         if (root1 == null && root2 == null)
@@ -202,34 +205,141 @@ public class Solution {
         return isMirrorImage(root.left, root.right);
     }
 
-    public int getMinimumDifferenceUtil(TreeNode root, Integer lastNodeValue) {
+    public void kthSmallestUtil(TreeNode root, int k) {
 
-        if (root == null) {
-            return Integer.MAX_VALUE;
+        if (root == null)
+            return;
+
+        kthSmallestUtil(root.left, k);
+
+        nodeVisitedCount++;
+        if (nodeVisitedCount == k) {
+            kthSmallestNode = root.val;
         }
+//        System.out.println("root.val : " + root.val);
+        kthSmallestUtil(root.right, k);
 
-        int leftDiff = getMinimumDifferenceUtil(root.left, lastNodeValue);
-        System.out.print(root.val);
+    }
 
-        int curDiff = Math.abs(root.val - lastNodeValue);
-
-        int rightDiff = getMinimumDifferenceUtil(root.right, root.val);
-
-        return Math.min(leftDiff, Math.min(curDiff, rightDiff));
-
+    public int kthSmallest(TreeNode root, int k) {
+        this.kthSmallestNode = 0;
+        kthSmallestUtil(root, k);
+        return kthSmallestNode;
     }
 
     public int getMinimumDifference(TreeNode root) {
 
         if (root == null) {
-            return 0;
+            return Integer.MAX_VALUE;
+        }
+        getMinimumDifference(root.left);
+
+        if (prev != null) {
+            minDiff = Math.max(minDiff, Math.abs(root.val - prev));
         }
 
-        int mindif = getMinimumDifferenceUtil(root, Integer.MAX_VALUE);
-        System.out.println("mindif : " + mindif);
-        return  mindif ;
+        getMinimumDifference(root.right);
 
+        return minDiff;
 
     }
+
+    public boolean hasPathSum(TreeNode root, int targetSum, int currentSum) {
+
+        if (root == null)
+            return false;
+
+        currentSum = currentSum + root.val;
+        if (root.left == null && root.right == null) {
+            if (targetSum == currentSum)
+                return true;
+        }
+
+        return hasPathSum(root.left, targetSum, currentSum) || hasPathSum(root.right, targetSum, currentSum);
+
+    }
+
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+
+        if (root == null)
+            return false;
+
+        return hasPathSum(root, targetSum, 0);
+    }
+
+    public TreeNode flattenUtil(TreeNode root) {
+        if (root == null)
+            return null;
+
+        TreeNode rightRoot = flattenUtil(root.right);
+
+        TreeNode leftRoot = flattenUtil(root.left);
+
+
+        if (root.left != null) {
+            TreeNode lastNode = root.left;
+            while (lastNode.right != null) {
+                lastNode = lastNode.right;
+            }
+            lastNode.right = rightRoot;
+        }
+
+
+        return root;
+    }
+
+    public void flatten(TreeNode root) {
+
+        if (root == null)
+            return;
+
+
+        flattenUtil(root);
+    }
+
+    public int maxPathSumUtil(TreeNode root) {
+
+        if (root == null)
+            return 0;
+
+        if (root.right == null && root.left == null) {
+            this.maxPathSum = Math.max(root.val, this.maxPathSum);
+            return root.val;
+
+        }
+
+        int thisRootSum = root.val;
+        int leftSum = 0;
+        if (root.left != null) {
+            leftSum = maxPathSumUtil(root.left);
+        }
+        int rightSum = 0;
+        if (root.right != null) {
+            rightSum = maxPathSumUtil(root.right);
+        }
+
+        this.maxPathSum = Math.max(root.val, this.maxPathSum);
+        this.maxPathSum = Math.max(root.val + leftSum, this.maxPathSum);
+        this.maxPathSum = Math.max(root.val + rightSum, this.maxPathSum);
+        this.maxPathSum = Math.max(root.val + leftSum + rightSum, this.maxPathSum);
+
+        int a = root.val;
+        int b = root.val + leftSum;
+        int c = root.val + rightSum;
+        int d = root.val + leftSum + rightSum;
+        return Math.max(a, Math.max(b, c));
+    }
+
+    public int maxPathSum(TreeNode root) {
+
+        this.maxPathSum = Integer.MIN_VALUE;
+        maxPathSumUtil(root);
+
+        System.out.println("maxPathSum : " + this.maxPathSum);
+        return this.maxPathSum;
+
+    }
+
+
 
 }

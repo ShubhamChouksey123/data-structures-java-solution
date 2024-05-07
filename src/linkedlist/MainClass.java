@@ -85,13 +85,15 @@ public class MainClass {
 
     public static void main(String[] args) {
 
-        int[] nums1 = new int[]{1, 2, 3, 4, 5};
+        int[] nums1 = new int[]{9, 9, 9};
         ListNode head1 = createLinkedList(nums1);
 
         head1.traverse(head1);
         Solution solution = new Solution();
-        head1 = solution.removeNthFromEnd(head1, 5);
+//        head1 = solution.removeNthFromEnd(head1, 5);
 
+
+        head1 = solution.doubleIt(head1);
         head1.traverse(head1);
 
 
