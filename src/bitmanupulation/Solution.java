@@ -1,5 +1,7 @@
 package bitmanupulation;
 
+import java.util.BitSet;
+
 public class Solution {
 
     public String addBinary(String a, String b) {
@@ -28,13 +30,13 @@ public class Solution {
             sum += carry;
             if (sum >= 2) {
                 carry = 1;
-            }else{
+            } else {
                 carry = 0;
             }
             stringBuilder.append(sum % 2);
         }
 
-        if(carry >0){
+        if (carry > 0) {
             stringBuilder.append("1");
         }
 
@@ -42,4 +44,78 @@ public class Solution {
 
         return stringBuilder.toString();
     }
+
+    public int reverseBits(int n) {
+
+        if (n == 0) {
+            return 0;
+        }
+
+        BitSet bitSet = new BitSet(32);
+
+        for (int i = 0; i < 32; i++) {
+            int val = n & 1;
+            if (val == 1) {
+                bitSet.set(32 - i - 1);
+            }
+            n = n >> 1;
+        }
+        System.out.println("bitSet : " + bitSet);
+
+        long l = bitSet.toLongArray()[0];
+        System.out.println("l : " + l);
+        return (int) l;
+    }
+
+    public int hammingWeight(int n) {
+
+        int count = 0;
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                count++;
+            }
+            n = n >> 1;
+        }
+        return count;
+    }
+
+
+    public int singleNumber(int[] nums) {
+
+        int ans = 0;
+        for (int i = 0; i < nums.length; i++) {
+            ans = ans ^ nums[i];
+        }
+        return ans;
+    }
+
+    public int singleNumber2(int[] nums) {
+
+        int ans = 0;
+        for (int i = 0; i < 32; i++) {
+            int sum = 0;
+            for (int num : nums) {
+                sum = sum + ((num >> i) & 1);
+            }
+            sum = sum % 3;
+            ans = ans | (sum << i);
+        }
+
+        return ans;
+    }
+
+    public int rangeBitwiseAnd(int left, int right) {
+
+        int shift = 0;
+        while (left != right) {
+            left = left >> 1;
+            right = right >> 1;
+            shift++;
+        }
+
+        left = left << shift;
+        return left;
+    }
+
+
 }
