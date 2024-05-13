@@ -3,7 +3,7 @@ package set;
 
 /**
  * Set in Java is an interface
- * Sorted Set =>
+ * Sorted Set => TreeSet
  * Unsorted => HashSet and LinkedHashSet
  */
 

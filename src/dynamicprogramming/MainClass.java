@@ -1,6 +1,6 @@
 package dynamicprogramming;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainClass {
@@ -37,7 +37,6 @@ public class MainClass {
 //        }
 
 
-
 //        int ans = solution.minimumTotal(triangle);
 //        System.out.println("ans : " + ans);
 
@@ -49,7 +48,15 @@ public class MainClass {
 //        System.out.println("ans : " + ans);
 
 
-        String ans = solution.longestPalindrome("cbbd");
+//        String ans = solution.longestPalindrome("cbbd");
+//        System.out.println("ans : " + ans);
+
+        String[] st = new String[]{
+                "cats","dog","sand","and","cat"
+        };
+        List<String> wordDict = Arrays.asList(st);
+
+        boolean ans = solution.wordBreak("catsandog", wordDict);
         System.out.println("ans : " + ans);
     }
 

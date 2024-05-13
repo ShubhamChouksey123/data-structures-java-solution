@@ -42,14 +42,25 @@ public class MainClass {
     public static void main(String[] args) {
 
 
-        int[] nums1 = new int[]{1, 2, 11, 37, 83, 89};
-        int[] nums2 = new int[]{2, 4, 6};
+        int[] nums1 = new int[]{3, 4, 3};
+        int[] nums2 = new int[]{13, 8, 20};
 
 
-        Solution2 solution = new Solution2();
+//        int[] nums1 = new int[]{1, 3, 3, 2, 3, 2, 1};
+//        int[] nums2 = new int[]{2, 1, 3, 4, 1, 1, 1};
 
-        int[] ans = solution.kthSmallestPrimeFraction(nums1, 11);
-        System.out.println("ans : " + Arrays.toString(ans));
+//        Solution2 solution2 = new Solution2();
+//
+//        int[] ans = solution2.kthSmallestPrimeFraction(nums1, 11);
+//        System.out.println("ans : " + Arrays.toString(ans));
+
+
+        Solution solution = new Solution();
+//        long ans = solution.maxScore(nums1, nums2, 2);
+//        System.out.println("ans : " + ans);
+
+        double ans = solution.mincostToHireWorkers(nums1, nums2, 3);
+        System.out.println("ans : " + ans);
 
 
     }

@@ -376,7 +376,25 @@ public class Solution {
     }
 
 
+    public int findPermutationDifference(String s, String t) {
 
+        int n = s.length();
+        int[] indexS = new int[26];
+        int[] indexT = new int[26];
+
+        for (int i = 0; i < n; i++) {
+            indexS[s.charAt(i) - 'a'] = i;
+            indexT[t.charAt(i) - 'a'] = i;
+        }
+
+        int sum = 0;
+        for (int i = 0; i < 26; i++) {
+            sum += Math.abs(indexS[i] - indexT[i]);
+        }
+
+        return sum;
+
+    }
 
 
 }

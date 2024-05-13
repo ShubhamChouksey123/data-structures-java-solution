@@ -1,8 +1,6 @@
 package priorityqueue;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class Solution {
 
@@ -144,15 +142,106 @@ public class Solution {
 
         int n = nums1.length;
 
-        PriorityQueue<Pair> pq = new PriorityQueue<>();
-
+        Integer[][] arr = new Integer[n][2];
 
         for (int i = 0; i < n; i++) {
-            if (i < k) {
-                pq.add(new Pair(nums1[i], nums2[i]));
-            }
+            arr[i][0] = nums1[i];
+            arr[i][1] = nums2[i];
         }
-        return 0;
+
+        Arrays.sort(arr, new maxComparator());
+        System.out.println("arr : " + Arrays.deepToString(arr));
+
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        long sum = 0;
+        for (int i = 0; i < k; i++) {
+            pq.add(arr[i][0]);
+            sum += arr[i][0];
+        }
+
+        long score = sum * arr[k - 1][1];
+        long maxScore = score;
+
+
+        for (int i = k; i < n; i++) {
+            int topElement = pq.poll();
+            sum = sum - topElement + arr[i][0];
+            score = sum * arr[i][1];
+            maxScore = Math.max(maxScore, score);
+            pq.add(arr[i][0]);
+        }
+        return maxScore;
+    }
+
+    public double mincostToHireWorkers(int[] quality, int[] wage, int k) {
+
+        int n = quality.length;
+        Double[][] arr = new Double[n][3];
+
+        for (int i = 0; i < n; i++) {
+            arr[i][0] = (double) quality[i];
+            arr[i][1] = (double) wage[i];
+            arr[i][2] = (double) wage[i] / (double) quality[i];
+
+        }
+
+        Arrays.sort(arr, new WagerComparator());
+        System.out.println("arr : " + Arrays.deepToString(arr));
+
+        PriorityQueue<Double> maxPQ = new PriorityQueue<>(Collections.reverseOrder());
+
+        double totalQuality = 0;
+        for (int i = 0; i < k; i++) {
+            totalQuality = totalQuality + arr[i][0];
+            maxPQ.add(arr[i][0]);
+        }
+
+        double amount = totalQuality * arr[k - 1][2];
+        double maxAmount = amount;
+
+        for (int i = k; i < n; i++) {
+            totalQuality = totalQuality - maxPQ.poll() + arr[i][0];
+            amount = totalQuality * arr[i][2];
+            maxAmount = Math.min(amount, maxAmount);
+            maxPQ.add(arr[i][0]);
+        }
+
+
+        return maxAmount;
+    }
+
+    public class WagerComparator implements Comparator<Double[]> {
+
+        @Override
+        public int compare(Double[] o1, Double[] o2) {
+            if (Objects.equals(o1[2], o2[2])) {
+                return o1[0].compareTo(o2[0]);
+            }
+            return o1[2].compareTo(o2[2]);
+        }
+    }
+
+    public class minComparator implements Comparator<Integer[]> {
+
+        @Override
+        public int compare(Integer[] o1, Integer[] o2) {
+            if (Objects.equals(o1[1], o2[1])) {
+                return o1[0].compareTo(o2[0]);
+            }
+            return o1[1].compareTo(o2[1]);
+        }
+    }
+
+    public class maxComparator implements Comparator<Integer[]> {
+
+        @Override
+        public int compare(Integer[] o1, Integer[] o2) {
+            if (Objects.equals(o1[1], o2[1])) {
+                return o1[0].compareTo(o2[0]);
+            }
+            return o2[1].compareTo(o1[1]);
+        }
     }
 
     public class Pair implements Comparable<Pair> {
@@ -239,4 +328,5 @@ public class Solution {
             return 02 - o1;
         }
     }
+
 }

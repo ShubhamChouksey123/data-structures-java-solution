@@ -2,6 +2,8 @@ package tree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Stack;
 
 public class Solution {
 
@@ -12,6 +14,8 @@ public class Solution {
     public Integer nodeVisitedCount = 0;
     public Integer kthSmallestNode = 0;
     public Integer maxPathSum = Integer.MIN_VALUE;
+    private List<TreeNode> ancestorsP;
+    private List<TreeNode> ancestorsQ;
 
     public Node connect(Node root) {
 
@@ -340,6 +344,84 @@ public class Solution {
 
     }
 
+    public void getAllAncestorsP(TreeNode root, TreeNode p, Stack<TreeNode> ancestors) {
+
+        if (root == null)
+            return;
+
+        if (root == p) {
+            this.ancestorsP = new ArrayList<>(ancestors);
+        }
+
+        ancestors.add(root);
+
+        if (root.left != null) {
+            getAllAncestorsP(root.left, p, ancestors);
+        }
+
+        if (root.right != null) {
+            getAllAncestorsP(root.right, p, ancestors);
+        }
+
+        ancestors.pop();
+    }
+
+    public void getAllAncestorsQ(TreeNode root, TreeNode p, Stack<TreeNode> ancestors) {
+
+        if (root == null)
+            return;
+
+        if (root == p) {
+            this.ancestorsQ = new ArrayList<>(ancestors);
+        }
+
+        ancestors.add(root);
+
+        if (root.left != null) {
+            getAllAncestorsQ(root.left, p, ancestors);
+        }
+
+        if (root.right != null) {
+            getAllAncestorsQ(root.right, p, ancestors);
+        }
+
+        ancestors.pop();
+    }
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+
+
+        if (root == null)
+            return null;
+
+        if (p == q)
+            return p;
+
+
+        getAllAncestorsP(root, p, new Stack<>());
+        ancestorsP.add(p);
+        System.out.println("ancestorsP : " + ancestorsP);
+
+
+        getAllAncestorsQ(root, q, new Stack<>());
+        ancestorsQ.add(q);
+
+        System.out.println("ancestorsQ : " + ancestorsQ);
+
+        int index = 0;
+        TreeNode common = null;
+        while (index < ancestorsP.size() && index < ancestorsQ.size()) {
+            if (!Objects.equals(ancestorsP.get(index), ancestorsQ.get(index))) {
+                System.out.println("common: " + common);
+                return common;
+            }
+            common = ancestorsP.get(index);
+            index++;
+        }
+
+        System.out.println("common: " + common);
+        return common;
+    }
 
 
 }
