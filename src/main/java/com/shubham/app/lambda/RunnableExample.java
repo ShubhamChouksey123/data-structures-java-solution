@@ -16,6 +16,6 @@ public class RunnableExample {
 
         /** Method 2 for creating a new thread and run using lambda function */
         Thread thread2 = new Thread(() -> System.out.println("Hello World printed inside the lambda function"));
-        thread2.run();
+        thread2.start();
     }
 }

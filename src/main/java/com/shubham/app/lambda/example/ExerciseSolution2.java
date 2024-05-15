@@ -4,13 +4,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.function.Predicate;
 
-public class Exercise1 {
+public class ExerciseSolution2 {
 
 
-    private static final Logger logger = LoggerFactory.getLogger(Exercise1.class);
+    private static final Logger logger = LoggerFactory.getLogger(ExerciseSolution2.class);
 
     public static void function() {
 
@@ -20,39 +21,23 @@ public class Exercise1 {
                 new Person("Ridhima", "Jaiswal", 12), new Person("Rahul", "Jaiswal", 33));
 
         /** Step 1 sort list by last name */
-        Collections.sort(personList);
+        personList.sort((Person p1, Person p2) -> {
+            if (Objects.equals(p1.getLastName(), p2.getLastName())) {
+                return p1.getFirstName().compareTo(p2.getFirstName());
+            }
+
+            return p1.getLastName().compareTo(p2.getLastName());
+        });
 
         /** Step 2 create a method that prints all elements in the list */
-        printAllPersons(personList);
-        /** or create a method that prints all elements in the list */
-        personList.forEach(person -> logger.info("person for each : {}", person));
-
-        personList.stream().forEach(person -> System.out.println("stream person : " + person));
+        printConditionally(personList, (person) -> true);
 
 
         /** Step 3 print all persons with last name starting with C using simple loop */
-        printAllPersonsWithCAsStartInLastName(personList);
-        printConditionally(personList, new Condition() {
-            @Override
-            public boolean test(Person person) {
-                return person.getLastName().startsWith("C");
-            }
-        });
 
         logger.info("Printing again using conditional interface implementation using lambda function");
-        printConditionally(personList, (person) -> person.getLastName().startsWith("C"));
-
         /** Step 3 print all persons with last name starting with C using simple loop */
-        personList.forEach(person -> {
-            if (person.getLastName().charAt(0) == 'C') {
-                System.out.println("forEach person : " + person);
-            }
-        });
-
-        /** Step 3 print all persons with last name starting with C using streams */
-        personList.stream().filter(person -> {
-            return (person.getLastName().charAt(0) == 'C');
-        }).forEach(person -> System.out.println("stream person : " + person));
+        printConditionally(personList, (person) -> person.getLastName().charAt(0) == 'C');
     }
 
     public static void main(String[] args) {
@@ -74,9 +59,9 @@ public class Exercise1 {
         }
     }
 
-    private static void printConditionally(List<Person> personList, Condition condition) {
+    private static void printConditionally(List<Person> personList, Predicate<Person> predicate) {
         for (Person person : personList) {
-            if (condition.test(person)) {
+            if (predicate.test(person)) {
                 System.out.println("condition loop person : " + person);
             }
         }
