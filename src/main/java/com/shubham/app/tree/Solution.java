@@ -16,15 +16,6 @@ public class Solution {
     private List<TreeNode> ancestorsP;
     private List<TreeNode> ancestorsQ;
 
-    public Node connect(Node root) {
-
-        if (root == null) {
-            return null;
-        }
-
-        connectUtil(root.left, root.right);
-        return root;
-    }
 
     public void connectUtil(Node root1, Node root2) {
 
@@ -250,40 +241,6 @@ public class Solution {
         return hasPathSum(root.left, targetSum, currentSum) || hasPathSum(root.right, targetSum, currentSum);
     }
 
-    public boolean hasPathSum(TreeNode root, int targetSum) {
-
-        if (root == null)
-            return false;
-
-        return hasPathSum(root, targetSum, 0);
-    }
-
-    public TreeNode flattenUtil(TreeNode root) {
-        if (root == null)
-            return null;
-
-        TreeNode rightRoot = flattenUtil(root.right);
-
-        TreeNode leftRoot = flattenUtil(root.left);
-
-        if (root.left != null) {
-            TreeNode lastNode = root.left;
-            while (lastNode.right != null) {
-                lastNode = lastNode.right;
-            }
-            lastNode.right = rightRoot;
-        }
-
-        return root;
-    }
-
-    public void flatten(TreeNode root) {
-
-        if (root == null)
-            return;
-
-        flattenUtil(root);
-    }
 
     public int maxPathSumUtil(TreeNode root) {
 
@@ -401,4 +358,146 @@ public class Solution {
         System.out.println("common: " + common);
         return common;
     }
+
+
+    private boolean isLeaf(TreeNode root) {
+
+        if (root == null)
+            return false;
+
+        if (root.left == null && root.right == null) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean convertToBoolean(TreeNode root) {
+
+        if (root == null)
+            return false;
+
+        return (root.val > 0) ? Boolean.TRUE : Boolean.FALSE;
+    }
+
+    private boolean isAttachedToLeaf(TreeNode root) {
+
+        if (root == null || root.left == null || root.right == null) {
+            return false;
+        }
+        if (isLeaf(root.left) && isLeaf(root.right)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean evaluateTreeUtil(TreeNode root) {
+
+        if (root == null)
+            return false;
+
+
+        if (root.left == null || root.right == null) {
+            return (root.val > 0) ? Boolean.TRUE : Boolean.FALSE;
+        }
+
+        if (isAttachedToLeaf(root)) {
+            if (root.val == 2) {
+                return convertToBoolean(root.left) || convertToBoolean(root.right);
+            } else if (root.val == 3) {
+                return convertToBoolean(root.left) && convertToBoolean(root.right);
+            }
+        }
+        boolean left = evaluateTreeUtil(root.left);
+        boolean right = evaluateTreeUtil(root.right);
+
+        if (root.val == 2) {
+            return left || right;
+        } else if (root.val == 3) {
+            return left && right;
+        }
+
+        return Boolean.FALSE;
+    }
+
+    public boolean evaluateTree(TreeNode root) {
+
+
+        return evaluateTreeUtil(root);
+    }
+
+
+    public TreeNode flattenUtility(TreeNode root) {
+
+        if (root == null)
+            return null;
+        if (root.left == null && root.right == null) {
+            return root;
+        }
+        if (root.left != null) {
+            root.left = flattenUtility(root.left);
+        }
+        if (root.right != null) {
+            root.right = flattenUtility(root.right);
+        }
+        if (root.right == null) {
+            root.right = root.left;
+            root.left = null;
+        } else if (root.left != null) {
+            /**
+             * both not null
+             */
+            TreeNode right = root.right;
+            root.right = root.left;
+            root.left = null;
+            TreeNode lastNode = root.right;
+            while (lastNode != null && lastNode.right != null) {
+                lastNode = lastNode.right;
+            }
+            lastNode.right = right;
+
+        }
+
+        return root;
+    }
+
+    public void flatten(TreeNode root) {
+
+        if (root == null)
+            return;
+
+        flattenUtility(root);
+
+    }
+
+    private void connect(Node root, List<Node> rightNode, int level) {
+
+        if (root == null)
+            return;
+
+        if (rightNode.size() <= level) {
+            rightNode.add(root);
+        } else {
+            root.next = rightNode.get(level);
+            rightNode.set(level, root);
+        }
+        connect(root.right, rightNode, level + 1);
+        /**
+         * root.value
+         */
+
+        connect(root.left, rightNode, level + 1);
+
+    }
+
+    public Node connect(Node root) {
+
+        if (root == null)
+            return null;
+
+        connect(root, new ArrayList<>(), 0);
+        return root;
+    }
+
+
 }

@@ -1,12 +1,10 @@
 package com.shubham.app.graph;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 public class Solution {
 
+//    private static final int[][] DIRECTIONS = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
     private Integer minDistance = Integer.MAX_VALUE;
 
     public void print(boolean[][] matrix) {
@@ -102,7 +100,6 @@ public class Solution {
         return maxScore;
     }
 
-
     /**
      * x => i y =? j
      */
@@ -156,7 +153,6 @@ public class Solution {
         visited[x][y] = false;
         return Math.max(Math.max(score1, score2), Math.max(score3, score4)) + grid[x][y];
     }
-
 
     private void createMemo(int m, int n, int[][] memo) {
 
@@ -238,7 +234,6 @@ public class Solution {
         return memo[x][y];
     }
 
-
     private void createMinDistanceFromOneThief(List<List<Integer>> grid, int m, int n, int[][] distance, int x, int y) {
 
         for (int i = 0; i < m; i++) {
@@ -249,6 +244,7 @@ public class Solution {
         }
     }
 
+    private static final int[][] DIRECTIONS = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
     private boolean liesInRange(int m, int n, int x, int y) {
         if (x >= 0 && x < m && y >= 0 && y < n) {
@@ -300,38 +296,63 @@ public class Solution {
         PriorityQueue<int[]> maxPQ = new PriorityQueue<>((int[] o1, int[] o2) -> (o2[0] - o1[0]));
         maxPQ.offer(new int[]{distance[0][0], 0, 0});
 
-        int x = 0, y = 0, minValue = Integer.MAX_VALUE;
-        boolean haveReachedEnd = false;
+        int[][] maxSafeness = new int[m][n];
+        for (int[] row : maxSafeness)
+            Arrays.fill(row, -1);
+
+        maxSafeness[0][0] = distance[0][0];
+
+        int x = 0, y = 0, d = Integer.MAX_VALUE;
         while (!maxPQ.isEmpty()) {
 
             int[] top = maxPQ.poll();
-//            System.out.println("we are at {" + x + " ," + y + "} and value is " + distance[x][y]);
             x = top[1];
             y = top[2];
-            minValue = Math.min(distance[x][y], minValue);
+            d = top[0];
+//            System.out.println("we are at {" + x + " ," + y + "} and value is " + distance[x][y]);
+
             if (x == m - 1 && y == n - 1) {
-                haveReachedEnd = true;
-                break;
+                return d;
             }
 
-            if (liesInRange(m, n, x + 1, y) && distance[x + 1][y] != 0) {
-                maxPQ.add(new int[]{distance[x + 1][y], x + 1, y});
+            for (int[] dir : DIRECTIONS) {
+                int xNext = x + dir[0], yNext = y + dir[1];
+                if (xNext >= 0 && xNext < m && yNext >= 0 && yNext < n) {
+                    int newSafe = Math.min(distance[xNext][yNext], d);
+                    if (newSafe > maxSafeness[xNext][yNext]) {
+                        maxSafeness[xNext][yNext] = newSafe;
+//                        System.out.println("adding {" + xNext + " ," + yNext + "} with value : " + distance[xNext][yNext]);
+                        maxPQ.offer(new int[]{newSafe, xNext, yNext});
+                    }
+                }
             }
-            if (liesInRange(m, n, x, y + 1) && distance[x][y + 1] != 0) {
-                maxPQ.add(new int[]{distance[x][y + 1], x, y + 1});
-            }
-            if (liesInRange(m, n, x - 1, y) && distance[x - 1][y] != 0) {
-                maxPQ.add(new int[]{distance[x - 1][y], x - 1, y});
-            }
-            if (liesInRange(m, n, x, y - 1) && distance[x][y - 1] != 0) {
-                maxPQ.add(new int[]{distance[x][y - 1], x, y - 1});
-            }
-        }
-        if (minValue == Integer.MAX_VALUE || !haveReachedEnd) {
-            return 0;
-        }
-        return minValue;
 
+        }
+        return -1;
+
+    }
+
+    public int maximumSafenessFactor(int m, int n, int[][] distance) {
+
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[2] - a[2]); // Sort by decreasing safeness factor
+        pq.offer(new int[]{0, 0, distance[0][0]}); // Start from cell (0, 0) with safeness factor 0
+        boolean[][] visited = new boolean[m][n];
+        visited[0][0] = true;
+
+        while (!pq.isEmpty()) {
+            int[] curr = pq.poll();
+            int r = curr[0], c = curr[1], safeness = curr[2];
+            if (r == n - 1 && c == n - 1) return safeness; // Reached the bottom-right cell
+            for (int[] dir : DIRECTIONS) {
+                int nr = r + dir[0], nc = c + dir[1];
+                if (liesInRange(m, n, nr, nc) && !visited[nr][nc]) {
+                    visited[nr][nc] = true;
+                    int newSafeness = Math.min(safeness, distance[nr][nc]);
+                    pq.offer(new int[]{nr, nc, newSafeness});
+                }
+            }
+        }
+        return -1; // No valid path exists
     }
 
     public int maximumSafenessFactor(List<List<Integer>> grid) {
@@ -341,8 +362,9 @@ public class Solution {
         int[][] distance = new int[m][n];
 
         createMinDistance(grid, m, n, distance);
+        print(distance);
 
-        return dAlgorithm(m, n, distance);
+        return maximumSafenessFactor(m, n, distance);
     }
 
 
