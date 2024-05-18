@@ -382,7 +382,6 @@ public class Solution {
         if (root == null)
             return false;
 
-
         if (root.left == null || root.right == null) {
             return (root.val > 0) ? Boolean.TRUE : Boolean.FALSE;
         }
@@ -408,7 +407,6 @@ public class Solution {
 
     public boolean evaluateTree(TreeNode root) {
 
-
         return evaluateTreeUtil(root);
     }
 
@@ -429,9 +427,7 @@ public class Solution {
             root.right = root.left;
             root.left = null;
         } else if (root.left != null) {
-            /**
-             * both not null
-             */
+            /** both not null */
             TreeNode right = root.right;
             root.right = root.left;
             root.left = null;
@@ -440,7 +436,6 @@ public class Solution {
                 lastNode = lastNode.right;
             }
             lastNode.right = right;
-
         }
 
         return root;
@@ -452,7 +447,6 @@ public class Solution {
             return;
 
         flattenUtility(root);
-
     }
 
     private void connect(Node root, List<Node> rightNode, int level) {
@@ -467,12 +461,8 @@ public class Solution {
             rightNode.set(level, root);
         }
         connect(root.right, rightNode, level + 1);
-        /**
-         * root.value
-         */
-
+        /** root.value */
         connect(root.left, rightNode, level + 1);
-
     }
 
     public Node connect(Node root) {
@@ -499,7 +489,6 @@ public class Solution {
 
         if (root == null)
             return;
-
 
         removeLeafNodesUtil(root.left, target);
         removeLeafNodesUtil(root.right, target);
@@ -543,11 +532,13 @@ public class Solution {
         int rightLength = inEnd - rootIndexInorder;
 
         if (leftLength >= 1) {
-            rootNode.left = buildTreeUtil(preorder, inorder, preStart + 1, preStart + leftLength, inStart, rootIndexInorder - 1);
+            rootNode.left = buildTreeUtil(preorder, inorder, preStart + 1, preStart + leftLength, inStart,
+                    rootIndexInorder - 1);
         }
 
         if (rightLength >= 1) {
-            rootNode.right = buildTreeUtil(preorder, inorder, preStart + leftLength + 1, preEnd, rootIndexInorder + 1, inEnd);
+            rootNode.right = buildTreeUtil(preorder, inorder, preStart + leftLength + 1, preEnd, rootIndexInorder + 1,
+                    inEnd);
         }
 
         return rootNode;
@@ -559,6 +550,7 @@ public class Solution {
     }
 
     private int move = 0;
+
     private int distributeCoinsUtil(TreeNode root) {
 
         if (root == null)
@@ -585,6 +577,4 @@ public class Solution {
         distributeCoinsUtil(root);
         return move;
     }
-
-
 }

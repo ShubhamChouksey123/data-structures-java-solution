@@ -8,7 +8,6 @@ import java.util.PriorityQueue;
 
 public class Solution {
 
-
     private int maxCount = 0;
 
     public boolean isPalindrome(int x) {
@@ -141,7 +140,6 @@ public class Solution {
         return (int) mySqrt(x, (long) 2, (long) x / 2);
     }
 
-
     private String getSlopeBetweenTwoPoints(int[][] points, int index1, int index2) {
 
         int x1 = points[index1][0];
@@ -173,7 +171,6 @@ public class Solution {
                 countNumber.put(slope, oldCount + 1);
                 maxCount = Math.max(oldCount + 1, maxCount);
             }
-
         }
 
         return 0;
@@ -194,7 +191,6 @@ public class Solution {
 
     private double myPowUtilOuter(double x, BigInteger n) {
 
-
         if (x < 0 && n.doubleValue() % 2 == 0) {
             x = x * -1;
         }
@@ -208,7 +204,6 @@ public class Solution {
 
         return myPowUtil(x, n.intValue());
     }
-
 
     private double myPowUtil(double x, int n) {
 
@@ -226,10 +221,7 @@ public class Solution {
         return currentValue;
     }
 
-
-
     public double myPow(double x, int n) {
-
 
         if (x < 0 && (double) n % 2 == 0) {
             x = x * -1;
@@ -241,7 +233,6 @@ public class Solution {
         if (n == 0) {
             return 1;
         }
-
 
         if (Objects.equals(n, Integer.MIN_VALUE)) {
             return myPowUtil(1 / x, Integer.MAX_VALUE);

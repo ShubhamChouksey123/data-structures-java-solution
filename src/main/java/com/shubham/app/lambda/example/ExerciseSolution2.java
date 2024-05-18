@@ -10,7 +10,6 @@ import java.util.function.Predicate;
 
 public class ExerciseSolution2 {
 
-
     private static final Logger logger = LoggerFactory.getLogger(ExerciseSolution2.class);
 
     public static void function() {
@@ -32,9 +31,7 @@ public class ExerciseSolution2 {
         /** Step 2 create a method that prints all elements in the list */
         printConditionally(personList, (person) -> true);
 
-
         /** Step 3 print all persons with last name starting with C using simple loop */
-
         logger.info("Printing again using conditional interface implementation using lambda function");
         /** Step 3 print all persons with last name starting with C using simple loop */
         printConditionally(personList, (person) -> person.getLastName().charAt(0) == 'C');
@@ -70,7 +67,4 @@ public class ExerciseSolution2 {
     public interface Condition {
         boolean test(Person person);
     }
-
-
 }
-

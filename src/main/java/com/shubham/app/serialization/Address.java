@@ -17,7 +17,8 @@ public class Address implements Externalizable {
     public Address() {
     }
 
-    public Address(int addressId, String addressLine1, String addressLine2, String state, String country, String postalCode) {
+    public Address(int addressId, String addressLine1, String addressLine2, String state, String country,
+            String postalCode) {
         this.addressId = addressId;
         this.addressLine1 = addressLine1;
         this.addressLine2 = addressLine2;
@@ -76,14 +77,9 @@ public class Address implements Externalizable {
 
     @Override
     public String toString() {
-        return "Address{" +
-                "addressId=" + addressId +
-                ", addressLine1='" + addressLine1 + '\'' +
-                ", addressLine2='" + addressLine2 + '\'' +
-                ", state='" + state + '\'' +
-                ", country='" + country + '\'' +
-                ", postalCode='" + postalCode + '\'' +
-                '}';
+        return "Address{" + "addressId=" + addressId + ", addressLine1='" + addressLine1 + '\'' + ", addressLine2='"
+                + addressLine2 + '\'' + ", state='" + state + '\'' + ", country='" + country + '\'' + ", postalCode='"
+                + postalCode + '\'' + '}';
     }
 
     @Override
@@ -92,8 +88,8 @@ public class Address implements Externalizable {
         out.writeObject(addressLine1);
         out.writeObject(addressLine2);
         out.writeObject(state);
-//        out.writeObject(country);
-//        out.writeObject(postalCode);
+        // out.writeObject(country);
+        // out.writeObject(postalCode);
 
     }
 
@@ -103,7 +99,7 @@ public class Address implements Externalizable {
         this.addressLine1 = (String) in.readObject();
         this.addressLine2 = (String) in.readObject();
         this.state = (String) in.readObject();
-//        this.country = (String) in.readObject();
-//        this.postalCode = (String) in.readObject();
+        // this.country = (String) in.readObject();
+        // this.postalCode = (String) in.readObject();
     }
 }

@@ -5,7 +5,6 @@ import java.util.UUID;
 
 public class SerializationExample {
 
-
     private static void example() throws IOException {
 
         User user = new User(UUID.randomUUID(), "Shubham", "Chouksey", 25);
@@ -25,17 +24,11 @@ public class SerializationExample {
         System.out.println("we have got a user : " + user);
         objectInputStream.close();
         fileInputStream.close();
-
-
-
     }
-
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         example();
         exampleDeserialization();
     }
-
-
 }

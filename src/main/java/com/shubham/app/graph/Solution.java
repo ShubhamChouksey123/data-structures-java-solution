@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Solution {
 
-//    private static final int[][] DIRECTIONS = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+    // private static final int[][] DIRECTIONS = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
     private Integer minDistance = Integer.MAX_VALUE;
 
     public void print(boolean[][] matrix) {
@@ -100,9 +100,7 @@ public class Solution {
         return maxScore;
     }
 
-    /**
-     * x => i y =? j
-     */
+    /** x => i y =? j */
     public int getGold2(int[][] grid, int m, int n, int x, int y, boolean[][] visited, int[][] memo) {
 
         if (grid[x][y] == 0 || visited[x][y]) {
@@ -161,10 +159,10 @@ public class Solution {
                 memo[i][j] = Integer.MAX_VALUE;
             }
         }
-
     }
 
-    private int bfs(int m, int n, int[][] distance, int x, int y, boolean[][] visited, int minDistanceInThisPath, int[][] memo) {
+    private int bfs(int m, int n, int[][] distance, int x, int y, boolean[][] visited, int minDistanceInThisPath,
+            int[][] memo) {
 
         if (x < 0 || x >= m || y < 0 || y >= n || visited[x][y] || distance[x][y] == 0) {
             return 0;
@@ -213,7 +211,6 @@ public class Solution {
             memo[x][y] = 0;
             return memo[x][y];
         }
-
 
         int ans1 = 0, ans2 = 0, ans3 = 0, ans4 = 0;
         if (x + 1 < m && a == maxValue) {
@@ -292,7 +289,6 @@ public class Solution {
 
     private int dAlgorithm(int m, int n, int[][] distance) {
 
-
         PriorityQueue<int[]> maxPQ = new PriorityQueue<>((int[] o1, int[] o2) -> (o2[0] - o1[0]));
         maxPQ.offer(new int[]{distance[0][0], 0, 0});
 
@@ -309,7 +305,8 @@ public class Solution {
             x = top[1];
             y = top[2];
             d = top[0];
-//            System.out.println("we are at {" + x + " ," + y + "} and value is " + distance[x][y]);
+            // System.out.println("we are at {" + x + " ," + y + "} and value is " +
+            // distance[x][y]);
 
             if (x == m - 1 && y == n - 1) {
                 return d;
@@ -321,15 +318,14 @@ public class Solution {
                     int newSafe = Math.min(distance[xNext][yNext], d);
                     if (newSafe > maxSafeness[xNext][yNext]) {
                         maxSafeness[xNext][yNext] = newSafe;
-//                        System.out.println("adding {" + xNext + " ," + yNext + "} with value : " + distance[xNext][yNext]);
+                        // System.out.println("adding {" + xNext + " ," + yNext + "} with
+                        // value : " + distance[xNext][yNext]);
                         maxPQ.offer(new int[]{newSafe, xNext, yNext});
                     }
                 }
             }
-
         }
         return -1;
-
     }
 
     public int maximumSafenessFactor(int m, int n, int[][] distance) {
@@ -342,7 +338,8 @@ public class Solution {
         while (!pq.isEmpty()) {
             int[] curr = pq.poll();
             int r = curr[0], c = curr[1], safeness = curr[2];
-            if (r == n - 1 && c == n - 1) return safeness; // Reached the bottom-right cell
+            if (r == n - 1 && c == n - 1)
+                return safeness; // Reached the bottom-right cell
             for (int[] dir : DIRECTIONS) {
                 int nr = r + dir[0], nc = c + dir[1];
                 if (liesInRange(m, n, nr, nc) && !visited[nr][nc]) {
@@ -366,6 +363,4 @@ public class Solution {
 
         return maximumSafenessFactor(m, n, distance);
     }
-
-
 }

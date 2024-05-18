@@ -15,8 +15,8 @@ public class MainClass {
         // int ans = solution.trailingZeroes(36);
         // System.out.println("ans : " + ans);
 
-//        double ans = solution.myPow(1.0000000000002, -2147483648);
-//        System.out.println("ans : " + ans);
+        // double ans = solution.myPow(1.0000000000002, -2147483648);
+        // System.out.println("ans : " + ans);
 
         // int ans = solution.mySqrt(12);
         // System.out.println("ans : " + ans);
@@ -25,17 +25,13 @@ public class MainClass {
         // System.out.println("for i : " + i + " sqrt of it is " + solution.mySqrt(i));
         // }
 
+        // int[][] points = new int[][]{{1, 1}, {2, 2}, {3, 3}};
 
-//        int[][] points = new int[][]{{1, 1}, {2, 2}, {3, 3}};
-
-
-//        int[][] points = new int[][]{{1, 1}, {3, 2}, {5, 3}, {4, 1}, {2, 3}, {1, 4}};
-//        int ans = solution.maxPoints(points);
-//        System.out.println("ans : " + ans);
-
+        // int[][] points = new int[][]{{1, 1}, {3, 2}, {5, 3}, {4, 1}, {2, 3}, {1, 4}};
+        // int ans = solution.maxPoints(points);
+        // System.out.println("ans : " + ans);
 
         double ans = solution.myPow(-1, Integer.MIN_VALUE);
         System.out.println("ans : " + ans);
-
     }
 }

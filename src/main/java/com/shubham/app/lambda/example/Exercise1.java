@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Exercise1 {
 
-
     private static final Logger logger = LoggerFactory.getLogger(Exercise1.class);
 
     public static void function() {
@@ -28,7 +27,6 @@ public class Exercise1 {
         personList.forEach(person -> logger.info("person for each : {}", person));
 
         personList.stream().forEach(person -> System.out.println("stream person : " + person));
-
 
         /** Step 3 print all persons with last name starting with C using simple loop */
         printAllPersonsWithCAsStartInLastName(personList);
@@ -85,7 +83,4 @@ public class Exercise1 {
     public interface Condition {
         boolean test(Person person);
     }
-
-
 }
-

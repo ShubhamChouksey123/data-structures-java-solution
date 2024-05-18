@@ -1,14 +1,12 @@
 package com.shubham.app.serialization;
 
 import java.io.*;
-import java.util.UUID;
 
 public class ExternalizationExample {
 
-
     private static void example() throws IOException {
 
-        Address address = new Address(101, "near big bazzar", "Vijay Nagar","MP","IN", "455123");
+        Address address = new Address(101, "near big bazzar", "Vijay Nagar", "MP", "IN", "455123");
 
         FileOutputStream fileOutputStream = new FileOutputStream("users");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
@@ -25,17 +23,11 @@ public class ExternalizationExample {
         System.out.println("we have got a address : " + address);
         objectInputStream.close();
         fileInputStream.close();
-
-
-
     }
-
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         example();
         exampleDeserialization();
     }
-
-
 }
