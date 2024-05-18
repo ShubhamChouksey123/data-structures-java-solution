@@ -16,7 +16,6 @@ public class Solution {
     private List<TreeNode> ancestorsP;
     private List<TreeNode> ancestorsQ;
 
-
     public void connectUtil(Node root1, Node root2) {
 
         if (root1 == null && root2 == null) {
@@ -241,7 +240,6 @@ public class Solution {
         return hasPathSum(root.left, targetSum, currentSum) || hasPathSum(root.right, targetSum, currentSum);
     }
 
-
     public int maxPathSumUtil(TreeNode root) {
 
         if (root == null)
@@ -359,18 +357,6 @@ public class Solution {
         return common;
     }
 
-
-    private boolean isLeaf(TreeNode root) {
-
-        if (root == null)
-            return false;
-
-        if (root.left == null && root.right == null) {
-            return true;
-        }
-        return false;
-    }
-
     private boolean convertToBoolean(TreeNode root) {
 
         if (root == null)
@@ -425,7 +411,6 @@ public class Solution {
 
         return evaluateTreeUtil(root);
     }
-
 
     public TreeNode flattenUtility(TreeNode root) {
 
@@ -497,6 +482,108 @@ public class Solution {
 
         connect(root, new ArrayList<>(), 0);
         return root;
+    }
+
+    private boolean isLeaf(TreeNode root) {
+
+        if (root == null)
+            return false;
+
+        if (root.left == null && root.right == null) {
+            return true;
+        }
+        return false;
+    }
+
+    private void removeLeafNodesUtil(TreeNode root, int target) {
+
+        if (root == null)
+            return;
+
+
+        removeLeafNodesUtil(root.left, target);
+        removeLeafNodesUtil(root.right, target);
+
+        if (isLeaf(root.left) && root.left.val == target) {
+            root.left = null;
+        }
+
+        if (isLeaf(root.right) && root.right.val == target) {
+            root.right = null;
+        }
+    }
+
+    public TreeNode removeLeafNodes(TreeNode root, int target) {
+        TreeNode dummy = new TreeNode(target + 1);
+        dummy.left = root;
+
+        removeLeafNodesUtil(dummy, target);
+        return dummy.left;
+    }
+
+    private int getIndexOfRootInOrder(int[] inorder, int inStart, int inEnd, int rootNode) {
+        for (int i = inStart; i <= inEnd; i++) {
+            if (inorder[i] == rootNode) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    private TreeNode buildTreeUtil(int[] preorder, int[] inorder, int preStart, int preEnd, int inStart, int inEnd) {
+
+        if (inStart > inEnd) {
+            return null;
+        }
+        int rootNodeValue = preorder[preStart];
+        TreeNode rootNode = new TreeNode(rootNodeValue);
+        int rootIndexInorder = getIndexOfRootInOrder(inorder, inStart, inEnd, rootNodeValue);
+
+        int leftLength = rootIndexInorder - inStart;
+        int rightLength = inEnd - rootIndexInorder;
+
+        if (leftLength >= 1) {
+            rootNode.left = buildTreeUtil(preorder, inorder, preStart + 1, preStart + leftLength, inStart, rootIndexInorder - 1);
+        }
+
+        if (rightLength >= 1) {
+            rootNode.right = buildTreeUtil(preorder, inorder, preStart + leftLength + 1, preEnd, rootIndexInorder + 1, inEnd);
+        }
+
+        return rootNode;
+    }
+
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+
+        return buildTreeUtil(preorder, inorder, 0, preorder.length - 1, 0, inorder.length - 1);
+    }
+
+    private int move = 0;
+    private int distributeCoinsUtil(TreeNode root) {
+
+        if (root == null)
+            return 0;
+
+        if (root.left == null && root.right == null) {
+            int coin = root.val;
+            int excess = coin - 1;
+            move += Math.abs(excess);
+            return excess;
+        }
+
+        int leftExcess = distributeCoinsUtil(root.left);
+        int rightExcess = distributeCoinsUtil(root.right);
+        int coin = leftExcess + rightExcess + root.val;
+        int excess = coin - 1;
+        move += Math.abs(excess);
+
+        return excess;
+    }
+
+    public int distributeCoins(TreeNode root) {
+
+        distributeCoinsUtil(root);
+        return move;
     }
 
 

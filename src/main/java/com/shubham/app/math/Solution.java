@@ -1,9 +1,15 @@
 package com.shubham.app.math;
 
+import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.PriorityQueue;
 
 public class Solution {
+
+
+    private int maxCount = 0;
 
     public boolean isPalindrome(int x) {
 
@@ -135,60 +141,115 @@ public class Solution {
         return (int) mySqrt(x, (long) 2, (long) x / 2);
     }
 
-    /**
-     * when n is an integer and n > 0
-     *
-     * @param x
-     * @param n
-     * @return
-     */
-    public double myPowOfPositive(double x, double n) {
 
-        if (x == 0)
-            return 0;
+    private String getSlopeBetweenTwoPoints(int[][] points, int index1, int index2) {
 
-        boolean isPositive = x > 0;
-        if (!isPositive) {
+        int x1 = points[index1][0];
+        int y1 = points[index1][1];
+
+        int x2 = points[index2][0];
+        int y2 = points[index2][1];
+
+        if (x1 == x2) {
+            return "inf";
+        }
+        return String.valueOf(((double) y2 - y1) / ((double) x2 - x1));
+    }
+
+    private int getCountOfSameSlopePoints(int[][] points, int n, int index) {
+
+        Map<String, Integer> countNumber = new HashMap<>();
+
+        for (int i = 0; i < n; i++) {
+            if (i == index)
+                continue;
+
+            String slope = getSlopeBetweenTwoPoints(points, index, i);
+            Integer oldCount = countNumber.get(slope);
+            if (oldCount == null) {
+                countNumber.put(slope, 2);
+                maxCount = Math.max(2, maxCount);
+            } else {
+                countNumber.put(slope, oldCount + 1);
+                maxCount = Math.max(oldCount + 1, maxCount);
+            }
+
+        }
+
+        return 0;
+    }
+
+    public int maxPoints(int[][] points) {
+
+        int n = points.length;
+        if (n <= 1)
+            return 1;
+
+        for (int i = 0; i < n; i++) {
+            getCountOfSameSlopePoints(points, points.length, i);
+        }
+
+        return maxCount;
+    }
+
+    private double myPowUtilOuter(double x, BigInteger n) {
+
+
+        if (x < 0 && n.doubleValue() % 2 == 0) {
             x = x * -1;
         }
-        double ans = 1;
-        for (int i = 0; i < Math.min(n, 100); i++) {
-            ans = ans * x;
-            if (ans < 1e-5) {
-                return 0;
-            }
+
+        if (Objects.equals(n, BigInteger.valueOf(Integer.MIN_VALUE))) {
+            return myPowUtil(1 / x, Integer.MAX_VALUE);
+        }
+        if (n.compareTo(BigInteger.ZERO) < 0) {
+            return myPowUtil(1 / x, n.intValue() * -1);
         }
 
-        if (isPositive || n % 2 == 0)
-            return ans;
-        ans = ans * -1;
-        return ans;
+        return myPowUtil(x, n.intValue());
     }
+
+
+    private double myPowUtil(double x, int n) {
+
+        double newValue = 1;
+        double currentValue = 1;
+        while (n > 0) {
+            newValue = currentValue * x;
+            if (newValue == currentValue) {
+                return currentValue;
+            }
+            currentValue = newValue;
+            n--;
+        }
+
+        return currentValue;
+    }
+
+
 
     public double myPow(double x, int n) {
 
-        if (x == 0 || x == 1)
-            return x;
 
-        if (x == -1) {
-            if ((n & 1) == 0) {
-                return 1;
-            }
-            return -1;
+        if (x < 0 && (double) n % 2 == 0) {
+            x = x * -1;
+        }
+        if (x == 0 || x == 1) {
+            return x;
         }
 
         if (n == 0) {
             return 1;
         }
-        if (n > 0) {
-            return myPowOfPositive(x, n);
+
+
+        if (Objects.equals(n, Integer.MIN_VALUE)) {
+            return myPowUtil(1 / x, Integer.MAX_VALUE);
         }
-        double xNew = 1 / x;
+        if (n < 0) {
+            return myPowUtil(1 / x, n * -1);
+        }
 
-        double nNew = -n;
-        if (Objects.equals(n, Integer.MIN_VALUE))
-            nNew = Integer.MAX_VALUE;
-
-        return myPowOfPositive(xNew, nNew);
+        return myPowUtil(x, n);
     }
 }
