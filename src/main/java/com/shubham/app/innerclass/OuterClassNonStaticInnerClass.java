@@ -3,15 +3,15 @@ package com.shubham.app.innerclass;
 public class OuterClassNonStaticInnerClass {
 
     public static final int DAYS_IN_WEEK = 7;
+    public String address = "address";
     private int age = 2;
     private String name;
-    String address = "address";
 
     public void greet() {
         System.out.println("Hello from the outer class");
     }
 
-    /** Non Static inner class */
+    /** Non Static inner class Also called as member inner class */
     public class InnerClass {
 
         private static int DAYS_IN_MONTH = 30;

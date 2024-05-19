@@ -6,13 +6,15 @@ public class MainClass {
         nonStaticInnerClass();
 
         // staticInnerClass();
+
+        // localInnerClass();
     }
 
     public static void nonStaticInnerClass() {
         OuterClassNonStaticInnerClass outerClass = new OuterClassNonStaticInnerClass();
         outerClass.greet();
 
-        /** Non Static inner class */
+        /** Non-Static-inner class also known as Member-Inner Class */
         OuterClassNonStaticInnerClass.InnerClass innerClass = outerClass.new InnerClass();
         innerClass.innerGreet();
     }
@@ -24,6 +26,17 @@ public class MainClass {
         /** Static inner class */
         OuterClassStaticInnerClass.InnerClass innerClass = new OuterClassStaticInnerClass.InnerClass();
         innerClass.innerGreet();
+    }
+
+    public static void localInnerClass() {
+        OuterClassLocalInnerClass outerClass = new OuterClassLocalInnerClass();
+        outerClass.greet();
+
+        /** local-inner class also known as Method-Local-Inner Class */
+        /** Error : not possible, only accessible inside the method it is declared */
+        // OuterClassLocalInnerClass.InnerClass innerClass = outerClass.new
+        // OuterClassLocalInnerClass.InnerClass();
+        // innerClass.innerGreet();
     }
 
     public static void staticPrivateInnerClass() {
