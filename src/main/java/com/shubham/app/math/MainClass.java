@@ -31,7 +31,7 @@ public class MainClass {
         // int ans = solution.maxPoints(points);
         // System.out.println("ans : " + ans);
 
-        double ans = solution.myPow(-1, Integer.MIN_VALUE);
+        double ans = solution.myPow(-1.00000, Integer.MAX_VALUE);
         System.out.println("ans : " + ans);
     }
 }

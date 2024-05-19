@@ -1,9 +1,6 @@
 package com.shubham.app.tree;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Stack;
+import java.util.*;
 
 public class Solution {
 
@@ -15,6 +12,7 @@ public class Solution {
     public Integer maxPathSum = Integer.MIN_VALUE;
     private List<TreeNode> ancestorsP;
     private List<TreeNode> ancestorsQ;
+    private int move = 0;
 
     public void connectUtil(Node root1, Node root2) {
 
@@ -549,8 +547,6 @@ public class Solution {
         return buildTreeUtil(preorder, inorder, 0, preorder.length - 1, 0, inorder.length - 1);
     }
 
-    private int move = 0;
-
     private int distributeCoinsUtil(TreeNode root) {
 
         if (root == null)
@@ -576,5 +572,34 @@ public class Solution {
 
         distributeCoinsUtil(root);
         return move;
+    }
+
+    public long maximumValueSum(int[] nums, int k, int[][] edges) {
+
+        int n = nums.length;
+        Integer[] delta = new Integer[n];
+        long sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum = sum + (long) nums[i];
+            delta[i] = (nums[i] ^ k) - nums[i];
+            System.out.println(
+                    "nums[i] : " + nums[i] + ", and nums[i] ^ k  : " + (nums[i] ^ k) + ", with delta :  " + delta[i]);
+        }
+        System.out.println("delta : " + Arrays.toString(delta));
+        Arrays.sort(delta, Collections.reverseOrder());
+
+        System.out.println("delta : " + Arrays.toString(delta));
+
+        long positiveDelta = 0;
+        for (int i = 0; i < n; i = i + 2) {
+            if (i + 1 < n) {
+                int thisDelta = delta[i] + delta[i + 1];
+                if (thisDelta > 0) {
+                    positiveDelta += thisDelta;
+                }
+            }
+        }
+
+        return sum + positiveDelta;
     }
 }
