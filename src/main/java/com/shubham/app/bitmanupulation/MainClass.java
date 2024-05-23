@@ -9,11 +9,14 @@ public class MainClass {
         // String ans = solution.addBinary("11", "1");
         // System.out.println("ans : " + ans);
 
-        int[] nums = new int[]{0, 1, 0, 1, 0, 1, 99};
-        solution.singleNumber2(nums);
+        int[] nums = new int[]{3, 4, 5, 6, 7, 8};
+//        solution.singleNumber2(nums);
 
         // solution.reverseBits(0);
         // bitwiseOperations();
+
+        int ans = solution.subsetXORSum(nums);
+        System.out.println("ans : " + ans);
     }
 
     private static void bitwiseOperations() {
