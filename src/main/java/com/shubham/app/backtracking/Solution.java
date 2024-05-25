@@ -1,13 +1,13 @@
 package com.shubham.app.backtracking;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Solution {
 
-
     private Integer count = 0;
+    private int maxScore = 0;
 
     private void subsets(int[] nums, List<List<Integer>> ans, int index, int n, List<Integer> st) {
 
@@ -105,5 +105,91 @@ public class Solution {
     public int beautifulSubsets(int[] nums, int k) {
         beautifulSubsetUtil(nums, k, nums.length, 0, new ArrayList<>());
         return count;
+    }
+
+    private boolean isPossible(String word, Integer[] letters) {
+
+        Map<Character, Long> wordCharCount = word.chars().mapToObj(i -> (char) i)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        return wordCharCount.entrySet().stream().allMatch(c -> {
+            int val = c.getKey() - 'a';
+            int countActual = Math.toIntExact(c.getValue());
+            Integer countMax = letters[val];
+            return countActual <= countMax;
+        });
+
+        // Stream<Character> sch = word.chars().mapToObj(i -> (char) i);
+
+        // sch.forEach(c -> {
+        // System.out.println("character c : " + c);
+        // });
+
+        // sch.map
+
+        // Map<Object, Long> mp = sch.collect(Collectors.groupingBy(e -> e,
+        // Collectors.counting()));
+        // System.out.println("mp : " + mp);
+    }
+
+    private void reduceCount(String word, Integer[] letters) {
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            letters[c - 'a']--;
+        }
+    }
+
+    private void increaseCount(String word, Integer[] letters) {
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            letters[c - 'a']++;
+        }
+    }
+
+    private int calculateScore(String word, int[] score) {
+        int totalScore = 0;
+        for (int i = 0; i < word.length(); i++) {
+            totalScore += score[word.charAt(i) - 'a'];
+        }
+        return totalScore;
+    }
+
+    private void maxScoreWordsUtil(String[] words, Integer[] letterCount, int[] score, int n, int currentScore) {
+
+        for (int i = 0; i < n; i++) {
+            String word = words[i];
+            if (isPossible(word, letterCount)) {
+                reduceCount(word, letterCount);
+                int thisScore = calculateScore(word, score);
+                maxScoreWordsUtil(words, letterCount, score, n, currentScore + thisScore);
+                increaseCount(word, letterCount);
+            }
+        }
+
+        maxScore = Math.max(maxScore, currentScore);
+    }
+
+    private Integer[] getLetterCount(char[] letters) {
+        Integer[] letterCount = new Integer[26];
+        Arrays.fill(letterCount, 0);
+
+        for (int i = 0; i < letters.length; i++) {
+            letterCount[letters[i] - 'a']++;
+        }
+        return letterCount;
+    }
+
+    public int maxScoreWords(String[] words, char[] letters, int[] score) {
+
+        Integer[] letterCount = getLetterCount(letters);
+
+        // boolean isPossible = isPossible("cad", letterCount);
+        // System.out.println("isPossible : " + isPossible);
+        maxScoreWordsUtil(words, letterCount, score, words.length, 0);
+        return maxScore;
+    }
+
+    public List<String> wordBreak(String s, List<String> wordDict) {
+        return null;
     }
 }

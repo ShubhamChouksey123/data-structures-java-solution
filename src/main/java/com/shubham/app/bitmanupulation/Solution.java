@@ -127,7 +127,6 @@ public class Solution {
 
         subsetXORSumUtil(nums, n, index + 1, sum);
         subsetXORSumUtil(nums, n, index + 1, sum ^ nums[index]);
-
     }
 
     public int subsetXORSum(int[] nums) {
