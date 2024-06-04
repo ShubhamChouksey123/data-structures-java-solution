@@ -24,11 +24,23 @@ public class MainClass {
         // 0, 0, 0,
         // 0, 0, 0, 0, 0};
 
-        String[] words = new String[]{"add", "dda", "bb", "ba", "add"};
-        char[] letters = new char[]{'a', 'a', 'a', 'a', 'b', 'b', 'b', 'b', 'c', 'c', 'c', 'c', 'c', 'd', 'd', 'd'};
-        int[] score = new int[]{3, 9, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        // String[] words = new String[]{"add", "dda", "bb", "ba", "add"};
+        // char[] letters = new char[]{'a', 'a', 'a', 'a', 'b', 'b', 'b', 'b', 'c', 'c',
+        // 'c',
+        // 'c', 'c', 'd', 'd', 'd'};
+        // int[] score = new int[]{3, 9, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        // 0, 0, 0,
+        // 0, 0, 0, 0, 0};
+        // int ans = solution.maxScoreWords(words, letters, score);
+        // System.out.println("ans : " + ans);
 
-        int ans = solution.maxScoreWords(words, letters, score);
+        // String[] wordDict = new
+        // String[]{"apple","pen","applepen","pine","pineapple"};
+        // List<String> list = List.of(wordDict);
+        // List<String> ans = solution.wordBreak("pineapplepenapple", list);
+        // System.out.println("ans : " + ans);
+
+        int ans = solution.checkRecord(4);
         System.out.println("ans : " + ans);
     }
 }

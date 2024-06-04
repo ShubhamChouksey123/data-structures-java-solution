@@ -7,7 +7,10 @@ import java.util.stream.Collectors;
 public class Solution {
 
     private Integer count = 0;
+    private int mod = 1000000007;
     private int maxScore = 0;
+    private List<String> sequences = new ArrayList<>();
+    private int totalCount = 0;
 
     private void subsets(int[] nums, List<List<Integer>> ans, int index, int n, List<Integer> st) {
 
@@ -189,7 +192,68 @@ public class Solution {
         return maxScore;
     }
 
+    private void convertToString(List<String> currentSeq) {
+        if (currentSeq.isEmpty())
+            return;
+
+        StringBuilder ans = new StringBuilder();
+        ans.append(currentSeq.get(0));
+
+        for (int i = 1; i < currentSeq.size(); i++) {
+            ans.append(" ");
+            ans.append(currentSeq.get(i));
+        }
+        sequences.add(String.valueOf(ans));
+    }
+
+    private void wordBreakUtil(String s, int len, List<String> wordDict, int n, int index, List<String> currentSeq) {
+
+        if (index == len) {
+            convertToString(currentSeq);
+            return;
+        }
+
+        for (int i = 0; i < n; i++) {
+            String wordExpected = wordDict.get(i);
+            int wordLength = wordExpected.length();
+            if (index + wordLength > len) {
+                continue;
+            }
+            String wordActual = s.substring(index, index + wordLength);
+            if (Objects.equals(wordActual, wordExpected)) {
+                currentSeq.add(wordExpected);
+                wordBreakUtil(s, len, wordDict, n, index + wordLength, currentSeq);
+                currentSeq.remove(currentSeq.size() - 1);
+            }
+        }
+    }
+
     public List<String> wordBreak(String s, List<String> wordDict) {
-        return null;
+        wordBreakUtil(s, s.length(), wordDict, wordDict.size(), 0, new ArrayList<>());
+        return sequences;
+    }
+
+    private void checkRecordUtil(int n, int index, int countA, int lastLCount) {
+
+        if (index == n) {
+            totalCount++;
+            totalCount = totalCount % mod;
+            // System.out.println("s : " + s);
+            return;
+        }
+        checkRecordUtil(n, index + 1, countA, 0);
+
+        if (countA == 0) {
+            checkRecordUtil(n, index + 1, 1, 0);
+        }
+
+        if (lastLCount < 2) {
+            checkRecordUtil(n, index + 1, countA, lastLCount + 1);
+        }
+    }
+
+    public int checkRecord(int n) {
+        checkRecordUtil(n, 0, 0, 0);
+        return totalCount;
     }
 }

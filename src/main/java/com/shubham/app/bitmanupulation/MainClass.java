@@ -2,6 +2,8 @@ package com.shubham.app.bitmanupulation;
 
 import java.util.BitSet;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class MainClass {
 
     public static void main(String[] args) {
@@ -15,8 +17,26 @@ public class MainClass {
         // solution.reverseBits(0);
         // bitwiseOperations();
 
-        int ans = solution.subsetXORSum(nums);
-        System.out.println("ans : " + ans);
+        // int ans = solution.subsetXORSum(nums);
+        // System.out.println("ans : " + ans);
+
+        testNumSteps();
+        testCountTriplets();
+    }
+
+    private static void testNumSteps() {
+        Solution solution = new Solution();
+        assertEquals(6, solution.numSteps("1101"));
+        assertEquals(1, solution.numSteps("10"));
+        assertEquals(0, solution.numSteps("1"));
+    }
+
+    private static void testCountTriplets() {
+        Solution solution = new Solution();
+        assertEquals(4, solution.countTriplets(new int[]{2, 3, 1, 6, 7}));
+        assertEquals(10, solution.countTriplets(new int[]{1, 1, 1, 1, 1}));
+        // assertEquals(4, solution.countTriplets(new int[]{2, 3, 1, 6, 7}));
+
     }
 
     private static void bitwiseOperations() {

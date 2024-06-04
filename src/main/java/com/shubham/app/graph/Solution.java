@@ -4,10 +4,35 @@ import java.util.*;
 
 public class Solution {
 
+    private static final int[][] DIRECTIONS = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
     // private static final int[][] DIRECTIONS = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
     private Integer minDistance = Integer.MAX_VALUE;
 
     public void print(boolean[][] matrix) {
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public void print(List<List<Integer>> matrix) {
+
+        int m = matrix.size();
+        int n = matrix.get(0).size();
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(matrix.get(i).get(j) + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public void print(char[][] matrix) {
 
         int m = matrix.length;
         int n = matrix[0].length;
@@ -241,8 +266,6 @@ public class Solution {
         }
     }
 
-    private static final int[][] DIRECTIONS = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-
     private boolean liesInRange(int m, int n, int x, int y) {
         if (x >= 0 && x < m && y >= 0 && y < n) {
             return true;
@@ -362,5 +385,291 @@ public class Solution {
         print(distance);
 
         return maximumSafenessFactor(m, n, distance);
+    }
+
+    private void numIslandsUtil(char[][] grid, int m, int n, boolean[][] visited, int x, int y) {
+
+        if (x < 0 || x >= m || y < 0 || y >= n || visited[x][y] || grid[x][y] == '0') {
+            return;
+        }
+
+        visited[x][y] = true;
+
+        numIslandsUtil(grid, m, n, visited, x + 1, y);
+        numIslandsUtil(grid, m, n, visited, x - 1, y);
+        numIslandsUtil(grid, m, n, visited, x, y + 1);
+        numIslandsUtil(grid, m, n, visited, x, y - 1);
+    }
+
+    public int numIslands(char[][] grid) {
+
+        int m = grid.length;
+        int n = grid[0].length;
+
+        boolean[][] visited = new boolean[m][n];
+
+        int totalIsland = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (!visited[i][j] && grid[i][j] == '1') {
+                    numIslandsUtil(grid, m, n, visited, i, j);
+                    totalIsland++;
+                }
+            }
+        }
+        return totalIsland;
+    }
+
+    private void flipToA(char[][] board, int m, int n, boolean[][] visitedDFS, int x, int y) {
+
+        if (x < 0 || x >= m || y < 0 || y >= n || board[x][y] == 'X' || board[x][y] == 'b' || board[x][y] == 'a')
+            return;
+
+        if (visitedDFS[x][y])
+            return;
+
+        visitedDFS[x][y] = true;
+        board[x][y] = 'a';
+
+        flipToA(board, m, n, visitedDFS, x + 1, y);
+        flipToA(board, m, n, visitedDFS, x - 1, y);
+        flipToA(board, m, n, visitedDFS, x, y + 1);
+        flipToA(board, m, n, visitedDFS, x, y - 1);
+    }
+
+    private boolean canReachEnd(char[][] board, int m, int n, boolean[][] visited, int x, int y) {
+
+        if (x < 0 || x >= m || y < 0 || y >= n)
+            return true;
+
+        if (board[x][y] == 'X')
+            return false;
+
+        if (visited[x][y])
+            return false;
+
+        visited[x][y] = true;
+
+        return canReachEnd(board, m, n, visited, x + 1, y) || canReachEnd(board, m, n, visited, x - 1, y)
+                || canReachEnd(board, m, n, visited, x, y + 1) || canReachEnd(board, m, n, visited, x, y - 1);
+    }
+
+    private void flipToDesired(char[][] board, int m, int n, boolean[][] visitedDFS, int x, int y, char to) {
+
+        if (x < 0 || x >= m || y < 0 || y >= n || board[x][y] == 'X' || board[x][y] == 'b' || board[x][y] == 'a')
+            return;
+
+        if (visitedDFS[x][y])
+            return;
+
+        visitedDFS[x][y] = true;
+        board[x][y] = to;
+
+        flipToDesired(board, m, n, visitedDFS, x + 1, y, to);
+        flipToDesired(board, m, n, visitedDFS, x - 1, y, to);
+        flipToDesired(board, m, n, visitedDFS, x, y + 1, to);
+        flipToDesired(board, m, n, visitedDFS, x, y - 1, to);
+    }
+
+    public void solve(char[][] board) {
+
+        int m = board.length;
+        int n = board[0].length;
+
+        boolean[][] visited = new boolean[m][n];
+        for (int i = 1; i < m - 1; i++) {
+            for (int j = 1; j < n - 1; j++) {
+
+                if (board[i][j] == 'O' && !visited[i][j]) {
+
+                    boolean[][] visitedDFS = new boolean[m][n];
+                    if (!canReachEnd(board, m, n, visited, i, j)) {
+                        flipToDesired(board, m, n, visitedDFS, i, j, 'b');
+                    } else {
+                        flipToDesired(board, m, n, visitedDFS, i, j, 'a');
+                    }
+                }
+            }
+        }
+
+        print(board);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (board[i][j] == 'b') {
+                    board[i][j] = 'X';
+                } else if (board[i][j] == 'a') {
+                    board[i][j] = 'O';
+                }
+            }
+        }
+        System.out.println();
+        print(board);
+    }
+
+    private void createMapOfNode(Node node, Map<Node, Node> mappedNodes) {
+
+        if (node == null)
+            return;
+
+        if (mappedNodes.containsKey(node)) {
+            return;
+        }
+        Node mappedNode = new Node(node.val);
+        mappedNodes.put(node, mappedNode);
+
+        for (Node nodeSide : node.neighbors) {
+            createMapOfNode(nodeSide, mappedNodes);
+        }
+    }
+
+    private void connectCopyGraph(Node nodeOriginal, Map<Node, Node> mappedNodes, Set<Node> isVisited) {
+        if (nodeOriginal == null)
+            return;
+
+        if (isVisited.contains(nodeOriginal)) {
+            return;
+        }
+
+        isVisited.add(nodeOriginal);
+
+        Node copyNode = mappedNodes.get(nodeOriginal);
+        List<Node> neighborsCopy = new ArrayList<>();
+
+        for (Node nodeSideOriginal : nodeOriginal.neighbors) {
+            Node nodeSideCopy = mappedNodes.get(nodeSideOriginal);
+            neighborsCopy.add(nodeSideCopy);
+        }
+        copyNode.neighbors = neighborsCopy;
+
+        for (Node nodeSideOriginal : nodeOriginal.neighbors) {
+            connectCopyGraph(nodeSideOriginal, mappedNodes, isVisited);
+        }
+    }
+
+    public Node cloneGraph(Node node) {
+        if (node == null) {
+            return null;
+        }
+
+        Map<Node, Node> mappedNodes = new HashMap<>();
+        createMapOfNode(node, mappedNodes);
+
+        // System.out.println(mappedNodes);
+
+        connectCopyGraph(node, mappedNodes, new HashSet<>());
+
+        return mappedNodes.get(node);
+    }
+
+    private boolean isCycleExists(int startCourse, List<List<Integer>> graph, boolean[] visited) {
+
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(startCourse);
+
+        while (!queue.isEmpty()) {
+            int course = queue.poll();
+            if (visited[course]) {
+                return true;
+            }
+            visited[course] = true;
+            queue.addAll(graph.get(course));
+        }
+        return false;
+    }
+
+    private void createGraph(List<List<Integer>> graph, int[][] prerequisites, int numCourses) {
+
+        for (int i = 0; i < numCourses; i++) {
+            graph.add(new ArrayList<>());
+        }
+        for (int[] prerequisite : prerequisites) {
+            int course = prerequisite[0];
+            int preCourse = prerequisite[1];
+            graph.get(course).add(preCourse);
+        }
+    }
+
+    private boolean isCycleExists(List<List<Integer>> graph, int[] state, int startCourse) {
+
+        if (state[startCourse] == 1) {
+            return true;
+        }
+        if (state[startCourse] == 2) {
+            return false;
+        }
+
+        state[startCourse] = 1;
+        for (Integer preCourse : graph.get(startCourse)) {
+            if (isCycleExists(graph, state, preCourse)) {
+                return true;
+            }
+        }
+        state[startCourse] = 2;
+        return false;
+    }
+
+    /**
+     * if there exists a cycle in the directed graph return false else true
+     *
+     * @param numCourses
+     * @param prerequisites
+     * @return
+     */
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        List<List<Integer>> graph = new ArrayList<>(numCourses);
+        createGraph(graph, prerequisites, numCourses);
+
+        int[] state = new int[numCourses];
+
+        for (int course = 0; course < numCourses; course++) {
+            if (state[course] == 0 && isCycleExists(graph, state, course)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private boolean isCycleExist(List<List<Integer>> graph, int startCourse, int[] state, List<Integer> correctOrder) {
+
+        if (state[startCourse] == 1) {
+            return true;
+        }
+
+        if (state[startCourse] == 2)
+            return false;
+
+        state[startCourse] = 1;
+
+        for (Integer preCourse : graph.get(startCourse)) {
+            if (isCycleExist(graph, preCourse, state, correctOrder)) {
+                return true;
+            }
+        }
+        correctOrder.add(startCourse);
+        state[startCourse] = 2;
+        return false;
+    }
+
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+
+        List<List<Integer>> graph = new ArrayList<>();
+        createGraph(graph, prerequisites, numCourses);
+        System.out.println(graph);
+
+        int[] state = new int[numCourses];
+        List<Integer> correctOrder = new ArrayList<>();
+
+        for (int course = 0; course < numCourses; course++) {
+            if (state[course] == 0 && isCycleExist(graph, course, state, correctOrder)) {
+                return new int[0];
+            }
+        }
+
+        int[] order = new int[numCourses];
+        for (int i = 0; i < numCourses; i++) {
+            order[i] = correctOrder.get(i);
+        }
+        return order;
     }
 }

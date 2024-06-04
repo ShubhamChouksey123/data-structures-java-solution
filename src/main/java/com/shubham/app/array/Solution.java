@@ -378,4 +378,119 @@ public class Solution {
 
         return sum;
     }
+
+    public int specialArray(int[] nums) {
+        int n = nums.length;
+        Arrays.sort(nums);
+
+        if (nums[n - 1] < 0) {
+            return 0;
+        }
+        if (nums[0] >= n) {
+            return n;
+        }
+
+        for (int i = 1; i < n - 1; i++) {
+            if (nums[i] != nums[i - 1]) {
+                if (nums[i] == n - i) {
+                    return nums[i];
+                }
+                int numberOfElementsOnRight = n - i;
+                if (numberOfElementsOnRight < nums[i] && nums[i - 1] < numberOfElementsOnRight) {
+                    return numberOfElementsOnRight;
+                }
+            }
+        }
+
+        return -1;
+    }
+
+    public int equalSubstring(String s, String t, int maxCost) {
+
+        int n = s.length();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = Math.abs(s.charAt(i) - t.charAt(i));
+        }
+
+        int start = 0, sum = 0, maxLength = 0;
+
+        for (int end = 0; end < n; end++) {
+            sum += arr[end];
+            while (sum > maxCost && start < end) {
+                sum = sum - arr[start];
+                start++;
+            }
+            if (sum <= maxCost) {
+                maxLength = Math.max(maxLength, end - start + 1);
+            }
+        }
+
+        return maxLength;
+    }
+
+    public int appendCharacters(String s, String t) {
+
+        int m = s.length();
+        int n = t.length();
+
+        int indexOnT = 0;
+        for (int i = 0; i < m; i++) {
+            if (indexOnT == n) {
+                break;
+            }
+            if (s.charAt(i) == t.charAt(indexOnT)) {
+                indexOnT++;
+            }
+        }
+
+        return n - indexOnT;
+    }
+
+    public int scoreOfString(String s) {
+
+        int n = s.length();
+        int sum = 0;
+        for (int i = 1; i < n; i++) {
+            sum += Math.abs(s.charAt(i) - s.charAt(i - 1));
+        }
+        return sum;
+    }
+
+    public int longestPalindrome(String s) {
+
+        int[] small = new int[26];
+        int[] big = new int[26];
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c >= 'a' && c <= 'z') {
+                small[c - 'a']++;
+            } else {
+                big[c - 'A']++;
+            }
+        }
+
+        System.out.println("small : " + Arrays.toString(small));
+        System.out.println("small : " + Arrays.toString(big));
+
+        int count = 0;
+        boolean isOdd = false;
+        for (int i = 0; i < 26; i++) {
+            count += 2 * (small[i] / 2);
+            count += 2 * (big[i] / 2);
+
+            if ((small[i] & 1) == 1) {
+                isOdd = true;
+            }
+            if ((big[i] & 1) == 1) {
+                isOdd = true;
+            }
+        }
+
+        if (isOdd) {
+            return count + 1;
+        }
+        return count;
+    }
 }

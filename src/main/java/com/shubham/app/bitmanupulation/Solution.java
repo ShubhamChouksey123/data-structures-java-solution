@@ -134,4 +134,88 @@ public class Solution {
         subsetXORSumUtil(nums, nums.length, 0, 0);
         return totalSum;
     }
+
+    private boolean isEven(String s) {
+        char c = s.charAt(s.length() - 1);
+        if (c == '1')
+            return false;
+        return true;
+    }
+
+    private String performEvenOperation(String s) {
+        return s.substring(0, s.length() - 1);
+    }
+
+    private String performOddOperation(String s) {
+        StringBuilder str = new StringBuilder(s);
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (str.charAt(i) == '0') {
+                str.setCharAt(i, '1');
+                break;
+            }
+            str.setCharAt(i, '0');
+        }
+        if (str.charAt(0) == '0') {
+            return "1" + str.toString();
+        }
+        return str.toString();
+    }
+
+    public int numSteps(String s) {
+
+        int countOperations = 0;
+
+        while (s.length() > 1) {
+            if (isEven(s)) {
+                s = performEvenOperation(s);
+            } else {
+                s = performOddOperation(s);
+            }
+            countOperations++;
+        }
+        return countOperations;
+    }
+
+    public int countTriplets(int[] arr) {
+
+        int n = arr.length;
+        if (n <= 1) {
+            return 0;
+        }
+
+        int count = 0;
+        int a = 0, b = 0;
+
+        for (int i = 0; i < n - 1; i++) {
+            a = 0;
+            for (int j = i + 1; j < n; j++) {
+                a = a ^ arr[j - 1];
+                b = 0;
+                for (int k = j; k < n; k++) {
+                    b = b ^ arr[k];
+                    if (a == b) {
+                        count++;
+                        // System.out.println("(i, j , k): " + i + " " + j + " " + k);
+                    }
+                }
+            }
+        }
+
+        return count;
+    }
+
+    public int[] singleNumber1(int[] nums) {
+
+        int n = nums.length;
+
+        for (int i = 0; i < 32; i++) {
+            int count = 0;
+            for (int j = 0; j < n; j++) {
+                if (((nums[j] >> i) & 1) == 1) {
+                    count++;
+                }
+            }
+        }
+        return null;
+    }
 }
