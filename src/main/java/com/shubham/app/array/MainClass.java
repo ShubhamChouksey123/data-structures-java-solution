@@ -1,6 +1,6 @@
 package com.shubham.app.array;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MainClass {
 
@@ -37,11 +37,33 @@ public class MainClass {
         assertEquals(4, solution.appendCharacters("coaching", "coding"));
 
         testLongestPalindrome();
+
+        testCheckSubArraySum();
+
+        testSubArraysDivByK();
     }
 
     private static void testLongestPalindrome() {
         Solution solution = new Solution();
         assertEquals(7, solution.longestPalindrome("abccccdd"));
+    }
+
+    private static void testSubArraysDivByK() {
+        Solution solution = new Solution();
+        assertEquals(7, solution.subarraysDivByK(new int[]{4, 5, 0, -2, -3, 1}, 5));
+
+    }
+
+    private static void testCheckSubArraySum() {
+        Solution solution = new Solution();
+        assertTrue(solution.checkSubarraySum(new int[]{23, 2, 4, 6, 7}, 6));
+        assertFalse(solution.checkSubarraySum(new int[]{23, 2, 6, 4, 7}, 13));
+        assertFalse(solution.checkSubarraySum(new int[]{6, 1, 2}, 6));
+        assertFalse(solution.checkSubarraySum(new int[]{1, 6, 2}, 6));
+        assertTrue(solution.checkSubarraySum(new int[]{1, 6, 6}, 6));
+        assertFalse(solution.checkSubarraySum(new int[]{1, 6, 1, 6}, 6));
+        assertFalse(solution.checkSubarraySum(new int[]{1, 6, 1, 6, 1}, 6));
+        assertTrue(solution.checkSubarraySum(new int[]{23, 2, 4, 6, 6}, 7));
     }
 
     private static void swap(int[] nums, int a, int b) {

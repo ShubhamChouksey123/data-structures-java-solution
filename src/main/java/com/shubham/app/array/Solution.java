@@ -493,4 +493,179 @@ public class Solution {
         }
         return count;
     }
+
+
+    private int[] createArrayOfCount(String word) {
+        int[] chars = new int[26];
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            chars[c - 'a']++;
+        }
+        return chars;
+    }
+
+
+    private void modifyOriginalCount(int[] originalCount, int[] currentCount) {
+        for (int i = 0; i < 26; i++) {
+            originalCount[i] = Math.min(originalCount[i], currentCount[i]);
+        }
+    }
+
+    public List<String> commonChars(String[] words) {
+
+        int n = words.length;
+        int[] originalCount = createArrayOfCount(words[0]);
+
+        for (int i = 1; i < n; i++) {
+            int[] currentCount = createArrayOfCount(words[i]);
+            modifyOriginalCount(originalCount, currentCount);
+        }
+
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < 26; i++) {
+            while (originalCount[i] > 0) {
+                char c = (char) ('a' + i);
+                ans.add(String.valueOf(c));
+                originalCount[i]--;
+            }
+        }
+
+        return ans;
+    }
+
+    private String getShortestPrefix(String word, List<String> dictionary) {
+
+        for (int i = 0; i < dictionary.size(); i++) {
+            String prefix = dictionary.get(i);
+            if (prefix.length() > word.length()) {
+                continue;
+            }
+            String expectedCommonPart = word.substring(0, prefix.length());
+            if (Objects.equals(expectedCommonPart, prefix)) {
+                word = prefix;
+            }
+        }
+        return word;
+    }
+
+    public String replaceWords(List<String> dictionary, String sentence) {
+
+
+        List<String> words = Arrays.asList(sentence.split("\\s+"));
+
+        String ans = "";
+        if (words.isEmpty()) {
+            return ans;
+        }
+
+        ans = getShortestPrefix(words.get(0), dictionary);
+
+        for (int i = 1; i < words.size(); i++) {
+            String word = words.get(i);
+            ans = ans + " " + getShortestPrefix(word, dictionary);
+        }
+        return ans;
+    }
+
+
+    public boolean checkSubarraySum(int[] nums, int k) {
+
+        int n = nums.length;
+        Map<Integer, Integer> mp = new HashMap<>();
+
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            nums[i] = nums[i] % k;
+            sum += nums[i];
+            sum = sum % k;
+
+            if (sum == 0 && i != 0) {
+                return true;
+            }
+
+            Integer indexOfPrevious = mp.get(sum);
+            if (indexOfPrevious != null) {
+                if (i - indexOfPrevious > 1) {
+                    return true;
+                }
+            } else {
+                mp.put(sum, i);
+            }
+        }
+
+        return false;
+    }
+
+
+    public int subarraysDivByKBrut(int[] nums, int k) {
+
+        int n = nums.length;
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            int sum = 0;
+            for (int j = i; j < n; j++) {
+                sum = sum + nums[j];
+                if (sum % k == 0) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+
+    public int subarraysDivByK(int[] nums, int k) {
+
+        int n = nums.length;
+        int count = 0;
+        Map<Integer, Integer> remCount = new HashMap<>();
+
+        for (int i = 0; i < n; i++) {
+            int rem = nums[i] % k;
+            nums[i] = rem;
+        }
+        System.out.println("nums : " + Arrays.toString(nums));
+        for (int i = 0; i < n; i++) {
+            int rem = nums[i] % k;
+            System.out.println("rem " + rem + " for number : " + nums[i]);
+            Integer alreadyCount = 0;
+            if (rem >= 0) {
+                alreadyCount = remCount.get((k - rem) % k);
+            } else {
+                alreadyCount = remCount.get(-rem);
+            }
+            if (alreadyCount == null) {
+                alreadyCount = 0;
+            }
+            System.out.println("rem " + rem + " for number : " + nums[i] + " with alreadyCount : " + alreadyCount);
+
+
+            count += alreadyCount;
+            if (rem == 0) {
+                count++;
+            }
+
+            remCount.put(rem, ++alreadyCount);
+
+        }
+
+        return count;
+    }
+
+    public int heightChecker(int[] heights) {
+
+        int n = heights.length;
+        List<Integer> sortedHeights = new ArrayList<>();
+        Arrays.stream(heights).boxed().forEach(a -> sortedHeights.add(a));
+
+        Collections.sort(sortedHeights);
+
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (heights[i] != sortedHeights.get(i)) {
+                count++;
+            }
+        }
+        return count;
+    }
 }

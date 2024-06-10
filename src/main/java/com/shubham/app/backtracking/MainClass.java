@@ -1,5 +1,7 @@
 package com.shubham.app.backtracking;
 
+import java.util.List;
+
 public class MainClass {
 
     public static void main(String[] args) {
@@ -42,5 +44,13 @@ public class MainClass {
 
         int ans = solution.checkRecord(4);
         System.out.println("ans : " + ans);
+
+        testLetterCombinations();
+    }
+
+    private static void testLetterCombinations() {
+        Solution solution = new Solution();
+        List<String> ans = solution.letterCombinations("5");
+        ans.forEach(s -> System.out.println(s));
     }
 }
