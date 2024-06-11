@@ -46,11 +46,23 @@ public class MainClass {
         System.out.println("ans : " + ans);
 
         testLetterCombinations();
+
+        testCombine();
     }
 
     private static void testLetterCombinations() {
         Solution solution = new Solution();
         List<String> ans = solution.letterCombinations("5");
+//        ans.forEach(s -> System.out.println(s));
+    }
+
+    private static void testCombine() {
+        Solution solution = new Solution();
+        List<List<Integer>> ans = solution.combine(4, 2);
+        ans.forEach(s -> System.out.println(s));
+
+
+        ans = solution.combine(4, 3);
         ans.forEach(s -> System.out.println(s));
     }
 }
