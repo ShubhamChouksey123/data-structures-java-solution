@@ -13,6 +13,8 @@ public class Solution {
     private List<TreeNode> ancestorsP;
     private List<TreeNode> ancestorsQ;
     private int move = 0;
+    private int goodNodesCount = 0;
+    private int pathSumTargetCount = 0;
 
     public void connectUtil(Node root1, Node root2) {
 
@@ -602,4 +604,110 @@ public class Solution {
 
         return sum + positiveDelta;
     }
+
+    private void goodNodesUtil(TreeNode root, Stack<Integer> parents, Stack<Integer> maxValues) {
+        if (root == null) {
+            return;
+        }
+
+        if (root.val >= maxValues.peek()) {
+            goodNodesCount++;
+        }
+
+        parents.add(root.val);
+        if (root.val >= maxValues.peek()) {
+            maxValues.add(root.val);
+        } else {
+            maxValues.add(maxValues.peek());
+        }
+        goodNodesUtil(root.left, parents, maxValues);
+        goodNodesUtil(root.right, parents, maxValues);
+
+
+        parents.pop();
+        maxValues.pop();
+
+    }
+
+    public int goodNodes(TreeNode root) {
+
+        TreeNode treeNode = new TreeNode(Integer.MIN_VALUE);
+
+        Stack<Integer> parents = new Stack<>();
+        parents.add(Integer.MIN_VALUE);
+        Stack<Integer> maxValues = new Stack<>();
+        maxValues.add(Integer.MIN_VALUE);
+
+        goodNodesUtil(root, parents, maxValues);
+
+        return goodNodesCount;
+    }
+
+    private void compute(Integer[] arr) {
+//        Arrays.sort(arr, new Comparator<Integer>() {
+//            public int compare(Integer a, Integer b) {
+//                int absA = Math.abs(a);
+//                int absB = Math.abs(b);
+//                if (absA == absB) {
+//                    return a - b;
+//                }
+//                return absA - absB;
+//            }
+//        });
+
+
+        Arrays.sort(arr, new Comparator<>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return 0;
+            }
+
+
+        });
+
+        Arrays.sort(arr, (a, b) -> {
+            Integer absA = Math.abs(a);
+            Integer absB = Math.abs(b);
+            return absA.compareTo(absB);
+        });
+
+    }
+
+    private void findCount(List<Integer> nodeValues, int targetSum) {
+
+        if (nodeValues.isEmpty()) {
+            return;
+        }
+
+        long sum = 0;
+        for (int i = nodeValues.size() - 1; i >= 0; i--) {
+            sum += nodeValues.get(i);
+            if (sum == targetSum) {
+                pathSumTargetCount++;
+            }
+        }
+    }
+
+    private void pathSumUtil(TreeNode root, int targetSum, List<Integer> nodeValues) {
+
+        if (root == null) {
+            return;
+        }
+
+        nodeValues.add(root.val);
+        findCount(nodeValues, targetSum);
+
+        pathSumUtil(root.left, targetSum, nodeValues);
+        pathSumUtil(root.right, targetSum, nodeValues);
+
+        nodeValues.remove(nodeValues.size() - 1);
+    }
+
+    public int pathSum(TreeNode root, int targetSum) {
+
+        pathSumUtil(root, targetSum, new ArrayList<>());
+        return pathSumTargetCount;
+    }
+
+
 }

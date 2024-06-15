@@ -2,6 +2,8 @@ package com.shubham.app.backtracking;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class MainClass {
 
     public static void main(String[] args) {
@@ -43,11 +45,15 @@ public class MainClass {
         // System.out.println("ans : " + ans);
 
         int ans = solution.checkRecord(4);
-        System.out.println("ans : " + ans);
+//        System.out.println("ans : " + ans);
 
-        testLetterCombinations();
+//        testLetterCombinations();
+//
+//        testCombine();
 
-        testCombine();
+        testCombinationSum();
+
+        testTotalNQueens();
     }
 
     private static void testLetterCombinations() {
@@ -64,5 +70,22 @@ public class MainClass {
 
         ans = solution.combine(4, 3);
         ans.forEach(s -> System.out.println(s));
+    }
+
+    private static void testCombinationSum() {
+        Solution solution = new Solution();
+        List<List<Integer>> ans = solution.combinationSum(new int[]{2, 3, 5}, 8);
+        ans.forEach(s -> System.out.println(s));
+
+
+    }
+
+    private static void testTotalNQueens() {
+        Solution solution = new Solution();
+        assertEquals(0, solution.totalNQueens(2));
+        assertEquals(2, solution.totalNQueens(4));
+        assertEquals(1, solution.totalNQueens(1));
+
+
     }
 }

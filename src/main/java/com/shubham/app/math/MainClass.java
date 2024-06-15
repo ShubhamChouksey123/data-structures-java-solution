@@ -1,5 +1,9 @@
 package com.shubham.app.math;
 
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class MainClass {
 
     public static void main(String[] args) {
@@ -33,5 +37,27 @@ public class MainClass {
 
         double ans = solution.myPow(-1.00000, Integer.MAX_VALUE);
         System.out.println("ans : " + ans);
+
+
+        testJudgeSquareSum();
     }
+
+    private static void testJudgeSquareSum() {
+        Solution solution = new Solution();
+        assertTrue(solution.judgeSquareSum(0));
+        assertTrue(solution.judgeSquareSum(1));
+        assertTrue(solution.judgeSquareSum(2));
+
+        assertTrue(solution.judgeSquareSum(4));
+        assertTrue(solution.judgeSquareSum(5));
+
+        assertFalse(solution.judgeSquareSum(6));
+        assertFalse(solution.judgeSquareSum(7));
+        assertFalse(solution.judgeSquareSum(8));
+
+        assertTrue(solution.judgeSquareSum(9));
+
+
+    }
+
 }

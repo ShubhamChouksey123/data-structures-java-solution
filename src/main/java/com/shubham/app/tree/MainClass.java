@@ -1,5 +1,7 @@
 package com.shubham.app.tree;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class MainClass {
 
     public static TreeNode treeNode1 = new TreeNode(3);
@@ -63,6 +65,8 @@ public class MainClass {
 
         TreeNode common = solution.lowestCommonAncestor(root, treeNode9, treeNode2);
         System.out.println("common: " + common);
+
+        testPathSum();
     }
 
     private static TreeNode createTree() {
@@ -109,5 +113,25 @@ public class MainClass {
         System.out.print(root.val + " ");
         travers(root.left);
         travers(root.right);
+    }
+
+    private static void testPathSum() {
+
+        TreeNode treeNode1 = new TreeNode(1000000000);
+        TreeNode treeNode2 = new TreeNode(1000000000);
+        TreeNode treeNode3 = new TreeNode(294967296);
+        TreeNode treeNode4 = new TreeNode(1000000000);
+        TreeNode treeNode5 = new TreeNode(1000000000);
+        TreeNode treeNode6 = new TreeNode(1000000000);
+
+        treeNode1.left = treeNode2;
+        treeNode2.left = treeNode3;
+        treeNode3.left = treeNode4;
+        treeNode4.left = treeNode5;
+        treeNode5.left = treeNode6;
+
+        Solution solution = new Solution();
+        assertEquals(0, solution.pathSum(treeNode1, 0));
+
     }
 }

@@ -1,10 +1,13 @@
 package com.shubham.app.priorityqueue;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class Solution2 {
+
+
 
     public int[] kthSmallestPrimeFraction(int[] arr, int k) {
 
@@ -30,6 +33,39 @@ public class Solution2 {
 
         Pair current = pq.peek();
         return new int[]{current.a, current.b};
+    }
+
+    public int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
+
+        PriorityQueue<Integer[]> lowestCapitals = new PriorityQueue<>(
+                (Integer[] a, Integer[] b) -> {
+                    return a[0] - b[0];
+                }
+        );
+
+        int n = profits.length;
+        for (int i = 0; i < n; i++) {
+
+            Integer[] temp = new Integer[]{capital[i], profits[i]};
+            lowestCapitals.add(temp);
+        }
+
+        PriorityQueue<Integer> maximumProfits = new PriorityQueue<>((a, b) -> b - a);
+
+        int totalProfit = 0;
+        while (k-- > 0) {
+            while (!lowestCapitals.isEmpty() && lowestCapitals.peek()[0] <= w) {
+                Integer[] lowestCapital = lowestCapitals.poll();
+                maximumProfits.add(lowestCapital[1]);
+            }
+
+            if (!maximumProfits.isEmpty()) {
+                totalProfit += maximumProfits.poll();
+                w += totalProfit;
+            }
+        }
+
+        return totalProfit;
     }
 
     public class IntegerArrayComparator implements Comparator<Double[]> {

@@ -2,6 +2,8 @@ package com.shubham.app.priorityqueue;
 
 import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class MainClass {
 
     public static void main2(String[] args) {
@@ -54,5 +56,13 @@ public class MainClass {
 
         double ans = solution.mincostToHireWorkers(nums1, nums2, 3);
         System.out.println("ans : " + ans);
+
+        testIPO();
+    }
+
+    private static void testIPO() {
+        Solution2 solution = new Solution2();
+//        assertEquals(4, solution.findMaximizedCapital(2, 0, new int[]{1, 2, 3}, new int[]{0, 1, 1}));
+        assertEquals(3, solution.findMaximizedCapital(1, 2, new int[]{1, 2, 3}, new int[]{1, 1, 2}));
     }
 }

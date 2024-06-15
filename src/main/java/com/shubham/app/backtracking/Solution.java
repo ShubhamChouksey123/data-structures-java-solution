@@ -11,6 +11,19 @@ public class Solution {
     private int maxScore = 0;
     private List<String> sequences = new ArrayList<>();
     private int totalCount = 0;
+    private int totalNQueens = 0;
+
+    public void print(boolean[][] matrix) {
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
 
     private void subsets(int[] nums, List<List<Integer>> ans, int index, int n, List<Integer> st) {
 
@@ -26,6 +39,7 @@ public class Solution {
 
         st.remove(st.size() - 1);
     }
+
 
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
@@ -318,6 +332,99 @@ public class Solution {
         combineUtils(n, k, 0, 1, new ArrayList<>(), ans);
 
         return ans;
+    }
+
+    private void combinationSumUtil(int[] candidates, int target, List<List<Integer>> ans, int sum, int startIndex, List<Integer> list) {
+
+        if (sum == target) {
+            ans.add(new ArrayList<>(list));
+            return;
+        } else if (sum > target) {
+            return;
+        }
+
+        for (int i = startIndex; i < candidates.length; i++) {
+            list.add(candidates[i]);
+            combinationSumUtil(candidates, target, ans, sum + candidates[i], i, list);
+            list.remove(list.size() - 1);
+        }
+    }
+
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+
+        List<List<Integer>> ans = new ArrayList<>();
+        combinationSumUtil(candidates, target, ans, 0, 0, new ArrayList<>());
+        return ans;
+    }
+
+    private boolean liesInRange(int n, int x, int y) {
+        if (x >= 0 && x < n && y >= 0 && y < n) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isPositionSafe(int n, boolean[][] chess, int x, int y) {
+
+        for (int j = 0; j < n; j++) {
+            if (chess[x][j]) {
+                return false;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            if (chess[i][y]) {
+                return false;
+            }
+        }
+
+        int startX = x + y;
+        int startY = 0;
+
+        while (startX >= 0) {
+            if (liesInRange(n, startX, startY) && chess[startX][startY]) {
+                return false;
+            }
+            startX--;
+            startY++;
+        }
+
+        startX = x - y;
+        startY = 0;
+
+        while (startX < n) {
+            if (liesInRange(n, startX, startY) && chess[startX][startY]) {
+                return false;
+            }
+            startX++;
+            startY++;
+        }
+
+        return true;
+    }
+
+    private void countTotalNQueens(int n, boolean[][] chess, int column) {
+
+        if (column == n) {
+            print(chess);
+            System.out.println();
+            totalNQueens++;
+            return;
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (isPositionSafe(n, chess, i, column)) {
+                chess[i][column] = true;
+                countTotalNQueens(n, chess, column + 1);
+                chess[i][column] = false;
+            }
+        }
+    }
+
+    public int totalNQueens(int n) {
+
+        totalNQueens = 0;
+        countTotalNQueens(n, new boolean[n][n], 0);
+        return totalNQueens;
     }
 
 }

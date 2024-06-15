@@ -43,6 +43,8 @@ public class MainClass {
 //        testSubArraysDivByK();
 
         testRelativeSortArray();
+
+        testMinIncrementForUnique();
     }
 
     private static void testLongestPalindrome() {
@@ -66,6 +68,16 @@ public class MainClass {
         assertFalse(solution.checkSubarraySum(new int[]{1, 6, 1, 6}, 6));
         assertFalse(solution.checkSubarraySum(new int[]{1, 6, 1, 6, 1}, 6));
         assertTrue(solution.checkSubarraySum(new int[]{23, 2, 4, 6, 6}, 7));
+    }
+
+    private static void testMinIncrementForUnique() {
+        Solution solution = new Solution();
+        assertEquals(1, solution.minIncrementForUnique(new int[]{1, 2, 2}));
+        assertEquals(0, solution.minIncrementForUnique(new int[]{1}));
+        assertEquals(0, solution.minIncrementForUnique(new int[]{0}));
+        assertEquals(0, solution.minIncrementForUnique(new int[]{0}));
+        assertEquals(1, solution.minIncrementForUnique(new int[]{0, 2, 2}));
+
     }
 
     private static void swap(int[] nums, int a, int b) {
