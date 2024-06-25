@@ -3,6 +3,9 @@ package com.shubham.app.queue;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * Normal Queue is implemented by LinkedList
+ */
 public class LinkedListQueue {
 
     public static void main(String[] args) {
@@ -15,5 +18,8 @@ public class LinkedListQueue {
         q.add(222);
 
         System.out.println("q : " + q);
+        System.out.println("front : " + q.poll());
+        System.out.println("new front : " + q.peek());
+
     }
 }
