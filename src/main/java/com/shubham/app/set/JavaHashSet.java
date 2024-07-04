@@ -104,6 +104,12 @@ public class JavaHashSet {
             System.out.print(itr.next() + " ");
         }
         System.out.println();
+
+
+        for(Integer s : st){
+            System.out.print(s + " ");
+        }
+        System.out.println();
     }
 
     public int getRandom() {
