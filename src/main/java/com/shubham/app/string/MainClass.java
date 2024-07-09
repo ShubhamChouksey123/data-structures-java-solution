@@ -3,6 +3,8 @@ package com.shubham.app.string;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
+
 public class MainClass {
 
     private static final Logger logger = LoggerFactory.getLogger(MainClass.class);
@@ -69,11 +71,41 @@ public class MainClass {
         logger.info("substring starting from index 2 till end : {}", s.substring(2));
     }
 
+
+    private static void someSplitFunction() {
+        /**
+         * s.substring(startIndex, endIndex)
+         * endIndex will not be included the substring
+         */
+        String s = "Hello Shubham   let's dance";
+        String[] strArray = s.split("\\s+");
+        logger.info("after the split {}", Arrays.toString(strArray));
+
+        s = " Hello  let's dance  shubham " ;
+        strArray = s.split("\\s+");
+        logger.info("after the split {}", Arrays.toString(strArray));
+
+        s = "shubham.chouksey.sh.101" ;
+        strArray = s.split("\\.");
+        logger.info("after the split {}", Arrays.toString(strArray));
+
+        s = "10.5.0.12" ;
+        strArray = s.split("\\.");
+        logger.info("after the split {}", Arrays.toString(strArray));
+
+        s = "101.5.0001.1902" ;
+        strArray = s.split("\\.");
+        logger.info("after the split {}", Arrays.toString(strArray));
+    }
+
+
     public static void main(String[] args) {
         someStringOperations();
         someToStringConversions();
 
         someSubstring();
+
+        someSplitFunction();
     }
 
 }

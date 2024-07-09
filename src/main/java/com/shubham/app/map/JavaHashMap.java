@@ -11,7 +11,7 @@ import static java.util.Map.entry;
 public class JavaHashMap {
 
     /** Mutable maps - can be modified */
-    static Map<String, String> map = new HashMap<String, String>(Map.of("key1", "value1", "key2", "value2"));
+    static Map<String, String> map = new HashMap<>(Map.of("key1", "value1", "key2", "value2"));
 
     /**
      * Roman Numbers and their values I 1 V 5 X 10 L 50 C 100 D 500 M 1000
