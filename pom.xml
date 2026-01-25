@@ -5,117 +5,50 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.4</version>
+        <version>3.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.shubham</groupId>
+    <groupId>dev.shubham</groupId>
     <artifactId>app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>app</name>
     <description>Data Structures and Algorithms solutions by Shubham Chouksey</description>
     <properties>
-        <c3po.version>0.9.5.5</c3po.version>
-        <revision>0.0.1-SNAPSHOT</revision>
-        <java.version>17</java.version>
+        <java.version>21</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <resource.delimiter>@</resource.delimiter>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <web3j.version>4.8.6-SNAPSHOT</web3j.version>
 
-        <!-- used dependencies versions -->
-        <spring-boot.version>3.0.5</spring-boot.version>
-        <spring-cloud.version>2022.0.1</spring-cloud.version>
-        <spring-admin.version>3.0.2</spring-admin.version>
-        <junit.jupiter.version>5.9.0</junit.jupiter.version>
-        <junit-platform.version>1.9.0</junit-platform.version>
-        <c3po.version>0.9.5.4</c3po.version>
-        <jackson.version>2.14.2</jackson.version>
-        <mariadb.client.version>3.1.4</mariadb.client.version>
+        <!-- dependency versions -->
+        <junit.jupiter.version>5.11.4</junit.jupiter.version>
+        <slf4j.version>2.0.16</slf4j.version>
 
         <!-- plugin versions -->
-        <build-helper-maven-plugin.version>3.3.0</build-helper-maven-plugin.version>
-        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
-        <!-- because of https://github.com/mojohaus/versions/issues/855 -->
-        <versions-maven-plugin.version>2.15.0</versions-maven-plugin.version>
-        <maven-clean-plugin.version>3.2.0</maven-clean-plugin.version>
-        <maven-site-plugin.version>4.0.0-M1</maven-site-plugin.version>
-        <maven-dependency-plugin.version>3.5.0</maven-dependency-plugin.version>
-        <maven-deploy-plugin.version>3.1.0</maven-deploy-plugin.version>
-        <maven-enforcer-plugin.version>3.2.1</maven-enforcer-plugin.version>
-        <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
-        <maven-failsafe-plugin.version>3.0.0</maven-failsafe-plugin.version>
-        <maven-install-plugin.version>3.1.0</maven-install-plugin.version>
-        <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
-        <maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
-        <maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
-        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
-        <maven-war-plugin.version>3.3.2</maven-war-plugin.version>
-        <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
-        <frontend-maven-plugin.version>1.12.1</frontend-maven-plugin.version>
-        <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
-        <asciidoctor-maven-plugin.version>2.2.2</asciidoctor-maven-plugin.version>
-        <git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
-        <flatten-maven-plugin.version>1.3.0</flatten-maven-plugin.version>
-        <maven-checkstyle-plugin.version>3.2.1</maven-checkstyle-plugin.version>
-        <spotless.version>2.37.0</spotless.version>
-        <checkstyle.version>9.3</checkstyle.version>
-        <spring-javaformat-checkstyle.version>0.0.38</spring-javaformat-checkstyle.version>
+        <spotless.version>2.46.1</spotless.version>
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
     </properties>
 
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <version>3.0.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.mchange</groupId>
-            <artifactId>c3p0</artifactId>
-            <version>${c3po.version}</version>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.hibernate.orm</groupId>
-            <artifactId>hibernate-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.orm</groupId>
-            <artifactId>hibernate-jpamodelgen</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>jakarta.xml.bind</groupId>
-            <artifactId>jakarta.xml.bind-api</artifactId>
-        </dependency>
-
-        <!-- Runtime, com.sun.xml.bind module -->
-        <dependency>
-            <groupId>org.glassfish.jaxb</groupId>
-            <artifactId>jaxb-runtime</artifactId>
-        </dependency>
+        <!-- JUnit 5 for testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
         </dependency>
 
-
+        <!-- SLF4J for logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -128,8 +61,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>9</source>
-                    <target>9</target>
+                    <source>21</source>
+                    <target>21</target>
+                    <release>21</release>
                 </configuration>
             </plugin>
 
@@ -169,13 +103,6 @@
                     </formats>
                     <!-- define a language-specific format -->
                     <java>
-                        <!-- Clean that will refactor your code, but it may break your style: apply it before your formatter -->
-                        <cleanthat/>
-
-                        <googleJavaFormat/> <!-- has its own section below -->
-                        <eclipse/>          <!-- has its own section below -->
-                        <!--                        <prettier/>         &lt;!&ndash; has its own section below &ndash;&gt;-->
-
                         <importOrder/> <!-- standard import order -->
                         <importOrder>  <!-- or a custom ordering -->
                             <wildcardsLast>false

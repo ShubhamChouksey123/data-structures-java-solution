@@ -1,8 +1,6 @@
 **/metadata/*
 logs/
 HELP.md
-JinjavaEthereum/target/
-JinjavaEthereum/logs/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -125,3 +123,7 @@ build/
 
 ### Mac ###
 .DS_Store
+
+
+.env
+!.idea/runConfigurations/

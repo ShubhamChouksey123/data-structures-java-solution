@@ -1,0 +1,1 @@
+- Add function Integer.toBinaryString() in common functions
