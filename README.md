@@ -133,6 +133,36 @@ assertTrue(solution.checkCondition(input));
 - Import organization is automatically handled by Spotless
 - Each topic is self-contained with no cross-package dependencies
 
+## Git Configuration
+
+### Update Commit Author History
+
+If you need to update the author information for all commits in the repository:
+
+```bash
+# Update all commits to use the correct author
+git filter-branch --env-filter '
+if [ "$GIT_COMMITTER_EMAIL" != "shubhamchouksey1998@gmail.com" ]; then
+    export GIT_COMMITTER_NAME="ShubhamChouksey123"
+    export GIT_COMMITTER_EMAIL="shubhamchouksey1998@gmail.com"
+fi
+if [ "$GIT_AUTHOR_EMAIL" != "shubhamchouksey1998@gmail.com" ]; then
+    export GIT_AUTHOR_NAME="ShubhamChouksey123"
+    export GIT_AUTHOR_EMAIL="shubhamchouksey1998@gmail.com"
+fi
+' --tag-name-filter cat -- --all
+
+# Force push to remote (if already pushed)
+git push --force-with-lease
+```
+
+**For just the last commit:**
+```bash
+git commit --amend --author="ShubhamChouksey123 <shubhamchouksey1998@gmail.com>" --no-edit
+```
+
+**Warning:** These commands rewrite Git history. If you've already pushed commits to a shared repository, coordinate with your team before force pushing.
+
 ## Author
 
 **Shubham Chouksey**
