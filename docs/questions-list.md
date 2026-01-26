@@ -53,10 +53,10 @@ Track your overall progress: `0/160+ problems completed`
 **Description**: This technique uses two pointers moving at different speeds to solve problems involving cycles, such as finding the middle of a list, detecting loops, or checking for palindromes.
 
 **Problems (4)**:
-- [ ] [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) - Medium
-- [ ] [Remove nth Node from the End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) - Medium
-- [ ] [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) - Medium
-- [ ] [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) - Easy
+- [x] [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) - Medium
+- [x] [Remove nth Node from the End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) - Medium
+- [x] [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) - Medium
+- [x] [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) - Easy
 
 ---
 ## 2. Overlapping Intervals
@@ -64,10 +64,10 @@ Track your overall progress: `0/160+ problems completed`
 **Description**: Intervals are often manipulated through sorting and merging based on their start and end times.
 
 **Problems (5)**:
-- [ ] [Merge Intervals](https://leetcode.com/problems/merge-intervals/) - Medium
-- [ ] [Insert Interval](https://leetcode.com/problems/insert-interval/) - Medium
-- [ ] [My Calendar II](https://leetcode.com/problems/my-calendar-ii/) - Medium
-- [ ] [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/) - Medium
+- [x] [Merge Intervals](https://leetcode.com/problems/merge-intervals/) - Medium
+- [x] [Insert Interval](https://leetcode.com/problems/insert-interval/) - Medium
+- [x] [My Calendar II](https://leetcode.com/problems/my-calendar-ii/) - Medium
+- [x] [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/) - Medium
 - [ ] [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) - Medium
 
 ---
@@ -77,10 +77,10 @@ Track your overall progress: `0/160+ problems completed`
 **Description**: Prefix Sums/Products are techniques that store cumulative sums or products up to each index, allowing for quick subarray range queries.
 
 **Problems (5)**:
-- [ ] [Find the Middle Index in Array](https://leetcode.com/problems/find-the-middle-index-in-array/) - Easy
-- [ ] [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) - Medium
+- [x] [Find the Middle Index in Array](https://leetcode.com/problems/find-the-middle-index-in-array/) - Easy
+- [x] [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) - Medium
 - [ ] [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) - Medium
-- [ ] [Number of Ways to Split Array](https://leetcode.com/problems/number-of-ways-to-split-array/) - Medium
+- [x] [Number of Ways to Split Array](https://leetcode.com/problems/number-of-ways-to-split-array/) - Medium
 - [ ] [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) - Medium
 
 ---
@@ -135,7 +135,7 @@ Track your overall progress: `0/160+ problems completed`
 **Description**: Reversing a linked list in place without using extra space is key for problems that require in-place list manipulations.
 
 **Problems (3)**:
-- [ ] [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) - Easy
+- [x] [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) - Easy
 - [ ] [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) - Hard
 - [ ] [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) - Medium
 

@@ -175,6 +175,63 @@ When condition:
 
 ---
 
+## Highlighting Important Concepts
+
+### When to Mark as Important
+
+Mark concepts/problems as **IMPORTANT** when they are:
+- **Non-obvious applications** of the pattern
+- **Frequently asked** in interviews
+- **Tricky patterns** that need regular revision
+- **Key insights** that are easy to forget
+- **Counter-intuitive** approaches
+
+### How to Mark Important
+
+**In Pattern Sections**:
+```markdown
+### 4. Find Duplicate in Array [1,n] ⭐ **IMPORTANT** ⭐
+
+**⚠️ Key Pattern - Review Regularly**
+
+- Concept description
+- **Why important**: Explanation of why this needs attention
+- **Trick**: Key insight or non-obvious technique
+```
+
+**In Practice Problems**:
+```markdown
+- [x] [Problem Name](link) - Difficulty ⭐ **IMPORTANT** ⭐
+```
+
+**In Pattern Headers** (for entire sections):
+```markdown
+## Pattern 2: Find Cycle Start ⭐ **IMPORTANT** ⭐
+```
+
+### Formatting Guidelines
+
+- **Use ⭐ stars** around **IMPORTANT** label for visibility
+- **Add ⚠️ warning symbol** for key patterns that need regular review
+- **Include context**: Always explain **why** it's important
+- **Highlight the trick**: Mention the non-obvious insight
+- **Be selective**: Don't mark everything as important (max 1-2 per document)
+
+### Example
+
+```markdown
+### 4. Find Duplicate in Array [1,n] ⭐ **IMPORTANT** ⭐
+
+**⚠️ Key Pattern - Review Regularly**
+
+- Treat array as linked list: index → arr[index]
+- Apply cycle detection (duplicate creates cycle)
+- **Why important**: Non-obvious application of fast/slow pointer to array problems
+- **Trick**: Duplicate value acts as cycle entry point
+```
+
+---
+
 ## Checklist Before Committing
 
 Use this checklist for every note:
@@ -189,6 +246,7 @@ Use this checklist for every note:
 - [ ] No code implementations (only concept)
 - [ ] Critical points and gotchas listed
 - [ ] Practice problems linked with difficulty
+- [ ] Important concepts marked with ⭐ **IMPORTANT** ⭐ (if applicable, max 1-2)
 - [ ] Markdown formatting correct
 - [ ] File passes `mvn spotless:check`
 

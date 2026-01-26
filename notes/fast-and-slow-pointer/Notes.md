@@ -22,7 +22,7 @@ Two pointers moving at different speeds:
 
 ---
 
-## Pattern 2: Find Cycle Start (Head of Cycle)
+## Pattern 2: Find Cycle Start (Head of Cycle) ⭐ **IMPORTANT** ⭐
 
 **Algorithm**:
 1. **Phase 1**: Detect cycle (fast catches slow)
@@ -84,9 +84,58 @@ So distance from p2 to p1 = head to p1!
 - Move both together until fast ends
 - Slow is at nth from end
 
-### 4. Find Duplicate in Array [1,n]
+### 4. Find Duplicate in Array [1,n] ⭐ **IMPORTANT** ⭐
+
+**⚠️ Key Pattern - Review Regularly**
+
 - Treat array as linked list: index → arr[index]
 - Apply cycle detection (duplicate creates cycle)
+- **Why important**: Non-obvious application of fast/slow pointer to array problems
+- **Trick**: Duplicate value acts as cycle entry point
+
+---
+
+## Linked List Techniques
+
+### Dummy Node Pattern
+
+**When to use**: Problems involving removing nodes or modifying list structure
+
+**Concept**:
+- Create a dummy node pointing to the head
+- Start pointers from dummy instead of head
+- Simplifies edge cases (removing head, empty list)
+- Return `dummy.next` as the new head
+
+**Benefits**:
+- No special handling for removing first node
+- Uniform treatment of all nodes
+- Cleaner code with fewer edge case checks
+
+**Example Use Cases**:
+- Remove Nth Node from End
+- Remove elements with specific value
+- Merge sorted lists
+- Partition list
+
+### Even vs Odd Length Lists
+
+When finding the middle using fast/slow pattern:
+
+| List Length | Fast stops at | Slow stops at |
+|-------------|---------------|---------------|
+| **Odd** (e.g., 1→2→3→4→5) | null | Exact middle (3) |
+| **Even** (e.g., 1→2→3→4) | null | First middle (2) |
+
+**Key Points**:
+- **Odd length**: Slow reaches the exact middle node
+- **Even length**: Slow reaches the first of two middle nodes
+- **For second middle**: Use condition `fast.next != null` instead of `fast != null`
+
+**Choose based on problem**:
+- Palindrome check: Need first middle (split in half)
+- Delete middle: May need exact middle or first middle
+- Reorder list: First middle works for splitting
 
 ---
 
@@ -103,5 +152,5 @@ So distance from p2 to p1 = head to p1!
 
 - [x] [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) - Medium
 - [x] [Remove nth Node from End](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) - Medium
-- [ ] [Find Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) - Medium
-- [ ] [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) - Easy
+- [x] [Find Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) - Easy
