@@ -73,6 +73,34 @@ prefix  = [0, 2, 6, 12, 20, 30]  // size n+1, dummy 0 at start
 
 ---
 
+## Pattern 5: Maximum Product Subarray ⭐ **IMPORTANT** ⭐
+
+**⚠️ Key Pattern - Review Regularly**
+
+**Algorithm** (Kadane's variant):
+1. Track `maxSoFar` = maximum product ending at current position
+2. Track `minSoFar` = minimum product ending at current position
+3. At each position: update both by considering:
+   - Current element alone (start fresh)
+   - Extend `maxSoFar * current`
+   - Extend `minSoFar * current` (important for negatives!)
+4. Update global result with `maxSoFar`
+
+**Complexity**: O(n) time, O(1) space
+
+**Why track minimum?** Negative numbers flip signs. A large negative × negative = large positive.
+
+**Why important**: Non-obvious DP pattern. Unlike max sum (Kadane's), you must track both max AND min.
+
+**Trick**: `maxSoFar = max(cur, max(maxSoFar*cur, minSoFar*cur))` and same for `minSoFar` with min.
+
+**Key Insight**: At each step, choose:
+- Start new subarray from current element
+- Extend previous max product
+- Extend previous min product (becomes max if current is negative)
+
+---
+
 ## Common Use Cases
 
 | Pattern | Description | Complexity | Space |
@@ -81,6 +109,7 @@ prefix  = [0, 2, 6, 12, 20, 30]  // size n+1, dummy 0 at start
 | **Prefix Product** | Product except self | O(n) | O(n) or O(1) |
 | **2D Range Sum** | Sum of submatrix | O(1) query | O(m×n) |
 | **Split Array** | Find equilibrium/pivot | O(n) | O(1) |
+| **Max Product** | Maximum product subarray | O(n) | O(1) |
 | **Subarray Sum = K** | Count/find subarrays | O(n) | O(n) with HashMap |
 
 ---
@@ -123,13 +152,25 @@ for (int i = 0; i < n; i++) {
 }
 ```
 
+**Maximum Product Subarray**:
+```
+int minSoFar = arr[0], maxSoFar = arr[0], result = arr[0];
+for (int i = 1; i < n; i++) {
+    int cur = arr[i];
+    int tmpMax = maxSoFar;
+    maxSoFar = Math.max(cur, Math.max(maxSoFar * cur, minSoFar * cur));
+    minSoFar = Math.min(cur, Math.min(tmpMax * cur, minSoFar * cur));
+    result = Math.max(result, maxSoFar);
+}
+```
+
 ---
 
 ## Problems to Practice
 
 - [x] [Find the Middle Index in Array](https://leetcode.com/problems/find-the-middle-index-in-array/) - Easy
-- [x] [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) - Medium 
-- [ ] [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) - Medium 
+- [x] [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) - Medium
+- [x] [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Number of Ways to Split Array](https://leetcode.com/problems/number-of-ways-to-split-array/) - Medium
 - [x] [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) - Medium ⭐ **IMPORTANT** ⭐
 

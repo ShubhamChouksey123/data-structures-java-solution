@@ -66,9 +66,9 @@ Track your overall progress: `0/160+ problems completed`
 **Problems (5)**:
 - [x] [Merge Intervals](https://leetcode.com/problems/merge-intervals/) - Medium
 - [x] [Insert Interval](https://leetcode.com/problems/insert-interval/) - Medium
-- [x] [My Calendar II](https://leetcode.com/problems/my-calendar-ii/) - Medium
+- [ ] [My Calendar II](https://leetcode.com/problems/my-calendar-ii/) - Medium
 - [x] [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/) - Medium
-- [ ] [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) - Medium
+- [x] [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) - Medium
 
 ---
 
@@ -79,9 +79,9 @@ Track your overall progress: `0/160+ problems completed`
 **Problems (5)**:
 - [x] [Find the Middle Index in Array](https://leetcode.com/problems/find-the-middle-index-in-array/) - Easy
 - [x] [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) - Medium
-- [ ] [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) - Medium
+- [x] [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) - Medium
 - [x] [Number of Ways to Split Array](https://leetcode.com/problems/number-of-ways-to-split-array/) - Medium
-- [ ] [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) - Medium
+- [x] [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) - Medium
 
 ---
 ## 4. Sliding Window
