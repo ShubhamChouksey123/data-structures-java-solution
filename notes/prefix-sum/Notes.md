@@ -131,7 +131,7 @@ for (int i = 0; i < n; i++) {
 - [x] [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) - Medium 
 - [ ] [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) - Medium 
 - [x] [Number of Ways to Split Array](https://leetcode.com/problems/number-of-ways-to-split-array/) - Medium
-- [ ] [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) - Medium ⭐ **IMPORTANT** ⭐
 
 ---
 
