@@ -89,10 +89,10 @@ Track your overall progress: `0/160+ problems completed`
 **Description**: A sliding window is a subarray or substring that moves over data to solve problems efficiently in linear time.
 
 ### Fixed Size Window (6 problems)
-- [ ] [Maximum Sum of Distinct Subarrays With Length K](https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/) - Medium
-- [ ] [Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold](https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/) - Medium
-- [ ] [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) - Medium
-- [ ] [Permutation in String](https://leetcode.com/problems/permutation-in-string/) - Medium
+- [x] [Maximum Sum of Distinct Subarrays With Length K](https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/) - Medium
+- [x] [Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold](https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/) - Medium
+- [x] [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) - Medium
+- [x] [Permutation in String](https://leetcode.com/problems/permutation-in-string/) - Medium
 - [ ] [Sliding Subarray Beauty](https://leetcode.com/problems/sliding-subarray-beauty/) - Medium
 - [ ] [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) - Hard
 
