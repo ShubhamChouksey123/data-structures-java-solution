@@ -8,6 +8,7 @@
 
 **Key Characteristics**:
 - Elements ordered by priority (natural order or custom comparator)
+- **Allows duplicate elements** ✅
 - **NOT thread-safe** (use `PriorityBlockingQueue` for thread-safe)
 - Does NOT allow `null` elements
 - Not sorted - only guarantees top element is min/max
@@ -175,6 +176,13 @@ PriorityQueue<Integer> minHeap = new PriorityQueue<>(); // Right half
 ## Important Gotchas
 
 ```java
+// ✅ CORRECT - Duplicates are allowed
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+pq.offer(5);
+pq.offer(5);
+pq.offer(5);
+System.out.println(pq.size());  // 3 (duplicates stored)
+
 // ❌ WRONG - PriorityQueue is NOT fully sorted
 PriorityQueue<Integer> pq = new PriorityQueue<>(Arrays.asList(5, 2, 8, 1));
 // Don't iterate and expect sorted order!
@@ -248,6 +256,7 @@ pq.clear()       // Remove all elements
 
 ### Remember
 - **Default is min-heap** (smallest at top)
+- **Allows duplicate elements** ✅
 - Use `Collections.reverseOrder()` for max-heap
 - **Not sorted** - only top element guaranteed
 - `offer()` over `add()`, `poll()` over `remove()`
