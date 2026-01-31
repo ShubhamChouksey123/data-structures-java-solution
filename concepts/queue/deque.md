@@ -1,76 +1,73 @@
 # Java Deque (Double-Ended Queue) Concepts
 
-## What is Deque?
+## 2. What is Deque?
 
-**Type**: Double-ended queue - supports insertion and removal from both ends
-**Interface**: `java.util.Deque` (extends Queue)
-**Main Implementation**: **ArrayDeque** (recommended)
+**Type**: Double-ended queue interface
+**Package**: `java.util.Deque` (extends Queue)
+**Main Implementation**: ArrayDeque (recommended)
 
 **Key Characteristics**:
-- Can operate as **Queue** (FIFO) or **Stack** (LIFO)
-- Add/remove from **both front and back** in O(1)
+- **Operations at both ends** - add/remove from front and back in O(1)
+- **Can be Queue (FIFO) or Stack (LIFO)** ⭐
 - **Allows duplicates** ✅
 - **Does NOT allow null** (ArrayDeque)
-- **Not thread-safe** (use `ConcurrentLinkedDeque` for thread-safe)
+- **Not thread-safe** - use ConcurrentLinkedDeque for thread-safe
 
 ---
 
-## Deque vs Queue vs Stack
+## 3. Time & Space Complexity
 
-| Feature | Queue | Stack | Deque |
-|---------|-------|-------|-------|
-| **Add at front** | ❌ | ✅ (top) | ✅ |
-| **Add at back** | ✅ | ❌ | ✅ |
-| **Remove from front** | ✅ | ❌ | ✅ |
-| **Remove from back** | ❌ | ✅ (top) | ✅ |
-| **Use case** | FIFO only | LIFO only | **Both** ⭐ |
+| Operation | ArrayDeque | LinkedList | Notes |
+|-----------|------------|------------|-------|
+| **offerFirst (add front)** | O(1) | O(1) | Add to front |
+| **offerLast (add back)** | O(1) | O(1) | Add to back |
+| **pollFirst (remove front)** | O(1) | O(1) | Remove from front |
+| **pollLast (remove back)** | O(1) | O(1) | Remove from back |
+| **peekFirst (view front)** | O(1) | O(1) | View front |
+| **peekLast (view back)** | O(1) | O(1) | View back |
+| **size** | O(1) | O(1) | Get size |
+| **contains** | O(n) | O(n) | Linear search |
 
-**Key Insight**: Deque is more flexible - can replace both Queue and Stack!
+**Space**: O(n)
 
----
-
-## Deque Method Categories
-
-Deque provides **three sets of methods** for the same operations:
-
-### 1. Deque-specific Methods (Recommended)
-
-| Operation | First Element (Front) | Last Element (Back) |
-|-----------|----------------------|---------------------|
-| **Insert** | `offerFirst(e)` | `offerLast(e)` |
-| **Remove** | `pollFirst()` | `pollLast()` |
-| **Examine** | `peekFirst()` | `peekLast()` |
-
-**Returns**: Special value (false/null) on failure
+**Recommendation**: Use **ArrayDeque** (faster, better cache locality)
 
 ---
 
-### 2. Queue Methods (For Queue Behavior)
+## 4. Common Operations & Methods
 
-| Queue Method | Equivalent Deque Method |
-|--------------|------------------------|
-| `offer(e)` | `offerLast(e)` - add to back |
-| `poll()` | `pollFirst()` - remove from front |
-| `peek()` | `peekFirst()` - view front |
+### Deque-Specific Methods (Recommended)
+
+| Operation | Front (First) | Back (Last) | Notes |
+|-----------|--------------|-------------|-------|
+| **Add** | `offerFirst(e)` | `offerLast(e)` | Returns boolean |
+| **Remove** | `pollFirst()` | `pollLast()` | Returns null if empty |
+| **View** | `peekFirst()` | `peekLast()` | Returns null if empty |
+
+### Queue Methods (FIFO Behavior)
+
+| Operation | Deque Method | Equivalent To |
+|-----------|--------------|---------------|
+| **Enqueue** | `offer(e)` | `offerLast(e)` |
+| **Dequeue** | `poll()` | `pollFirst()` |
+| **Peek** | `peek()` | `peekFirst()` |
+
+### Stack Methods (LIFO Behavior)
+
+| Operation | Deque Method | Equivalent To |
+|-----------|--------------|---------------|
+| **Push** | `push(e)` | `addFirst(e)` |
+| **Pop** | `pop()` | `removeFirst()` |
+| **Peek** | `peek()` | `peekFirst()` |
+
+**Best Practice**: Use `offerFirst/offerLast` and `pollFirst/pollLast` for clarity when using Deque operations.
 
 ---
 
-### 3. Stack Methods (For Stack Behavior)
-
-| Stack Method | Equivalent Deque Method |
-|--------------|------------------------|
-| `push(e)` | `addFirst(e)` - add to front |
-| `pop()` | `removeFirst()` - remove from front |
-| `peek()` | `peekFirst()` - view front |
-
----
-
-## ArrayDeque (Primary Implementation)
-
-**Implementation**: Resizable circular array
-**Recommended**: Use ArrayDeque for all Deque operations
+## 5. Core Characteristics/Creation
 
 ```java
+// Recommended: ArrayDeque
 Deque<Integer> deque = new ArrayDeque<>();
 
 // Add elements
@@ -86,341 +83,89 @@ deque.peekLast();       // 3 (back)
 // Remove elements
 deque.pollFirst();      // 0 → [1, 2, 3]
 deque.pollLast();       // 3 → [1, 2]
-```
 
-**Time Complexity**: All operations O(1) amortized
-
-**Space**: O(n)
-
----
-
-## Complete Method Reference
-
-### Adding Elements
-
-```java
-Deque<Integer> deque = new ArrayDeque<>();
-
-// Add to front (head)
-deque.offerFirst(1);    // true/false - preferred
-deque.addFirst(2);      // void - throws exception if fails
-deque.push(3);          // void - stack operation (same as addFirst)
-
-// Add to back (tail)
-deque.offerLast(4);     // true/false - preferred
-deque.addLast(5);       // void - throws exception if fails
-deque.offer(6);         // true/false - queue operation (same as offerLast)
-deque.add(7);           // true - throws exception if fails
-```
-
-### Removing Elements
-
-```java
-// Remove from front
-int x = deque.pollFirst();     // null if empty - preferred
-int x = deque.removeFirst();   // exception if empty
-int x = deque.poll();          // null if empty - queue operation
-int x = deque.remove();        // exception if empty
-int x = deque.pop();           // exception if empty - stack operation
-
-// Remove from back
-int x = deque.pollLast();      // null if empty - preferred
-int x = deque.removeLast();    // exception if empty
-```
-
-### Examining Elements
-
-```java
-// View front
-int x = deque.peekFirst();     // null if empty - preferred
-int x = deque.getFirst();      // exception if empty
-int x = deque.peek();          // null if empty - queue operation
-int x = deque.element();       // exception if empty
-
-// View back
-int x = deque.peekLast();      // null if empty - preferred
-int x = deque.getLast();       // exception if empty
-```
-
-### Other Operations
-
-```java
+// Size and empty check
 int size = deque.size();
 boolean empty = deque.isEmpty();
-deque.clear();
-boolean contains = deque.contains(5);
 ```
 
----
-
-## Using Deque as Queue (FIFO)
-
+### As Queue (FIFO)
 ```java
 Deque<Integer> queue = new ArrayDeque<>();
-
-// Add to back, remove from front
-queue.offerLast(1);     // or queue.offer(1)
+queue.offerLast(1);     // Add to back
 queue.offerLast(2);
-queue.offerLast(3);
-
-queue.pollFirst();      // 1 - or queue.poll()
-queue.pollFirst();      // 2
+queue.pollFirst();      // 1 (remove from front)
 ```
 
-**Pattern**: `offerLast()` + `pollFirst()` = FIFO
-
----
-
-## Using Deque as Stack (LIFO)
-
+### As Stack (LIFO)
 ```java
 Deque<Integer> stack = new ArrayDeque<>();
-
-// Add to front, remove from front
-stack.push(1);          // or stack.offerFirst(1)
+stack.push(1);          // Add to front
 stack.push(2);
-stack.push(3);
-
-stack.pop();            // 3 - or stack.pollFirst()
-stack.pop();            // 2
-stack.peek();           // 1
-```
-
-**Pattern**: `push()` / `offerFirst()` + `pop()` / `pollFirst()` = LIFO
-
-**Note**: Prefer Deque over Stack class (Stack is legacy and synchronized)
-
----
-
-## Common Patterns & Use Cases
-
-### Pattern 1: Sliding Window Maximum ⭐ **IMPORTANT**
-
-**Use Case**: Find maximum in each window of size k
-
-**Key Technique**: Monotonic decreasing deque
-
-```java
-Deque<Integer> deque = new ArrayDeque<>();  // Stores indices
-int[] result = new int[n - k + 1];
-
-for (int i = 0; i < n; i++) {
-    // Remove elements outside window
-    while (!deque.isEmpty() && deque.peekFirst() <= i - k) {
-        deque.pollFirst();
-    }
-
-    // Remove smaller elements (maintain decreasing order)
-    while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
-        deque.pollLast();
-    }
-
-    deque.offerLast(i);
-
-    // Window is ready
-    if (i >= k - 1) {
-        result[i - k + 1] = nums[deque.peekFirst()];
-    }
-}
-```
-
-**Complexity**: O(n) time, O(k) space
-
-**Why Deque?**: Need to remove from both ends
-
----
-
-### Pattern 2: Sliding Window Minimum
-
-**Same as maximum, but maintain increasing order**:
-
-```java
-// Remove larger elements (maintain increasing order)
-while (!deque.isEmpty() && nums[deque.peekLast()] > nums[i]) {
-    deque.pollLast();
-}
+stack.pop();            // 2 (remove from front)
 ```
 
 ---
 
-### Pattern 3: Valid Parentheses with Indices
+## 6. Comparison with Similar Structures
 
-**Use Case**: Track positions while validating
+| Feature | ArrayDeque | LinkedList | Stack (legacy) |
+|---------|-----------|------------|----------------|
+| **Implementation** | Circular array | Doubly linked list | Array-based |
+| **Performance** | Fast ⭐ | Slower | Medium |
+| **Memory** | Less overhead | More overhead | Medium |
+| **Null elements** | ❌ Not allowed | ✅ Allowed | ✅ Allowed |
+| **Thread-safe** | No | No | Yes (synchronized) |
+| **Recommended** | Yes ⭐ | Only if nulls needed | No (legacy) |
 
-```java
-Deque<Integer> stack = new ArrayDeque<>();
-stack.push(-1);  // Base for valid substring
+**When to Use ArrayDeque**: Default choice (faster than LinkedList, replaces Stack)
 
-for (int i = 0; i < s.length(); i++) {
-    if (s.charAt(i) == '(') {
-        stack.push(i);
-    } else {
-        stack.pop();
-        if (stack.isEmpty()) {
-            stack.push(i);
-        } else {
-            maxLen = Math.max(maxLen, i - stack.peek());
-        }
-    }
-}
-```
+**When to Use LinkedList**: Need null elements or List interface
+
+**When NOT to Use**: Never use legacy Stack class - use ArrayDeque instead
 
 ---
 
-### Pattern 4: Implement Queue using Deque
+## 7. Common Patterns & Use Cases
 
-```java
-class MyQueue {
-    Deque<Integer> deque = new ArrayDeque<>();
 
-    void enqueue(int x) {
-        deque.offerLast(x);    // Add to back
-    }
 
-    int dequeue() {
-        return deque.pollFirst();  // Remove from front
-    }
+## 8. Common Gotchas & Best Practices
 
-    int peek() {
-        return deque.peekFirst();
-    }
-}
-```
+### 1. Null Elements Not Allowed
 
----
-
-### Pattern 5: Implement Stack using Deque
-
-```java
-class MyStack {
-    Deque<Integer> deque = new ArrayDeque<>();
-
-    void push(int x) {
-        deque.offerFirst(x);    // Add to front
-    }
-
-    int pop() {
-        return deque.pollFirst();  // Remove from front
-    }
-
-    int peek() {
-        return deque.peekFirst();
-    }
-}
-```
-
----
-
-### Pattern 6: LRU Cache (with LinkedHashMap + Deque concept)
-
-**Use Case**: Track recently used items with access from both ends
-
----
-
-## Monotonic Deque Pattern ⭐ **IMPORTANT**
-
-**Concept**: Maintain elements in monotonic (increasing/decreasing) order
-
-### Monotonic Decreasing Deque
-
-**Use Case**: Track maximum in sliding window
-
-**Invariant**: Elements in deque are in **decreasing** order
-
-```java
-Deque<Integer> deque = new ArrayDeque<>();
-
-// When adding element x:
-while (!deque.isEmpty() && deque.peekLast() < x) {
-    deque.pollLast();  // Remove smaller elements
-}
-deque.offerLast(x);
-
-// Front element is always maximum
-int max = deque.peekFirst();
-```
-
-### Monotonic Increasing Deque
-
-**Use Case**: Track minimum in sliding window
-
-**Invariant**: Elements in deque are in **increasing** order
-
-```java
-Deque<Integer> deque = new ArrayDeque<>();
-
-// When adding element x:
-while (!deque.isEmpty() && deque.peekLast() > x) {
-    deque.pollLast();  // Remove larger elements
-}
-deque.offerLast(x);
-
-// Front element is always minimum
-int min = deque.peekFirst();
-```
-
----
-
-## ArrayDeque vs LinkedList as Deque
-
-| Feature | ArrayDeque | LinkedList |
-|---------|-----------|------------|
-| **Implementation** | Circular array | Doubly linked list |
-| **Performance** | **Faster** ⭐ | Slower |
-| **Memory** | Less overhead | More overhead (pointers) |
-| **Null elements** | **Not allowed** | Allowed |
-| **Random access** | O(n) | O(n) |
-| **Cache locality** | **Better** | Poor |
-| **Recommended** | **Yes** ⭐ | Only if nulls needed |
-
-**Recommendation**: Always use **ArrayDeque** unless you need null elements.
-
----
-
-## Common Deque Problems
-
-### Monotonic Deque
-- [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) - Hard ⭐
-- Sliding Window Median
-- Shortest Subarray with Sum at Least K
-
-### Stack Problems (using Deque)
-- Valid Parentheses
-- Daily Temperatures
-- Next Greater Element
-
-### Queue Problems (using Deque)
-- Design Circular Deque
-- Moving Average from Data Stream
-
-### Design
-- LRU Cache (concept with Deque)
-- Design Browser History
-
----
-
-## Important Gotchas
-
-### 1. Null Elements
-
-**❌ WRONG** (ArrayDeque):
+**❌ WRONG**:
 ```java
 Deque<Integer> deque = new ArrayDeque<>();
 deque.offerFirst(null);  // NullPointerException
 ```
 
-### 2. Exception vs Return Value
+**✅ CORRECT**:
+```java
+// Use LinkedList if nulls needed (rare)
+Deque<Integer> deque = new LinkedList<>();
+deque.offerFirst(null);  // Works
+```
 
-**Prefer methods that return special values**:
+---
 
-| Throws Exception | Returns Special Value |
-|------------------|----------------------|
-| `addFirst(e)` | ✅ `offerFirst(e)` |
-| `addLast(e)` | ✅ `offerLast(e)` |
-| `removeFirst()` | ✅ `pollFirst()` |
-| `removeLast()` | ✅ `pollLast()` |
-| `getFirst()` | ✅ `peekFirst()` |
-| `getLast()` | ✅ `peekLast()` |
+### 2. Use Specific Method Names
+
+**❌ UNCLEAR**:
+```java
+deque.offer(x);        // Which end? (actually offerLast)
+deque.poll();          // Which end? (actually pollFirst)
+```
+
+**✅ CLEAR**:
+```java
+deque.offerFirst(x);   // Explicit: add to front
+deque.offerLast(x);    // Explicit: add to back
+deque.pollFirst();     // Explicit: remove from front
+deque.pollLast();      // Explicit: remove from back
+```
+
+---
 
 ### 3. Don't Use Legacy Stack Class
 
@@ -436,61 +181,69 @@ stack.push(1);
 stack.pop();
 ```
 
-### 4. Clear Method Naming
+---
 
-**Be explicit about which end**:
-```java
-deque.offerFirst(x);   // Clear: add to front
-deque.offerLast(x);    // Clear: add to back
+### 4. Monotonic Deque Order Confusion
 
-// Avoid ambiguous methods when using as Deque
-deque.offer(x);        // Same as offerLast, but less clear
-```
+**Remember**:
+- **Decreasing deque** → track **maximum**
+- **Increasing deque** → track **minimum**
 
 ---
 
-## Time Complexity Summary
+## 9. Interview Tips
 
-**ArrayDeque (All O(1) amortized)**:
-```
-offerFirst(e)      - O(1)
-offerLast(e)       - O(1)
-pollFirst()        - O(1)
-pollLast()         - O(1)
-peekFirst()        - O(1)
-peekLast()         - O(1)
-size()             - O(1)
-isEmpty()          - O(1)
-contains(e)        - O(n)
-remove(e)          - O(n)
-```
+### When to Use Deque
+✅ Sliding window maximum/minimum
+✅ Monotonic deque patterns
+✅ Need operations at both ends
+✅ Replace Stack class (use as LIFO)
+✅ Replace Queue (use as FIFO)
+
+### When NOT to Use Deque
+❌ Only need FIFO → Use Queue<ArrayDeque>
+❌ Only need LIFO → Use Deque as Stack
+❌ Need random access → Use List
+
+### Remember
+- **ArrayDeque is fastest** - always use by default
+- **Replaces both Queue and Stack** - more flexible
+- **Deque does NOT allow null** in ArrayDeque
+- **Monotonic deque** is key pattern for sliding window problems
+- **Sliding window max** uses monotonic **decreasing** deque
+- **Sliding window min** uses monotonic **increasing** deque
+- Use **offerFirst/offerLast** for clarity
+
+### Time Complexity Quick Check
+- All add/remove/peek operations: O(1)
+- Sliding window maximum: O(n) using monotonic deque
 
 ---
 
-## Quick Reference
+## 10. Quick Reference
 
 ### Creation
 ```java
 // Recommended
 Deque<Integer> deque = new ArrayDeque<>();
 
-// With initial capacity
+// With capacity
 Deque<Integer> deque = new ArrayDeque<>(100);
 ```
 
 ### Essential Operations
 ```java
 // Add
-deque.offerFirst(x)    // Add to front (preferred)
-deque.offerLast(x)     // Add to back (preferred)
+deque.offerFirst(x)    // Add to front
+deque.offerLast(x)     // Add to back
 
 // Remove
-deque.pollFirst()      // Remove from front (preferred)
-deque.pollLast()       // Remove from back (preferred)
+deque.pollFirst()      // Remove from front
+deque.pollLast()       // Remove from back
 
 // View
-deque.peekFirst()      // View front (preferred)
-deque.peekLast()       // View back (preferred)
+deque.peekFirst()      // View front
+deque.peekLast()       // View back
 
 // Size
 deque.size()
@@ -501,27 +254,24 @@ deque.isEmpty()
 ```java
 deque.offerLast(x);    // Enqueue
 deque.pollFirst();     // Dequeue
-deque.peekFirst();     // Peek
 ```
 
 ### As Stack (LIFO)
 ```java
-deque.push(x);         // Push (same as offerFirst)
-deque.pop();           // Pop (same as pollFirst)
-deque.peek();          // Peek (same as peekFirst)
+deque.push(x);         // Push (or offerFirst)
+deque.pop();           // Pop (or pollFirst)
 ```
+
 
 ### Monotonic Deque Template
 ```java
-Deque<Integer> deque = new ArrayDeque<>();
-
-// Monotonic decreasing (for maximum)
+// Decreasing (for max)
 while (!deque.isEmpty() && deque.peekLast() < current) {
     deque.pollLast();
 }
 deque.offerLast(current);
 
-// Monotonic increasing (for minimum)
+// Increasing (for min)
 while (!deque.isEmpty() && deque.peekLast() > current) {
     deque.pollLast();
 }
@@ -530,38 +280,6 @@ deque.offerLast(current);
 
 ---
 
-## Interview Tips
+## 11. Key Insight
 
-### When to Use Deque
-✅ Need operations on both ends (front and back)
-✅ Sliding window maximum/minimum problems
-✅ Monotonic deque patterns
-✅ Replacing legacy Stack class
-✅ More flexible than Queue or Stack alone
-
-### Remember
-- **ArrayDeque is the best choice** for Deque operations
-- Deque can replace **both Queue and Stack**
-- Use **offer/poll/peek methods** (return special values)
-- Deque **does NOT allow null** in ArrayDeque
-- **Monotonic deque** is powerful for sliding window problems
-- Prefer **Deque over Stack class** (Stack is legacy)
-
-### Method Cheat Sheet
-```
-Front (First)          Operation          Back (Last)
--------------          ---------          -----------
-offerFirst(e)    ←     ADD        →       offerLast(e)
-pollFirst()      ←     REMOVE     →       pollLast()
-peekFirst()      ←     VIEW       →       peekLast()
-```
-
-### Common Patterns
-1. **Sliding Window Max/Min**: Monotonic deque
-2. **Stack Replacement**: Use push/pop methods
-3. **Queue Replacement**: Use offerLast/pollFirst
-4. **Palindrome Check**: Compare first and last
-
----
-
-**Key Insight**: Deque is your Swiss Army knife - it can efficiently handle operations that require access to both ends, making it perfect for sliding window, monotonic patterns, and replacing both Queue and Stack!
+**Deque is your Swiss Army knife** - it efficiently handles operations at both ends, making it perfect for **sliding window problems** (monotonic deque), and it **replaces both Queue and Stack**! Remember: **decreasing deque for max, increasing deque for min**!
