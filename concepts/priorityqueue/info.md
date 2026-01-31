@@ -1,85 +1,92 @@
 # Java PriorityQueue (Heap) Concepts
 
-## What is PriorityQueue?
+## 2. What is PriorityQueue?
 
 **Type**: Min-heap by default (smallest element at top)
-**Implementation**: Binary heap using array
 **Package**: `java.util.PriorityQueue`
+**Implementation**: Binary heap using array
 
 **Key Characteristics**:
-- Elements ordered by priority (natural order or custom comparator)
-- **Allows duplicate elements** ✅
-- **NOT thread-safe** (use `PriorityBlockingQueue` for thread-safe)
-- Does NOT allow `null` elements
-- Not sorted - only guarantees top element is min/max
+- **Priority ordering** - natural order or custom comparator
+- **Allows duplicates** ✅
+- **Does NOT allow null** ❌
+- **NOT thread-safe** - use PriorityBlockingQueue for thread-safe
+- **Not sorted** - only top element is guaranteed min/max
 
 ---
 
-## Time Complexity
+## 3. Time & Space Complexity
 
 | Operation | Complexity | Notes |
 |-----------|------------|-------|
-| **add(e) / offer(e)** | O(log n) | Insert element |
-| **poll() / remove()** | O(log n) | Remove top element |
-| **peek() / element()** | O(1) | View top element |
+| **offer/add** | O(log n) | Insert element |
+| **poll/remove** | O(log n) | Remove top element |
+| **peek/element** | O(1) | View top element |
 | **remove(Object)** | O(n) | Remove specific element |
 | **contains(Object)** | O(n) | Linear search |
-| **size()** | O(1) | Get size |
+| **size** | O(1) | Get size |
 
 **Space**: O(n)
 
----
-
-## Basic Operations
-
-```java
-// Create min-heap (default)
-PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-
-// Create max-heap (reverse order)
-PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-
-// Add elements
-pq.add(5);           // Throws exception if fails
-pq.offer(10);        // Returns false if fails (prefer this)
-
-// View top element
-int top = pq.peek();     // Returns null if empty
-int top = pq.element();  // Throws exception if empty
-
-// Remove and return top
-int top = pq.poll();     // Returns null if empty
-int top = pq.remove();   // Throws exception if empty
-
-// Size and empty check
-int size = pq.size();
-boolean empty = pq.isEmpty();
-```
+**Important**: Insertion and removal are O(log n), not O(1) like regular queues
 
 ---
 
-## Min-Heap vs Max-Heap
+## 4. Common Operations & Methods
+
+### PriorityQueue Methods
+
+| Operation | Method | Complexity | Notes |
+|-----------|--------|------------|-------|
+| **Add element** | `pq.offer(e)` | O(log n) | Returns false if fails (preferred) |
+| **Add element** | `pq.add(e)` | O(log n) | Throws exception if fails |
+| **Remove top** | `pq.poll()` | O(log n) | Returns null if empty (preferred) |
+| **Remove top** | `pq.remove()` | O(log n) | Throws exception if empty |
+| **View top** | `pq.peek()` | O(1) | Returns null if empty (preferred) |
+| **View top** | `pq.element()` | O(1) | Throws exception if empty |
+| **Get size** | `pq.size()` | O(1) | Number of elements |
+| **Check empty** | `pq.isEmpty()` | O(1) | true if empty |
+| **Clear all** | `pq.clear()` | O(n) | Remove all elements |
+
+**Best Practice**: Use `offer()`, `poll()`, `peek()` - they return special values instead of throwing exceptions.
+
+---
+
+## 5. Core Characteristics/Creation
 
 ```java
-// MIN-HEAP (default) - smallest element at top
+// MIN-HEAP (default) - smallest at top
 PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-minHeap.addAll(Arrays.asList(5, 2, 8, 1));
-minHeap.peek();  // 1 (smallest)
+minHeap.offer(5);
+minHeap.offer(2);
+minHeap.offer(8);
+minHeap.peek();  // 2 (smallest)
 
-// MAX-HEAP - largest element at top
+// MAX-HEAP - largest at top
 PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-maxHeap.addAll(Arrays.asList(5, 2, 8, 1));
+maxHeap.offer(5);
+maxHeap.offer(2);
+maxHeap.offer(8);
 maxHeap.peek();  // 8 (largest)
 
 // Alternative max-heap syntax
 PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
+
+// Custom comparator (avoid overflow)
+PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> Integer.compare(a, b));
+
+// With initial capacity
+PriorityQueue<Integer> pq = new PriorityQueue<>(100);
+
+// Basic operations
+pq.offer(10);        // Add element
+int top = pq.peek(); // View top (null if empty)
+int val = pq.poll(); // Remove top (null if empty)
+int size = pq.size();
+boolean empty = pq.isEmpty();
 ```
 
----
-
-## Custom Comparators
-
-### For Custom Objects
+### Custom Comparators
 
 ```java
 class Task {
@@ -93,36 +100,51 @@ PriorityQueue<Task> pq = new PriorityQueue<>((a, b) -> a.priority - b.priority);
 // Sort by priority (descending)
 PriorityQueue<Task> pq = new PriorityQueue<>((a, b) -> b.priority - a.priority);
 
-// Multiple criteria
-PriorityQueue<Task> pq = new PriorityQueue<>((a, b) -> {
-    if (a.priority != b.priority) return a.priority - b.priority;
-    return a.name.compareTo(b.name);
-});
-```
-
-### Common Patterns
-
-```java
-// Sort pairs/arrays by first element
+// Sort arrays by first element
 PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+
+// Sort arrays by multiple criteria (first element, then second)
+PriorityQueue<int[]> pq = new PriorityQueue<>(
+    (a, b) -> {
+        if (a[0] != b[0]) {
+            return Integer.compare(a[0], b[0]);
+        }
+        return Integer.compare(a[1], b[1]);
+    }
+);
 
 // Sort by absolute value
 PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> Math.abs(a) - Math.abs(b));
-
-// Sort strings by length
-PriorityQueue<String> pq = new PriorityQueue<>((a, b) -> a.length() - b.length());
 ```
 
 ---
 
-## Common Patterns & Use Cases
+## 6. Comparison with Similar Structures
 
-### 1. Top K Elements
+| Feature | PriorityQueue | TreeSet | ArrayDeque |
+|---------|---------------|---------|------------|
+| **Order** | Priority (heap) | Sorted | FIFO/LIFO |
+| **Duplicates** | ✅ Allowed | ❌ Not allowed | ✅ Allowed |
+| **Top element** | O(1) | O(log n) | O(1) |
+| **Add/Remove** | O(log n) | O(log n) | O(1) |
+| **Null** | ❌ Not allowed | ❌ Not allowed | ❌ Not allowed |
+| **Use case** | Priority-based | Sorted + unique | FIFO/LIFO |
 
-**Pattern**: Use max-heap of size K (or min-heap for K smallest)
+**When to Use PriorityQueue**: Need priority-based ordering, Kth largest/smallest, top K elements
+
+**When to Use TreeSet**: Need sorted order + no duplicates
+
+**When to Use ArrayDeque**: Need FIFO/LIFO without priority
+
+---
+
+## 7. Common Patterns & Use Cases
+
+### Pattern 1: Top K Elements
+
+**Use Case**: Find K largest elements
 
 ```java
-// Find K largest elements
 PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 for (int num : nums) {
     minHeap.offer(num);
@@ -133,35 +155,55 @@ for (int num : nums) {
 // minHeap contains K largest elements
 ```
 
-### 2. Kth Largest/Smallest
+**Complexity**: O(n log k)
 
+**Key Insight**: For K largest, use **min-heap** of size K
+
+---
+
+### Pattern 2: Kth Largest/Smallest
+
+**Kth Largest**:
 ```java
-// Kth largest - use min-heap of size K
-PriorityQueue<Integer> pq = new PriorityQueue<>();
+PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 for (int num : nums) {
-    pq.offer(num);
-    if (pq.size() > k) pq.poll();
+    minHeap.offer(num);
+    if (minHeap.size() > k) minHeap.poll();
 }
-int kthLargest = pq.peek();
-
-// Kth smallest - use max-heap of size K
-PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
-for (int num : nums) {
-    pq.offer(num);
-    if (pq.size() > k) pq.poll();
-}
-int kthSmallest = pq.peek();
+int kthLargest = minHeap.peek();
 ```
 
-### 3. Merge K Sorted Lists/Arrays
+**Kth Smallest**:
+```java
+PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+for (int num : nums) {
+    maxHeap.offer(num);
+    if (maxHeap.size() > k) maxHeap.poll();
+}
+int kthSmallest = maxHeap.peek();
+```
+
+**Complexity**: O(n log k)
+
+---
+
+### Pattern 3: Merge K Sorted Lists/Arrays
+
+**Use Case**: Merge multiple sorted lists efficiently
 
 ```java
-// Use min-heap to track smallest element from each list
 PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
-// Add: {value, listIndex, elementIndex}
+// Add {value, listIndex, elementIndex}
+// Poll smallest, add next from same list
 ```
 
-### 4. Running Median (Two Heaps)
+**Complexity**: O(n log k) where n = total elements, k = number of lists
+
+---
+
+### Pattern 4: Running Median (Two Heaps)
+
+**Use Case**: Find median in stream of numbers
 
 ```java
 PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder()); // Left half
@@ -171,105 +213,169 @@ PriorityQueue<Integer> minHeap = new PriorityQueue<>(); // Right half
 // Median = maxHeap.peek() or average of both tops
 ```
 
+**Complexity**: O(log n) per insertion
+
 ---
 
-## Important Gotchas
+## 8. Common Gotchas & Best Practices
 
+### 1. Not Fully Sorted
+
+**❌ WRONG**:
 ```java
-// ✅ CORRECT - Duplicates are allowed
-PriorityQueue<Integer> pq = new PriorityQueue<>();
-pq.offer(5);
-pq.offer(5);
-pq.offer(5);
-System.out.println(pq.size());  // 3 (duplicates stored)
-
-// ❌ WRONG - PriorityQueue is NOT fully sorted
 PriorityQueue<Integer> pq = new PriorityQueue<>(Arrays.asList(5, 2, 8, 1));
-// Don't iterate and expect sorted order!
+// Don't iterate expecting sorted order!
 for (int x : pq) { /* NOT guaranteed sorted */ }
+```
 
-// ✅ CORRECT - Poll elements to get sorted order
+**✅ CORRECT**:
+```java
+// Poll elements to get sorted order
 while (!pq.isEmpty()) {
-    System.out.println(pq.poll());  // Sorted order
+    System.out.println(pq.poll());  // Sorted: 1, 2, 5, 8
 }
-
-// ❌ WRONG - null elements
-pq.add(null);  // NullPointerException
-
-// ❌ WRONG - Comparator overflow
-PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> a - b);
-// Can overflow if a and b have large values with different signs
-
-// ✅ CORRECT - Use Integer.compare()
-PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> Integer.compare(a, b));
-// Or simply: new PriorityQueue<>() for natural order
 ```
 
 ---
 
-## Quick Reference
+### 2. Null Elements Not Allowed
+
+**❌ WRONG**:
+```java
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+pq.offer(null);  // NullPointerException
+```
+
+**✅ CORRECT**:
+```java
+// Check before adding
+if (value != null) {
+    pq.offer(value);
+}
+```
+
+---
+
+### 3. Comparator Integer Overflow
+
+**❌ WRONG**:
+```java
+PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> a - b);
+// Can overflow if a and b have large different signs
+```
+
+**✅ CORRECT**:
+```java
+PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> Integer.compare(a, b));
+// Or use default: new PriorityQueue<>()
+```
+
+---
+
+### 4. Heap Type Confusion
+
+**Remember**:
+- **K largest** → use **min-heap** of size K
+- **K smallest** → use **max-heap** of size K
+
+---
+
+## 9. Interview Tips
+
+### When to Use PriorityQueue
+✅ Finding Kth largest/smallest element
+✅ Top K elements
+✅ Merge K sorted arrays/lists
+✅ Running median (two heaps)
+✅ Dijkstra's shortest path
+✅ Task scheduling by priority
+
+### When NOT to Use PriorityQueue
+❌ Need fully sorted order → Use TreeSet or sort array
+❌ Need FIFO without priority → Use Queue (ArrayDeque)
+❌ Need fast lookup → Use HashSet
+
+### Remember
+- **Default is min-heap** (smallest at top)
+- Use `Collections.reverseOrder()` for max-heap
+- **Duplicates allowed** ✅
+- **PriorityQueue is NOT sorted** - only top is guaranteed
+- **Top K largest** → use **min-heap** of size K
+- **Top K smallest** → use **max-heap** of size K
+- Use `Integer.compare(a, b)` to avoid overflow
+- Use `offer/poll/peek` over `add/remove/element`
+
+### Time Complexity Quick Check
+- Add/Remove: O(log n)
+- Peek: O(1)
+- Top K: O(n log k)
+- Merge K lists: O(n log k)
+
+---
+
+## 10. Quick Reference
 
 ### Creation
 ```java
-// Min-heap
+// Min-heap (default)
 PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 
 // Max-heap
 PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
 
-// Custom comparator
+// Custom comparator (avoid overflow)
 PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> Integer.compare(a, b));
 
-// With initial capacity
+// With capacity
 PriorityQueue<Integer> pq = new PriorityQueue<>(100);
 ```
 
 ### Essential Operations
 ```java
 pq.offer(x)      // Add element (preferred)
-pq.poll()        // Remove and return top (null if empty)
+pq.poll()        // Remove top (null if empty)
 pq.peek()        // View top (null if empty)
 pq.size()        // Get size
 pq.isEmpty()     // Check if empty
-pq.clear()       // Remove all elements
+pq.clear()       // Remove all
 ```
 
-### Common Patterns
-- **Top K elements**: Min-heap of size K (for K largest)
-- **Kth largest**: Min-heap of size K, answer = `peek()`
-- **Kth smallest**: Max-heap of size K, answer = `peek()`
-- **Merge K lists**: Min-heap with `{value, source}`
-- **Running median**: Two heaps (max + min)
+### Top K Largest Template
+```java
+PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+for (int num : nums) {
+    minHeap.offer(num);
+    if (minHeap.size() > k) {
+        minHeap.poll();
+    }
+}
+// Result: minHeap contains K largest
+```
+
+### Top K Smallest Template
+```java
+PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+for (int num : nums) {
+    maxHeap.offer(num);
+    if (maxHeap.size() > k) {
+        maxHeap.poll();
+    }
+}
+// Result: maxHeap contains K smallest
+```
+
+### Running Median Template
+```java
+PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+// Maintain: maxHeap.size() >= minHeap.size()
+// Median = maxHeap.peek() or (maxHeap.peek() + minHeap.peek()) / 2.0
+```
 
 ---
 
-## Interview Tips
+## 11. Key Insight
 
-### When to Use PriorityQueue
-✅ Finding Kth largest/smallest element
-✅ Top K elements
-✅ Merge K sorted arrays/lists
-✅ Running median
-✅ Dijkstra's algorithm (shortest path)
-✅ Continuous stream of data with priority
-
-### Remember
-- **Default is min-heap** (smallest at top)
-- **Allows duplicate elements** ✅
-- Use `Collections.reverseOrder()` for max-heap
-- **Not sorted** - only top element guaranteed
-- `offer()` over `add()`, `poll()` over `remove()`
-- For large integers, use `Integer.compare(a, b)` to avoid overflow
-- Top K largest → use **min-heap** of size K
-- Top K smallest → use **max-heap** of size K
-
-### Time Complexity Quick Check
-- Add/Remove: O(log n)
-- Peek: O(1)
-- Find K largest/smallest: O(n log k)
-- Sort using heap: O(n log n)
-
----
-
-**Key Insight**: For "K largest", think **min-heap** of size K. For "K smallest", think **max-heap** of size K!
+For **K largest**, use **min-heap** of size K! For **K smallest**, use **max-heap** of size K! Remember: PriorityQueue is a **heap**, not a sorted list - only the top element is guaranteed to be min/max!
