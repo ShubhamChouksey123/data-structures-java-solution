@@ -1,1 +1,6 @@
-- Add function Integer.toBinaryString() in common functions
+- [ ] Add function Integer.toBinaryString() in common functions
+- [ ] Add map.getOrDefault method
+- [ ] Add map and set 
+- [ ] convert List to array Java
+- [ ] In Priority Queue add custom object examples and ordering based on multiple fields
+- 

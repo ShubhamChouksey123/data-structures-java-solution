@@ -39,9 +39,17 @@ This directory contains comprehensive reference documentation for Java data stru
 
 | Data Structure | Files | Description |
 |----------------|-------|-------------|
-| **HashSet** | ⏳ Pending | O(1) operations, no order, no duplicates |
-| **LinkedHashSet** | ⏳ Pending | Maintains insertion order, O(1) operations |
-| **TreeSet** | ⏳ Pending | Sorted order, O(log n) operations, implements NavigableSet |
+| **HashSet** | [hashset.md](set/hashset.md) | O(1) operations, fast lookups, no order, no duplicates |
+| **LinkedHashSet** | [linkedhashset.md](set/linkedhashset.md) | O(1) operations with insertion order maintained |
+| **TreeSet** | [treeset.md](set/treeset.md) | O(log n) operations, sorted order, range queries, NavigableSet |
+
+### Maps
+
+| Data Structure | Files | Description |
+|----------------|-------|-------------|
+| **HashMap** | [hashmap.md](map/hashmap.md) | O(1) operations, fast key-value lookups, no order |
+| **LinkedHashMap** | [linkedhashmap.md](map/linkedhashmap.md) | O(1) operations with insertion/access order, perfect for LRU cache |
+| **TreeMap** | [treemap.md](map/treemap.md) | O(log n) operations, sorted keys, range queries, NavigableMap |
 
 ---
 
@@ -68,9 +76,14 @@ This directory contains comprehensive reference documentation for Java data stru
 - [Deque (Monotonic)](queue/deque.md) - Sliding window maximum/minimum
 
 **Uniqueness & Membership**
-- HashSet - Fast lookups, deduplication
-- TreeSet - Sorted unique elements, range queries
-- LinkedHashSet - Insertion-ordered unique elements
+- [HashSet](set/hashset.md) - Fast lookups (O(1)), deduplication
+- [TreeSet](set/treeset.md) - Sorted unique elements, range queries (O(log n))
+- [LinkedHashSet](set/linkedhashset.md) - Insertion-ordered unique elements (O(1))
+
+**Key-Value Mappings**
+- [HashMap](map/hashmap.md) - Fast lookups (O(1)), frequency counting, Two Sum
+- [TreeMap](map/treemap.md) - Sorted keys (O(log n)), range queries, floor/ceiling
+- [LinkedHashMap](map/linkedhashmap.md) - Ordered keys (O(1)), LRU cache
 
 ---
 
@@ -106,6 +119,9 @@ Each concept file follows this 11-section format:
 - **HashSet**: O(1) operations - use for fast lookups and deduplication
 - **TreeSet**: O(log n) operations - use for sorted unique elements
 - **LinkedHashSet**: O(1) operations with insertion order maintained
+- **HashMap**: O(1) operations - use for frequency counting and Two Sum
+- **TreeMap**: O(log n) operations - use for sorted keys and range queries
+- **LinkedHashMap**: O(1) operations with insertion/access order - perfect for LRU cache
 
 ---
 
@@ -130,8 +146,8 @@ When adding new concept documentation:
 | **Arrays & Lists** | ✅ Complete | 4 files |
 | **Primitive Types** | ✅ Complete | 2 files |
 | **Queues, Stacks & Deques** | ✅ Complete | 4 files (Queue, Deque, Stack, PriorityQueue) |
-| **Sets** | ⏳ Pending | HashSet, TreeSet, LinkedHashSet |
-| **Maps** | ⏳ Pending | HashMap, TreeMap, LinkedHashMap |
+| **Sets** | ✅ Complete | 3 files (HashSet, TreeSet, LinkedHashSet) |
+| **Maps** | ✅ Complete | 3 files (HashMap, TreeMap, LinkedHashMap) |
 | **Trees** | ⏳ Pending | Binary Tree, BST |
 | **Graphs** | ⏳ Pending | Graph representations, traversals |
 | **Heaps** | ✅ Complete | PriorityQueue |
