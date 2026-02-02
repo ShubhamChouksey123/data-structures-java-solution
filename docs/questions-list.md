@@ -14,37 +14,32 @@ Track your overall progress: `0/160+ problems completed`
 
 ## 📚 Table of Contents
 
-### Core Patterns (1-10)
-1. [Fast and Slow Pointer](#1-fast-and-slow-pointer) - 4 problems
-2. [Overlapping Intervals](#2-overlapping-intervals) - 5 problems
-3. [Prefix Sum](#3-prefix-sum) - 5 problems
-4. [Sliding Window](#4-sliding-window) - 13 problems
-5. [Two Pointers](#5-two-pointers) - 6 problems
-6. [Cyclic Sort](#6-cyclic-sort-index-based) - 4 problems
-7. [Reversal of Linked List](#7-reversal-of-linked-list-in-place) - 3 problems
-8. [Matrix Manipulation](#8-matrix-manipulation) - 4 problems
-9. [Breadth First Search (BFS)](#9-breadth-first-search-bfs) - 4 problems
-10. [Depth First Search (DFS)](#10-depth-first-search-dfs) - 5 problems
+| # | Topic | Questions | Solved | Revised | Last Revision |
+|---|-------|-----------|--------|------|---------------|
+| 1 | [Fast and Slow Pointer](#1-fast-and-slow-pointer) | 4 | ✅      | [ ] | |
+| 2 | [Overlapping Intervals](#2-overlapping-intervals) | 5 | [ ]    | [ ] | |
+| 3 | [Prefix Sum](#3-prefix-sum) | 5 | ✅      | ✅ | 2026-02-01 |
+| 4 | [Sliding Window](#4-sliding-window) | 13 | [ ]    | [ ] | |
+| 5 | [Two Pointers](#5-two-pointers) | 6 | [ ]    | [ ] | |
+| 6 | [Cyclic Sort](#6-cyclic-sort-index-based) | 4 | [ ]    | [ ] | |
+| 7 | [Reversal of Linked List](#7-reversal-of-linked-list-in-place) | 3 | [ ]    | [ ] | |
+| 8 | [Matrix Manipulation](#8-matrix-manipulation) | 4 | [ ]    | [ ] | |
+| 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | 4 | [ ]    | [ ] | |
+| 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | 5 | [ ]    | [ ] | |
+| 11 | [Backtracking](#11-backtracking) | 7 | [ ]    | [ ] | |
+| 12 | [Modified Binary Search](#12-modified-binary-search) | 9 | [ ]    | [ ] | |
+| 13 | [Bitwise XOR](#13-bitwise-xor) | 5 | [ ]    | [ ] | |
+| 14 | [Top 'K' Elements](#14-top-k-elements) | 4 | [ ]    | [ ] | |
+| 15 | [K-way Merge](#15-k-way-merge) | 4 | [ ]    | [ ] | |
+| 16 | [Two Heaps](#16-two-heaps) | 3 | [ ]    | [ ] | |
+| 17 | [Monotonic Stack](#17-monotonic-stack) | 6 | [ ]    | [ ] | |
+| 18 | [Trees](#18-trees) | 36 | [ ]    | [ ] | |
+| 19 | [Dynamic Programming](#19-dynamic-programming) | 50 | [ ]    | [ ] | |
+| 20 | [Graphs](#20-graphs) | 16 | [ ]    | [ ] | |
+| 21 | [Greedy](#21-greedy) | 7 | [ ]    | [ ] | |
+| 22 | [Design Data Structure](#22-design-data-structure) | 6 | [ ]    | [ ] | |
 
-### Advanced Patterns (11-17)
-11. [Backtracking](#11-backtracking) - 7 problems
-12. [Modified Binary Search](#12-modified-binary-search) - 9 problems
-13. [Bitwise XOR](#13-bitwise-xor) - 5 problems
-14. [Top 'K' Elements](#14-top-k-elements) - 4 problems
-15. [K-way Merge](#15-k-way-merge) - 4 problems
-16. [Two Heaps](#16-two-heaps) - 3 problems
-17. [Monotonic Stack](#17-monotonic-stack) - 6 problems
-
-### Data Structure Patterns (18-20)
-18. [Trees](#18-trees) - 36 problems
-19. [Dynamic Programming](#19-dynamic-programming) - 50 problems
-20. [Graphs](#20-graphs) - 16 problems
-
-### Additional Patterns (21-22)
-21. [Greedy](#21-greedy) - 7 problems
-22. [Design Data Structure](#22-design-data-structure) - 6 problems
-
-### 📖 [Useful Learning Resources](#useful-articles-on-leetcode)
+**📖 [Useful Learning Resources](#useful-articles-on-leetcode)**
 
 ---
 
@@ -93,16 +88,16 @@ Track your overall progress: `0/160+ problems completed`
 - [x] [Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold](https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/) - Medium
 - [x] [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) - Medium
 - [x] [Permutation in String](https://leetcode.com/problems/permutation-in-string/) - Medium
-- [ ] [Sliding Subarray Beauty](https://leetcode.com/problems/sliding-subarray-beauty/) - Medium
-- [ ] [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) - Hard
+- [x] [Sliding Subarray Beauty](https://leetcode.com/problems/sliding-subarray-beauty/) - Medium
+- [x] [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) - Hard
 
 ### Variable Size Window (7 problems)
-- [ ] [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) - Medium
-- [ ] [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) - Medium
-- [ ] [Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/) - Medium
-- [ ] [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/) - Medium
-- [ ] [Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/) - Medium
-- [ ] [Count Number of Nice Subarrays](https://leetcode.com/problems/count-number-of-nice-subarrays) - Medium
+- [x] [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) - Medium
+- [x] [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) - Medium
+- [x] [Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/) - Medium
+- [x] [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/) - Medium
+- [x] [Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/) - Medium
+- [x] [Count Number of Nice Subarrays](https://leetcode.com/problems/count-number-of-nice-subarrays) - Medium
 - [ ] [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) - Hard
 
 ---
@@ -111,11 +106,11 @@ Track your overall progress: `0/160+ problems completed`
 **Description**: The two pointers technique involves having two different indices move through the input at different speeds to solve various array or linked list problems.
 
 **Problems (6)**:
-- [ ] [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) - Medium
-- [ ] [Sort Colors](https://leetcode.com/problems/sort-colors/) - Medium *(Dutch National Flag)*
+- [x] [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) - Medium
+- [x] [Sort Colors](https://leetcode.com/problems/sort-colors/) - Medium *(Dutch National Flag)*
 - [ ] [Next Permutation](https://leetcode.com/problems/next-permutation/) - Medium
 - [ ] [Bag of Tokens](https://leetcode.com/problems/bag-of-tokens/) - Medium
-- [ ] [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) - Medium
+- [x] [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) - Medium ⭐ **IMPORTANT** ⭐
 - [ ] [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) - Hard
 
 ---
@@ -124,8 +119,8 @@ Track your overall progress: `0/160+ problems completed`
 **Description**: Cyclic sort is an efficient approach to solve problems where numbers are consecutively ordered and must be placed in the correct index.
 
 **Problems (4)**:
-- [ ] [Missing Number](https://leetcode.com/problems/missing-number/) - Easy
-- [ ] [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/) - Easy
+- [x] [Missing Number](https://leetcode.com/problems/missing-number/) - Easy
+- [x] [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/) - Easy ⭐ **IMPORTANT** ⭐
 - [ ] [Set Mismatch](https://leetcode.com/problems/set-mismatch/) - Easy
 - [ ] [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) - Hard
 
