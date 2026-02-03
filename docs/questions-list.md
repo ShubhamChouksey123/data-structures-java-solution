@@ -108,10 +108,10 @@ Track your overall progress: `0/160+ problems completed`
 **Problems (6)**:
 - [x] [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) - Medium
 - [x] [Sort Colors](https://leetcode.com/problems/sort-colors/) - Medium *(Dutch National Flag)*
-- [ ] [Next Permutation](https://leetcode.com/problems/next-permutation/) - Medium
-- [ ] [Bag of Tokens](https://leetcode.com/problems/bag-of-tokens/) - Medium
+- [x] [Next Permutation](https://leetcode.com/problems/next-permutation/) - Medium
+- [x] [Bag of Tokens](https://leetcode.com/problems/bag-of-tokens/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) - Medium ⭐ **IMPORTANT** ⭐
-- [ ] [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) - Hard
+- [x] [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) - Hard
 
 ---
 ## 6. Cyclic Sort (Index-Based)
