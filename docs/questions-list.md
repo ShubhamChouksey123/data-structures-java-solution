@@ -121,8 +121,8 @@ Track your overall progress: `0/160+ problems completed`
 **Problems (4)**:
 - [x] [Missing Number](https://leetcode.com/problems/missing-number/) - Easy
 - [x] [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/) - Easy ⭐ **IMPORTANT** ⭐
-- [ ] [Set Mismatch](https://leetcode.com/problems/set-mismatch/) - Easy
-- [ ] [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) - Hard
+- [x] [Set Mismatch](https://leetcode.com/problems/set-mismatch/) - Easy
+- [x] [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) - Hard
 
 ---
 ## 7. Reversal of Linked List (In-place)
