@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `0/160+ problems completed`
+Track your overall progress: `38/160+ problems completed`
 
 ---
 
@@ -17,12 +17,12 @@ Track your overall progress: `0/160+ problems completed`
 | # | Topic | Questions | Solved | Revised | Last Revision |
 |---|-------|-----------|--------|------|---------------|
 | 1 | [Fast and Slow Pointer](#1-fast-and-slow-pointer) | 4 | ✅      | [ ] | |
-| 2 | [Overlapping Intervals](#2-overlapping-intervals) | 5 | [ ]    | [ ] | |
+| 2 | [Overlapping Intervals](#2-overlapping-intervals) | 5 | 4/5    | [ ] | |
 | 3 | [Prefix Sum](#3-prefix-sum) | 5 | ✅      | ✅ | 2026-02-01 |
-| 4 | [Sliding Window](#4-sliding-window) | 13 | [ ]    | [ ] | |
-| 5 | [Two Pointers](#5-two-pointers) | 6 | [ ]    | [ ] | |
-| 6 | [Cyclic Sort](#6-cyclic-sort-index-based) | 4 | [ ]    | [ ] | |
-| 7 | [Reversal of Linked List](#7-reversal-of-linked-list-in-place) | 3 | [ ]    | [ ] | |
+| 4 | [Sliding Window](#4-sliding-window) | 13 | 12/13  | [ ] | |
+| 5 | [Two Pointers](#5-two-pointers) | 6 | ✅      | [ ] | |
+| 6 | [Cyclic Sort](#6-cyclic-sort-index-based) | 4 | ✅      | [ ] | |
+| 7 | [Reversal of Linked List](#7-reversal-of-linked-list-in-place) | 3 | ✅      | [ ] | |
 | 8 | [Matrix Manipulation](#8-matrix-manipulation) | 4 | [ ]    | [ ] | |
 | 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | 4 | [ ]    | [ ] | |
 | 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | 5 | [ ]    | [ ] | |
@@ -131,8 +131,9 @@ Track your overall progress: `0/160+ problems completed`
 
 **Problems (3)**:
 - [x] [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) - Easy
-- [ ] [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) - Hard
-- [ ] [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) - Medium
+- [x] [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) - Medium
+- [x] [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) - Hard
+
 
 ---
 
@@ -141,9 +142,9 @@ Track your overall progress: `0/160+ problems completed`
 **Description**: Problems involving 2D arrays (matrices) are often solved using row-column traversal or manipulation based on matrix properties.
 
 **Problems (4)**:
-- [ ] [Rotate Image](https://leetcode.com/problems/rotate-image/) - Medium
-- [ ] [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) - Medium
-- [ ] [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) - Medium
+- [x] [Rotate Image](https://leetcode.com/problems/rotate-image/) - Medium
+- [x] [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) - Medium
+- [x] [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) - Medium
 - [ ] [Game of Life](https://leetcode.com/problems/game-of-life/) - Medium
 
 ---
