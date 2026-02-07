@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `38/160+ problems completed`
+Track your overall progress: `42/160+ problems completed`
 
 ---
 
@@ -23,7 +23,7 @@ Track your overall progress: `38/160+ problems completed`
 | 5 | [Two Pointers](#5-two-pointers) | 6 | ✅      | [ ] | |
 | 6 | [Cyclic Sort](#6-cyclic-sort-index-based) | 4 | ✅      | [ ] | |
 | 7 | [Reversal of Linked List](#7-reversal-of-linked-list-in-place) | 3 | ✅      | [ ] | |
-| 8 | [Matrix Manipulation](#8-matrix-manipulation) | 4 | [ ]    | [ ] | |
+| 8 | [Matrix Manipulation](#8-matrix-manipulation) | 4 | ✅      | [ ] | |
 | 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | 4 | [ ]    | [ ] | |
 | 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | 5 | [ ]    | [ ] | |
 | 11 | [Backtracking](#11-backtracking) | 7 | [ ]    | [ ] | |
@@ -145,7 +145,7 @@ Track your overall progress: `38/160+ problems completed`
 - [x] [Rotate Image](https://leetcode.com/problems/rotate-image/) - Medium
 - [x] [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) - Medium
 - [x] [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) - Medium
-- [ ] [Game of Life](https://leetcode.com/problems/game-of-life/) - Medium
+- [x] [Game of Life](https://leetcode.com/problems/game-of-life/) - Medium
 
 ---
 ## 9. Breadth First Search (BFS)
@@ -153,9 +153,9 @@ Track your overall progress: `38/160+ problems completed`
 **Description**: BFS explores nodes level by level using a queue. It is particularly useful for shortest path problems.
 
 **Problems (4)**:
-- [ ] [Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/) - Medium
-- [ ] [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) - Medium
-- [ ] [As Far from Land as Possible](https://leetcode.com/problems/as-far-from-land-as-possible/) - Medium
+- [x] [Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/) - Medium
+- [x] [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) - Medium
+- [x] [As Far from Land as Possible](https://leetcode.com/problems/as-far-from-land-as-possible/) - Medium
 - [ ] [Word Ladder](https://leetcode.com/problems/word-ladder/) - Hard
 
 ---
