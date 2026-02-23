@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `42/160+ problems completed`
+Track your overall progress: `47/160+ problems completed`
 
 ---
 
@@ -25,7 +25,7 @@ Track your overall progress: `42/160+ problems completed`
 | 7 | [Reversal of Linked List](#7-reversal-of-linked-list-in-place) | 3 | ✅      | [ ] | |
 | 8 | [Matrix Manipulation](#8-matrix-manipulation) | 4 | ✅      | [ ] | |
 | 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | 4 | [ ]    | [ ] | |
-| 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | 5 | [ ]    | [ ] | |
+| 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | 5 | ✅      | [ ] | |
 | 11 | [Backtracking](#11-backtracking) | 7 | [ ]    | [ ] | |
 | 12 | [Modified Binary Search](#12-modified-binary-search) | 9 | [ ]    | [ ] | |
 | 13 | [Bitwise XOR](#13-bitwise-xor) | 5 | [ ]    | [ ] | |
@@ -164,11 +164,11 @@ Track your overall progress: `42/160+ problems completed`
 **Description**: DFS explores as far as possible along a branch before backtracking. It's useful for graph traversal, pathfinding, and connected components.
 
 **Problems (5)**:
-- [ ] [Number of Closed Islands](https://leetcode.com/problems/number-of-closed-islands/) - Medium
-- [ ] [Coloring a Border](https://leetcode.com/problems/coloring-a-border/) - Medium
-- [ ] [Number of Enclaves](https://leetcode.com/problems/number-of-enclaves/) - Medium *(DFS from boundary)*
-- [ ] [Time Needed to Inform All Employees](https://leetcode.com/problems/time-needed-to-inform-all-employees/) - Medium
-- [ ] [Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states/) - Medium *(Cycle detection)*
+- [x] [Number of Closed Islands](https://leetcode.com/problems/number-of-closed-islands/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Coloring a Border](https://leetcode.com/problems/coloring-a-border/) - Medium
+- [x] [Number of Enclaves](https://leetcode.com/problems/number-of-enclaves/) - Medium *(DFS from boundary)*
+- [x] [Time Needed to Inform All Employees](https://leetcode.com/problems/time-needed-to-inform-all-employees/) - Medium
+- [x] [Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states/) - Medium *(Cycle detection)*
 
 ---
 ## 11. Backtracking

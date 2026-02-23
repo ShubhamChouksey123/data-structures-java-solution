@@ -197,7 +197,7 @@ Step 2: Middle island (row 2, col 2) remains unmarked → count it
 
 **Complexity**: O(V + E) time, O(V) space
 
-### Template
+### Approach 1: Single Array with 3 States
 
 ```java
 private static final int UNVISITED = 0;
@@ -237,6 +237,59 @@ private boolean dfsCycle(List<List<Integer>> graph, int node, int[] state) {
     return false;
 }
 ```
+
+### Approach 2: Two Boolean Arrays (Alternative)
+
+Uses `visited` and `recStack` (recursion stack) arrays instead of 3 states.
+
+**Key Insight**:
+- `recStack[node] = true` → node is in current DFS path (VISITING)
+- `visited[node] = true, recStack[node] = false` → node fully explored (VISITED)
+- Both false → not yet visited (UNVISITED)
+
+```java
+public boolean hasCycle(int[][] graph) {
+    int n = graph.length;
+    boolean[] visited = new boolean[n];
+    boolean[] recStack = new boolean[n];
+
+    for (int i = 0; i < n; i++) {
+        if (isCycle(graph, visited, recStack, i)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+private boolean isCycle(int[][] graph, boolean[] visited, boolean[] recStack, int node) {
+    // If in current recursion stack → cycle detected
+    if (recStack[node]) {
+        return true;
+    }
+
+    // If already visited and not in recStack → no cycle from this node
+    if (visited[node]) {
+        return false;
+    }
+
+    // Mark node as visited and add to recursion stack
+    visited[node] = true;
+    recStack[node] = true;
+
+    // Explore all neighbors
+    for (int neighbor : graph[node]) {
+        if (isCycle(graph, visited, recStack, neighbor)) {
+            return true;
+        }
+    }
+
+    // Backtrack: remove from recursion stack
+    recStack[node] = false;
+    return false;
+}
+```
+
 
 ---
 
@@ -299,11 +352,11 @@ void dfs(Node node, Set<Node> visited) {
 
 ## Problems
 
-- [ ] [Number of Closed Islands](https://leetcode.com/problems/number-of-closed-islands/) - Medium ⭐ **IMPORTANT** ⭐
-- [ ] [Coloring a Border](https://leetcode.com/problems/coloring-a-border/) - Medium
-- [ ] [Number of Enclaves](https://leetcode.com/problems/number-of-enclaves/) - Medium
-- [ ] [Time Needed to Inform All Employees](https://leetcode.com/problems/time-needed-to-inform-all-employees/) - Medium
-- [ ] [Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states/) - Medium
+- [x] [Number of Closed Islands](https://leetcode.com/problems/number-of-closed-islands/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Coloring a Border](https://leetcode.com/problems/coloring-a-border/) - Medium
+- [x] [Number of Enclaves](https://leetcode.com/problems/number-of-enclaves/) - Medium
+- [x] [Time Needed to Inform All Employees](https://leetcode.com/problems/time-needed-to-inform-all-employees/) - Medium
+- [x] [Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states/) - Medium
 
 ### Number of Closed Islands ⭐ **IMPORTANT** ⭐
 
