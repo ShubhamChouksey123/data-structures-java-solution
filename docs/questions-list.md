@@ -176,13 +176,13 @@ Track your overall progress: `47/160+ problems completed`
 **Description**: Backtracking helps in problems where you need to explore all potential solutions, such as solving puzzles, generating combinations, or finding paths.
 
 **Problems (7)**:
-- [ ] [Permutations II](https://leetcode.com/problems/permutations-ii/) - Medium
-- [ ] [Combination Sum](https://leetcode.com/problems/combination-sum/) - Medium
-- [ ] [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) - Medium
-- [ ] [N-Queens](https://leetcode.com/problems/n-queens/) - Hard
-- [ ] [Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) - Hard
-- [ ] [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) - Medium
-- [ ] [Word Search](https://leetcode.com/problems/word-search/) - Medium
+- [x] [Permutations II](https://leetcode.com/problems/permutations-ii/) - Medium
+- [x] [Combination Sum](https://leetcode.com/problems/combination-sum/) - Medium
+- [x] [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) - Medium
+- [x] [N-Queens](https://leetcode.com/problems/n-queens/) - Hard
+- [x] [Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) - Hard
+- [x] [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) - Medium
+- [x] [Word Search](https://leetcode.com/problems/word-search/) - Medium
 
 ---
 
