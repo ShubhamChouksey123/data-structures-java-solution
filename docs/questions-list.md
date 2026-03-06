@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `47/160+ problems completed`
+Track your overall progress: `66/160+ problems completed`
 
 ---
 
@@ -24,10 +24,10 @@ Track your overall progress: `47/160+ problems completed`
 | 6 | [Cyclic Sort](#6-cyclic-sort-index-based) | 4 | ✅      | [ ] | |
 | 7 | [Reversal of Linked List](#7-reversal-of-linked-list-in-place) | 3 | ✅      | [ ] | |
 | 8 | [Matrix Manipulation](#8-matrix-manipulation) | 4 | ✅      | [ ] | |
-| 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | 4 | [ ]    | [ ] | |
+| 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | 4 | 3/4    | [ ] | |
 | 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | 5 | ✅      | [ ] | |
-| 11 | [Backtracking](#11-backtracking) | 7 | [ ]    | [ ] | |
-| 12 | [Modified Binary Search](#12-modified-binary-search) | 9 | [ ]    | [ ] | |
+| 11 | [Backtracking](#11-backtracking) | 7 | ✅      | [ ] | |
+| 12 | [Modified Binary Search](#12-modified-binary-search) | 9 | ✅      | [ ] | |
 | 13 | [Bitwise XOR](#13-bitwise-xor) | 5 | [ ]    | [ ] | |
 | 14 | [Top 'K' Elements](#14-top-k-elements) | 4 | [ ]    | [ ] | |
 | 15 | [K-way Merge](#15-k-way-merge) | 4 | [ ]    | [ ] | |
@@ -192,15 +192,15 @@ Track your overall progress: `47/160+ problems completed`
 **Description**: A modified version of binary search that applies to rotated arrays, unsorted arrays, or specialized conditions.
 
 **Problems (9)**:
-- [ ] [Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/) - Medium
-- [ ] [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) - Medium
-- [ ] [Find Peak Element](https://leetcode.com/problems/find-peak-element/) - Medium
-- [ ] [Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array/) - Medium
-- [ ] [Minimum Speed to Arrive on Time](https://leetcode.com/problems/minimum-speed-to-arrive-on-time/) - Medium
-- [ ] [Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/) - Medium
-- [ ] [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas) - Medium
-- [ ] [Find in Mountain Array](https://leetcode.com/problems/find-in-mountain-array/) - Hard
-- [ ] [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) - Hard
+- [x] [Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/) - Medium
+- [x] [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) - Medium
+- [x] [Find Peak Element](https://leetcode.com/problems/find-peak-element/) - Medium
+- [x] [Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array/) - Medium
+- [x] [Minimum Speed to Arrive on Time](https://leetcode.com/problems/minimum-speed-to-arrive-on-time/) - Medium
+- [x] [Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/) - Medium
+- [x] [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas) - Medium
+- [x] [Find in Mountain Array](https://leetcode.com/problems/find-in-mountain-array/) - Hard
+- [x] [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) - Hard
 
 ---
 
