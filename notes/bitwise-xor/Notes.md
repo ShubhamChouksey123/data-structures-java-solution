@@ -35,6 +35,7 @@ XOR (exclusive OR) is a bitwise operator with unique mathematical properties tha
 2. `a ^ 0 = a` - Any number XORed with 0 is itself
 3. **Commutative**: `a ^ b = b ^ a`
 4. **Associative**: `(a ^ b) ^ c = a ^ (b ^ c)`
+5. **Self-Inverse**: If `a ^ b = c`, then `a = b ^ c` and `b = a ^ c` (XOR is its own inverse)
 
 **Key Insight**: XOR of all elements cancels out pairs, leaving only unique elements.
 
@@ -91,33 +92,44 @@ public int singleNumber(int[] nums) {
 **Use Case**: Find single number when all others appear three times
 
 **Algorithm**:
-1. Track bits using `ones` and `twos`
-2. `ones` holds bits appearing once
-3. `twos` holds bits appearing twice
-4. Reset when bit appears three times
+1. For each of the 32 bit positions
+2. Count how many numbers have that bit set
+3. If count % 3 != 0, the single number has that bit set
+4. Build the answer by setting those bits
 
-**Complexity**: O(n) time, O(1) space
+**Complexity**: O(32n) = O(n) time, O(1) space
 
 ### Template
 
 ```java
 public int singleNumber(int[] nums) {
-    int ones = 0, twos = 0;
+    int ans = 0;
 
-    for (int num : nums) {
-        ones = (ones ^ num) & ~twos;
-        twos = (twos ^ num) & ~ones;
+    // Check each of the 32 bit positions
+    for (int i = 0; i < 32; i++) {
+        int count = 0;
+
+        // Count how many numbers have bit i set
+        for (int num : nums) {
+            count += (1 & (num >> i));  // Check if bit i is set
+        }
+
+        // If count is not divisible by 3, single number has this bit set
+        if (count % 3 != 0) {
+            ans = ans | (1 << i);  // Set bit i in answer
+        }
     }
 
-    return ones;
+    return ans;
 }
 ```
 
 **Key Points**:
-- `ones` tracks bits seen once
-- `twos` tracks bits seen twice
-- When bit appears 3rd time, both reset to 0
-- Final `ones` contains the single number
+- Check all 32 bit positions (Java int is 32-bit)
+- `(num >> i)` shifts bit i to position 0
+- `1 & (num >> i)` extracts bit i (0 or 1)
+- If bit appears in single number, count % 3 will be 1 (not 0)
+- `ans | (1 << i)` sets bit i in the answer
 
 ---
 
@@ -294,10 +306,10 @@ public int rangeXOR(int[] prefix, int L, int R) {
 ## Problems
 
 - [x] [Missing Number](https://leetcode.com/problems/missing-number/) - Easy ⭐ **IMPORTANT** ⭐
-- [x] [Single Number II](https://leetcode.com/problems/single-number-ii/) - Medium
-- [ ] [Single Number III](https://leetcode.com/problems/single-number-iii/) - Medium
-- [ ] [Find The Original Array of Prefix Xor](https://leetcode.com/problems/find-the-original-array-of-prefix-xor/) - Medium
-- [ ] [XOR Queries of a Subarray](https://leetcode.com/problems/xor-queries-of-a-subarray/) - Medium
+- [x] [Single Number II](https://leetcode.com/problems/single-number-ii/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Single Number III](https://leetcode.com/problems/single-number-iii/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Find The Original Array of Prefix Xor](https://leetcode.com/problems/find-the-original-array-of-prefix-xor/) - Medium
+- [x] [XOR Queries of a Subarray](https://leetcode.com/problems/xor-queries-of-a-subarray/) - Medium
 
 ### Missing Number ⭐ **IMPORTANT** ⭐
 

@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `66/160+ problems completed`
+Track your overall progress: `70/160+ problems completed`
 
 ---
 
@@ -30,7 +30,7 @@ Date Format is DD-MM-YYYY
 | 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | 5 | ✅      | [ ] |               |
 | 11 | [Backtracking](#11-backtracking) | 7 | ✅      | ✅ | 07-03-2026    |
 | 12 | [Modified Binary Search](#12-modified-binary-search) | 9 | ✅      | [ ] |               |
-| 13 | [Bitwise XOR](#13-bitwise-xor) | 5 | [ ]    | [ ] |               |
+| 13 | [Bitwise XOR](#13-bitwise-xor) | 5 | ✅      | [ ] |               |
 | 14 | [Top 'K' Elements](#14-top-k-elements) | 4 | [ ]    | [ ] |               |
 | 15 | [K-way Merge](#15-k-way-merge) | 4 | [ ]    | [ ] |               |
 | 16 | [Two Heaps](#16-two-heaps) | 3 | [ ]    | [ ] |               |
@@ -211,11 +211,11 @@ Date Format is DD-MM-YYYY
 **Description**: XOR is a powerful bitwise operator that can solve problems like finding single numbers or efficiently pairing elements.
 
 **Problems (5)**:
-- [x] [Missing Number](https://leetcode.com/problems/missing-number/) - Easy
-- [x] [Single Number II](https://leetcode.com/problems/single-number-ii/) - Medium
-- [ ] [Single Number III](https://leetcode.com/problems/single-number-iii/) - Medium
-- [ ] [Find The Original Array of Prefix Xor](https://leetcode.com/problems/find-the-original-array-of-prefix-xor/) - Medium
-- [ ] [XOR Queries of a Subarray](https://leetcode.com/problems/xor-queries-of-a-subarray/) - Medium
+- [x] [Missing Number](https://leetcode.com/problems/missing-number/) - Easy ⭐ **IMPORTANT** ⭐
+- [x] [Single Number II](https://leetcode.com/problems/single-number-ii/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Single Number III](https://leetcode.com/problems/single-number-iii/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Find The Original Array of Prefix Xor](https://leetcode.com/problems/find-the-original-array-of-prefix-xor/) - Medium
+- [x] [XOR Queries of a Subarray](https://leetcode.com/problems/xor-queries-of-a-subarray/) - Medium
 
 ---
 ## 14. Top 'K' Elements
