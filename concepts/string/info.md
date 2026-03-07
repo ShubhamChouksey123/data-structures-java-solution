@@ -60,14 +60,17 @@
 | **Is empty** | `s.isEmpty()` | O(1) | length == 0 |
 | **Is blank** | `s.isBlank()` | O(n) | Only whitespace (Java 11+) |
 | **To char array** | `s.toCharArray()` | O(n) | Creates char[] |
+| **Delete char at** | ❌ Not available | - | String is immutable - use StringBuilder |
 
 ### StringBuilder Methods
 
 | Operation | Method | Complexity | Notes |
 |-----------|--------|------------|-------|
+| **Length** | `sb.length()` | O(1) | Returns length |
 | **Append** | `sb.append(str)` | O(1) amortized | Add at end |
 | **Insert** | `sb.insert(i, str)` | O(n) | Shifts elements |
 | **Delete** | `sb.delete(start, end)` | O(n) | Shifts elements |
+| **Delete char at** | `sb.deleteCharAt(i)` | O(n) | Delete single char |
 | **Reverse** | `sb.reverse()` | O(n) | In-place |
 | **To string** | `sb.toString()` | O(n) | Creates string |
 
@@ -329,9 +332,11 @@ s.trim()                           // Remove whitespace
 ### StringBuilder
 ```java
 StringBuilder sb = new StringBuilder();
+sb.length();                       // Get length
 sb.append(str);                    // Add at end
 sb.insert(i, str);                 // Insert at index
 sb.delete(start, end);             // Delete range
+sb.deleteCharAt(i);                // Delete char at index
 sb.reverse();                      // Reverse
 String result = sb.toString();     // To string
 ```

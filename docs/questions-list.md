@@ -14,30 +14,32 @@ Track your overall progress: `66/160+ problems completed`
 
 ## 📚 Table of Contents
 
+Date Format is DD-MM-YYYY
+
 | # | Topic | Questions | Solved | Revised | Last Revision |
-|---|-------|-----------|--------|------|---------------|
-| 1 | [Fast and Slow Pointer](#1-fast-and-slow-pointer) | 4 | ✅      | [ ] | |
-| 2 | [Overlapping Intervals](#2-overlapping-intervals) | 5 | 4/5    | [ ] | |
-| 3 | [Prefix Sum](#3-prefix-sum) | 5 | ✅      | ✅ | 2026-02-01 |
-| 4 | [Sliding Window](#4-sliding-window) | 13 | 12/13  | [ ] | |
-| 5 | [Two Pointers](#5-two-pointers) | 6 | ✅      | [ ] | |
-| 6 | [Cyclic Sort](#6-cyclic-sort-index-based) | 4 | ✅      | [ ] | |
-| 7 | [Reversal of Linked List](#7-reversal-of-linked-list-in-place) | 3 | ✅      | [ ] | |
-| 8 | [Matrix Manipulation](#8-matrix-manipulation) | 4 | ✅      | [ ] | |
-| 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | 4 | 3/4    | [ ] | |
-| 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | 5 | ✅      | [ ] | |
-| 11 | [Backtracking](#11-backtracking) | 7 | ✅      | [ ] | |
-| 12 | [Modified Binary Search](#12-modified-binary-search) | 9 | ✅      | [ ] | |
-| 13 | [Bitwise XOR](#13-bitwise-xor) | 5 | [ ]    | [ ] | |
-| 14 | [Top 'K' Elements](#14-top-k-elements) | 4 | [ ]    | [ ] | |
-| 15 | [K-way Merge](#15-k-way-merge) | 4 | [ ]    | [ ] | |
-| 16 | [Two Heaps](#16-two-heaps) | 3 | [ ]    | [ ] | |
-| 17 | [Monotonic Stack](#17-monotonic-stack) | 6 | [ ]    | [ ] | |
-| 18 | [Trees](#18-trees) | 36 | [ ]    | [ ] | |
-| 19 | [Dynamic Programming](#19-dynamic-programming) | 50 | [ ]    | [ ] | |
-| 20 | [Graphs](#20-graphs) | 16 | [ ]    | [ ] | |
-| 21 | [Greedy](#21-greedy) | 7 | [ ]    | [ ] | |
-| 22 | [Design Data Structure](#22-design-data-structure) | 6 | [ ]    | [ ] | |
+|---|-------|-----------|--------|---|---------------|
+| 1 | [Fast and Slow Pointer](#1-fast-and-slow-pointer) | 4 | ✅      | [ ] |               |
+| 2 | [Overlapping Intervals](#2-overlapping-intervals) | 5 | 4/5    | [ ] |               |
+| 3 | [Prefix Sum](#3-prefix-sum) | 5 | ✅      | ✅ | 01-02-2026    |
+| 4 | [Sliding Window](#4-sliding-window) | 13 | 12/13  | [ ] |               |
+| 5 | [Two Pointers](#5-two-pointers) | 6 | ✅      | [ ] |               |
+| 6 | [Cyclic Sort](#6-cyclic-sort-index-based) | 4 | ✅      | [ ] |               |
+| 7 | [Reversal of Linked List](#7-reversal-of-linked-list-in-place) | 3 | ✅      | [ ] |               |
+| 8 | [Matrix Manipulation](#8-matrix-manipulation) | 4 | ✅      | [ ] |               |
+| 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | 4 | 3/4    | [ ] |               |
+| 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | 5 | ✅      | [ ] |               |
+| 11 | [Backtracking](#11-backtracking) | 7 | ✅      | ✅ | 07-03-2026    |
+| 12 | [Modified Binary Search](#12-modified-binary-search) | 9 | ✅      | [ ] |               |
+| 13 | [Bitwise XOR](#13-bitwise-xor) | 5 | [ ]    | [ ] |               |
+| 14 | [Top 'K' Elements](#14-top-k-elements) | 4 | [ ]    | [ ] |               |
+| 15 | [K-way Merge](#15-k-way-merge) | 4 | [ ]    | [ ] |               |
+| 16 | [Two Heaps](#16-two-heaps) | 3 | [ ]    | [ ] |               |
+| 17 | [Monotonic Stack](#17-monotonic-stack) | 6 | [ ]    | [ ] |               |
+| 18 | [Trees](#18-trees) | 36 | [ ]    | [ ] |               |
+| 19 | [Dynamic Programming](#19-dynamic-programming) | 50 | [ ]    | [ ] |               |
+| 20 | [Graphs](#20-graphs) | 16 | [ ]    | [ ] |               |
+| 21 | [Greedy](#21-greedy) | 7 | [ ]    | [ ] |               |
+| 22 | [Design Data Structure](#22-design-data-structure) | 6 | [ ]    | [ ] |               |
 
 **📖 [Useful Learning Resources](#useful-articles-on-leetcode)**
 
@@ -209,8 +211,8 @@ Track your overall progress: `66/160+ problems completed`
 **Description**: XOR is a powerful bitwise operator that can solve problems like finding single numbers or efficiently pairing elements.
 
 **Problems (5)**:
-- [ ] [Missing Number](https://leetcode.com/problems/missing-number/) - Easy
-- [ ] [Single Number II](https://leetcode.com/problems/single-number-ii/) - Medium
+- [x] [Missing Number](https://leetcode.com/problems/missing-number/) - Easy
+- [x] [Single Number II](https://leetcode.com/problems/single-number-ii/) - Medium
 - [ ] [Single Number III](https://leetcode.com/problems/single-number-iii/) - Medium
 - [ ] [Find The Original Array of Prefix Xor](https://leetcode.com/problems/find-the-original-array-of-prefix-xor/) - Medium
 - [ ] [XOR Queries of a Subarray](https://leetcode.com/problems/xor-queries-of-a-subarray/) - Medium
