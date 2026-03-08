@@ -341,38 +341,9 @@ pq.isEmpty()     // Check if empty
 pq.clear()       // Remove all
 ```
 
-### Top K Largest Template
-```java
-PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-for (int num : nums) {
-    minHeap.offer(num);
-    if (minHeap.size() > k) {
-        minHeap.poll();
-    }
-}
-// Result: minHeap contains K largest
-```
 
-### Top K Smallest Template
-```java
-PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-for (int num : nums) {
-    maxHeap.offer(num);
-    if (maxHeap.size() > k) {
-        maxHeap.poll();
-    }
-}
-// Result: maxHeap contains K smallest
-```
 
-### Running Median Template
-```java
-PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 
-// Maintain: maxHeap.size() >= minHeap.size()
-// Median = maxHeap.peek() or (maxHeap.peek() + minHeap.peek()) / 2.0
-```
 
 ---
 
