@@ -328,7 +328,7 @@ PriorityQueue<int[]> heap = new PriorityQueue<>(
 
 - [x] [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) - Medium
-- [ ] [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/) - Medium
+- [x] [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/) - Medium
 - [x] [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) - Medium
 
 

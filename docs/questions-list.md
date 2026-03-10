@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `70/160+ problems completed`
+Track your overall progress: `74/160+ problems completed`
 
 ---
 
@@ -31,7 +31,7 @@ Date Format is DD-MM-YYYY
 | 11 | [Backtracking](#11-backtracking) | 7 | ✅      | ✅ | 07-03-2026    |
 | 12 | [Modified Binary Search](#12-modified-binary-search) | 9 | ✅      | [ ] |               |
 | 13 | [Bitwise XOR](#13-bitwise-xor) | 5 | ✅      | [ ] |               |
-| 14 | [Top 'K' Elements](#14-top-k-elements) | 4 | [ ]    | [ ] |               |
+| 14 | [Top 'K' Elements](#14-top-k-elements) | 4 | ✅      | [ ] |               |
 | 15 | [K-way Merge](#15-k-way-merge) | 4 | [ ]    | [ ] |               |
 | 16 | [Two Heaps](#16-two-heaps) | 3 | [ ]    | [ ] |               |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | 6 | [ ]    | [ ] |               |
@@ -225,7 +225,7 @@ Date Format is DD-MM-YYYY
 **Problems (4)**:
 - [x] [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) - Medium
 - [x] [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) - Medium
-- [ ] [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/) - Medium
+- [x] [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/) - Medium
 - [x] [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) - Medium
 
 ---
