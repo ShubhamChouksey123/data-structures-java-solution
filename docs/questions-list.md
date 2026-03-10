@@ -223,10 +223,10 @@ Date Format is DD-MM-YYYY
 **Description**: This pattern uses heaps or quickselect to efficiently find the top 'K' largest/smallest elements from a dataset.
 
 **Problems (4)**:
-- [ ] [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) - Medium
-- [ ] [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) - Medium
+- [x] [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) - Medium
+- [x] [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) - Medium
 - [ ] [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/) - Medium
-- [ ] [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) - Medium
+- [x] [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) - Medium
 
 ---
 ## 15. K-way Merge
