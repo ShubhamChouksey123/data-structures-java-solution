@@ -234,9 +234,9 @@ Date Format is DD-MM-YYYY
 **Description**: The K-way merge technique uses a heap to efficiently merge multiple sorted lists or arrays.
 
 **Problems (4)**:
-- [ ] [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) - Medium
-- [ ] [Kth Smallest Element in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/) - Medium
-- [ ] [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) - Hard
+- [x] [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) - Medium
+- [x] [Kth Smallest Element in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/) - Medium
+- [x] [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) - Hard
 - [ ] [Smallest Range Covering Elements from K Lists](https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/) - Hard
 
 ---
