@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `74/160+ problems completed`
+Track your overall progress: `78/160+ problems completed`
 
 ---
 
@@ -32,7 +32,7 @@ Date Format is DD-MM-YYYY
 | 12 | [Modified Binary Search](#12-modified-binary-search) | 9 | ✅      | [ ] |               |
 | 13 | [Bitwise XOR](#13-bitwise-xor) | 5 | ✅      | [ ] |               |
 | 14 | [Top 'K' Elements](#14-top-k-elements) | 4 | ✅      | [ ] |               |
-| 15 | [K-way Merge](#15-k-way-merge) | 4 | [ ]    | [ ] |               |
+| 15 | [K-way Merge](#15-k-way-merge) | 4 | ✅      | [ ] |               |
 | 16 | [Two Heaps](#16-two-heaps) | 3 | [ ]    | [ ] |               |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | 6 | [ ]    | [ ] |               |
 | 18 | [Trees](#18-trees) | 36 | [ ]    | [ ] |               |
@@ -237,7 +237,7 @@ Date Format is DD-MM-YYYY
 - [x] [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) - Medium
 - [x] [Kth Smallest Element in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/) - Medium
 - [x] [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) - Hard
-- [ ] [Smallest Range Covering Elements from K Lists](https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/) - Hard
+- [x] [Smallest Range Covering Elements from K Lists](https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/) - Hard
 
 ---
 ## 16. Two Heaps

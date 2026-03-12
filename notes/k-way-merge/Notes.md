@@ -308,8 +308,8 @@ for (ListNode node : lists) {
 - [x] [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) - Medium
 - [x] [Kth Smallest Element in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/) - Medium
 - [x] [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) - Hard ⭐ **IMPORTANT** ⭐
-- [ ] [Smallest Range Covering Elements from K Lists](https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/) - Hard ⭐ **IMPORTANT** ⭐
-- [ ] [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) - Easy
+- [x] [Smallest Range Covering Elements from K Lists](https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/) - Hard ⭐ **IMPORTANT** ⭐
+- [x] [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) - Easy
 
 ### Merge k Sorted Lists ⭐ **IMPORTANT** ⭐
 
