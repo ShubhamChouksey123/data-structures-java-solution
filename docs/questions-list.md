@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `78/160+ problems completed`
+Track your overall progress: `81/160+ problems completed`
 
 ---
 
@@ -33,7 +33,7 @@ Date Format is DD-MM-YYYY
 | 13 | [Bitwise XOR](#13-bitwise-xor) | 5 | ✅      | [ ] |               |
 | 14 | [Top 'K' Elements](#14-top-k-elements) | 4 | ✅      | [ ] |               |
 | 15 | [K-way Merge](#15-k-way-merge) | 4 | ✅      | [ ] |               |
-| 16 | [Two Heaps](#16-two-heaps) | 3 | [ ]    | [ ] |               |
+| 16 | [Two Heaps](#16-two-heaps) | 3 | ✅      | [ ] | 17-03-2026    |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | 6 | [ ]    | [ ] |               |
 | 18 | [Trees](#18-trees) | 36 | [ ]    | [ ] |               |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | 50 | [ ]    | [ ] |               |
@@ -245,9 +245,9 @@ Date Format is DD-MM-YYYY
 **Description**: This pattern uses two heaps (max heap and min heap) to solve problems involving tracking medians and efficiently managing dynamic data.
 
 **Problems (3)**:
-- [ ] [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) - Hard
-- [ ] [Sliding Window Median](https://leetcode.com/problems/sliding-window-median/) - Hard
-- [ ] [IPO](https://leetcode.com/problems/ipo/) - Hard
+- [x] [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) - Hard
+- [x] [Sliding Window Median](https://leetcode.com/problems/sliding-window-median/) - Hard
+- [x] [IPO](https://leetcode.com/problems/ipo/) - Hard
 
 ---
 ## 17. Monotonic Stack
