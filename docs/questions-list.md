@@ -255,9 +255,9 @@ Date Format is DD-MM-YYYY
 **Description**: A monotonic stack helps solve range queries by maintaining a stack of elements in increasing or decreasing order.
 
 **Problems (6)**:
-- [ ] [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/) - Medium
+- [x] [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/) - Medium
 - [ ] [Next Greater Node In Linked List](https://leetcode.com/problems/next-greater-node-in-linked-list/) - Medium
-- [ ] [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) - Medium
+- [x] [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) - Medium
 - [ ] [Online Stock Span](https://leetcode.com/problems/online-stock-span/) - Medium
 - [ ] [Maximum Width Ramp](https://leetcode.com/problems/maximum-width-ramp/) - Medium
 - [ ] [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) - Hard
