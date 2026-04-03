@@ -307,6 +307,27 @@ Set<Integer> unique = new HashSet<>(Arrays.asList(arr));
 Integer[] array = unique.toArray(new Integer[0]);
 ```
 
+### Type Conversion (Set<Integer> to List<String>)
+```java
+Set<Integer> set = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5));
+
+// Method 1: Using Streams (Recommended)
+List<String> list = set.stream()
+    .map(String::valueOf)
+    .collect(Collectors.toList());
+
+// Method 2: Using Loop
+List<String> list = new ArrayList<>();
+for (Integer num : set) {
+    list.add(String.valueOf(num));
+}
+
+// Method 3: Using Streams with Custom Formatting
+List<String> list = set.stream()
+    .map(n -> "Number: " + n)
+    .collect(Collectors.toList());
+```
+
 ---
 
 ## 11. Key Insight

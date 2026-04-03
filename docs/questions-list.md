@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `81/160+ problems completed`
+Track your overall progress: `87/160+ problems completed`
 
 ---
 
@@ -18,9 +18,9 @@ Date Format is DD-MM-YYYY
 
 | # | Topic | Questions | Solved | Revised | Last Revision |
 |---|-------|-----------|--------|---|---------------|
-| 1 | [Fast and Slow Pointer](#1-fast-and-slow-pointer) | 4 | ✅      | [ ] |               |
-| 2 | [Overlapping Intervals](#2-overlapping-intervals) | 5 | 4/5    | [ ] |               |
-| 3 | [Prefix Sum](#3-prefix-sum) | 5 | ✅      | ✅ | 01-02-2026    |
+| 1 | [Fast and Slow Pointer](#1-fast-and-slow-pointer) | 4 | ✅      | [ ] | 29-03-2026    |
+| 2 | [Overlapping Intervals](#2-overlapping-intervals) | 5 | 4/5    | [ ] | 30-03-2026    |
+| 3 | [Prefix Sum](#3-prefix-sum) | 5 | ✅      | ✅ | 01-02-2026, 30-03-2026  |
 | 4 | [Sliding Window](#4-sliding-window) | 13 | 12/13  | [ ] |               |
 | 5 | [Two Pointers](#5-two-pointers) | 6 | ✅      | [ ] |               |
 | 6 | [Cyclic Sort](#6-cyclic-sort-index-based) | 4 | ✅      | [ ] |               |
@@ -34,7 +34,7 @@ Date Format is DD-MM-YYYY
 | 14 | [Top 'K' Elements](#14-top-k-elements) | 4 | ✅      | [ ] |               |
 | 15 | [K-way Merge](#15-k-way-merge) | 4 | ✅      | [ ] |               |
 | 16 | [Two Heaps](#16-two-heaps) | 3 | ✅      | [ ] | 17-03-2026    |
-| 17 | [Monotonic Stack](#17-monotonic-stack) | 6 | [ ]    | [ ] |               |
+| 17 | [Monotonic Stack](#17-monotonic-stack) | 6 | ✅      | [ ] | 29-03-2026    |
 | 18 | [Trees](#18-trees) | 36 | [ ]    | [ ] |               |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | 50 | [ ]    | [ ] |               |
 | 20 | [Graphs](#20-graphs) | 16 | [ ]    | [ ] |               |
@@ -256,11 +256,11 @@ Date Format is DD-MM-YYYY
 
 **Problems (6)**:
 - [x] [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/) - Medium
-- [ ] [Next Greater Node In Linked List](https://leetcode.com/problems/next-greater-node-in-linked-list/) - Medium
+- [x] [Next Greater Node In Linked List](https://leetcode.com/problems/next-greater-node-in-linked-list/) - Medium
 - [x] [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) - Medium
-- [ ] [Online Stock Span](https://leetcode.com/problems/online-stock-span/) - Medium
-- [ ] [Maximum Width Ramp](https://leetcode.com/problems/maximum-width-ramp/) - Medium
-- [ ] [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) - Hard
+- [x] [Online Stock Span](https://leetcode.com/problems/online-stock-span/) - Medium
+- [x] [Maximum Width Ramp](https://leetcode.com/problems/maximum-width-ramp/) - Medium
+- [x] [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) - Hard
 
 ---
 ## 18. Trees
@@ -268,8 +268,8 @@ Date Format is DD-MM-YYYY
 **Description**: Comprehensive tree problems covering traversals, construction, height calculations, path problems, ancestors, and BST operations.
 
 ### Level Order Traversal (BFS in Binary Tree) - 8 problems
-- [ ] [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) - Medium
-- [ ] [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) - Medium
+- [x] [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) - Medium
+- [x] [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) - Medium
 - [ ] [Even Odd Tree](https://leetcode.com/problems/even-odd-tree/) - Medium
 - [ ] [Reverse Odd Levels of Binary Tree](https://leetcode.com/problems/reverse-odd-levels-of-binary-tree/) - Medium
 - [ ] [Deepest Leaves Sum](https://leetcode.com/problems/deepest-leaves-sum/) - Medium
