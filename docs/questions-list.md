@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `87/160+ problems completed`
+Track your overall progress: `88/160+ problems completed`
 
 ---
 
@@ -16,30 +16,30 @@ Track your overall progress: `87/160+ problems completed`
 
 Date Format is DD-MM-YYYY
 
-| # | Topic | Questions | Solved | Revised | Last Revision |
-|---|-------|-----------|--------|---|---------------|
-| 1 | [Fast and Slow Pointer](#1-fast-and-slow-pointer) | 4 | ✅      | [ ] | 29-03-2026    |
-| 2 | [Overlapping Intervals](#2-overlapping-intervals) | 5 | 4/5    | [ ] | 30-03-2026    |
-| 3 | [Prefix Sum](#3-prefix-sum) | 5 | ✅      | ✅ | 01-02-2026, 30-03-2026  |
-| 4 | [Sliding Window](#4-sliding-window) | 13 | 12/13  | [ ] |               |
-| 5 | [Two Pointers](#5-two-pointers) | 6 | ✅      | [ ] |               |
-| 6 | [Cyclic Sort](#6-cyclic-sort-index-based) | 4 | ✅      | [ ] |               |
-| 7 | [Reversal of Linked List](#7-reversal-of-linked-list-in-place) | 3 | ✅      | [ ] |               |
-| 8 | [Matrix Manipulation](#8-matrix-manipulation) | 4 | ✅      | [ ] |               |
-| 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | 4 | 3/4    | [ ] |               |
-| 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | 5 | ✅      | [ ] |               |
-| 11 | [Backtracking](#11-backtracking) | 7 | ✅      | ✅ | 07-03-2026    |
-| 12 | [Modified Binary Search](#12-modified-binary-search) | 9 | ✅      | [ ] |               |
-| 13 | [Bitwise XOR](#13-bitwise-xor) | 5 | ✅      | [ ] |               |
-| 14 | [Top 'K' Elements](#14-top-k-elements) | 4 | ✅      | [ ] |               |
-| 15 | [K-way Merge](#15-k-way-merge) | 4 | ✅      | [ ] |               |
-| 16 | [Two Heaps](#16-two-heaps) | 3 | ✅      | [ ] | 17-03-2026    |
-| 17 | [Monotonic Stack](#17-monotonic-stack) | 6 | ✅      | [ ] | 29-03-2026    |
-| 18 | [Trees](#18-trees) | 36 | [ ]    | [ ] |               |
-| 19 | [Dynamic Programming](#19-dynamic-programming) | 50 | [ ]    | [ ] |               |
-| 20 | [Graphs](#20-graphs) | 16 | [ ]    | [ ] |               |
-| 21 | [Greedy](#21-greedy) | 7 | [ ]    | [ ] |               |
-| 22 | [Design Data Structure](#22-design-data-structure) | 6 | [ ]    | [ ] |               |
+| # | Topic | Notes | Questions | Solved | Revised | Last Revision                      |
+|---|-------|-------|-----------|--------|---|------------------------------------|
+| 1 | [Fast and Slow Pointer](#1-fast-and-slow-pointer) | [📝](../notes/fast-and-slow-pointer/Notes.md) | 4 | ✅      | [ ] | 29-03-2026                         |
+| 2 | [Overlapping Intervals](#2-overlapping-intervals) | [📝](../notes/overlapping-intervals/Notes.md) | 5 | 4/5    | [ ] | 30-03-2026, 03-04-2026             |
+| 3 | [Prefix Sum](#3-prefix-sum) | [📝](../notes/prefix-sum/Notes.md) | 5 | ✅      | ✅ | 01-02-2026, 30-03-2026, 03-04-2026 |
+| 4 | [Sliding Window](#4-sliding-window) | [📝](../notes/sliding-window/Notes.md) | 13 | ✅      | [ ] | 04-04-2026                         |
+| 5 | [Two Pointers](#5-two-pointers) | [📝](../notes/two-pointers/Notes.md) | 6 | ✅      | [ ] |                                    |
+| 6 | [Cyclic Sort](#6-cyclic-sort-index-based) | [📝](../notes/cyclic-sort/Notes.md) | 4 | ✅      | [ ] |                                    |
+| 7 | [Reversal of Linked List](#7-reversal-of-linked-list-in-place) | [📝](../notes/reversal-of-linked-list/Notes.md) | 3 | ✅      | [ ] |                                    |
+| 8 | [Matrix Manipulation](#8-matrix-manipulation) | [📝](../notes/matrix-manipulation/Notes.md) | 4 | ✅      | [ ] |                                    |
+| 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | [📝](../notes/breadth-first-search/Notes.md) | 4 | 3/4    | [ ] |                                    |
+| 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | [📝](../notes/depth-first-search/Notes.md) | 5 | ✅      | [ ] |                                    |
+| 11 | [Backtracking](#11-backtracking) | [📝](../notes/backtracking/Notes.md) | 7 | ✅      | ✅ | 07-03-2026                         |
+| 12 | [Modified Binary Search](#12-modified-binary-search) | [📝](../notes/binary-search/Notes.md) | 9 | ✅      | [ ] |                                    |
+| 13 | [Bitwise XOR](#13-bitwise-xor) | [📝](../notes/bitwise-xor/Notes.md) | 5 | ✅      | [ ] |                                    |
+| 14 | [Top 'K' Elements](#14-top-k-elements) | [📝](../notes/top-k-elements/Notes.md) | 4 | ✅      | [ ] |                                    |
+| 15 | [K-way Merge](#15-k-way-merge) | [📝](../notes/k-way-merge/Notes.md) | 4 | ✅      | [ ] |                                    |
+| 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
+| 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
+| 18 | [Trees](#18-trees) | - | 36 | 2/36   | [ ] |                                    |
+| 19 | [Dynamic Programming](#19-dynamic-programming) | - | 50 | [ ]    | [ ] |                                    |
+| 20 | [Graphs](#20-graphs) | - | 16 | [ ]    | [ ] |                                    |
+| 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
+| 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | [ ]    | [ ] |                                    |
 
 **📖 [Useful Learning Resources](#useful-articles-on-leetcode)**
 
@@ -100,7 +100,7 @@ Date Format is DD-MM-YYYY
 - [x] [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/) - Medium
 - [x] [Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/) - Medium
 - [x] [Count Number of Nice Subarrays](https://leetcode.com/problems/count-number-of-nice-subarrays) - Medium
-- [ ] [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) - Hard
+- [x] [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) - Hard
 
 ---
 ## 5. Two Pointers

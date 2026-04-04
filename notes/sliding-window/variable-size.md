@@ -296,11 +296,11 @@ if (freq.get(left) == 0) freq.remove(left);
 
 - [x] [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) - Medium
 - [x] [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) - Medium
-- [x] [Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/) - Medium ⭐
+- [x] [Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/) - Medium
 - [x] [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/) - Medium
 - [x] [Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/) - Medium ⭐
 - [x] [Count Number of Nice Subarrays](https://leetcode.com/problems/count-number-of-nice-subarrays) - Medium ⭐
-- [ ] [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) - Hard
+- [x] [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) - Hard
 
 ### Subarray Product Less Than K ⭐ **IMPORTANT** ⭐
 
