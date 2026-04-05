@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `88/160+ problems completed`
+Track your overall progress: `90/160+ problems completed`
 
 ---
 
@@ -35,7 +35,7 @@ Date Format is DD-MM-YYYY
 | 15 | [K-way Merge](#15-k-way-merge) | [📝](../notes/k-way-merge/Notes.md) | 4 | ✅      | [ ] |                                    |
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
-| 18 | [Trees](#18-trees) | - | 36 | 2/36   | [ ] |                                    |
+| 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 36 | 5/36   | [ ] |                                    |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | - | 50 | [ ]    | [ ] |                                    |
 | 20 | [Graphs](#20-graphs) | - | 16 | [ ]    | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
@@ -270,11 +270,11 @@ Date Format is DD-MM-YYYY
 ### Level Order Traversal (BFS in Binary Tree) - 8 problems
 - [x] [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) - Medium
 - [x] [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) - Medium
-- [ ] [Even Odd Tree](https://leetcode.com/problems/even-odd-tree/) - Medium
-- [ ] [Reverse Odd Levels of Binary Tree](https://leetcode.com/problems/reverse-odd-levels-of-binary-tree/) - Medium
-- [ ] [Deepest Leaves Sum](https://leetcode.com/problems/deepest-leaves-sum/) - Medium
-- [ ] [Add One Row to Tree](https://leetcode.com/problems/add-one-row-to-tree/) - Medium
-- [ ] [Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/) - Medium
+- [x] [Even Odd Tree](https://leetcode.com/problems/even-odd-tree/) - Medium
+- [x] [Reverse Odd Levels of Binary Tree](https://leetcode.com/problems/reverse-odd-levels-of-binary-tree/) - Medium
+- [x] [Deepest Leaves Sum](https://leetcode.com/problems/deepest-leaves-sum/) - Medium
+- [x] [Add One Row to Tree](https://leetcode.com/problems/add-one-row-to-tree/) - Medium
+- [x] [Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/) - Medium
 - [ ] [All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) - Medium
 
 ### Tree Construction - 4 problems
