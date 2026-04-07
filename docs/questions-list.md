@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `90/160+ problems completed`
+Track your overall progress: `100/160+ problems completed`
 
 ---
 
@@ -35,7 +35,7 @@ Date Format is DD-MM-YYYY
 | 15 | [K-way Merge](#15-k-way-merge) | [📝](../notes/k-way-merge/Notes.md) | 4 | ✅      | [ ] |                                    |
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
-| 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 36 | 5/36   | [ ] |                                    |
+| 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 36 | 15/36  | [ ] |                                    |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | - | 50 | [ ]    | [ ] |                                    |
 | 20 | [Graphs](#20-graphs) | - | 16 | [ ]    | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
@@ -278,16 +278,16 @@ Date Format is DD-MM-YYYY
 - [ ] [All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) - Medium
 
 ### Tree Construction - 4 problems
-- [ ] [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) - Medium
-- [ ] [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) - Medium
-- [ ] [Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/) - Medium
-- [ ] [Construct Binary Search Tree from Preorder Traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/) - Medium
+- [x] [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) - Medium
+- [x] [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) - Medium
+- [x] [Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/) - Medium
+- [x] [Construct Binary Search Tree from Preorder Traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/) - Medium
 
 ### Height Related Problems - 4 problems
-- [ ] [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) - Easy
-- [ ] [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) - Easy
-- [ ] [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) - Easy
-- [ ] [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/) - Easy
+- [x] [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) - Easy
+- [x] [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) - Easy
+- [x] [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) - Easy
+- [x] [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/) - Easy
 
 ### Root to Leaf Path Problems - 7 problems
 - [ ] [Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/) - Easy
