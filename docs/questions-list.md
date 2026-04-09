@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `100/160+ problems completed`
+Track your overall progress: `107/160+ problems completed`
 
 ---
 
@@ -35,7 +35,7 @@ Date Format is DD-MM-YYYY
 | 15 | [K-way Merge](#15-k-way-merge) | [📝](../notes/k-way-merge/Notes.md) | 4 | ✅      | [ ] |                                    |
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
-| 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 36 | 15/36  | [ ] |                                    |
+| 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 36 | 18/36  | [ ] |                                    |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | - | 50 | [ ]    | [ ] |                                    |
 | 20 | [Graphs](#20-graphs) | - | 16 | [ ]    | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
@@ -290,9 +290,9 @@ Date Format is DD-MM-YYYY
 - [x] [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/) - Easy
 
 ### Root to Leaf Path Problems - 7 problems
-- [ ] [Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/) - Easy
-- [ ] [Path Sum II](https://leetcode.com/problems/path-sum-ii/) - Medium
-- [ ] [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) - Medium
+- [x] [Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/) - Easy
+- [x] [Path Sum II](https://leetcode.com/problems/path-sum-ii/) - Medium
+- [x] [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) - Medium
 - [ ] [Smallest String Starting From Leaf](https://leetcode.com/problems/smallest-string-starting-from-leaf) - Medium
 - [ ] [Insufficient Nodes in Root to Leaf Paths](https://leetcode.com/problems/insufficient-nodes-in-root-to-leaf-paths/) - Medium
 - [ ] [Pseudo-Palindromic Paths in a Binary Tree](https://leetcode.com/problems/pseudo-palindromic-paths-in-a-binary-tree/) - Medium
