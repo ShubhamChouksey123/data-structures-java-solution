@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `107/188 problems completed`
+Track your overall progress: `112/188 problems completed`
 
 ---
 
@@ -35,7 +35,7 @@ Date Format is DD-MM-YYYY
 | 15 | [K-way Merge](#15-k-way-merge) | [📝](../notes/k-way-merge/Notes.md) | 4 | ✅      | [ ] |                                    |
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
-| 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 18/32  | [ ] |                                    |
+| 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 23/32  | [ ] |                                    |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | - | 39 | [ ]    | [ ] |                                    |
 | 20 | [Graphs](#20-graphs) | - | 13 | [ ]    | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
@@ -293,14 +293,14 @@ Date Format is DD-MM-YYYY
 - [x] [Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/) - Easy
 - [x] [Path Sum II](https://leetcode.com/problems/path-sum-ii/) - Medium
 - [x] [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) - Medium
-- [ ] [Smallest String Starting From Leaf](https://leetcode.com/problems/smallest-string-starting-from-leaf) - Medium
-- [ ] [Insufficient Nodes in Root to Leaf Paths](https://leetcode.com/problems/insufficient-nodes-in-root-to-leaf-paths/) - Medium
-- [ ] [Pseudo-Palindromic Paths in a Binary Tree](https://leetcode.com/problems/pseudo-palindromic-paths-in-a-binary-tree/) - Medium
-- [ ] [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) - Hard
+- [x] [Smallest String Starting From Leaf](https://leetcode.com/problems/smallest-string-starting-from-leaf) - Medium
+- [x] [Insufficient Nodes in Root to Leaf Paths](https://leetcode.com/problems/insufficient-nodes-in-root-to-leaf-paths/) - Medium
+- [x] [Pseudo-Palindromic Paths in a Binary Tree](https://leetcode.com/problems/pseudo-palindromic-paths-in-a-binary-tree/) - Medium
+- [x] [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) - Hard
 
 
 ### Ancestor Problems - 4 problems
-- [ ] [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) - Medium
+- [x] [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) - Medium
 - [ ] [Maximum Difference Between Node and Ancestor](https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/) - Medium
 - [ ] [Lowest Common Ancestor of Deepest Leaves](https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/) - Medium
 - [ ] [Kth Ancestor of a Tree Node](https://leetcode.com/problems/kth-ancestor-of-a-tree-node/) - Hard
