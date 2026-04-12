@@ -77,26 +77,7 @@ private boolean validate(TreeNode node, Integer min, Integer max) {
 }
 ```
 
-### Visual Example
 
-```
-Valid BST:       Invalid BST:
-     5                5
-   /   \            /   \
-  3     7          3     7
- / \   /         / \   /
-1   4 6         1   6 4  ← 4 < 5, invalid!
-
-Validation:
-Node 5: range (-∞, +∞) ✓
-Node 3: range (-∞, 5) ✓
-Node 7: range (5, +∞) ✓
-Node 1: range (-∞, 3) ✓
-Node 4: range (3, 5) ✓
-Node 6: range (5, 7) ✗ (6 > 5 but < 7, but in wrong subtree of 5)
-```
-
----
 
 ## Pattern 2: Search in BST
 
@@ -380,67 +361,12 @@ if ((min != null && node.val <= min) ||
 
 ## Problems
 
-- [ ] [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) - Medium ⭐ **IMPORTANT** ⭐
-- [ ] [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/) - Easy
-- [ ] [Minimum Absolute Difference in BST](https://leetcode.com/problems/minimum-absolute-difference-in-bst/) - Easy
-- [ ] [Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/) - Medium
-- [ ] [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) - Medium
+- [x] [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/) - Easy
+- [x] [Minimum Absolute Difference in BST](https://leetcode.com/problems/minimum-absolute-difference-in-bst/) - Easy
+- [x] [Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/) - Medium
+- [x] [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) - Medium
 
-### Validate Binary Search Tree ⭐ **IMPORTANT** ⭐
-
-**Problem**: [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) - Medium
-
-**Why Important**: Classic BST problem that tests deep understanding of BST property. Common interview question with tricky edge cases.
-
-**Approach**:
-1. Validate with range constraints [min, max]
-2. Each node must be strictly within its valid range
-3. Left subtree: constrain max to current value
-4. Right subtree: constrain min to current value
-
-**Complexity**: O(n) time, O(h) space
-
-**Solution**:
-```java
-public boolean isValidBST(TreeNode root) {
-    return validate(root, null, null);
-}
-
-private boolean validate(TreeNode node, Integer min, Integer max) {
-    // Base case: null node is valid
-    if (node == null) return true;
-
-    // Check current node's value against constraints
-    // Note: Use <= and >= because BST is strictly ordered
-    if ((min != null && node.val <= min) ||
-        (max != null && node.val >= max)) {
-        return false;
-    }
-
-    // Validate left subtree: all values must be < node.val
-    // New constraint: max becomes node.val
-    boolean leftValid = validate(node.left, min, node.val);
-
-    // Validate right subtree: all values must be > node.val
-    // New constraint: min becomes node.val
-    boolean rightValid = validate(node.right, node.val, max);
-
-    return leftValid && rightValid;
-}
-```
-
-**Key Points**:
-- **Range constraints**: Each node has valid range [min, max]
-- **Use null**: For initial infinity values
-- **Strict inequalities**: BST uses < and >, not <= and >=
-- **Common mistakes**:
-  - Only checking immediate children (doesn't catch all violations)
-  - Using == instead of <= or >=
-  - Not handling null constraints
-  - Forgetting that left subtree values must be < ALL ancestors, not just parent
-- **Alternative**: Inorder traversal should be strictly increasing
-
----
 
 ## Key Takeaways
 
