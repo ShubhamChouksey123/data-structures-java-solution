@@ -158,7 +158,7 @@ Date Format is DD-MM-YYYY
 - [x] [Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/) - Medium
 - [x] [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) - Medium
 - [x] [As Far from Land as Possible](https://leetcode.com/problems/as-far-from-land-as-possible/) - Medium
-- [ ] [Word Ladder](https://leetcode.com/problems/word-ladder/) - Hard
+- [x] [Word Ladder](https://leetcode.com/problems/word-ladder/) - Hard
 
 ---
 ## 10. Depth First Search (DFS)

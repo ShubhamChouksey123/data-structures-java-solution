@@ -268,7 +268,7 @@ visited.add(start);
 - [x] [Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/) - Medium
 - [x] [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [As Far from Land as Possible](https://leetcode.com/problems/as-far-from-land-as-possible/) - Medium
-- [ ] [Word Ladder](https://leetcode.com/problems/word-ladder/) - Hard
+- [x] [Word Ladder](https://leetcode.com/problems/word-ladder/) - Hard
 
 ### Rotting Oranges ⭐ **IMPORTANT** ⭐
 

@@ -56,35 +56,26 @@ BFS-based traversal visiting nodes level by level. Essential for problems requir
 ### 2. [Tree Construction](tree-construction.md) (4 problems)
 Building trees from traversal sequences (preorder, inorder, postorder). Requires understanding traversal properties.
 
-**Completed**: 0/4
 
 ---
 
 ### 3. [Height Related Problems](height-related.md) (4 problems)
 Problems involving tree height, depth, diameter, and balance. Core concept: height = 1 + max(left, right).
 
-**Completed**: 0/4
-
 ---
 
 ### 4. [Root to Leaf Path Problems](root-to-leaf-paths.md) (7 problems)
 Path-based problems from root to leaves. Common pattern: backtracking with path tracking.
-
-**Completed**: 0/7
 
 ---
 
 ### 5. [Ancestor Problems](ancestor-problems.md) (4 problems)
 Finding lowest common ancestors and ancestor-related queries. Key technique: post-order traversal.
 
-**Completed**: 0/4
-
 ---
 
 ### 6. [Binary Search Tree](binary-search-tree.md) (5 problems)
 BST-specific operations leveraging the ordering property: left < root < right.
-
-**Completed**: 0/5
 
 ---
 
