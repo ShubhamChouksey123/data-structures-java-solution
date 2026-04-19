@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `119/188 problems completed`
+Track your overall progress: `126/188 problems completed`
 
 ---
 
@@ -37,7 +37,7 @@ Date Format is DD-MM-YYYY
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | - | 39 | [ ]    | [ ] |                                    |
-| 20 | [Graphs](#20-graphs) | - | 13 | [ ]    | [ ] |                                    |
+| 20 | [Graphs](#20-graphs) | - | 14 | 7/14   | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
 | 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | [ ]    | [ ] |                                    |
 
@@ -396,21 +396,22 @@ Date Format is DD-MM-YYYY
 ### Topological Sort - 5 problems
 **Pattern**: Dependency resolution using in-degree in directed acyclic graphs (DAGs).
 
-- [ ] [Course Schedule](https://leetcode.com/problems/course-schedule/) - Medium
-- [ ] [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) - Medium
+- [x] [Course Schedule](https://leetcode.com/problems/course-schedule/) - Medium
+- [x] [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) - Medium
 - [ ] [Strange Printer II](https://leetcode.com/problems/strange-printer-ii/) - Hard
 - [ ] [Sequence Reconstruction](https://leetcode.com/problems/sequence-reconstruction/) - Medium
 - [ ] [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/) - Hard
 
 
 
-### Union Find (Disjoint Set) - 4 problems
+### Union Find (Disjoint Set) - 5 problems
 **Pattern**: Solving problems involving connectivity or grouping in graphs.
 
-- [ ] [Number of Operations to Make Network Connected](https://leetcode.com/problems/number-of-operations-to-make-network-connected/) - Medium
-- [ ] [Redundant Connection](https://leetcode.com/problems/redundant-connection/) - Medium
-- [ ] [Accounts Merge](https://leetcode.com/problems/accounts-merge/) - Medium
-- [ ] [Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations/) - Medium
+- [x] [Find if Path Exists in Graph](https://leetcode.com/problems/find-if-path-exists-in-graph/description/) - Easy
+- [x] [Number of Operations to Make Network Connected](https://leetcode.com/problems/number-of-operations-to-make-network-connected/) - Medium
+- [x] [Redundant Connection](https://leetcode.com/problems/redundant-connection/) - Medium
+- [x] [Accounts Merge](https://leetcode.com/problems/accounts-merge/) - Medium
+- [x] [Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations/) - Medium
 
 
 ### Graph Algorithms - 4 problems
