@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `126/188 problems completed`
+Track your overall progress: `128/189 problems completed`
 
 ---
 
@@ -37,7 +37,7 @@ Date Format is DD-MM-YYYY
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | - | 39 | [ ]    | [ ] |                                    |
-| 20 | [Graphs](#20-graphs) | - | 14 | 7/14   | [ ] |                                    |
+| 20 | [Graphs](#20-graphs) | - | 14 | 9/14   | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
 | 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | [ ]    | [ ] |                                    |
 
@@ -419,8 +419,8 @@ Date Format is DD-MM-YYYY
 
 - [ ] [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) - Medium *(Kruskal's Algorithm)*
 - [ ] [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) - Medium *(Dijkstra's Algorithm)*
-- [ ] [Find the City With the Smallest Number of Neighbors at a Threshold Distance](https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/) - Medium *(Floyd-Warshall)*
-- [ ] [Network Delay Time](https://leetcode.com/problems/network-delay-time) - Medium *(Bellman-Ford)*
+- [x] [Find the City With the Smallest Number of Neighbors at a Threshold Distance](https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/) - Medium *(Floyd-Warshall)*
+- [x] [Network Delay Time](https://leetcode.com/problems/network-delay-time) - Medium *(Bellman-Ford)*
 
 ---
 
