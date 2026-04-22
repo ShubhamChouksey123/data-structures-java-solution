@@ -160,6 +160,37 @@ List<Integer> filtered = list.stream()
 
 ---
 
+### Pattern 3: Sorting a 2D List
+
+**Use Case**: Sort a list of lists by a specific column (e.g., sort edges by weight)
+
+```java
+List<List<Integer>> edges = new ArrayList<>();
+edges.add(Arrays.asList(0, 1, 5));
+edges.add(Arrays.asList(1, 2, 2));
+edges.add(Arrays.asList(0, 2, 8));
+
+// Sort by index 2 (weight) ascending
+Collections.sort(edges, (a, b) -> Integer.compare(a.get(2), b.get(2)));
+// Result: [[1,2,2], [0,1,5], [0,2,8]]
+
+// Sort by index 2 descending
+edges.sort((a, b) -> Integer.compare(b.get(2), a.get(2)));
+
+// Sort by multiple columns (index 0 first, then index 1 as tiebreaker)
+edges.sort((a, b) -> a.get(0).equals(b.get(0))
+        ? Integer.compare(a.get(1), b.get(1))
+        : Integer.compare(a.get(0), b.get(0)));
+```
+
+**Why `Integer.compare()` over subtraction**:
+- `a.get(2) - b.get(2)` can **overflow** for large integers
+- `Integer.compare(a, b)` is always safe
+
+**Complexity**: O(n log n)
+
+---
+
 ## 8. Common Gotchas & Best Practices
 
 ### 1. Arrays.asList() is Fixed-Size
@@ -300,7 +331,10 @@ list.size()           // O(1) - get size
 ```java
 Collections.sort(list)                         // Ascending
 list.sort(Collections.reverseOrder())          // Descending
-list.sort((a, b) -> a.field - b.field)         // Custom
+list.sort((a, b) -> a.field - b.field)         // Custom (risk of overflow)
+
+// 2D list - sort by column index 2
+Collections.sort(edges, (a, b) -> Integer.compare(a.get(2), b.get(2)));
 ```
 
 ### Conversion
