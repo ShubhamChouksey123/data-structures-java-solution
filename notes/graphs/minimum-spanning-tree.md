@@ -378,7 +378,7 @@ for (int[] edge : edges) {
 
 ## Problems
 
-- [ ] [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) - Medium ⭐ **IMPORTANT** ⭐
 
 ### Min Cost to Connect All Points ⭐ **IMPORTANT** ⭐
 
