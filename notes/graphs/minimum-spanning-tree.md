@@ -186,6 +186,8 @@ MST:
 
 **Complexity**: O((V + E) log V) time with heap, O(V) space
 
+**Reference**: [Prim's Algorithm - Video](https://www.youtube.com/watch?v=20QfaLQPLqQ)
+
 ### Template
 
 ```java
@@ -247,55 +249,6 @@ public int primMST(int n, int[][] edges) {
 | **Best for** | Sparse graphs | Dense graphs |
 | **Implementation** | Simpler (sort + union find) | Similar to Dijkstra |
 | **Edge selection** | Global (smallest edge) | Local (smallest from MST) |
-
----
-
-## Pattern: Connect Points on Plane
-
-**Use Case**: Connect all points with minimum total distance (complete graph)
-
-**Algorithm**:
-1. Generate all edges between points (distance = Manhattan/Euclidean)
-2. Apply Kruskal's algorithm
-3. Return total cost
-
-**Complexity**: O(V² log V²) = O(V² log V) time
-
-### Template
-
-```java
-public int minCostConnectPoints(int[][] points) {
-    int n = points.length;
-    List<int[]> edges = new ArrayList<>();
-
-    // Generate all edges
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            int distance = Math.abs(points[i][0] - points[j][0]) +
-                          Math.abs(points[i][1] - points[j][1]);
-            edges.add(new int[]{i, j, distance});
-        }
-    }
-
-    // Sort by distance
-    Collections.sort(edges, (a, b) -> a[2] - b[2]);
-
-    // Kruskal's algorithm
-    UnionFind uf = new UnionFind(n);
-    int totalCost = 0;
-    int edgesUsed = 0;
-
-    for (int[] edge : edges) {
-        if (uf.union(edge[0], edge[1])) {
-            totalCost += edge[2];
-            edgesUsed++;
-            if (edgesUsed == n - 1) break;
-        }
-    }
-
-    return totalCost;
-}
-```
 
 ---
 

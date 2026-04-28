@@ -277,9 +277,9 @@ for (int i = 0; i < n; i++) {
 
 - [x] [Course Schedule](https://leetcode.com/problems/course-schedule/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) - Medium
-- [ ] [Strange Printer II](https://leetcode.com/problems/strange-printer-ii/) - Hard
-- [ ] [Sequence Reconstruction](https://leetcode.com/problems/sequence-reconstruction/) - Medium
-- [ ] [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/) - Hard
+- [x] [Strange Printer II](https://leetcode.com/problems/strange-printer-ii/) - Hard
+- [x] [Sequence Reconstruction](https://leetcode.com/problems/sequence-reconstruction/) - Medium
+- [x] [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/) - Hard
 
 ### Course Schedule ⭐ **IMPORTANT** ⭐
 

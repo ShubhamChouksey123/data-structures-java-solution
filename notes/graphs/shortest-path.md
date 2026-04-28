@@ -52,6 +52,8 @@ Different algorithms for different graph properties:
 
 **Key Property**: Greedy algorithm - once a node is processed, its distance is final.
 
+**📹 Video Tutorial**: [Dijkstra's Algorithm Explained](https://youtu.be/0W8WoRaw5Es?si=anDwlfokkJ2L_8gq)
+
 ### Template
 
 ```java

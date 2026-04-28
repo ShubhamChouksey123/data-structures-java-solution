@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `129/189 problems completed`
+Track your overall progress: `132/189 problems completed`
 
 ---
 
@@ -398,9 +398,9 @@ Date Format is DD-MM-YYYY
 
 - [x] [Course Schedule](https://leetcode.com/problems/course-schedule/) - Medium
 - [x] [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) - Medium
-- [ ] [Strange Printer II](https://leetcode.com/problems/strange-printer-ii/) - Hard
-- [ ] [Sequence Reconstruction](https://leetcode.com/problems/sequence-reconstruction/) - Medium
-- [ ] [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/) - Hard
+- [x] [Strange Printer II](https://leetcode.com/problems/strange-printer-ii/) - Hard
+- [x] [Sequence Reconstruction](https://leetcode.com/problems/sequence-reconstruction/) - Medium
+- [x] [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/) - Hard
 
 
 
