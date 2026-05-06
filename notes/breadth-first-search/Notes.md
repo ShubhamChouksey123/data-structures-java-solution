@@ -269,6 +269,7 @@ visited.add(start);
 - [x] [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [As Far from Land as Possible](https://leetcode.com/problems/as-far-from-land-as-possible/) - Medium
 - [x] [Word Ladder](https://leetcode.com/problems/word-ladder/) - Hard
+- [x] [Evaluate Division](https://leetcode.com/problems/evaluate-division/description/) - Medium
 
 ### Rotting Oranges ⭐ **IMPORTANT** ⭐
 
@@ -289,6 +290,90 @@ visited.add(start);
 - Level-by-level processing to track time
 - Check if any fresh oranges remain unreachable
 - Each BFS level represents 1 minute passing
+
+---
+
+### Evaluate Division
+
+**Problem**: [Evaluate Division](https://leetcode.com/problems/evaluate-division/description/) - Medium
+
+**Why Important**: BFS on a weighted graph — variables are nodes, division ratios are edge weights; tests ability to apply BFS beyond grids/trees
+
+**Approach**:
+1. Build a bidirectional weighted graph: for `A/B = k`, add edge A→B with weight `k` and B→A with weight `1/k`
+2. For each query `(src, dst)`:
+   - If either node not in graph → `-1.0`
+   - If `src == dst` → `1.0`
+   - BFS from `src`, accumulating product of edge weights along the path
+   - Return product when `dst` is reached, else `-1.0`
+
+**Complexity**: O((V + E) × Q) time where Q = number of queries, O(V + E) space
+
+**Solution**:
+
+```java
+public double[] calcEquation(List<List<String>> equations, double[] values,
+                             List<List<String>> queries) {
+    // Build weighted adjacency graph
+    Map<String, Map<String, Double>> graph = new HashMap<>();
+
+    for (int i = 0; i < equations.size(); i++) {
+        String u = equations.get(i).get(0);
+        String v = equations.get(i).get(1);
+        double val = values[i];
+
+        graph.computeIfAbsent(u, k -> new HashMap<>()).put(v, val);
+        graph.computeIfAbsent(v, k -> new HashMap<>()).put(u, 1.0 / val);
+    }
+
+    double[] results = new double[queries.size()];
+
+    for (int i = 0; i < queries.size(); i++) {
+        String src = queries.get(i).get(0);
+        String dst = queries.get(i).get(1);
+        results[i] = bfs(graph, src, dst);
+    }
+
+    return results;
+}
+
+private double bfs(Map<String, Map<String, Double>> graph, String src, String dst) {
+    if (!graph.containsKey(src) || !graph.containsKey(dst)) return -1.0;
+    if (src.equals(dst)) return 1.0;
+
+    Queue<Object[]> queue = new LinkedList<>();  // {node, product so far}
+    Set<String> visited = new HashSet<>();
+
+    queue.offer(new Object[]{src, 1.0});
+    visited.add(src);
+
+    while (!queue.isEmpty()) {
+        Object[] curr = queue.poll();
+        String node = (String) curr[0];
+        double product = (double) curr[1];
+
+        for (Map.Entry<String, Double> neighbor : graph.get(node).entrySet()) {
+            String next = neighbor.getKey();
+            double weight = neighbor.getValue();
+
+            if (next.equals(dst)) return product * weight;
+
+            if (!visited.contains(next)) {
+                visited.add(next);
+                queue.offer(new Object[]{next, product * weight});
+            }
+        }
+    }
+
+    return -1.0;
+}
+```
+
+**Key Points**:
+- **Weighted BFS**: carry accumulated product through the queue (not just distance)
+- **Bidirectional edges**: `A/B = k` implies `B/A = 1/k`
+- **Unknown variable**: if node not in graph at all, answer is `-1.0`
+- **Same variable**: `A/A = 1.0` (shortcut before BFS)
 
 ---
 

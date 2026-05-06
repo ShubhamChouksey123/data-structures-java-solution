@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `132/189 problems completed`
+Track your overall progress: `133/190 problems completed`
 
 ---
 
@@ -26,7 +26,7 @@ Date Format is DD-MM-YYYY
 | 6 | [Cyclic Sort](#6-cyclic-sort-index-based) | [📝](../notes/cyclic-sort/Notes.md) | 4 | ✅      | [ ] |                                    |
 | 7 | [Reversal of Linked List](#7-reversal-of-linked-list-in-place) | [📝](../notes/reversal-of-linked-list/Notes.md) | 3 | ✅      | [ ] |                                    |
 | 8 | [Matrix Manipulation](#8-matrix-manipulation) | [📝](../notes/matrix-manipulation/Notes.md) | 4 | ✅      | [ ] |                                    |
-| 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | [📝](../notes/breadth-first-search/Notes.md) | 4 | ✅      | ✅ | 15-04-2026                         |
+| 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | [📝](../notes/breadth-first-search/Notes.md) | 5 | ✅     | ✅ | 15-04-2026                         |
 | 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | [📝](../notes/depth-first-search/Notes.md) | 5 | ✅      | ✅ | 16-04-2026                         |
 | 11 | [Backtracking](#11-backtracking) | [📝](../notes/backtracking/Notes.md) | 7 | ✅      | ✅ | 07-03-2026                         |
 | 12 | [Modified Binary Search](#12-modified-binary-search) | [📝](../notes/binary-search/Notes.md) | 9 | ✅      | [ ] |                                    |
@@ -159,6 +159,7 @@ Date Format is DD-MM-YYYY
 - [x] [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) - Medium
 - [x] [As Far from Land as Possible](https://leetcode.com/problems/as-far-from-land-as-possible/) - Medium
 - [x] [Word Ladder](https://leetcode.com/problems/word-ladder/) - Hard
+- [x] [Evaluate Division](https://leetcode.com/problems/evaluate-division/description/) - Medium
 
 ---
 ## 10. Depth First Search (DFS)
