@@ -357,6 +357,7 @@ void dfs(Node node, Set<Node> visited) {
 - [x] [Number of Enclaves](https://leetcode.com/problems/number-of-enclaves/) - Medium
 - [x] [Time Needed to Inform All Employees](https://leetcode.com/problems/time-needed-to-inform-all-employees/) - Medium
 - [x] [Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states/) - Medium
+- [x] [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) - Hard
 
 ### Number of Closed Islands ⭐ **IMPORTANT** ⭐
 

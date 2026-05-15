@@ -541,6 +541,7 @@ public boolean union(int x, int y) {
 - [x] [Redundant Connection](https://leetcode.com/problems/redundant-connection/) - Medium
 - [x] [Accounts Merge](https://leetcode.com/problems/accounts-merge/) - Medium
 - [x] [Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations/) - Medium
+- [x] [Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/) - Medium
 
 ### Number of Operations to Make Network Connected ⭐ **IMPORTANT** ⭐
 

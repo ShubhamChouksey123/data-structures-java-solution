@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `133/190 problems completed`
+Track your overall progress: `135/192 problems completed`
 
 ---
 
@@ -27,7 +27,7 @@ Date Format is DD-MM-YYYY
 | 7 | [Reversal of Linked List](#7-reversal-of-linked-list-in-place) | [📝](../notes/reversal-of-linked-list/Notes.md) | 3 | ✅      | [ ] |                                    |
 | 8 | [Matrix Manipulation](#8-matrix-manipulation) | [📝](../notes/matrix-manipulation/Notes.md) | 4 | ✅      | [ ] |                                    |
 | 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | [📝](../notes/breadth-first-search/Notes.md) | 5 | ✅     | ✅ | 15-04-2026                         |
-| 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | [📝](../notes/depth-first-search/Notes.md) | 5 | ✅      | ✅ | 16-04-2026                         |
+| 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | [📝](../notes/depth-first-search/Notes.md) | 6 | ✅     | ✅ | 16-04-2026                         |
 | 11 | [Backtracking](#11-backtracking) | [📝](../notes/backtracking/Notes.md) | 7 | ✅      | ✅ | 07-03-2026                         |
 | 12 | [Modified Binary Search](#12-modified-binary-search) | [📝](../notes/binary-search/Notes.md) | 9 | ✅      | [ ] |                                    |
 | 13 | [Bitwise XOR](#13-bitwise-xor) | [📝](../notes/bitwise-xor/Notes.md) | 5 | ✅      | [ ] |                                    |
@@ -37,7 +37,7 @@ Date Format is DD-MM-YYYY
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | - | 39 | [ ]    | [ ] |                                    |
-| 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 14 | 13/14  | [ ] |                                    |
+| 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 15 | 14/15  | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
 | 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | [ ]    | [ ] |                                    |
 
@@ -172,6 +172,7 @@ Date Format is DD-MM-YYYY
 - [x] [Number of Enclaves](https://leetcode.com/problems/number-of-enclaves/) - Medium *(DFS from boundary)*
 - [x] [Time Needed to Inform All Employees](https://leetcode.com/problems/time-needed-to-inform-all-employees/) - Medium
 - [x] [Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states/) - Medium *(Cycle detection)*
+- [ ] [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) - Hard
 
 ---
 ## 11. Backtracking
@@ -405,7 +406,7 @@ Date Format is DD-MM-YYYY
 
 
 
-### Union Find (Disjoint Set) - 5 problems
+### Union Find (Disjoint Set) - 6 problems
 **Pattern**: Solving problems involving connectivity or grouping in graphs.
 
 - [x] [Find if Path Exists in Graph](https://leetcode.com/problems/find-if-path-exists-in-graph/description/) - Easy
@@ -413,6 +414,7 @@ Date Format is DD-MM-YYYY
 - [x] [Redundant Connection](https://leetcode.com/problems/redundant-connection/) - Medium
 - [x] [Accounts Merge](https://leetcode.com/problems/accounts-merge/) - Medium
 - [x] [Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations/) - Medium
+- [x] [Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/) - Medium
 
 
 ### Graph Algorithms - 4 problems
