@@ -14,6 +14,7 @@ This topic is split into focused sections:
 2. **[Union Find](union-find.md)** - Track connected components with near-constant operations
 3. **[Shortest Path Algorithms](shortest-path.md)** - Find minimum distance/cost paths (Dijkstra, Bellman-Ford, Floyd-Warshall)
 4. **[Minimum Spanning Tree](minimum-spanning-tree.md)** - Connect all nodes with minimum total weight (Kruskal's, Prim's)
+5. **[Tarjan's Algorithm](tarjan.md)** - Find bridges and articulation points in undirected graphs
 
 ---
 
@@ -30,6 +31,7 @@ This topic is split into focused sections:
 | **Shortest path (negative weights)** | Bellman-Ford | O(V × E) | [→](shortest-path.md) |
 | **All-pairs shortest paths** | Floyd-Warshall | O(V³) | [→](shortest-path.md) |
 | **Connect all nodes (min cost)** | Kruskal's MST | O(E log E) | [→](minimum-spanning-tree.md) |
+| **Find bridges / critical edges** | Tarjan's Algorithm | O(V + E) | [→](tarjan.md) |
 
 ### Keywords to Algorithm Mapping
 
@@ -44,6 +46,9 @@ This topic is split into focused sections:
 
 **"minimum cost to connect", "connect all points", "spanning tree"**
 → [Minimum Spanning Tree](minimum-spanning-tree.md)
+
+**"critical connections", "bridges", "articulation points", "single point of failure"**
+→ [Tarjan's Algorithm](tarjan.md)
 
 ---
 
@@ -167,6 +172,20 @@ Connect all nodes with minimum total edge weight.
 
 ---
 
+### 5. Tarjan's Algorithm
+**[→ Detailed Notes](tarjan.md)**
+
+Find bridges (critical edges) and articulation points in undirected graphs.
+
+**Bridge Finding**:
+- DFS with `disc` (discovery time) and `low` (lowest reachable ancestor)
+- Edge `(u, v)` is a bridge if `low[v] > disc[u]`
+- O(V + E) time
+
+**Use Cases**: Critical network connections, single points of failure, infrastructure vulnerability
+
+---
+
 ## Decision Tree
 
 ```
@@ -183,9 +202,12 @@ Need to solve a graph problem?
 │  ├─ Single source, negative weights → Bellman-Ford
 │  └─ All pairs → Floyd-Warshall
 │
-└─ Connect all nodes with min cost?
-   ├─ Sparse graph → Kruskal's MST
-   └─ Dense graph → Prim's MST
+├─ Connect all nodes with min cost?
+│  ├─ Sparse graph → Kruskal's MST
+│  └─ Dense graph → Prim's MST
+│
+└─ Find critical edges / bridges?
+   └─ Tarjan's Algorithm
 ```
 
 ---
@@ -198,7 +220,8 @@ Need to solve a graph problem?
 4. **Bellman-Ford**: O(V × E), handles negative weights, detects cycles
 5. **Floyd-Warshall**: O(V³), all-pairs, dynamic programming
 6. **Kruskal's MST**: O(E log E), sort edges + Union Find
-7. **Choose wisely**: Match algorithm to graph properties and requirements
+7. **Tarjan's**: O(V + E), bridges via `low[v] > disc[u]`, single DFS pass
+8. **Choose wisely**: Match algorithm to graph properties and requirements
 
 ---
 
@@ -210,6 +233,7 @@ Choose a section to study in detail:
 - **[Union Find →](union-find.md)** - Disjoint sets with path compression
 - **[Shortest Path →](shortest-path.md)** - Dijkstra, Bellman-Ford, Floyd-Warshall
 - **[Minimum Spanning Tree →](minimum-spanning-tree.md)** - Kruskal's and Prim's algorithms
+- **[Tarjan's Algorithm →](tarjan.md)** - Bridges and articulation points
 
 ---
 
