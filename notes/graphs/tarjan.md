@@ -130,6 +130,8 @@ Edge (2,3): low[3]=3 > disc[2]=2 → BRIDGE ✓
 
 **Complexity**: O(V + E) time, O(V + E) space
 
+**📹 Video Tutorial**: [Critical Connections in a Network](https://www.youtube.com/watch?v=qrAub5z8FeA)
+
 **Key Points**:
 - Skip parent edge (not a back-edge); use `v != parent` check
 - `low[v] > disc[u]` → no alternative path from v's subtree back to u's level
