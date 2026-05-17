@@ -399,8 +399,10 @@ PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) ->
 ## Problems
 
 - [x] [Network Delay Time](https://leetcode.com/problems/network-delay-time) - Medium *(Dijkstra/Bellman-Ford)* ⭐ **IMPORTANT** ⭐
-- [ ] [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) - Medium *(Modified Dijkstra)*
+- [x] [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) - Medium *(Modified Bellman-Ford)* ⭐ **IMPORTANT** ⭐
 - [x] [Find the City With the Smallest Number of Neighbors at a Threshold Distance](https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/) - Medium *(Floyd-Warshall)*
+- [x] [Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/) - Medium *(Modified Dijkstra)*
+- [x] [Path With Minimum Effort](https://leetcode.com/problems/path-with-minimum-effort/description/) - Medium *(Dijkstra on 2D Grid)*
 
 ### Network Delay Time ⭐ **IMPORTANT** ⭐
 
@@ -477,6 +479,94 @@ public int networkDelayTime(int[][] times, int n, int k) {
 - **1-indexed**: LeetCode uses 1-indexed nodes, not 0-indexed
 - **Skip outdated entries**: Critical optimization to avoid reprocessing
 - Can also solve with Bellman-Ford: O(V × E) but simpler code
+
+### Cheapest Flights Within K Stops ⭐ **IMPORTANT** ⭐
+
+**Problem**: [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) - Medium
+
+**Why Important**: Standard Dijkstra fails here — a higher-cost path with fewer stops may be better for future legs. Requires modified Bellman-Ford with bounded iterations.
+
+**Approach**:
+1. Run Bellman-Ford for exactly **K+1** rounds (K stops = K+1 flights/edges)
+2. In each round, try relaxing all flights
+3. Use a **temp copy** of prices before each round — prevents cascading updates within the same round (one round = one more hop allowed)
+4. Return `prices[dst]`, or `-1` if unreachable
+
+**Complexity**: O(K × E) time, O(V) space
+
+**Solution**:
+
+```java
+public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
+    int[] prices = new int[n];
+    Arrays.fill(prices, Integer.MAX_VALUE);
+    prices[src] = 0;
+
+    // K stops = K+1 flights/edges, so relax K+1 times
+    for (int i = 0; i <= k; i++) {
+        // Copy prevents cascading updates within the same round
+        int[] temp = Arrays.copyOf(prices, n);
+
+        for (int[] flight : flights) {
+            int u = flight[0], v = flight[1], cost = flight[2];
+
+            if (prices[u] != Integer.MAX_VALUE && prices[u] + cost < temp[v]) {
+                temp[v] = prices[u] + cost;
+            }
+        }
+
+        prices = temp;
+    }
+
+    return prices[dst] == Integer.MAX_VALUE ? -1 : prices[dst];
+}
+```
+
+**Key Points**:
+- **Why not standard Dijkstra?** Dijkstra greedily finalizes cheapest node, but a cheap path with many stops may block a valid path within K stops
+- **Why temp copy?** Without it, a single round could chain multiple flights — each round must represent exactly one additional flight
+- **K+1 rounds**: K stops between src and dst means K+1 edges to traverse
+- **Modified Bellman-Ford**: Same relaxation idea, but bounded to K+1 iterations instead of V-1
+
+---
+
+### Path with Maximum Probability
+
+**Problem**: [Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/) - Medium
+
+**Approach**:
+1. Build adjacency list with probabilities as edge weights
+2. Run **modified Dijkstra** using a **max-heap** (maximize probability instead of minimizing distance)
+3. Start with `prob[start] = 1.0`, all others `0.0`
+4. For each neighbor: `newProb = currProb * edgeProb`; update if greater
+5. Return `prob[end]`, or `0.0` if unreachable
+
+**Complexity**: O((V + E) log V) time, O(V + E) space
+
+**Key Points**:
+- **Max-heap** (negate probability or use `(b[0] - a[0])` comparator) instead of min-heap
+- **Multiply** probabilities along path (not add distances)
+- Skip if `currProb < prob[node]` (outdated entry — same pattern as Dijkstra)
+- Same Dijkstra structure, just flipped optimization direction
+
+### Path With Minimum Effort
+
+**Problem**: [Path With Minimum Effort](https://leetcode.com/problems/path-with-minimum-effort/description/) - Medium
+
+**Approach**:
+1. Dijkstra on a 2D grid — state is `(effort, row, col)`
+2. `effort[row][col]` = minimum effort (max absolute difference along path) to reach that cell
+3. For each neighbor: `newEffort = max(currEffort, abs(heights[row][col] - heights[newRow][newCol]))`
+4. Update if `newEffort < effort[newRow][newCol]`
+5. Return `effort[m-1][n-1]` when destination is reached
+
+**Complexity**: O(m×n × log(m×n)) time, O(m×n) space
+
+**Key Points**:
+- **Effort = max diff along path**, not sum — so we take `max` instead of `+`
+- **Min-heap on effort**: greedily process the path with least max-diff so far
+- Same Dijkstra skeleton as weighted graph, applied to 4-directional grid
+- Skip if `currEffort >= effort[row][col]` (outdated entry)
 
 ---
 

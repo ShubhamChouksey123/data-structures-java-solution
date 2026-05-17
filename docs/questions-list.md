@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `136/193 problems completed`
+Track your overall progress: `139/195 problems completed`
 
 ---
 
@@ -37,7 +37,7 @@ Date Format is DD-MM-YYYY
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | - | 39 | [ ]    | [ ] |                                    |
-| 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 16 | 15/16  | [ ] |                                    |
+| 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 18 | ✅     | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
 | 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | [ ]    | [ ] |                                    |
 
@@ -417,13 +417,15 @@ Date Format is DD-MM-YYYY
 - [x] [Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/) - Medium
 
 
-### Graph Algorithms - 4 problems
+### Graph Algorithms - 6 problems
 **Pattern**: Shortest paths, minimum spanning trees, and advanced graph traversal.
 
 - [x] [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) - Medium *(Kruskal's Algorithm)*
-- [ ] [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) - Medium *(Dijkstra's Algorithm)*
+- [x] [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) - Medium *(Modified Bellman-Ford)* ⭐ **IMPORTANT** ⭐
 - [x] [Find the City With the Smallest Number of Neighbors at a Threshold Distance](https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/) - Medium *(Floyd-Warshall)*
 - [x] [Network Delay Time](https://leetcode.com/problems/network-delay-time) - Medium *(Bellman-Ford)*
+- [x] [Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/) - Medium *(Modified Dijkstra)*
+- [x] [Path With Minimum Effort](https://leetcode.com/problems/path-with-minimum-effort/description/) - Medium *(Dijkstra on 2D Grid)*
 
 ### Tarjan's Algorithm - 1 problem
 **Pattern**: Find bridges (critical connections) using DFS with discovery time and low-link values.
