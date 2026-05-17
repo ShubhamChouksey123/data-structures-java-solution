@@ -542,6 +542,7 @@ public boolean union(int x, int y) {
 - [x] [Accounts Merge](https://leetcode.com/problems/accounts-merge/) - Medium
 - [x] [Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations/) - Medium
 - [x] [Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/) - Medium
+- [x] [Number of Islands](https://leetcode.com/problems/number-of-islands/description/) - Medium *(Union Find on 2D Grid)*
 
 ### Number of Operations to Make Network Connected ⭐ **IMPORTANT** ⭐
 
@@ -642,6 +643,120 @@ class UnionFind {
 - **Connect k components**: Need k-1 edges
 - **Key insight**: Redundant edges can be reused to connect components
 - Union Find naturally tracks both cycles and components
+
+### Number of Islands (Union Find on 2D Grid)
+
+**Problem**: [Number of Islands](https://leetcode.com/problems/number-of-islands/description/) - Medium
+
+**Why Union Find?**: Classic approach is DFS, but Union Find demonstrates how to apply it to a 2D grid by flattening indices.
+
+**Key Insight — Flattening 2D → 1D**:
+
+A 2D grid cell `(row, col)` maps to a 1D index using the number of columns:
+```
+index = row * numCols + col
+```
+
+```
+Grid (n=3 rows, m=4 cols):
+(0,0)(0,1)(0,2)(0,3)     0  1  2  3
+(1,0)(1,1)(1,2)(1,3)  →  4  5  6  7
+(2,0)(2,1)(2,2)(2,3)     8  9  10 11
+
+getIndex(m=4, row=1, col=2) = 1*4 + 2 = 6
+```
+
+**Approach**:
+1. Initialize `parent` and `rank` arrays of size `n * m`
+2. For each land cell `'1'`: set `parent[index] = index`, `rank[index] = 1`, increment `numberOfIsland`
+3. For each land cell, check only **right and down** (2 directions) — avoids double processing
+4. If neighbor is also land, `union` the two cells. Each successful union decrements `numberOfIsland`
+5. Return `numberOfIsland`
+
+**Why only 2 directions?** We already processed left and up cells in earlier iterations — checking only right and down avoids redundant union calls.
+
+**Complexity**: O(n × m × α(n×m)) time, O(n × m) space
+
+**Solution**:
+
+```java
+class Solution {
+
+    private int[] parent;
+    private int[] rank;
+    private int numberOfIsland;
+
+    private static final int[][] DIRECTIONS = new int[][]{{1, 0}, {0, 1}};
+
+    private int getIndex(int m, int x, int y) {
+        return x * m + y;
+    }
+
+    private int find(int x) {
+        if (parent[x] != x) {
+            parent[x] = find(parent[x]);
+        }
+        return parent[x];
+    }
+
+    private boolean union(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+
+        if (rootX == rootY) return false;
+
+        if (rank[rootX] > rank[rootY]) {
+            parent[rootY] = rootX;
+        } else if (rank[rootX] < rank[rootY]) {
+            parent[rootX] = rootY;
+        } else {
+            parent[rootY] = rootX;
+            rank[rootX]++;
+        }
+        numberOfIsland--;
+        return true;
+    }
+
+    public int numIslands(char[][] grid) {
+        int n = grid.length, m = grid[0].length;
+        parent = new int[n * m];
+        rank = new int[n * m];
+        numberOfIsland = 0;
+
+        // Initialize only land cells
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (grid[i][j] == '0') continue;
+                parent[getIndex(m, i, j)] = getIndex(m, i, j);
+                rank[getIndex(m, i, j)] = 1;
+                numberOfIsland++;
+            }
+        }
+
+        // Union adjacent land cells (right + down only)
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (grid[i][j] == '0') continue;
+                for (int[] dir : DIRECTIONS) {
+                    int x = i + dir[0], y = j + dir[1];
+                    if (x < 0 || x >= n || y < 0 || y >= m) continue;
+                    if (grid[x][y] == '1') {
+                        union(getIndex(m, i, j), getIndex(m, x, y));
+                    }
+                }
+            }
+        }
+
+        return numberOfIsland;
+    }
+}
+```
+
+**Key Points**:
+- **2D → 1D**: `index = row * numCols + col` — standard formula for grid flattening
+- **Initialize selectively**: Only land cells need valid parent/rank entries; water cells are never looked up
+- **2 directions only**: Right `(+1,0)` and down `(0,+1)` — covers all edges without revisiting
+- **Count via union**: Start with one island per land cell; each successful merge reduces count by 1
 
 ---
 
