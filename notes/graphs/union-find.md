@@ -543,6 +543,7 @@ public boolean union(int x, int y) {
 - [x] [Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations/) - Medium
 - [x] [Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/) - Medium
 - [x] [Number of Islands](https://leetcode.com/problems/number-of-islands/description/) - Medium *(Union Find on 2D Grid)*
+- [x] [Largest Component Size by Common Factor](https://leetcode.com/problems/largest-component-size-by-common-factor/) - Hard
 
 ### Number of Operations to Make Network Connected ⭐ **IMPORTANT** ⭐
 
@@ -757,6 +758,24 @@ class Solution {
 - **Initialize selectively**: Only land cells need valid parent/rank entries; water cells are never looked up
 - **2 directions only**: Right `(+1,0)` and down `(0,+1)` — covers all edges without revisiting
 - **Count via union**: Start with one island per land cell; each successful merge reduces count by 1
+
+### Largest Component Size by Common Factor
+
+**Problem**: [Largest Component Size by Common Factor](https://leetcode.com/problems/largest-component-size-by-common-factor/) - Hard
+
+**Approach**:
+1. For each number in the array, find all its prime factors
+2. Union the number itself with each of its prime factors — this connects numbers that share a common factor
+3. After all unions, count how many array elements belong to each root (using a frequency map)
+4. Return the maximum count
+
+**Complexity**: O(N × √maxVal × α(N)) time, O(N + maxVal) space
+
+**Key Points**:
+- **Union number with its factors**: If `num` has factor `f`, then `union(num, f)` — all numbers sharing factor `f` end up in the same component
+- **Prime factors only**: Only need to union with prime factors (composites are covered transitively)
+- **Size tracking**: After all unions, use a `Map<root, count>` over the original array to find the largest group
+- **Parent array size**: Must be large enough to hold both array values and their factors — use `max(nums) + 1`
 
 ---
 

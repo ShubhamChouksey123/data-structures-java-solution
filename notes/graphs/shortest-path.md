@@ -238,6 +238,17 @@ Final: dist = [0, 4, 1, 6]
 
 **Key Property**: Dynamic programming, computes all-pairs distances.
 
+**Negative Cycle Detection**: After running Floyd-Warshall, check the diagonal — if `dist[i][i] < 0` for any node `i`, a negative weight cycle exists. This works because a node's distance to itself should be `0`; a negative value means there's a cycle through `i` with negative total weight.
+
+```java
+// After Floyd-Warshall completes:
+for (int i = 0; i < n; i++) {
+    if (dist[i][i] < 0) {
+        return true;  // Negative cycle detected
+    }
+}
+```
+
 ### Template
 
 ```java

@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `140/196 problems completed`
+Track your overall progress: `141/197 problems completed`
 
 ---
 
@@ -37,7 +37,7 @@ Date Format is DD-MM-YYYY
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | - | 39 | [ ]    | [ ] |                                    |
-| 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 19 | ✅     | [ ] |                                    |
+| 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 20 | ✅     | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
 | 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | [ ]    | [ ] |                                    |
 
@@ -406,7 +406,7 @@ Date Format is DD-MM-YYYY
 
 
 
-### Union Find (Disjoint Set) - 7 problems
+### Union Find (Disjoint Set) - 8 problems
 **Pattern**: Solving problems involving connectivity or grouping in graphs.
 
 - [x] [Find if Path Exists in Graph](https://leetcode.com/problems/find-if-path-exists-in-graph/description/) - Easy
@@ -416,6 +416,7 @@ Date Format is DD-MM-YYYY
 - [x] [Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations/) - Medium
 - [x] [Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/) - Medium
 - [x] [Number of Islands](https://leetcode.com/problems/number-of-islands/description/) - Medium *(Union Find on 2D Grid)*
+- [x] [Largest Component Size by Common Factor](https://leetcode.com/problems/largest-component-size-by-common-factor/) - Hard
 
 
 ### Graph Algorithms - 6 problems
