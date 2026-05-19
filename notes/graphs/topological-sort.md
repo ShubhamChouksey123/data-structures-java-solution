@@ -278,8 +278,8 @@ for (int i = 0; i < n; i++) {
 - [x] [Course Schedule](https://leetcode.com/problems/course-schedule/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) - Medium
 - [x] [Strange Printer II](https://leetcode.com/problems/strange-printer-ii/) - Hard
-- [x] [Sequence Reconstruction](https://leetcode.com/problems/sequence-reconstruction/) - Medium
-- [x] [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/) - Hard
+- [x] [Sequence Reconstruction](https://www.lintcode.com/problem/605/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Alien Dictionary](https://www.lintcode.com/problem/892/) - Hard ⭐ **IMPORTANT** ⭐
 
 ### Course Schedule ⭐ **IMPORTANT** ⭐
 
@@ -351,6 +351,156 @@ public boolean canFinish(int numCourses, int[][] prerequisites) {
 - If `completed < numCourses`, cycle exists (impossible to finish all courses)
 - Course Schedule II asks for the ordering: return `result` array instead of boolean
 - BFS approach preferred over DFS for cleaner cycle detection and easier to understand
+
+---
+
+### Sequence Reconstruction ⭐ **IMPORTANT** ⭐
+
+**Problem**: [Sequence Reconstruction](https://www.lintcode.com/problem/605/) - Medium
+
+**Why Important**: Checks uniqueness of topological ordering — the key trick of checking `queue.size() > 1` is non-obvious and frequently tested
+
+**Approach**:
+1. Build directed graph from consecutive pairs in each sequence (`seqs[i][j] → seqs[i][j+1]`)
+2. Calculate in-degrees for all nodes
+3. Run Kahn's algorithm (BFS topological sort)
+4. At each step, if queue has **more than 1 node**, return false (multiple valid orderings exist)
+5. Verify result matches `org` exactly
+
+**Complexity**: O(V + E) time, O(V + E) space
+
+**Solution**:
+
+```java
+public boolean sequenceReconstruction(int[] org, int[][] seqs) {
+    int n = org.length;
+    List<Integer>[] adj = new ArrayList[n + 1];
+    for (int i = 1; i <= n; i++) adj[i] = new ArrayList<>();
+
+    int[] inDegree = new int[n + 1];
+    boolean[] inSeq = new boolean[n + 1];
+    int elementCount = 0;
+    boolean hasElements = false;
+
+    for (int[] seq : seqs) {
+        if (seq.length > 0) hasElements = true;
+        for (int i = 0; i < seq.length; i++) {
+            int u = seq[i];
+            if (u < 1 || u > n) return false;
+            if (!inSeq[u]) { inSeq[u] = true; elementCount++; }
+            if (i == seq.length - 1) break;
+            int v = seq[i + 1];
+            if (v < 1 || v > n) return false;
+            if (!inSeq[v]) { inSeq[v] = true; elementCount++; }
+            adj[u].add(v);
+            inDegree[v]++;
+        }
+    }
+
+    if (n > 0 && !hasElements) return false;
+    if (elementCount != n) return false;
+
+    Deque<Integer> queue = new ArrayDeque<>();
+    for (int i = 1; i <= n; i++)
+        if (inDegree[i] == 0) queue.offerLast(i);
+
+    int idx = 0;
+    while (!queue.isEmpty()) {
+        if (queue.size() != 1) return false;  // ambiguous ordering
+        int node = queue.pollLast();
+        if (idx >= n || org[idx++] != node) return false;
+        for (int neighbor : adj[node]) {
+            if (--inDegree[neighbor] == 0) queue.offerLast(neighbor);
+        }
+    }
+
+    for (int i = 1; i <= n; i++)
+        if (inDegree[i] > 0) return false;
+
+    return true;
+}
+```
+
+**Key Points**:
+- **Unique ordering check**: `queue.size() != 1` at any step → multiple valid orderings exist → not unique
+- `inSeq[]` + `elementCount` validates all elements 1..n appear in seqs — guards against missing nodes
+- Out-of-range check (`u < 1 || u > n`) handles invalid sequence values early
+- Cycle detection at end: any `inDegree[i] > 0` means a node was never processed
+- 1-indexed arrays (size `n+1`) match the problem's 1-to-n numbering
+
+---
+
+### Alien Dictionary ⭐ **IMPORTANT** ⭐
+
+**Problem**: [Alien Dictionary](https://www.lintcode.com/problem/892/) - Hard
+
+**Why Important**: Classic problem that combines string comparison with topological sort — the graph-building step (extracting ordering from word pairs) is the non-obvious part
+
+**Approach**:
+1. Initialize all unique characters in the graph
+2. Compare adjacent words pairwise — find the first differing character: `words[i][j] → words[i+1][j]`
+3. If `words[i]` is a prefix of `words[i+1]` but longer → invalid input, return `""`
+4. Run Kahn's algorithm on the character graph
+5. If not all characters processed → cycle (invalid), return `""`
+
+**Complexity**: O(C) time and space where C = total length of all words
+
+**Solution**:
+
+```java
+public String alienOrder(String[] words) {
+    List<Integer>[] adj = new ArrayList[26];
+    for (int i = 0; i < 26; i++) adj[i] = new ArrayList<>();
+
+    int[] inDegree = new int[26];
+    boolean[] exists = new boolean[26];
+
+    for (String word : words)
+        for (char c : word.toCharArray())
+            exists[c - 'a'] = true;
+
+    for (int i = 1; i < words.length; i++) {
+        if (!addEdge(words[i - 1], words[i], adj, inDegree)) return "";
+    }
+
+    Queue<Integer> queue = new PriorityQueue<>();
+    for (int i = 0; i < 26; i++)
+        if (exists[i] && inDegree[i] == 0) queue.add(i);
+
+    StringBuilder sb = new StringBuilder();
+    while (!queue.isEmpty()) {
+        int node = queue.poll();
+        sb.append((char) ('a' + node));
+        for (int neighbor : adj[node]) {
+            if (--inDegree[neighbor] == 0) queue.add(neighbor);
+        }
+    }
+
+    for (int i = 0; i < 26; i++)
+        if (inDegree[i] > 0) return "";
+
+    return sb.toString();
+}
+
+private boolean addEdge(String w1, String w2, List<Integer>[] adj, int[] inDegree) {
+    if (w1.length() > w2.length() && w1.startsWith(w2)) return false;
+    for (int i = 0; i < Math.min(w1.length(), w2.length()); i++) {
+        if (w1.charAt(i) != w2.charAt(i)) {
+            adj[w1.charAt(i) - 'a'].add(w2.charAt(i) - 'a');
+            inDegree[w2.charAt(i) - 'a']++;
+            break;
+        }
+    }
+    return true;
+}
+```
+
+**Key Points**:
+- Uses **index arrays (size 26)** instead of HashMaps — cleaner and avoids boxing overhead
+- `exists[]` tracks which chars actually appear — needed because `inDegree[i] == 0` alone can't distinguish "no deps" from "not in alphabet"
+- `PriorityQueue` produces lexicographically smallest valid ordering
+- Cycle detection at end: any `inDegree[i] > 0` means node was never processed (stuck in cycle)
+- Invalid input: `w1` longer than `w2` but `w1.startsWith(w2)` (e.g., `["abc", "ab"]`)
 
 ---
 
