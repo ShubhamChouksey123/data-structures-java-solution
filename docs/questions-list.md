@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `141/197 problems completed`
+Track your overall progress: `143/199 problems completed`
 
 ---
 
@@ -37,7 +37,7 @@ Date Format is DD-MM-YYYY
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | - | 39 | [ ]    | [ ] |                                    |
-| 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 20 | ✅     | [ ] |                                    |
+| 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
 | 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | [ ]    | [ ] |                                    |
 
@@ -433,6 +433,12 @@ Date Format is DD-MM-YYYY
 **Pattern**: Find bridges (critical connections) using DFS with discovery time and low-link values.
 
 - [x] [Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/description/) - Hard
+
+### Hierholzer's Algorithm - 2 problems
+**Pattern**: Find Eulerian path/circuit — visit every edge exactly once using DFS with post-order insertion.
+
+- [x] [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/) - Medium
+- [x] [Valid Arrangement of Pairs](https://leetcode.com/problems/valid-arrangement-of-pairs/) - Hard
 
 ---
 

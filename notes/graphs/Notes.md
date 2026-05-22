@@ -15,6 +15,7 @@ This topic is split into focused sections:
 3. **[Shortest Path Algorithms](shortest-path.md)** - Find minimum distance/cost paths (Dijkstra, Bellman-Ford, Floyd-Warshall)
 4. **[Minimum Spanning Tree](minimum-spanning-tree.md)** - Connect all nodes with minimum total weight (Kruskal's, Prim's)
 5. **[Tarjan's Algorithm](tarjan.md)** - Find bridges and articulation points in undirected graphs
+6. **[Hierholzer's Algorithm](hierholzer.md)** - Find Eulerian path/circuit (visit every edge exactly once)
 
 ---
 
@@ -32,6 +33,7 @@ This topic is split into focused sections:
 | **All-pairs shortest paths** | Floyd-Warshall | O(V³) | [→](shortest-path.md) |
 | **Connect all nodes (min cost)** | Kruskal's MST | O(E log E) | [→](minimum-spanning-tree.md) |
 | **Find bridges / critical edges** | Tarjan's Algorithm | O(V + E) | [→](tarjan.md) |
+| **Visit every edge exactly once** | Hierholzer's Algorithm | O(E log E) | [→](hierholzer.md) |
 
 ### Keywords to Algorithm Mapping
 
@@ -49,6 +51,9 @@ This topic is split into focused sections:
 
 **"critical connections", "bridges", "articulation points", "single point of failure"**
 → [Tarjan's Algorithm](tarjan.md)
+
+**"visit every edge exactly once", "reconstruct itinerary", "Eulerian path/circuit"**
+→ [Hierholzer's Algorithm](hierholzer.md)
 
 ---
 
@@ -186,6 +191,20 @@ Find bridges (critical edges) and articulation points in undirected graphs.
 
 ---
 
+### 6. Hierholzer's Algorithm
+**[→ Detailed Notes](hierholzer.md)**
+
+Find an Eulerian path/circuit — a path that visits every edge exactly once.
+
+**DFS with Post-order Insertion**:
+- Use `PriorityQueue` for lexicographic ordering
+- When stuck (no more outgoing edges), `addFirst` to result
+- O(E log E) time
+
+**Use Cases**: Reconstruct itinerary, valid arrangement of pairs, Eulerian circuit problems
+
+---
+
 ## Decision Tree
 
 ```
@@ -206,8 +225,11 @@ Need to solve a graph problem?
 │  ├─ Sparse graph → Kruskal's MST
 │  └─ Dense graph → Prim's MST
 │
-└─ Find critical edges / bridges?
-   └─ Tarjan's Algorithm
+├─ Find critical edges / bridges?
+│  └─ Tarjan's Algorithm
+│
+└─ Visit every edge exactly once?
+   └─ Hierholzer's Algorithm (Eulerian path/circuit)
 ```
 
 ---
@@ -221,7 +243,8 @@ Need to solve a graph problem?
 5. **Floyd-Warshall**: O(V³), all-pairs, dynamic programming
 6. **Kruskal's MST**: O(E log E), sort edges + Union Find
 7. **Tarjan's**: O(V + E), bridges via `low[v] > disc[u]`, single DFS pass
-8. **Choose wisely**: Match algorithm to graph properties and requirements
+8. **Hierholzer's**: O(E log E), post-order DFS, `addFirst` when stuck
+9. **Choose wisely**: Match algorithm to graph properties and requirements
 
 ---
 
@@ -234,6 +257,7 @@ Choose a section to study in detail:
 - **[Shortest Path →](shortest-path.md)** - Dijkstra, Bellman-Ford, Floyd-Warshall
 - **[Minimum Spanning Tree →](minimum-spanning-tree.md)** - Kruskal's and Prim's algorithms
 - **[Tarjan's Algorithm →](tarjan.md)** - Bridges and articulation points
+- **[Hierholzer's Algorithm →](hierholzer.md)** - Eulerian path and circuit
 
 ---
 
