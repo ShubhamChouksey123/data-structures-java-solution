@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `143/199 problems completed`
+Track your overall progress: `149/200 problems completed`
 
 ---
 
@@ -36,7 +36,7 @@ Date Format is DD-MM-YYYY
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
-| 19 | [Dynamic Programming](#19-dynamic-programming) | - | 39 | [ ]    | [ ] |                                    |
+| 19 | [Dynamic Programming](#19-dynamic-programming) | - | 40 | 6/40   | [ ] |                                    |
 | 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
 | 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | [ ]    | [ ] |                                    |
@@ -319,14 +319,15 @@ Date Format is DD-MM-YYYY
 
 **Description**: Comprehensive collection of DP problems covering various patterns including knapsack, subsequences, grids, strings, stocks, and partition problems.
 
-### Take / Not Take (0/1 Knapsack) - 5 problems
+### Take / Not Take (0/1 Knapsack) - 6 problems
 **Pattern**: Solve optimization problems like selecting items with the max/min value under certain constraints.
 
-- [ ] [House Robber II](https://leetcode.com/problems/house-robber-ii/) - Medium
-- [ ] [Target Sum](https://leetcode.com/problems/target-sum/) - Medium
-- [ ] [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) - Medium
-- [ ] [Ones and Zeroes](https://leetcode.com/problems/ones-and-zeroes/) - Medium
-- [ ] [Last Stone Weight II](https://leetcode.com/problems/last-stone-weight-ii/) - Medium
+- [x] [0 - 1 Knapsack Problem](https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1) - Medium *(GeeksForGeeks)*
+- [x] [House Robber II](https://leetcode.com/problems/house-robber-ii/) - Medium
+- [x] [Target Sum](https://leetcode.com/problems/target-sum/) - Medium
+- [x] [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) - Medium
+- [x] [Ones and Zeroes](https://leetcode.com/problems/ones-and-zeroes/) - Medium
+- [x] [Last Stone Weight II](https://leetcode.com/problems/last-stone-weight-ii/) - Medium
 
 ### Infinite Supply (Unbounded Knapsack) - 4 problems
 **Pattern**: Similar to the 0/1 knapsack, but items can be chosen multiple times.
