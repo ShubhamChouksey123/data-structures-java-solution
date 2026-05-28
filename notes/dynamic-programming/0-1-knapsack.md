@@ -297,6 +297,8 @@ dp[0] = true;
 
 ## Problems
 
+**Problem List**: [0/1 Knapsack — LeetCode Collection](https://leetcode.com/problem-list/50vif4uc/)
+
 - [x] [0 - 1 Knapsack Problem](https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1) - Medium *(GeeksForGeeks)*
 - [x] [House Robber II](https://leetcode.com/problems/house-robber-ii/) - Medium
 - [x] [Target Sum](https://leetcode.com/problems/target-sum/) - Medium ⭐ **IMPORTANT** ⭐

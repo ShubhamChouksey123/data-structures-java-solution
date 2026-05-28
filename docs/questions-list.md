@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `149/200 problems completed`
+Track your overall progress: `157/200 problems completed`
 
 ---
 
@@ -36,7 +36,7 @@ Date Format is DD-MM-YYYY
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
-| 19 | [Dynamic Programming](#19-dynamic-programming) | - | 40 | 6/40   | [ ] |                                    |
+| 19 | [Dynamic Programming](#19-dynamic-programming) | - | 40 | 14/40  | [ ] |                                    |
 | 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
 | 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | [ ]    | [ ] |                                    |
@@ -332,19 +332,19 @@ Date Format is DD-MM-YYYY
 ### Infinite Supply (Unbounded Knapsack) - 4 problems
 **Pattern**: Similar to the 0/1 knapsack, but items can be chosen multiple times.
 
-- [ ] [Coin Change](https://leetcode.com/problems/coin-change/) - Medium
-- [ ] [Coin Change II](https://leetcode.com/problems/coin-change-ii/) - Medium
-- [ ] [Perfect Squares](https://leetcode.com/problems/perfect-squares/) - Medium
+- [x] [Coin Change](https://leetcode.com/problems/coin-change/) - Medium
+- [x] [Coin Change II](https://leetcode.com/problems/coin-change-ii/) - Medium
+- [x] [Perfect Squares](https://leetcode.com/problems/perfect-squares/) - Medium
 - [ ] [Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets/) - Medium
 
 ### Longest Increasing Subsequence (LIS) - 5 problems
 **Pattern**: Finding the longest subsequence of a given sequence where the elements are in ascending order.
 
-- [ ] [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence) - Medium
-- [ ] [Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/) - Medium
-- [ ] [Maximum Length of Pair Chain](https://leetcode.com/problems/maximum-length-of-pair-chain/) - Medium
-- [ ] [Number of Longest Increasing Subsequence](https://leetcode.com/problems/number-of-longest-increasing-subsequence/) - Medium
-- [ ] [Longest String Chain](https://leetcode.com/problems/longest-string-chain/) - Medium
+- [x] [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence) - Medium
+- [x] [Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/) - Medium
+- [x] [Maximum Length of Pair Chain](https://leetcode.com/problems/maximum-length-of-pair-chain/) - Medium
+- [x] [Number of Longest Increasing Subsequence](https://leetcode.com/problems/number-of-longest-increasing-subsequence/) - Medium
+- [x] [Longest String Chain](https://leetcode.com/problems/longest-string-chain/) - Medium
 
 
 ### DP on Grids - 7 problems
