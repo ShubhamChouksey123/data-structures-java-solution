@@ -1,6 +1,6 @@
 # Dynamic Programming
 
-> **[← Back to Overview](../README.md)**
+> **[← Back to Questions List](../../docs/questions-list.md)**
 
 ---
 
@@ -13,7 +13,7 @@ This topic is split into focused sections by recurrence shape:
 1. **[Take / Not Take (0/1 Knapsack)](0-1-knapsack.md)** - Pick/skip each item once under a capacity constraint
 2. **[Infinite Supply (Unbounded Knapsack)](unbounded-knapsack.md)** - Items can be reused unlimited times
 3. **[Longest Increasing Subsequence (LIS)](longest-increasing-subsequence.md)** - Best subsequence under an ordering relation
-4. **DP on Grids** *(upcoming)* - Path-counting and min/max-cost on 2D matrices
+4. **[DP on Grids](dp-on-grids.md)** - Path-counting and min/max-cost on 2D matrices
 5. **DP on Strings** *(upcoming)* - Two-string recurrences (LCS, edit distance, palindromes)
 6. **DP on Stocks** *(upcoming)* - State-machine DP for buy/sell with constraints
 7. **Partition DP (MCM)** *(upcoming)* - Choose where to split a sequence optimally
@@ -29,7 +29,7 @@ This topic is split into focused sections by recurrence shape:
 | **Pick/skip items, each used once** | 0/1 Knapsack | O(n × W) | [→](0-1-knapsack.md) |
 | **Pick items, each reusable** | Unbounded Knapsack | O(n × W) | [→](unbounded-knapsack.md) |
 | **Longest chain under an order** | LIS | O(n²) or O(n log n) | [→](longest-increasing-subsequence.md) |
-| **Paths / min cost on a 2D grid** | DP on Grids | O(m × n) | *upcoming* |
+| **Paths / min cost on a 2D grid** | DP on Grids | O(m × n) | [→](dp-on-grids.md) |
 | **Compare/transform two strings** | DP on Strings | O(m × n) | *upcoming* |
 | **Buy/sell with k transactions or cooldown** | DP on Stocks | O(n × k) | *upcoming* |
 | **Optimal partition of a sequence** | Partition DP | O(n³) | *upcoming* |
@@ -46,7 +46,7 @@ This topic is split into focused sections by recurrence shape:
 → [Longest Increasing Subsequence (LIS)](longest-increasing-subsequence.md)
 
 **"unique paths", "minimum path sum", "falling path", "robot in grid"**
-→ DP on Grids *(upcoming)*
+→ [DP on Grids](dp-on-grids.md)
 
 **"longest common subsequence", "edit distance", "palindromic substring", "wildcard match"**
 → DP on Strings *(upcoming)*
@@ -142,13 +142,17 @@ Same as 0/1 knapsack except each item can be used **unlimited times**.
 
 ---
 
-### 4. DP on Grids *(upcoming)*
+### 4. DP on Grids
+**[→ Detailed Notes](dp-on-grids.md)**
 
 `dp[i][j]` = best result reaching cell `(i, j)`. Transitions usually come from `dp[i-1][j]` (top) and `dp[i][j-1]` (left).
 
-**Use Cases**: Unique paths, minimum path sum, maximal square, falling path
+**Variants**:
+- Standard 2D DP (Unique Paths, Min Path Sum, Triangle, Falling Path)
+- Maximal Square — `dp[i][j] = 1 + min(top, left, diagonal)`
+- Backwards DP (Dungeon Game) — fill from bottom-right when future cost constrains the past
 
-**Complexity**: O(m × n) time, O(m × n) → O(min(m, n)) space
+**Complexity**: O(m × n) time, O(min(m, n)) space (rolling)
 
 ---
 
@@ -229,7 +233,8 @@ Choose a section to study in detail:
 - **[Take / Not Take (0/1 Knapsack) →](0-1-knapsack.md)** - Pick/skip each item once
 - **[Infinite Supply (Unbounded Knapsack) →](unbounded-knapsack.md)** - Items reusable unlimited times
 - **[Longest Increasing Subsequence →](longest-increasing-subsequence.md)** - Best subsequence under an order
+- **[DP on Grids →](dp-on-grids.md)** - Path-counting and min/max-cost on 2D matrices
 
 ---
 
-> **[← Back to Overview](../README.md)**
+> **[← Back to Questions List](../../docs/questions-list.md)**
