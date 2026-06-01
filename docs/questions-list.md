@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `161/200 problems completed`
+Track your overall progress: `164/201 problems completed`
 
 ---
 
@@ -36,7 +36,7 @@ Date Format is DD-MM-YYYY
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
-| 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 40 | 18/40  | [ ] |                                    |
+| 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 41 | 21/41  | [ ] |                                    |
 | 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
 | 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | [ ]    | [ ] |                                    |
@@ -347,15 +347,16 @@ Date Format is DD-MM-YYYY
 - [x] [Longest String Chain](https://leetcode.com/problems/longest-string-chain/) - Medium
 
 
-### DP on Grids - 7 problems
+### DP on Grids - 8 problems
 **Pattern**: Solving problems on matrices that can be broken down into smaller overlapping subproblems.
 
 - [x] [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) - Medium
 - [x] [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) - Medium
 - [x] [Triangle](https://leetcode.com/problems/triangle/) - Medium
 - [x] [Minimum Falling Path Sum](https://leetcode.com/problems/minimum-falling-path-sum/) - Medium
-- [ ] [Maximal Square](https://leetcode.com/problems/maximal-square/) - Medium
-- [ ] [Cherry Pickup](https://leetcode.com/problems/cherry-pickup/) - Hard
+- [x] [Maximal Square](https://leetcode.com/problems/maximal-square/) - Medium
+- [x] [Cherry Pickup](https://leetcode.com/problems/cherry-pickup/) - Hard
+- [x] [Cherry Pickup II](https://leetcode.com/problems/cherry-pickup-ii/) - Hard
 - [ ] [Dungeon Game](https://leetcode.com/problems/dungeon-game/) - Hard
 
 ### DP on Strings - 9 problems

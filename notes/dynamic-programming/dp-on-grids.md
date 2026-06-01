@@ -166,8 +166,9 @@ public int calculateMinimumHP(int[][] dungeon) {
 - [x] [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) - Medium
 - [x] [Triangle](https://leetcode.com/problems/triangle/) - Medium
 - [x] [Minimum Falling Path Sum](https://leetcode.com/problems/minimum-falling-path-sum/) - Medium
-- [ ] [Maximal Square](https://leetcode.com/problems/maximal-square/) - Medium ⭐ **IMPORTANT** ⭐
-- [ ] [Cherry Pickup](https://leetcode.com/problems/cherry-pickup/) - Hard
+- [x] [Maximal Square](https://leetcode.com/problems/maximal-square/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Cherry Pickup](https://leetcode.com/problems/cherry-pickup/) - Hard
+- [x] [Cherry Pickup II](https://leetcode.com/problems/cherry-pickup-ii/) - Hard
 - [ ] [Dungeon Game](https://leetcode.com/problems/dungeon-game/) - Hard ⭐ **IMPORTANT** ⭐
 
 ---
