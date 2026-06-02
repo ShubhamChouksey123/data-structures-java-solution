@@ -169,7 +169,7 @@ public int calculateMinimumHP(int[][] dungeon) {
 - [x] [Maximal Square](https://leetcode.com/problems/maximal-square/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Cherry Pickup](https://leetcode.com/problems/cherry-pickup/) - Hard
 - [x] [Cherry Pickup II](https://leetcode.com/problems/cherry-pickup-ii/) - Hard
-- [ ] [Dungeon Game](https://leetcode.com/problems/dungeon-game/) - Hard ⭐ **IMPORTANT** ⭐
+- [x] [Dungeon Game](https://leetcode.com/problems/dungeon-game/) - Hard ⭐ **IMPORTANT** ⭐
 
 ---
 
