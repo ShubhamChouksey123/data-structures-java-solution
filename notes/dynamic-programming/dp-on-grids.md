@@ -15,12 +15,6 @@
 - "cherry pickup", "dungeon game"
 - "from top-left to bottom-right" (or any fixed start/end)
 
-### Examples
-- Count paths from top-left to bottom-right with obstacles
-- Min cost path through a weighted grid
-- Largest all-1s square submatrix
-- Min HP needed to traverse a dungeon
-
 ---
 
 ## Core Concept
@@ -37,10 +31,7 @@
 
 **Use Case**: Reach `(m-1, n-1)` from `(0, 0)` minimizing/counting along top + left moves
 
-**Algorithm**:
-1. Base case: `dp[0][0] = grid[0][0]`; first row/column accumulate from one side
-2. For each `(i, j)`: `dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])` (or `+=` for path counting)
-3. Answer is `dp[m-1][n-1]`
+**Algorithm**: Seed first row/column from one side; then `dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])` (or `+=` for path counting). Answer is `dp[m-1][n-1]`.
 
 **Complexity**: O(m × n) time, O(n) space (1D rolling)
 
@@ -75,13 +66,9 @@ public int minPathSum(int[][] grid) {
 
 **Use Case**: Find the side length of the largest all-1s square submatrix
 
-**Why Important**: The transition `min(top, left, diagonal) + 1` is non-obvious — it's the unique-trick interview problem in this section. Easy to confuse with histogram-based "Maximal Rectangle."
+**Why Important**: The `min(top, left, diagonal) + 1` transition is non-obvious; easy to confuse with histogram-based "Maximal Rectangle."
 
-**Algorithm**:
-1. `dp[i][j]` = side length of the largest square whose **bottom-right corner** is at `(i, j)`
-2. If `grid[i][j] == '0'`, then `dp[i][j] = 0`
-3. Else `dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])`
-4. Answer: square of the maximum value across `dp`
+**Algorithm**: `dp[i][j]` = side of the largest square with **bottom-right corner** at `(i, j)`. If `grid[i][j] == '0'` → `0`; else `dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])`. Answer is `max(dp)²`.
 
 **Complexity**: O(m × n) time, O(m × n) → O(n) space
 
@@ -105,9 +92,8 @@ public int maximalSquare(char[][] grid) {
 ```
 
 **Key Points**:
-- **Why `min` of three neighbors?** A square of side `s` at `(i, j)` requires squares of side `s-1` at all three preceding corners (top, left, diagonal). The smallest of those bounds the square here.
-- **Padded `(m+1) × (n+1)` array** avoids boundary checks for `i=0` / `j=0`
-- Answer is `best * best` (area), not `best` (side length)
+- **`min` of three neighbors**: a side-`s` square needs side-`s-1` squares at all three preceding corners; the smallest bounds you
+- **Padded `(m+1) × (n+1)`** array skips boundary checks; answer is `best * best` (area), not `best` (side)
 
 ---
 
@@ -115,13 +101,9 @@ public int maximalSquare(char[][] grid) {
 
 **Use Case**: When the answer at `(i, j)` depends on what comes **after**, not before — e.g. minimum starting health (Dungeon Game)
 
-**Why Important**: Forward DP fails because the cost at the end constrains the start. Recognizing when to fill the table from `(m-1, n-1)` back to `(0, 0)` is the trick interviewers probe.
+**Why Important**: Forward DP fails — end-cost constrains start. Filling from `(m-1, n-1)` back to `(0, 0)` is the trick interviewers probe.
 
-**Algorithm (Dungeon Game)**:
-1. `dp[i][j]` = minimum HP needed **entering** cell `(i, j)` to survive to the princess
-2. Fill from bottom-right: `dp[m-1][n-1] = max(1, 1 - dungeon[m-1][n-1])`
-3. Transition: `need = min(dp[i+1][j], dp[i][j+1]) - dungeon[i][j]`; clamp to `max(1, need)`
-4. Answer: `dp[0][0]`
+**Algorithm**: `dp[i][j]` = min HP **entering** `(i, j)` to survive. Fill bottom-right to top-left: `need = min(dp[i+1][j], dp[i][j+1]) - dungeon[i][j]`; `dp[i][j] = max(1, need)`. Answer is `dp[0][0]`.
 
 **Complexity**: O(m × n) time, O(n) space (1D rolling)
 
@@ -145,9 +127,59 @@ public int calculateMinimumHP(int[][] dungeon) {
 ```
 
 **Key Points**:
-- **Direction matters**: forward DP can't decide minimum starting HP without knowing future losses
-- **Clamp to `max(1, need)`**: HP must stay ≥ 1 at every cell, even after a positive room
-- **Sentinel `MAX_VALUE`** at virtual boundary cells; `dp[m][n-1]` and `dp[m-1][n]` set to `1` (need 1 HP to "exit")
+- **Direction matters**: forward DP can't decide starting HP without knowing future losses
+- **Clamp to `max(1, need)`** — HP must stay ≥ 1 at every cell, even after a positive room
+- **Sentinel `MAX_VALUE`** at virtual boundary cells; `dp[m][n-1] = dp[m-1][n] = 1`
+
+---
+
+## Pattern: Two Simultaneous Paths ⭐ **IMPORTANT** ⭐
+
+**Use Case**: Round-trip cherry collection from `(0, 0)` → `(n-1, n-1)` → back, maximizing cherries (Cherry Pickup)
+
+**Why Important**: Greedy "best forward, then best back" is **wrong** — locally optimal paths starve the return. Reframe as **two paths walking forward simultaneously**, sharing cherries on overlap.
+
+**Algorithm**: Walk two paths from `(0,0)` to `(n-1,n-1)`, both moving down/right. After `t` steps both lie on `r + c = t`, so state is `(r1, c1, c2)` with `r2 = r1 + c1 - c2`. Collect both cells' cherries; count once if `c1 == c2`. 4 next states (each path picks down or right). Thorn (`-1`) or OOB → `MIN_VALUE`; answer is `max(0, dp(0,0,0))`.
+
+**Complexity**: O(n³) time, O(n³) space
+
+### Template
+
+```java
+public int cherryPickup(int[][] grid) {
+    int n = grid.length;
+    Integer[][][] memo = new Integer[n][n][n];
+    return Math.max(0, dp(grid, 0, 0, 0, memo));
+}
+
+private int dp(int[][] grid, int r1, int c1, int c2, Integer[][][] memo) {
+    int n = grid.length;
+    int r2 = r1 + c1 - c2;
+
+    if (r1 >= n || c1 >= n || r2 >= n || c2 >= n
+            || grid[r1][c1] == -1 || grid[r2][c2] == -1) {
+        return Integer.MIN_VALUE;
+    }
+    if (r1 == n - 1 && c1 == n - 1) return grid[r1][c1];
+    if (memo[r1][c1][c2] != null) return memo[r1][c1][c2];
+
+    int cherries = grid[r1][c1];
+    if (c1 != c2) cherries += grid[r2][c2];
+
+    int next = Math.max(
+        Math.max(dp(grid, r1 + 1, c1, c2, memo), dp(grid, r1 + 1, c1, c2 + 1, memo)),
+        Math.max(dp(grid, r1, c1 + 1, c2, memo), dp(grid, r1, c1 + 1, c2 + 1, memo))
+    );
+
+    return memo[r1][c1][c2] = cherries + next;
+}
+```
+
+**Key Points**:
+- **Two forward paths ≡ round-trip**: a backward path reversed is a forward path; easier to express as DP
+- **Diagonal invariant** `r1 + c1 == r2 + c2` derives `r2` → saves a dimension
+- **Don't double-count overlap**: when `c1 == c2`, also `r1 == r2` — add `grid[r1][c1]` once
+- **`Integer[][][]` over `int[][][]`**: `null` marks unvisited cleanly; `-1` collides with thorn cells
 
 ---
 
@@ -167,7 +199,7 @@ public int calculateMinimumHP(int[][] dungeon) {
 - [x] [Triangle](https://leetcode.com/problems/triangle/) - Medium
 - [x] [Minimum Falling Path Sum](https://leetcode.com/problems/minimum-falling-path-sum/) - Medium
 - [x] [Maximal Square](https://leetcode.com/problems/maximal-square/) - Medium ⭐ **IMPORTANT** ⭐
-- [x] [Cherry Pickup](https://leetcode.com/problems/cherry-pickup/) - Hard
+- [x] [Cherry Pickup](https://leetcode.com/problems/cherry-pickup/) - Hard ⭐ **IMPORTANT** ⭐
 - [x] [Cherry Pickup II](https://leetcode.com/problems/cherry-pickup-ii/) - Hard
 - [x] [Dungeon Game](https://leetcode.com/problems/dungeon-game/) - Hard ⭐ **IMPORTANT** ⭐
 

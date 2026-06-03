@@ -14,7 +14,7 @@ This topic is split into focused sections by recurrence shape:
 2. **[Infinite Supply (Unbounded Knapsack)](unbounded-knapsack.md)** - Items can be reused unlimited times
 3. **[Longest Increasing Subsequence (LIS)](longest-increasing-subsequence.md)** - Best subsequence under an ordering relation
 4. **[DP on Grids](dp-on-grids.md)** - Path-counting and min/max-cost on 2D matrices
-5. **DP on Strings** *(upcoming)* - Two-string recurrences (LCS, edit distance, palindromes)
+5. **[DP on Strings](dp-on-strings.md)** - Two-string recurrences (LCS, edit distance, palindromes)
 6. **DP on Stocks** *(upcoming)* - State-machine DP for buy/sell with constraints
 7. **Partition DP (MCM)** *(upcoming)* - Choose where to split a sequence optimally
 
@@ -30,7 +30,7 @@ This topic is split into focused sections by recurrence shape:
 | **Pick items, each reusable** | Unbounded Knapsack | O(n × W) | [→](unbounded-knapsack.md) |
 | **Longest chain under an order** | LIS | O(n²) or O(n log n) | [→](longest-increasing-subsequence.md) |
 | **Paths / min cost on a 2D grid** | DP on Grids | O(m × n) | [→](dp-on-grids.md) |
-| **Compare/transform two strings** | DP on Strings | O(m × n) | *upcoming* |
+| **Compare/transform two strings** | DP on Strings | O(m × n) | [→](dp-on-strings.md) |
 | **Buy/sell with k transactions or cooldown** | DP on Stocks | O(n × k) | *upcoming* |
 | **Optimal partition of a sequence** | Partition DP | O(n³) | *upcoming* |
 
@@ -49,7 +49,7 @@ This topic is split into focused sections by recurrence shape:
 → [DP on Grids](dp-on-grids.md)
 
 **"longest common subsequence", "edit distance", "palindromic substring", "wildcard match"**
-→ DP on Strings *(upcoming)*
+→ [DP on Strings](dp-on-strings.md)
 
 **"buy and sell stock", "max profit", "transaction fee", "cooldown"**
 → DP on Stocks *(upcoming)*
@@ -156,11 +156,16 @@ Same as 0/1 knapsack except each item can be used **unlimited times**.
 
 ---
 
-### 5. DP on Strings *(upcoming)*
+### 5. DP on Strings
+**[→ Detailed Notes](dp-on-strings.md)**
 
-`dp[i][j]` = best result over `s1[0..i]` and `s2[0..j]`. Match → diagonal; mismatch → some combination of `dp[i-1][j]`, `dp[i][j-1]`, `dp[i-1][j-1]`.
+`dp[i][j]` = best result over `s1[0..i]` and `s2[0..j]`. Match → diagonal; mismatch → some combination of `dp[i-1][j]`, `dp[i][j-1]`, `dp[i-1][j-1]`. A second flavor uses `dp[i][j]` over a single substring `s[i..j]` (palindromic DP).
 
-**Use Cases**: Longest Common Subsequence, Edit Distance, Distinct Subsequences, Wildcard Matching
+**Variants**:
+- Two-string LCS-style — Longest Common Subsequence, Distinct Subsequences, Shortest Common Supersequence
+- Edit Distance — three operations (insert / delete / replace)
+- Palindromic substring DP — `dp[i][j]` filled by length
+- Wildcard Matching — `?` and `*` with two-case `*` transition
 
 **Complexity**: O(m × n) time, O(m × n) space
 
