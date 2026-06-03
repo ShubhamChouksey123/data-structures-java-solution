@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `168/201 problems completed`
+Track your overall progress: `170/201 problems completed`
 
 ---
 
@@ -36,7 +36,7 @@ Date Format is DD-MM-YYYY
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
-| 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 41 | 25/41  | [ ] |                                    |
+| 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 41 | 27/41  | [ ] |                                    |
 | 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
 | 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | [ ]    | [ ] |                                    |
@@ -365,8 +365,8 @@ Date Format is DD-MM-YYYY
 - [x] [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) - Medium
 - [x] [Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/) - Medium
 - [x] [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) - Medium
-- [ ] [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) - Medium
-- [ ] [Edit Distance](https://leetcode.com/problems/edit-distance/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) - Medium
+- [x] [Edit Distance](https://leetcode.com/problems/edit-distance/) - Medium ⭐ **IMPORTANT** ⭐
 - [ ] [Minimum ASCII Delete Sum for Two Strings](https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/) - Medium
 - [ ] [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) - Hard
 - [ ] [Shortest Common Supersequence](https://leetcode.com/problems/shortest-common-supersequence/) - Hard

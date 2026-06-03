@@ -226,8 +226,8 @@ public boolean isMatch(String s, String p) {
 - [x] [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) - Medium
 - [x] [Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/) - Medium
 - [x] [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) - Medium
-- [ ] [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) - Medium
-- [ ] [Edit Distance](https://leetcode.com/problems/edit-distance/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) - Medium
+- [x] [Edit Distance](https://leetcode.com/problems/edit-distance/) - Medium ⭐ **IMPORTANT** ⭐
 - [ ] [Minimum ASCII Delete Sum for Two Strings](https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/) - Medium
 - [ ] [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) - Hard
 - [ ] [Shortest Common Supersequence](https://leetcode.com/problems/shortest-common-supersequence/) - Hard
