@@ -12,335 +12,167 @@
 - "all combinations", "all permutations", "all subsets"
 - "generate all", "find all solutions"
 - "valid arrangements", "satisfy constraints"
-- "explore all paths", "decision tree"
 - "n-queens", "sudoku", "word search"
-
-### Examples
-- Generate all permutations/combinations
-- Solve N-Queens puzzle
-- Sudoku solver
-- Word search in grid
-- Generate valid parentheses
-- Palindrome partitioning
 
 ---
 
 ## Core Concept
 
-Backtracking explores all possible solutions by building candidates incrementally and abandoning ("backtracking") when a candidate cannot lead to a valid solution.
+Build candidates incrementally; abandon a path the moment it can't lead to a valid solution.
 
-**Key Insight**: Build solution step-by-step. If current path fails constraints, undo last choice (backtrack) and try next option.
+**Template**: Choose → Explore (recurse) → Unchoose (restore state) → Try next.
 
-**Complexity**: Typically O(b^d) where b=branching factor, d=depth. Space: O(d) for recursion stack.
+**Key Insight**: Always restore mutated state before returning, otherwise sibling branches see corrupted data.
 
-**Template Pattern**:
-```
-1. Make a choice
-2. Explore with that choice (recursion)
-3. Undo the choice (backtrack)
-4. Try next choice
-```
+**Complexity**: Typically O(b^d) time (b = branching factor, d = depth), O(d) space for recursion stack.
 
 ---
 
 ## Pattern 1: Permutations and Combinations
 
-**Use Case**: Generate all arrangements or selections from a set
+**Use Case**: Generate all arrangements (order matters) or selections (order ignored) from a set.
 
-**Key Difference**:
-- **Permutations**: Order matters (ABC ≠ BAC)
-- **Combinations**: Order doesn't matter (ABC = BAC)
+**Algorithm**:
+1. Permutations — for each unused element, add to path, recurse, remove
+2. Combinations — pass a `start` index so each recursion only considers later elements (prevents duplicates)
 
-**Algorithm (Permutations)**:
-1. For each unused element
-2. Add to current path
-3. Recursively generate rest
-4. Remove from path (backtrack)
+**Complexity**: O(n! × n) for permutations, O(n × 2^n) for combinations/subsets
 
-**Complexity**: O(n! × n) time for permutations, O(n × 2^n) for subsets/combinations
-
-### Template: Permutations
+### Template (Permutations)
 
 ```java
-public List<List<Integer>> permute(int[] nums) {
-    List<List<Integer>> result = new ArrayList<>();
-    backtrack(result, new ArrayList<>(), nums, new boolean[nums.length]);
-    return result;
-}
-
 private void backtrack(List<List<Integer>> result, List<Integer> current,
                        int[] nums, boolean[] used) {
-    // Base case: found complete permutation
     if (current.size() == nums.length) {
         result.add(new ArrayList<>(current));
         return;
     }
-
     for (int i = 0; i < nums.length; i++) {
-        if (used[i]) continue;  // Skip used elements
-
-        // Make choice
-        current.add(nums[i]);
-        used[i] = true;
-
-        // Explore
+        if (used[i]) continue;
+        current.add(nums[i]); used[i] = true;
         backtrack(result, current, nums, used);
-
-        // Undo choice (backtrack)
-        current.remove(current.size() - 1);
-        used[i] = false;
+        current.remove(current.size() - 1); used[i] = false;
     }
 }
 ```
 
-### Template: Combinations
+### Template (Combinations)
 
 ```java
-public List<List<Integer>> combine(int n, int k) {
-    List<List<Integer>> result = new ArrayList<>();
-    backtrack(result, new ArrayList<>(), 1, n, k);
-    return result;
-}
-
 private void backtrack(List<List<Integer>> result, List<Integer> current,
                        int start, int n, int k) {
-    // Base case: found k elements
     if (current.size() == k) {
         result.add(new ArrayList<>(current));
         return;
     }
-
     for (int i = start; i <= n; i++) {
-        current.add(i);                          // Choose
-        backtrack(result, current, i + 1, n, k); // Explore
-        current.remove(current.size() - 1);      // Unchoose
+        current.add(i);
+        backtrack(result, current, i + 1, n, k);   // i + 1 enforces non-decreasing order
+        current.remove(current.size() - 1);
     }
 }
 ```
 
-**Key Point**: Combinations use `start` index to avoid duplicates (only explore elements after current).
+**Difference from Permutations**: no `used[]`; the `start` parameter (advancing to `i + 1` on recursion) ensures each combination is generated only once, in non-decreasing index order.
 
 ---
 
 ## Pattern 2: Subsets (Power Set)
 
-**Use Case**: Generate all possible subsets of a set
+**Use Case**: Generate all 2^n subsets of a set.
 
-**Algorithm**:
-1. For each element, make two choices: include or exclude
-2. Recursively generate subsets for remaining elements
-3. Collect all generated subsets
+**Algorithm**: At each `start` index, record the current path (every state is a valid subset), then for each later index include it and recurse.
 
 **Complexity**: O(n × 2^n) time, O(n) space
 
 ### Template
 
 ```java
-public List<List<Integer>> subsets(int[] nums) {
-    List<List<Integer>> result = new ArrayList<>();
-    backtrack(result, new ArrayList<>(), nums, 0);
-    return result;
-}
-
 private void backtrack(List<List<Integer>> result, List<Integer> current,
                        int[] nums, int start) {
-    // Add current subset (every state is valid)
-    result.add(new ArrayList<>(current));
-
+    result.add(new ArrayList<>(current));   // every state is valid
     for (int i = start; i < nums.length; i++) {
-        current.add(nums[i]);                    // Include
-        backtrack(result, current, nums, i + 1); // Explore
-        current.remove(current.size() - 1);      // Backtrack
+        current.add(nums[i]);
+        backtrack(result, current, nums, i + 1);
+        current.remove(current.size() - 1);
     }
 }
-```
-
-### Visual Example
-
-```
-nums = [1, 2, 3]
-
-Tree structure:
-                    []
-          /         |         \
-        [1]        [2]        [3]
-       /   \        |
-    [1,2] [1,3]   [2,3]
-      |
-   [1,2,3]
-
-Result: [], [1], [1,2], [1,2,3], [1,3], [2], [2,3], [3]
 ```
 
 ---
 
-## Pattern 3: Constraint Satisfaction ⭐ **IMPORTANT** ⭐
+## Pattern 3: Constraint Satisfaction (N-Queens / Sudoku)
 
-**Use Case**: Solve puzzles with constraints (N-Queens, Sudoku)
+**Use Case**: Place items on a board under hard constraints; backtrack the moment a placement is invalid.
 
-**Algorithm**:
-1. Try placing element in valid position
-2. Check if constraints satisfied
-3. Recursively solve next position
-4. If fails, backtrack and try next position
+**Algorithm**: Try each candidate position; if `isValid` passes, place, recurse to next row/cell, then unplace.
 
-**Complexity**: O(b^d) where b=branching factor, d=search depth
+**Complexity**: O(b^d) — exponential, pruning shrinks `b` heavily in practice
 
-### Template: N-Queens
+### Template (N-Queens)
 
 ```java
-public List<List<String>> solveNQueens(int n) {
-    List<List<String>> result = new ArrayList<>();
-    char[][] board = new char[n][n];
-    for (char[] row : board) Arrays.fill(row, '.');
-
-    backtrack(result, board, 0);
-    return result;
-}
-
 private void backtrack(List<List<String>> result, char[][] board, int row) {
-    // Base case: placed all queens
-    if (row == board.length) {
-        result.add(construct(board));
-        return;
-    }
-
-    // Try each column
+    if (row == board.length) { result.add(construct(board)); return; }
     for (int col = 0; col < board.length; col++) {
         if (!isValid(board, row, col)) continue;
-
-        board[row][col] = 'Q';               // Place queen
-        backtrack(result, board, row + 1);   // Explore next row
-        board[row][col] = '.';               // Remove queen (backtrack)
+        board[row][col] = 'Q';
+        backtrack(result, board, row + 1);
+        board[row][col] = '.';                   // unchoose
     }
-}
-
-private boolean isValid(char[][] board, int row, int col) {
-    int n = board.length;
-
-    // Check column
-    for (int i = 0; i < row; i++) {
-        if (board[i][col] == 'Q') return false;
-    }
-
-    // Check diagonal (top-left)
-    for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
-        if (board[i][j] == 'Q') return false;
-    }
-
-    // Check diagonal (top-right)
-    for (int i = row - 1, j = col + 1; i >= 0 && j < n; i--, j++) {
-        if (board[i][j] == 'Q') return false;
-    }
-
-    return true;
-}
-
-private List<String> construct(char[][] board) {
-    List<String> result = new ArrayList<>();
-    for (char[] row : board) {
-        result.add(new String(row));
-    }
-    return result;
 }
 ```
 
+**`isValid`**: scan the column above, the up-left diagonal, and the up-right diagonal — any `'Q'` found means conflict. Lower rows are still empty so they need no check.
+
 ---
 
-## Pattern 4: Grid Path Finding
+## Pattern 4: Grid Path Finding (Word Search)
 
-**Use Case**: Find paths in 2D grid (Word Search, Rat in Maze)
+**Use Case**: Find a path through a 2D grid that matches a sequence (e.g., spell out a word).
 
-**Algorithm**:
-1. Start from cell, mark as visited
-2. Try all 4 directions
-3. If path found, return true
-4. Backtrack: unmark cell, try next direction
+**Algorithm**: For each cell, DFS in 4 directions matching the next char. Mark the cell visited (overwrite with sentinel) before recursing; restore after.
 
-**Complexity**: O(m × n × 4^L) where L=word length (Word Search)
+**Complexity**: O(m × n × 4^L) where L = word length
 
-### Template: Word Search
+### Template
 
 ```java
-public boolean exist(char[][] board, String word) {
-    int m = board.length, n = board[0].length;
+private boolean backtrack(char[][] board, String word, int r, int c, int idx) {
+    if (idx == word.length()) return true;
+    if (r < 0 || r >= board.length || c < 0 || c >= board[0].length
+            || board[r][c] != word.charAt(idx)) return false;
 
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            if (backtrack(board, word, i, j, 0)) {
-                return true;
-            }
-        }
-    }
-
-    return false;
-}
-
-private boolean backtrack(char[][] board, String word, int row, int col, int index) {
-    // Base case: found word
-    if (index == word.length()) return true;
-
-    // Check bounds and character match
-    int m = board.length, n = board[0].length;
-    if (row < 0 || row >= m || col < 0 || col >= n ||
-        board[row][col] != word.charAt(index)) {
-        return false;
-    }
-
-    // Mark as visited
-    char temp = board[row][col];
-    board[row][col] = '#';
-
-    // Explore 4 directions
-    boolean found = backtrack(board, word, row + 1, col, index + 1) ||
-                    backtrack(board, word, row - 1, col, index + 1) ||
-                    backtrack(board, word, row, col + 1, index + 1) ||
-                    backtrack(board, word, row, col - 1, index + 1);
-
-    // Backtrack: restore cell
-    board[row][col] = temp;
-
+    char temp = board[r][c]; board[r][c] = '#';   // mark visited
+    boolean found = backtrack(board, word, r + 1, c, idx + 1)
+            || backtrack(board, word, r - 1, c, idx + 1)
+            || backtrack(board, word, r, c + 1, idx + 1)
+            || backtrack(board, word, r, c - 1, idx + 1);
+    board[r][c] = temp;                           // restore
     return found;
 }
 ```
 
 ---
 
-## Pattern 5: Combination Sum (With Constraints)
+## Pattern 5: Combination Sum (Reuse Allowed)
 
-**Use Case**: Find all combinations that sum to target (with repetition allowed)
+**Use Case**: Find all combinations summing to a target where each candidate may be used multiple times.
 
-**Algorithm**:
-1. For each candidate, decide to include or not
-2. If include, can use same candidate again (unbounded)
-3. Reduce target by candidate value
-4. Backtrack when target becomes 0 or negative
+**Algorithm**: Same shape as Combinations, but recurse with `i` (not `i + 1`) so the current candidate can be reused. Prune when `remain < 0`.
 
-**Complexity**: O(2^target) time in worst case
+**Complexity**: O(2^target) worst case
 
 ### Template
 
 ```java
-public List<List<Integer>> combinationSum(int[] candidates, int target) {
-    List<List<Integer>> result = new ArrayList<>();
-    Arrays.sort(candidates);  // Optional: for early termination
-    backtrack(result, new ArrayList<>(), candidates, target, 0);
-    return result;
-}
-
 private void backtrack(List<List<Integer>> result, List<Integer> current,
                        int[] candidates, int remain, int start) {
-    if (remain < 0) return;  // Exceeded target
-
-    if (remain == 0) {
-        result.add(new ArrayList<>(current));
-        return;
-    }
-
+    if (remain < 0) return;
+    if (remain == 0) { result.add(new ArrayList<>(current)); return; }
     for (int i = start; i < candidates.length; i++) {
         current.add(candidates[i]);
-        // Note: i (not i+1) allows reusing same element
-        backtrack(result, current, candidates, remain - candidates[i], i);
+        backtrack(result, current, candidates, remain - candidates[i], i);   // i, not i+1
         current.remove(current.size() - 1);
     }
 }
@@ -350,69 +182,10 @@ private void backtrack(List<List<Integer>> result, List<Integer> current,
 
 ## Common Mistakes
 
-### ❌ Forgetting to Create New List in Result
-
-```java
-// WRONG - all results point to same list
-if (current.size() == k) {
-    result.add(current);  // Reference to mutable list!
-}
-
-// CORRECT - create new list
-if (current.size() == k) {
-    result.add(new ArrayList<>(current));
-}
-```
-
-### ❌ Not Backtracking Properly
-
-```java
-// WRONG - modifying state without backtracking
-void backtrack(List<Integer> current, int[] nums, int i) {
-    current.add(nums[i]);
-    backtrack(current, nums, i + 1);
-    // Missing: current.remove(current.size() - 1);
-}
-
-// CORRECT - always backtrack
-void backtrack(List<Integer> current, int[] nums, int i) {
-    current.add(nums[i]);
-    backtrack(current, nums, i + 1);
-    current.remove(current.size() - 1);  // Restore state
-}
-```
-
-### ❌ Wrong Start Index for Combinations
-
-```java
-// WRONG - generates duplicates
-for (int i = 0; i < nums.length; i++) {  // Always starts at 0
-    backtrack(result, current, nums, i + 1);
-}
-
-// CORRECT - use start index to avoid duplicates
-void backtrack(List<List<Integer>> result, List<Integer> current,
-               int[] nums, int start) {
-    for (int i = start; i < nums.length; i++) {  // Start from 'start'
-        backtrack(result, current, nums, i + 1);
-    }
-}
-```
-
-### ❌ Modifying Grid Without Restoring
-
-```java
-// WRONG - not restoring cell after backtracking
-board[row][col] = '#';
-backtrack(board, row + 1, col);
-// Missing: restore original value
-
-// CORRECT - save and restore
-char temp = board[row][col];
-board[row][col] = '#';
-backtrack(board, row + 1, col);
-board[row][col] = temp;  // Restore
-```
+- ❌ **`result.add(current)`** stores a live reference — wrap in `new ArrayList<>(current)` to snapshot
+- ❌ **Forgetting to restore state** after recursing (path bullet, `used[]`, board cell) — siblings see corruption
+- ❌ **Combinations without `start` index** — generates duplicates like `[1,2]` and `[2,1]`
+- ❌ **Grid: not restoring the cell** after the four recursive calls — later searches treat it as still visited
 
 ---
 
@@ -430,16 +203,11 @@ board[row][col] = temp;  // Restore
 
 **Problem**: [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) - Medium
 
-**Why Important**: Classic backtracking with constraints, demonstrates pruning invalid paths, frequently asked
+**Why Important**: Classic backtracking with on-the-fly pruning — generate only valid candidates instead of all `2^(2n)` strings. Frequently asked.
 
-**Approach**:
-1. Use backtracking to build valid combinations
-2. Track count of open '(' and close ')' parentheses
-3. Add '(' if open < n
-4. Add ')' if close < open (ensures valid)
-5. Base case: when string length = 2n
+**Approach**: Track running `open` and `close` counts. Add `'('` only if `open < n`; add `')'` only if `close < open` (otherwise the prefix becomes invalid). Stop when length is `2n`.
 
-**Complexity**: O(4^n / √n) time (Catalan number), O(n) space
+**Complexity**: O(4^n / √n) time (Catalan number), O(n) recursion depth
 
 **Solution**:
 
@@ -452,47 +220,37 @@ public List<String> generateParenthesis(int n) {
 
 private void backtrack(List<String> result, StringBuilder current,
                        int open, int close, int n) {
-    // Base case: formed valid combination
     if (current.length() == 2 * n) {
         result.add(current.toString());
         return;
     }
-
-    // Add '(' if we haven't used all n open parentheses
     if (open < n) {
         current.append('(');
         backtrack(result, current, open + 1, close, n);
-        current.deleteCharAt(current.length() - 1);  // Backtrack
+        current.deleteCharAt(current.length() - 1);
     }
-
-    // Add ')' only if it doesn't exceed open count (ensures validity)
     if (close < open) {
         current.append(')');
         backtrack(result, current, open, close + 1, n);
-        current.deleteCharAt(current.length() - 1);  // Backtrack
+        current.deleteCharAt(current.length() - 1);
     }
 }
 ```
 
 **Key Points**:
-- **Constraint pruning**: Only add ')' when `close < open` prevents invalid combinations
-- **Early termination**: Check `open < n` before adding '(' avoids exploring invalid paths
-- More efficient than generating all and filtering invalid ones
-- Can use `StringBuilder` for better performance than String concatenation
-- Time complexity is Catalan number C(n) = (2n)! / ((n+1)! × n!)
+- **`close < open`** is the validity guard — never close more than is open
+- Pruning at choice-time beats generate-and-filter (`2^(2n)` → Catalan)
+- `StringBuilder` avoids `String` concat overhead in the recursion
 
 ---
 
 ## Key Takeaways
 
-1. **Template**: Choose → Explore → Unchoose (backtrack)
-2. **Always create new list** when adding to result (avoid reference issues)
-3. **Use start index** in combinations to avoid duplicates
-4. **Restore state** after recursive call (backtrack properly)
-5. **Pruning**: Add constraints in loop to avoid exploring invalid paths
-6. **Permutations vs Combinations**: Order matters vs order doesn't matter
-7. **Typical complexity**: O(b^d) exponential time, O(d) space for recursion
-8. **Mark visited** in grid problems, unmark when backtracking
+1. **Choose → Explore → Unchoose** — always restore state on the way back up
+2. **Snapshot** with `new ArrayList<>(current)` when adding to results
+3. **`start` index** prevents duplicate combinations; **`used[]`** tracks consumed elements for permutations
+4. **Prune at choice-time** (validity guards) instead of validating leaves — exponential savings
+5. **Mark / unmark** in grid problems with a sentinel like `'#'`, then restore
 
 ---
 
