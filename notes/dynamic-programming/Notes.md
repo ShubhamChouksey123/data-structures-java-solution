@@ -15,7 +15,7 @@ This topic is split into focused sections by recurrence shape:
 3. **[Longest Increasing Subsequence (LIS)](longest-increasing-subsequence.md)** - Best subsequence under an ordering relation
 4. **[DP on Grids](dp-on-grids.md)** - Path-counting and min/max-cost on 2D matrices
 5. **[DP on Strings](dp-on-strings.md)** - Two-string recurrences (LCS, edit distance, palindromes)
-6. **DP on Stocks** *(upcoming)* - State-machine DP for buy/sell with constraints
+6. **[DP on Stocks](dp-on-stocks.md)** - State-machine DP for buy/sell with constraints
 7. **Partition DP (MCM)** *(upcoming)* - Choose where to split a sequence optimally
 
 ---
@@ -31,7 +31,7 @@ This topic is split into focused sections by recurrence shape:
 | **Longest chain under an order** | LIS | O(n²) or O(n log n) | [→](longest-increasing-subsequence.md) |
 | **Paths / min cost on a 2D grid** | DP on Grids | O(m × n) | [→](dp-on-grids.md) |
 | **Compare/transform two strings** | DP on Strings | O(m × n) | [→](dp-on-strings.md) |
-| **Buy/sell with k transactions or cooldown** | DP on Stocks | O(n × k) | *upcoming* |
+| **Buy/sell with k transactions or cooldown** | DP on Stocks | O(n × k) | [→](dp-on-stocks.md) |
 | **Optimal partition of a sequence** | Partition DP | O(n³) | *upcoming* |
 
 ### Keywords to Pattern Mapping
@@ -52,7 +52,7 @@ This topic is split into focused sections by recurrence shape:
 → [DP on Strings](dp-on-strings.md)
 
 **"buy and sell stock", "max profit", "transaction fee", "cooldown"**
-→ DP on Stocks *(upcoming)*
+→ [DP on Stocks](dp-on-stocks.md)
 
 **"matrix chain multiplication", "burst balloons", "minimum cost to cut", "partition for max sum"**
 → Partition DP *(upcoming)*
@@ -171,11 +171,16 @@ Same as 0/1 knapsack except each item can be used **unlimited times**.
 
 ---
 
-### 6. DP on Stocks *(upcoming)*
+### 6. DP on Stocks
+**[→ Detailed Notes](dp-on-stocks.md)**
 
 State-machine DP — `dp[i][holding]` or `dp[i][k][holding]` tracks day, transactions used, and whether currently holding a share.
 
-**Use Cases**: Best Time to Buy and Sell Stock II/III/IV, with cooldown, with transaction fee
+**Variants**:
+- Unlimited transactions — two rolling scalars (`hold`, `cash`)
+- K transactions — adds `j` dimension, count transaction once (on buy or sell)
+- Cooldown — lag cash by one day before buying
+- Transaction fee — subtract fee on sell
 
 **Complexity**: O(n × k) time, O(k) space (rolling)
 

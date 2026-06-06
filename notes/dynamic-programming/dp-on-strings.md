@@ -229,7 +229,7 @@ public boolean isMatch(String s, String p) {
 - [x] [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) - Medium
 - [x] [Edit Distance](https://leetcode.com/problems/edit-distance/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Minimum ASCII Delete Sum for Two Strings](https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/) - Medium
-- [ ] [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) - Hard
+- [x] [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) - Hard
 - [ ] [Shortest Common Supersequence](https://leetcode.com/problems/shortest-common-supersequence/) - Hard
 - [ ] [Wildcard Matching](https://leetcode.com/problems/wildcard-matching/) - Hard ⭐ **IMPORTANT** ⭐
 
