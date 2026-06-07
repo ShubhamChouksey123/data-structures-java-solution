@@ -16,7 +16,7 @@ This topic is split into focused sections by recurrence shape:
 4. **[DP on Grids](dp-on-grids.md)** - Path-counting and min/max-cost on 2D matrices
 5. **[DP on Strings](dp-on-strings.md)** - Two-string recurrences (LCS, edit distance, palindromes)
 6. **[DP on Stocks](dp-on-stocks.md)** - State-machine DP for buy/sell with constraints
-7. **Partition DP (MCM)** *(upcoming)* - Choose where to split a sequence optimally
+7. **[Partition DP (MCM)](partition-dp.md)** - Choose where to split a sequence optimally
 
 ---
 
@@ -32,7 +32,7 @@ This topic is split into focused sections by recurrence shape:
 | **Paths / min cost on a 2D grid** | DP on Grids | O(m × n) | [→](dp-on-grids.md) |
 | **Compare/transform two strings** | DP on Strings | O(m × n) | [→](dp-on-strings.md) |
 | **Buy/sell with k transactions or cooldown** | DP on Stocks | O(n × k) | [→](dp-on-stocks.md) |
-| **Optimal partition of a sequence** | Partition DP | O(n³) | *upcoming* |
+| **Optimal partition of a sequence** | Partition DP | O(n³) | [→](partition-dp.md) |
 
 ### Keywords to Pattern Mapping
 
@@ -55,7 +55,7 @@ This topic is split into focused sections by recurrence shape:
 → [DP on Stocks](dp-on-stocks.md)
 
 **"matrix chain multiplication", "burst balloons", "minimum cost to cut", "partition for max sum"**
-→ Partition DP *(upcoming)*
+→ [Partition DP](partition-dp.md)
 
 ---
 
@@ -186,11 +186,15 @@ State-machine DP — `dp[i][holding]` or `dp[i][k][holding]` tracks day, transac
 
 ---
 
-### 7. Partition DP (MCM) *(upcoming)*
+### 7. Partition DP (MCM)
+**[→ Detailed Notes](partition-dp.md)**
 
 `dp[i][j]` = optimal cost over the subrange `[i..j]`. Try every split point `k` between `i` and `j`.
 
-**Use Cases**: Matrix Chain Multiplication, Burst Balloons, Palindrome Partitioning II, Min Cost to Cut Stick
+**Variants**:
+- Interval DP (MCM, Burst Balloons, Min Cost to Cut a Stick) — `dp[i][j]` filled by length
+- Linear Partition (Palindrome Partitioning II, Partition Array for Max Sum) — `dp[i]` over prefixes
+- "Last-to-act" trick (Burst Balloons) — pick the element that acts **last** in the range to decouple halves
 
 **Complexity**: O(n³) time, O(n²) space
 
@@ -233,17 +237,6 @@ Need to solve a DP problem?
 6. **Reconstruction**: track parent pointers (`prev[]`) and walk back from the best index
 7. **Space optimization**: many 2D tables reduce to 1D when only the previous row/column is read
 8. **Identify the state first**: what changes between subproblems? That's your DP dimension(s)
-
----
-
-## Next Steps
-
-Choose a section to study in detail:
-
-- **[Take / Not Take (0/1 Knapsack) →](0-1-knapsack.md)** - Pick/skip each item once
-- **[Infinite Supply (Unbounded Knapsack) →](unbounded-knapsack.md)** - Items reusable unlimited times
-- **[Longest Increasing Subsequence →](longest-increasing-subsequence.md)** - Best subsequence under an order
-- **[DP on Grids →](dp-on-grids.md)** - Path-counting and min/max-cost on 2D matrices
 
 ---
 

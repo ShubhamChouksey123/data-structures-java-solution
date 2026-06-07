@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `177/201 problems completed`
+Track your overall progress: `181/201 problems completed`
 
 ---
 
@@ -36,7 +36,7 @@ Date Format is DD-MM-YYYY
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
-| 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 41 | 34/41  | [ ] |                                    |
+| 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 41 | 38/41  | [ ] |                                    |
 | 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
 | 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | [ ]    | [ ] |                                    |
@@ -386,10 +386,10 @@ Date Format is DD-MM-YYYY
 ### Partition DP (Matrix Chain Multiplication) - 4 problems
 **Pattern**: Dividing a sequence into partitions optimally to minimize or maximize a cost function.
 
-- [ ] [Partition Array for Maximum Sum](https://leetcode.com/problems/partition-array-for-maximum-sum/) - Medium
-- [ ] [Burst Balloons](https://leetcode.com/problems/burst-balloons/) - Hard
-- [ ] [Minimum Cost to Cut a Stick](https://leetcode.com/problems/minimum-cost-to-cut-a-stick/) - Hard
-- [ ] [Palindrome Partitioning II](https://leetcode.com/problems/palindrome-partitioning-ii/) - Hard
+- [x] [Partition Array for Maximum Sum](https://leetcode.com/problems/partition-array-for-maximum-sum/) - Medium
+- [x] [Burst Balloons](https://leetcode.com/problems/burst-balloons/) - Hard ⭐ **IMPORTANT** ⭐
+- [x] [Minimum Cost to Cut a Stick](https://leetcode.com/problems/minimum-cost-to-cut-a-stick/) - Hard
+- [x] [Palindrome Partitioning II](https://leetcode.com/problems/palindrome-partitioning-ii/) - Hard
 
 ---
 
