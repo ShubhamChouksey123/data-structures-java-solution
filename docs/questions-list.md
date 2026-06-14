@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `181/201 problems completed`
+Track your overall progress: `182/201 problems completed`
 
 ---
 
@@ -36,7 +36,7 @@ Date Format is DD-MM-YYYY
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
-| 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 41 | 38/41  | [ ] |                                    |
+| 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 41 | 39/41  | [ ] |                                    |
 | 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
 | 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | [ ]    | [ ] |                                    |
@@ -335,7 +335,7 @@ Date Format is DD-MM-YYYY
 - [x] [Coin Change](https://leetcode.com/problems/coin-change/) - Medium
 - [x] [Coin Change II](https://leetcode.com/problems/coin-change-ii/) - Medium
 - [x] [Perfect Squares](https://leetcode.com/problems/perfect-squares/) - Medium
-- [ ] [Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets/) - Medium
+- [x] [Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets/) - Medium
 
 ### Longest Increasing Subsequence (LIS) - 5 problems
 **Pattern**: Finding the longest subsequence of a given sequence where the elements are in ascending order.

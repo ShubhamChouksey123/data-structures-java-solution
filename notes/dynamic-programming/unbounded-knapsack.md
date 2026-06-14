@@ -163,7 +163,7 @@ return dp[amount] <= amount ? dp[amount] : -1;
 - [x] [Coin Change](https://leetcode.com/problems/coin-change/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Coin Change II](https://leetcode.com/problems/coin-change-ii/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Perfect Squares](https://leetcode.com/problems/perfect-squares/) - Medium
-- [ ] [Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets/) - Medium
+- [x] [Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets/) - Medium
 
 ---
 
