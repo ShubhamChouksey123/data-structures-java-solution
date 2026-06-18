@@ -13,7 +13,7 @@
 - "edit distance", "minimum operations to convert"
 - "palindromic subsequence / substring"
 - "distinct subsequences", "shortest common supersequence"
-- "wildcard matching", "regex", "pattern with `*` and `?`"
+- "wildcard matching", "regular expression", "regex", "pattern with `*`, `?`, `.`"
 
 ### Examples
 - Longest subsequence shared by two strings (LCS)
@@ -212,6 +212,59 @@ public boolean isMatch(String s, String p) {
 
 ---
 
+## Pattern: Regular Expression Matching
+
+**Use Case**: Match `s` against pattern `p` with `.` (any single char) and `*` (zero or more of the **preceding element**)
+
+**Algorithm**:
+1. `dp[i][j]` = does `p[0..j)` match `s[0..i)`?
+2. Base: `dp[0][0] = true`. For `dp[0][j]`: true only if `p[j-1] == '*'` AND `dp[0][j-2]` is true (the `x*` pair contributes empty)
+3. If `p[j-1] == '.'` or `p[j-1] == s[i-1]`: `dp[i][j] = dp[i-1][j-1]` (literal match)
+4. If `p[j-1] == '*'`:
+   - **Zero of preceding**: `dp[i][j] = dp[i][j-2]` (skip the `x*` pair entirely)
+   - **One or more**: if `p[j-2]` matches `s[i-1]` (literal or `.`): `dp[i][j] |= dp[i-1][j]`
+5. Answer: `dp[m][n]`
+
+**Complexity**: O(m × n) time, O(m × n) space
+
+### Template
+
+```java
+public boolean isMatch(String s, String p) {
+    int m = s.length(), n = p.length();
+    boolean[][] dp = new boolean[m + 1][n + 1];
+    dp[0][0] = true;
+
+    for (int j = 2; j <= n; j++) {                              // empty s vs prefix of p
+        if (p.charAt(j - 1) == '*') dp[0][j] = dp[0][j - 2];
+    }
+
+    for (int i = 1; i <= m; i++) {
+        for (int j = 1; j <= n; j++) {
+            char pc = p.charAt(j - 1), sc = s.charAt(i - 1);
+            if (pc == '.' || pc == sc) {
+                dp[i][j] = dp[i - 1][j - 1];
+            } else if (pc == '*') {
+                dp[i][j] = dp[i][j - 2];                        // zero of preceding
+                char prev = p.charAt(j - 2);
+                if (prev == '.' || prev == sc) {
+                    dp[i][j] = dp[i][j] || dp[i - 1][j];        // one or more
+                }
+            }
+        }
+    }
+    return dp[m][n];
+}
+```
+
+**Key Points (and contrast with Wildcard `*`)**:
+- **Regex `*` qualifies the previous char**: matches zero or more copies of `p[j-2]` (or `.`). Wildcard `*` is standalone.
+- **Two-step lookback (`dp[i][j-2]`)** is unique to regex — needed to "skip" the `x*` pair when matching zero copies. Wildcard never reads `j-2`.
+- **`.` is the analog of wildcard's `?`** — both match any single char.
+- **Always consider zero copies first** (`dp[i][j-2]`) — it's free to evaluate; the one-or-more branch is conditional.
+
+---
+
 ## Common Mistakes
 
 - ❌ **Off-by-one with `s.charAt(i - 1)`** — DP uses 1-indexed prefixes (`s[0..i)`), so the i-th character is at index `i - 1`
@@ -230,8 +283,9 @@ public boolean isMatch(String s, String p) {
 - [x] [Edit Distance](https://leetcode.com/problems/edit-distance/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Minimum ASCII Delete Sum for Two Strings](https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/) - Medium
 - [x] [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) - Hard
-- [ ] [Shortest Common Supersequence](https://leetcode.com/problems/shortest-common-supersequence/) - Hard
-- [ ] [Wildcard Matching](https://leetcode.com/problems/wildcard-matching/) - Hard ⭐ **IMPORTANT** ⭐
+- [x] [Shortest Common Supersequence](https://leetcode.com/problems/shortest-common-supersequence/) - Hard
+- [x] [Wildcard Matching](https://leetcode.com/problems/wildcard-matching/) - Hard ⭐ **IMPORTANT** ⭐
+- [x] [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/) - Hard
 
 ---
 

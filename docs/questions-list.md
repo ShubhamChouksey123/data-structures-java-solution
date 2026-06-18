@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `182/201 problems completed`
+Track your overall progress: `185/202 problems completed`
 
 ---
 
@@ -36,7 +36,7 @@ Date Format is DD-MM-YYYY
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
-| 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 41 | 39/41  | [ ] |                                    |
+| 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 42 | ✅    | [ ] |                                    |
 | 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
 | 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | [ ]    | [ ] |                                    |
@@ -359,7 +359,7 @@ Date Format is DD-MM-YYYY
 - [x] [Cherry Pickup II](https://leetcode.com/problems/cherry-pickup-ii/) - Hard
 - [x] [Dungeon Game](https://leetcode.com/problems/dungeon-game/) - Hard
 
-### DP on Strings - 9 problems
+### DP on Strings - 10 problems
 **Pattern**: Problems involving 2 strings where matching/mismatching characters determine the optimal solution.
 
 - [x] [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) - Medium
@@ -369,8 +369,9 @@ Date Format is DD-MM-YYYY
 - [x] [Edit Distance](https://leetcode.com/problems/edit-distance/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Minimum ASCII Delete Sum for Two Strings](https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/) - Medium
 - [x] [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) - Hard
-- [ ] [Shortest Common Supersequence](https://leetcode.com/problems/shortest-common-supersequence/) - Hard
-- [ ] [Wildcard Matching](https://leetcode.com/problems/wildcard-matching/) - Hard ⭐ **IMPORTANT** ⭐
+- [x] [Shortest Common Supersequence](https://leetcode.com/problems/shortest-common-supersequence/) - Hard
+- [x] [Wildcard Matching](https://leetcode.com/problems/wildcard-matching/) - Hard ⭐ **IMPORTANT** ⭐
+- [x] [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/) - Hard
 
 
 
