@@ -9,171 +9,212 @@
 ✅ **Maximize profit from buying/selling a stock over a price series, possibly with constraints (transaction limit, cooldown, fee)**
 
 ### Keywords
-- "best time to buy and sell stock"
-- "max profit", "buy low sell high"
+- "best time to buy and sell stock", "max profit"
 - "at most k transactions", "two transactions"
-- "cooldown", "transaction fee"
-- "unlimited transactions"
+- "cooldown", "transaction fee", "unlimited transactions"
 
 ### Examples
 - Unlimited buy/sell (Stock II)
-- At most `k` transactions (Stock III with k=2, Stock IV with arbitrary k)
+- At most `k` transactions (Stock III: k=2, Stock IV: arbitrary k)
 - One-day cooldown after each sell
-- Pay a fixed fee per completed transaction
+- Fixed fee per completed transaction
 
 ---
 
 ## Core Concept
 
-Model the trader as a **state machine**: on each day you are either **holding** a share or **not holding** (cash). Transitions:
+Model each day as a recursive decision over the state `(index, buy, k)`:
 
-- `hold → hold` (do nothing) or `hold → cash` (sell, add price)
-- `cash → cash` (do nothing) or `cash → hold` (buy, subtract price)
+- `index` = current day
+- `buy` = `1` if next legal action is **buy** (NOT holding); `0` if next legal action is **sell** (HOLDING)
+- `k` = transactions remaining (a transaction = one full buy + sell pair)
 
-**Key Insight**: `dp[i][holding]` = max profit at end of day `i` in that state. Walk the days left-to-right; the answer is `dp[n-1][cash]` (always exit holding nothing — no point ending the series owning a stock you won't sell).
+Two branches at every state:
 
-**Complexity**: O(n) time, O(1) space (rolling two scalars) for unconstrained variants; O(n × k) for `k`-transaction limit.
+- **Skip**: advance to `index + 1`, keep `(buy, k)` unchanged
+- **Act**: if `buy == 1`, buy (`-prices[i]`, flip `buy → 0`); if `buy == 0`, sell (`+prices[i]`, flip `buy → 1`, **decrement `k`**)
+
+**Key Insight**: top-down memoization with table `memo[index][buy][k]` is the universal template — every variant is a 1-2 line tweak.
+
+**Complexity**: O(n × k) time, O(n × k) space for K-transaction variants; O(n) when no cap.
 
 ---
 
 ## Pattern: Unlimited Transactions (Stock II)
 
-**Use Case**: Buy/sell as many times as you want, but only one share at a time.
+**Use Case**: Buy/sell as many times as you want, one share at a time.
 
-**Algorithm**: Two rolling scalars — `hold` and `cash`. Each day:
-- `cash = max(cash, hold + price)` — keep cash, or sell today
-- `hold = max(hold, cash - price)` — keep holding, or buy today
-
-Use the **previous** `cash` when updating `hold` (or vice versa). Order matters in the simple version, but `max(cash, hold + price)` then `max(hold, cash - price)` works because using the just-updated `cash` to buy back is equivalent to "doing nothing" — same-day buy after sell cancels out.
-
-**Complexity**: O(n) time, O(1) space
-
-### Template
+**Algorithm**: Recurse on `(index, buy)` only — drop the `k` dimension from the Core Concept state since no cap can bind.
 
 ```java
-public int maxProfit(int[] prices) {
-    int hold = -prices[0], cash = 0;
-    for (int i = 1; i < prices.length; i++) {
-        cash = Math.max(cash, hold + prices[i]);
-        hold = Math.max(hold, cash - prices[i]);
+class Solution {
+
+    public int maxProfit(int[] prices, int n, int[][] memoCache, int index, int buy) {
+
+        if (index == n) {
+            return 0;
+        }
+
+        if (memoCache[index][buy] != -1)
+            return memoCache[index][buy];
+
+        int optimalValue = 0;
+        if (buy == 1) {
+            int skipDay = maxProfit(prices, n, memoCache, index + 1, 1);
+            int buyDay = -prices[index] + maxProfit(prices, n, memoCache, index + 1, 0);
+            optimalValue = Math.max(skipDay, buyDay);
+        } else {
+            int skipDay = maxProfit(prices, n, memoCache, index + 1, 0);
+            int sellDay = prices[index] + maxProfit(prices, n, memoCache, index + 1, 1);
+            optimalValue = Math.max(skipDay, sellDay);
+        }
+        memoCache[index][buy] = optimalValue;
+        return optimalValue;
     }
-    return cash;
+
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        int[][] memoCache = new int[n][2];
+        for (int[] row : memoCache) Arrays.fill(row, -1);
+        return maxProfit(prices, n, memoCache, 0, 1);
+    }
 }
 ```
 
-**Greedy equivalent**: sum every positive `prices[i] - prices[i-1]` — same answer, since unlimited transactions let you capture every uphill segment.
+**Complexity**: O(n) time, O(n) space.
+**Greedy equivalent**: sum every positive `prices[i] - prices[i-1]` — unlimited transactions capture every uphill segment.
 
 ---
 
 ## Pattern: K Transactions ⭐ **IMPORTANT** ⭐
 
-**Use Case**: At most `k` complete buy-sell transactions (Stock III is `k=2`; Stock IV is general `k`).
+**Use Case**: At most `k` complete buy-sell transactions (Stock III is `k = 2`; Stock IV is general `k`).
 
-**Why Important**: The 3D state `dp[i][j][holding]` is the canonical state-machine DP — the same template handles `k=1, 2, ..., ∞`, with cooldown, with fees. Get this once and the rest are 5-line tweaks.
+**Why Important**: `(index, buy, k)` is the universal stock template — once written, every variant (cooldown, fee, unlimited) is a 1-2 line edit. Two recurring gotchas: (a) init memo to `-1` since `0` is a valid answer, (b) decrement `k` on exactly one side of the transaction.
 
-**Algorithm**:
-1. State: `dp[j][0]` = max cash after at most `j` transactions, not holding; `dp[j][1]` = same, holding
-2. Count a transaction on **buy** (or alternatively on sell — pick one and stick with it)
-3. Transition for each day's price `p`:
-   - `dp[j][1] = max(dp[j][1], dp[j-1][0] - p)` — stay holding, or buy (consumes a transaction slot)
-   - `dp[j][0] = max(dp[j][0], dp[j][1] + p)` — stay in cash, or sell
-4. **Optimization**: if `k >= n/2`, fall back to unlimited transactions (no cap can bind), avoiding huge memory
-5. Answer: `dp[k][0]`
+**Algorithm**: State `(index, buy, k)`. Base: `index == n` or `k == 0` → return `0`. Otherwise compute `max(skip, act)` with memoization. Decrement `k` only on **sell**.
 
-**Complexity**: O(n × k) time, O(k) space
+**Complexity**: O(n × k) time, O(n × k) space
 
-### Template
+### Template (Stock III, k = 2)
 
 ```java
-public int maxProfit(int k, int[] prices) {
-    int n = prices.length;
-    if (n == 0 || k == 0) return 0;
-    if (k >= n / 2) return unlimited(prices);     // unlimited fallback
+class Solution {
 
-    int[] hold = new int[k + 1];
-    int[] cash = new int[k + 1];
-    Arrays.fill(hold, Integer.MIN_VALUE);
+    private int maxProfit(int[] prices, int[][][] memoCache, int index, int buy, int k) {
 
-    for (int p : prices) {
-        for (int j = 1; j <= k; j++) {
-            hold[j] = Math.max(hold[j], cash[j - 1] - p);  // buy: consumes slot j
-            cash[j] = Math.max(cash[j], hold[j] + p);      // sell: stays at slot j
+        if (index == prices.length || k == 0) {
+            return 0;
         }
-    }
-    return cash[k];
-}
 
-private int unlimited(int[] prices) {
-    int profit = 0;
-    for (int i = 1; i < prices.length; i++) {
-        if (prices[i] > prices[i - 1]) profit += prices[i] - prices[i - 1];
+        if (memoCache[index][buy][k] != -1) {
+            return memoCache[index][buy][k];
+        }
+
+        int optimalValue = 0;
+        if (buy == 1) {
+            int a = maxProfit(prices, memoCache, index + 1, 1, k);
+            int b = -prices[index] + maxProfit(prices, memoCache, index + 1, 0, k);
+
+            optimalValue = Math.max(a, b);
+        } else {
+            int a = maxProfit(prices, memoCache, index + 1, 0, k);
+            int b = prices[index] + maxProfit(prices, memoCache, index + 1, 1, k - 1);
+
+            optimalValue = Math.max(a, b);
+        }
+
+        memoCache[index][buy][k] = optimalValue;
+        return optimalValue;
     }
-    return profit;
+
+    public int maxProfit(int[] prices) {
+
+        int n = prices.length;
+        int[][][] memoCache = new int[n][2][3];
+        for (int[][] slice : memoCache) {
+            for (int[] row : slice) {
+                Arrays.fill(row, -1);
+            }
+        }
+
+        return maxProfit(prices, memoCache, 0, 1, 2);
+    }
 }
 ```
 
-**Key Points**:
-- **Decide where to count transactions** (buy or sell): either works; mixing them double-counts. The template counts on **buy** — `cash[j - 1]` reads the cash from one fewer transaction
-- **Iterate `j` outer or inner?** Either works because we only read `cash[j-1]` (already-finalized lower-`j` value) and `hold[j]` (own row)
-- **`k >= n/2` fallback**: each transaction needs at least 2 days; with more slots than days, the cap is meaningless — switch to O(n) greedy to avoid allocating a giant `dp` table
-- **Init `hold[j] = MIN_VALUE`** so "haven't bought yet" never wins a `max`
+For **Stock IV (general k)**: swap constant `2` for parameter `k` in `new int[n][2][k + 1]` and the initial call `maxProfit(..., 0, 1, k)`.
+
+### Bottom-Up Tabulation (equivalent)
+
+Same recurrence written iteratively. `dp[i][buy][cap]` mirrors `solve(i, buy, cap)`; fill from `i = n - 1` down (base case `dp[n][*][*] = 0` is free from array init):
+
+```java
+class Solution {
+    public int maxProfit(int k, int[] prices) {
+
+        int n = prices.length;
+        int[][][] dp = new int[n + 1][2][k + 1];
+
+        for (int i = n - 1; i >= 0; i--) {
+            for (int cap = 1; cap <= k; cap++) {
+
+                int skipBuy = dp[i + 1][1][cap];
+                int buyDay = -prices[i] + dp[i + 1][0][cap];
+                dp[i][1][cap] = Math.max(skipBuy, buyDay);
+
+                int skipSell = dp[i + 1][0][cap];
+                int sellDay = prices[i] + dp[i + 1][1][cap - 1];
+                dp[i][0][cap] = Math.max(skipSell, sellDay);
+            }
+        }
+
+        return dp[0][1][k];
+    }
+}
+```
+
+**Top-down vs bottom-up**: top-down visits only reachable states (fewer calls but recursion overhead); bottom-up fills every cell with predictable O(n × k) work and no stack risk. Iterate `i` backwards so `dp[i + 1]` is filled when read.
 
 ---
 
 ## Pattern: With Cooldown
 
-**Use Case**: After a sell, you must wait one day before buying again.
+**Use Case**: After a sell, wait one full day before buying again.
 
-**Algorithm**: Add a third state `cooldown` (just sold), or equivalently use the cash value from **two days ago** when buying.
+**Algorithm**: Same as Unlimited — on **sell**, jump `index + 2` (skip the cooldown day). Use `index >= n` in the base case (`index + 2` can overshoot).
 
-```java
-public int maxProfit(int[] prices) {
-    int hold = -prices[0], cash = 0, prevCash = 0;
-    for (int i = 1; i < prices.length; i++) {
-        int prevHold = hold;
-        hold = Math.max(hold, prevCash - prices[i]);   // buy uses cash from i-2
-        prevCash = cash;
-        cash = Math.max(cash, prevHold + prices[i]);
-    }
-    return cash;
-}
+```text
+// only the sell branch changes:
+sellDay = prices[index] + maxProfit(..., index + 2, 1);   // jump 2 days
 ```
 
-**Complexity**: O(n) time, O(1) space
-
-**Key Point**: `prevCash` lags by one day, encoding the cooldown gap. Without it you'd buy back on the same day or the day after sell.
+**Complexity**: O(n) time, O(n) space
 
 ---
 
 ## Pattern: With Transaction Fee
 
-**Use Case**: Pay a fixed fee `f` on every completed buy-sell transaction.
+**Use Case**: Pay a fixed `fee` per completed buy-sell.
 
-**Algorithm**: Same as unlimited transactions, but subtract `f` on sell (or on buy — pick one):
+**Algorithm**: Same as Unlimited — subtract `fee` on the sell branch (or on buy — pick one and stick with it).
 
-```java
-public int maxProfit(int[] prices, int fee) {
-    int hold = -prices[0], cash = 0;
-    for (int i = 1; i < prices.length; i++) {
-        cash = Math.max(cash, hold + prices[i] - fee);   // pay fee on sell
-        hold = Math.max(hold, cash - prices[i]);
-    }
-    return cash;
-}
+```text
+// only the sell branch changes:
+sellDay = prices[index] - fee + maxProfit(..., index + 1, 1, fee);
 ```
 
-**Complexity**: O(n) time, O(1) space
-
-**Key Point**: Fee discourages tiny profits — only sells where `prices[i] - prices[buy] > fee` end up booked.
+**Complexity**: O(n) time, O(n) space
+**Key Point**: Fee suppresses tiny trades — only sells with `prices[sell] - prices[buy] > fee` get booked.
 
 ---
 
 ## Common Mistakes
 
-- ❌ **Counting a transaction on both buy and sell** — doubles the count, halves your effective `k`
-- ❌ **Forgetting to init `hold = -prices[0]`** (or `MIN_VALUE`) — "haven't bought" must lose to any real buy
-- ❌ **Using the just-updated `cash` to update `hold` in cooldown** — must be `prevCash` (lagged by one day)
-- ❌ **Allocating `dp[n][k+1][2]` for huge `k`** — when `k >= n/2`, fall back to unlimited
+- ❌ **Init memo to `0`** — `0` is a valid answer; use `-1` as the "not computed" sentinel
+- ❌ **Decrementing `k` on both buy and sell** — halves the effective cap; pick one side
+- ❌ **Flipping the `buy` flag** — see Core Concept for the canonical convention; reversing it inverts every branch
+- ❌ **Cooldown base case `==` instead of `>=`** — `index + 2` can overshoot by one
 
 ---
 
@@ -189,12 +230,10 @@ public int maxProfit(int[] prices, int fee) {
 
 ## Key Takeaways
 
-1. **State machine**: each day has a `hold`/`cash` state; transitions pair "do nothing" with "buy" or "sell"
-2. **Unlimited variant** is two rolling scalars — O(n) time, O(1) space
-3. **K-transaction variant** adds a `j` dimension; count the transaction on **one** side (buy or sell), never both
-4. **Cooldown** = lag the cash value by one day before buying
-5. **Fee** = subtract on sell (or on buy); same recurrence shape
-6. **`k >= n/2` shortcut**: cap can't bind, fall through to unlimited
+1. **One state, four variants** — `(index, buy, k)` covers K-transactions; drop `k` for Unlimited; jump `index + 2` for Cooldown; subtract `fee` for Transaction Fee
+2. **Two gotchas to remember**: init memo to `-1` (since `0` is a valid answer), and decrement `k` on exactly one side (sell)
+3. **Top-down ⇄ bottom-up are equivalent** — `dp[i][buy][k]` mirrors `solve(i, buy, k)`; pick top-down for clarity, bottom-up for predictable work / no stack
+4. **Memo dimensions follow the state**: `[n][2][k+1]` for K-transactions, `[n][2]` when no cap
 
 ---
 
