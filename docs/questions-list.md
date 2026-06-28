@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `185/202 problems completed`
+Track your overall progress: `192/202 problems completed`
 
 ---
 
@@ -29,16 +29,16 @@ Date Format is DD-MM-YYYY
 | 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | [📝](../notes/breadth-first-search/Notes.md) | 5 | ✅     | ✅ | 15-04-2026                         |
 | 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | [📝](../notes/depth-first-search/Notes.md) | 6 | ✅     | ✅ | 16-04-2026                         |
 | 11 | [Backtracking](#11-backtracking) | [📝](../notes/backtracking/Notes.md) | 7 | ✅      | ✅ | 07-03-2026, 03-06-2026             |
-| 12 | [Modified Binary Search](#12-modified-binary-search) | [📝](../notes/binary-search/Notes.md) | 9 | ✅      | [ ] |                                    |
+| 12 | [Modified Binary Search](#12-modified-binary-search) | [📝](../notes/binary-search/Notes.md) | 9 | ✅      | ✅ | 28-06-2026                         |
 | 13 | [Bitwise XOR](#13-bitwise-xor) | [📝](../notes/bitwise-xor/Notes.md) | 5 | ✅      | [ ] |                                    |
 | 14 | [Top 'K' Elements](#14-top-k-elements) | [📝](../notes/top-k-elements/Notes.md) | 4 | ✅      | [ ] |                                    |
 | 15 | [K-way Merge](#15-k-way-merge) | [📝](../notes/k-way-merge/Notes.md) | 4 | ✅      | [ ] |                                    |
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
-| 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 42 | ✅    | [ ] |                                    |
+| 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 42 | ✅    | ✅ | 23-06-2026                         |
 | 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | [ ] |                                    |
-| 21 | [Greedy](#21-greedy) | - | 7 | [ ]    | [ ] |                                    |
+| 21 | [Greedy](#21-greedy) | [📝](../notes/greedy/Notes.md) | 7 | ✅      | [ ] |                                    |
 | 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | [ ]    | [ ] |                                    |
 
 **📖 [Useful Learning Resources](#useful-articles-on-leetcode)**
@@ -450,13 +450,13 @@ Date Format is DD-MM-YYYY
 **Description**: Greedy algorithms make local optimal choices at each step, which lead to a global optimal solution for problems like scheduling and resource allocation.
 
 **Problems (7)**:
-- [ ] [Jump Game II](https://leetcode.com/problems/jump-game-ii/) - Medium
-- [ ] [Gas Station](https://leetcode.com/problems/gas-station/) - Medium
-- [ ] [Bag of Tokens](https://leetcode.com/problems/bag-of-tokens/) - Medium
-- [ ] [Boats to Save People](https://leetcode.com/problems/boats-to-save-people/) - Medium
-- [ ] [Wiggle Subsequence](https://leetcode.com/problems/wiggle-subsequence/) - Medium
-- [ ] [Car Pooling](https://leetcode.com/problems/car-pooling/) - Medium
-- [ ] [Candy](https://leetcode.com/problems/candy/) - Hard
+- [x] [Jump Game II](https://leetcode.com/problems/jump-game-ii/) - Medium
+- [x] [Gas Station](https://leetcode.com/problems/gas-station/) - Medium
+- [x] [Bag of Tokens](https://leetcode.com/problems/bag-of-tokens/) - Medium
+- [x] [Boats to Save People](https://leetcode.com/problems/boats-to-save-people/) - Medium
+- [x] [Wiggle Subsequence](https://leetcode.com/problems/wiggle-subsequence/) - Medium
+- [x] [Car Pooling](https://leetcode.com/problems/car-pooling/) - Medium
+- [x] [Candy](https://leetcode.com/problems/candy/) - Hard ⭐ **IMPORTANT** ⭐
 
 ---
 ## 22. Design Data Structure
