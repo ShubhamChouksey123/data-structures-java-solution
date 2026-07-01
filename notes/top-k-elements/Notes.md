@@ -6,38 +6,33 @@
 
 ## When to Use
 
-✅ **Find the K largest/smallest elements, K most/least frequent elements, or K closest elements using heaps or quickselect**
+✅ **Find the K largest/smallest, K most/least frequent, or K closest elements using heaps or quickselect**
 
 ### Keywords
-- "K largest elements"
-- "K smallest elements"
+- "K largest / K smallest"
 - "top K frequent"
 - "K closest points"
-- "Kth largest"
-- "Kth smallest"
+- "Kth largest / Kth smallest"
 
 ### Examples
-- Find K largest elements in an unsorted array
-- Find K most frequent elements
-- Find K closest points to origin
-- Find Kth largest element
-- Merge K sorted lists
+- K largest elements in an unsorted array
+- K most frequent elements
+- K closest points to origin
+- Kth largest element
 
 ---
 
 ## Core Concept
 
-Use a **heap** (priority queue) to efficiently maintain the top K elements. The key insight is choosing the right heap type:
+Use a **heap of size K** as a "gatekeeper" — keep removing the unwanted extreme so only the top K survive.
 
-**Key Rule**:
-- **K largest** → Use **min-heap of size K** (keep removing smallest)
-- **K smallest** → Use **max-heap of size K** (keep removing largest)
-
-**Why?** The heap acts as a "gatekeeper" - for K largest, the min-heap keeps the K largest by removing smaller elements.
+**Key Rule** (counter-intuitive):
+- **K largest** → **min-heap** of size K (poll the smallest)
+- **K smallest** → **max-heap** of size K (poll the largest)
 
 **Complexity**:
-- Heap approach: O(n log k) time, O(k) space
-- Quickselect approach: O(n) average time, O(1) space
+- Heap: O(n log k) time, O(k) space
+- Quickselect: O(n) average time, O(1) space
 
 ---
 
@@ -45,38 +40,28 @@ Use a **heap** (priority queue) to efficiently maintain the top K elements. The 
 
 **⚠️ Key Pattern - Review Regularly**
 
-**Use Case**: Find the Kth largest element in an unsorted array
+**Use Case**: Kth largest element in an unsorted array
 
 **Algorithm**:
-1. Use min-heap of size K
-2. Add first K elements to heap
-3. For remaining elements, if element > heap.peek(), remove min and add element
-4. Return heap.peek() (Kth largest)
+1. Maintain a min-heap of size K
+2. Offer each element; if size exceeds K, poll the smallest
+3. The heap top is the Kth largest
 
 **Complexity**: O(n log k) time, O(k) space
 
-**Why Important**: Most fundamental pattern, demonstrates min-heap for K largest (counter-intuitive), frequently asked
+**Why Important**: Foundational pattern; demonstrates the counter-intuitive min-heap-for-largest insight; frequently asked.
 
 ### Template
 
 ```java
-// Min-heap approach (most common)
 public int findKthLargest(int[] nums, int k) {
     PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-
-    // Add first k elements
-    for (int i = 0; i < k; i++) {
-        minHeap.offer(nums[i]);
-    }
-
-    // For remaining elements, maintain heap of size k
-    for (int i = k; i < nums.length; i++) {
-        if (nums[i] > minHeap.peek()) {
-            minHeap.poll();
-            minHeap.offer(nums[i]);
+    for (int num : nums) {
+        minHeap.offer(num);
+        if (minHeap.size() > k) {
+            minHeap.poll();  // drop smallest, keep K largest
         }
     }
-
     return minHeap.peek();  // Kth largest
 }
 ```
@@ -85,172 +70,70 @@ public int findKthLargest(int[] nums, int k) {
 
 ## Pattern 2: K Most Frequent Elements
 
-**Use Case**: Find K elements that appear most frequently
+**Use Case**: K elements that appear most often
 
 **Algorithm**:
-1. Count frequency of each element using HashMap
-2. Use min-heap of size K with custom comparator (by frequency)
-3. Maintain K most frequent elements
-4. Return heap elements
+1. Count frequencies in a HashMap
+2. Min-heap of size K with comparator **by frequency**: `(a, b) -> freq.get(a) - freq.get(b)`
+3. Offer each key; poll when size exceeds K (removes least frequent)
+4. Remaining heap holds the K most frequent
 
 **Complexity**: O(n log k) time, O(n) space
-
-### Template
-
-```java
-public int[] topKFrequent(int[] nums, int k) {
-    // Step 1: Count frequencies
-    Map<Integer, Integer> freqMap = new HashMap<>();
-    for (int num : nums) {
-        freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
-    }
-
-    // Step 2: Min-heap of size k (by frequency)
-    PriorityQueue<Integer> minHeap = new PriorityQueue<>(
-        (a, b) -> freqMap.get(a) - freqMap.get(b)
-    );
-
-    // Step 3: Maintain k most frequent
-    for (int num : freqMap.keySet()) {
-        minHeap.offer(num);
-        if (minHeap.size() > k) {
-            minHeap.poll();  // Remove least frequent
-        }
-    }
-
-    // Step 4: Extract result
-    int[] result = new int[k];
-    for (int i = 0; i < k; i++) {
-        result[i] = minHeap.poll();
-    }
-
-    return result;
-}
-```
 
 ### Visual Example
 
 ```
-Array: [1, 1, 1, 2, 2, 3], k = 2
+Array: [1,1,1,2,2,3], k = 2   →   freq = {1:3, 2:2, 3:1}
 
-Step 1: Frequency map
-{1: 3, 2: 2, 3: 1}
+Min-heap by freq (size 2):
+  offer 1 → [1]
+  offer 2 → [2,1]          (2 lower freq, sits on top)
+  offer 3 → size>2, poll 3 → [2,1]
 
-Step 2: Min-heap by frequency (size 2)
-- Add 1 (freq=3): Heap: [1]
-- Add 2 (freq=2): Heap: [2, 1] (2 has lower freq)
-- Add 3 (freq=1): Heap: [3, 1] → size > 2, remove 3
-
-Result: [2, 1] (top 2 frequent)
+Result: {1, 2}  (top 2 frequent)
 ```
 
 ---
 
-## Pattern 3: K Closest Points to Origin
+## Pattern 3: Ugly Number II
 
-**Use Case**: Find K points closest to origin (0, 0) by Euclidean distance
+**Use Case**: Find the nth ugly number (positive integers whose only prime factors are 2, 3, 5)
 
-**Algorithm**:
-1. Use max-heap of size K (by distance)
-2. For each point, calculate distance
-3. If heap size < K, add point
-4. Else if distance < max distance, remove max and add point
+**Algorithm** (min-heap, generate in order):
+1. Start with `1` in a min-heap; use a set to skip duplicates
+2. Poll the smallest n times — that's the next ugly number each round
+3. On each poll, push `val*2`, `val*3`, `val*5` (if unseen)
+4. The nth polled value is the answer
 
-**Complexity**: O(n log k) time, O(k) space
+**Complexity**: O(n log n) time, O(n) space
 
-### Template
+### Visual Example
 
-```java
-public int[][] kClosest(int[][] points, int k) {
-    // Max-heap by distance (for k closest, use max-heap)
-    Queue<int[]> maxHeap = new PriorityQueue<>(
-        (int[] a, int[] b) -> {
-            return Integer.compare((b[0] * b[0]) + b[1] * b[1], (a[0] * a[0] + a[1] * a[1]));
-        }
-    );
+```
+heap: [1]                      poll 1 → push 2,3,5
+heap: [2,3,5]                  poll 2 → push 4,6,10
+heap: [3,4,5,6,10]             poll 3 → push 6(seen),9,15
+heap: [4,5,6,9,10,15]          poll 4 → ...
 
-    for (int[] point : points) {
-        maxHeap.offer(point);
-
-        if (maxHeap.size() > k) {
-            maxHeap.poll();  // Remove farthest point
-        }
-    }
-
-    // Extract result
-    int[][] result = new int[k][2];
-    for (int i = 0; i < k; i++) {
-        result[i] = maxHeap.poll();
-    }
-
-    return result;
-}
+Sequence: 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, ...
 ```
 
-**Key Point**: For K **closest**, use **max-heap** - keep removing the **farthest** point to maintain K closest.
+**Key Point**: A min-heap yields ugly numbers in sorted order. The O(n) alternative uses **three pointers** (i2, i3, i5) into the result array, taking `min(res[i2]*2, res[i3]*3, res[i5]*5)` each step — no heap or set needed.
 
 ---
 
-## Pattern 4: Quickselect (Alternative Approach)
+## Pattern 4: Quickselect (Alternative)
 
-**Use Case**: Find Kth largest/smallest in average O(n) time
+**Use Case**: Only need the Kth element (not all K), and can modify the array
 
-**Algorithm** (Partition-based selection):
-1. Choose pivot and partition array
-2. If pivot position == k, return pivot
-3. If pivot position > k, search left
-4. If pivot position < k, search right
+**Algorithm** (partition-based selection):
+1. Partition around a pivot (Lomuto/Hoare); pivot lands at its sorted index
+2. If pivot index == target, return it
+3. Else recurse only into the side containing the target
 
-**Complexity**: O(n) average, O(n²) worst case time, O(1) space
+**Complexity**: O(n) average, O(n²) worst, O(1) space
 
-### Template
-
-```java
-public int findKthLargest(int[] nums, int k) {
-    return quickSelect(nums, 0, nums.length - 1, nums.length - k);
-}
-
-private int quickSelect(int[] nums, int left, int right, int k) {
-    if (left == right) return nums[left];
-
-    // Partition
-    int pivotIndex = partition(nums, left, right);
-
-    if (pivotIndex == k) {
-        return nums[k];
-    } else if (pivotIndex < k) {
-        return quickSelect(nums, pivotIndex + 1, right, k);
-    } else {
-        return quickSelect(nums, left, pivotIndex - 1, k);
-    }
-}
-
-private int partition(int[] nums, int left, int right) {
-    int pivot = nums[right];
-    int i = left;
-
-    for (int j = left; j < right; j++) {
-        if (nums[j] < pivot) {
-            swap(nums, i, j);
-            i++;
-        }
-    }
-
-    swap(nums, i, right);
-    return i;
-}
-
-private void swap(int[] nums, int i, int j) {
-    int temp = nums[i];
-    nums[i] = nums[j];
-    nums[j] = temp;
-}
-```
-
-**When to Use**:
-- When you only need the Kth element (not all K elements)
-- When you can modify the input array
-- When average O(n) is preferred over guaranteed O(n log k)
+**When to prefer**: single Kth value, in-place allowed, average O(n) acceptable. Otherwise use the heap (guaranteed O(n log k)).
 
 ---
 
@@ -259,68 +142,25 @@ private void swap(int[] nums, int i, int j) {
 ### ❌ Mistake 1: Wrong Heap Type
 
 ```java
-// WRONG - Using max-heap for K largest
-PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-for (int num : nums) {
-    maxHeap.offer(num);
-    if (maxHeap.size() > k) {
-        maxHeap.poll();  // Removes largest, keeps K smallest!
-    }
-}
+// WRONG - max-heap for K largest keeps the K SMALLEST
+maxHeap.offer(num);
+if (maxHeap.size() > k) maxHeap.poll();  // drops largest ✗
 
-// CORRECT - Use min-heap for K largest
-PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-for (int num : nums) {
-    minHeap.offer(num);
-    if (minHeap.size() > k) {
-        minHeap.poll();  // Removes smallest, keeps K largest ✓
-    }
-}
+// CORRECT - min-heap keeps the K largest
+minHeap.offer(num);
+if (minHeap.size() > k) minHeap.poll();  // drops smallest ✓
 ```
 
-**Remember**:
-- K **largest** → **min-heap** (remove smallest)
-- K **smallest** → **max-heap** (remove largest)
+- K **largest** → **min-heap**
+- K **smallest** → **max-heap**
 
----
+### ❌ Mistake 2: Peeking an Empty Heap
 
-### ❌ Mistake 2: Not Checking Heap Size Before Polling
+Guard size before comparing against `heap.peek()` (e.g. `if (heap.size() < k) offer; else if (...)`) — peeking an empty heap returns `null`.
 
-```java
-// WRONG - Can cause issues if k > nums.length
-for (int num : nums) {
-    if (num > minHeap.peek()) {  // NullPointerException if heap empty!
-        minHeap.poll();
-        minHeap.offer(num);
-    }
-}
+### ❌ Mistake 3: Comparator on the Wrong Field
 
-// CORRECT - Check size first
-for (int num : nums) {
-    if (minHeap.size() < k) {
-        minHeap.offer(num);
-    } else if (num > minHeap.peek()) {
-        minHeap.poll();
-        minHeap.offer(num);
-    }
-}
-```
-
----
-
-### ❌ Mistake 3: Wrong Comparator for Custom Objects
-
-```java
-// WRONG - Comparing wrong values
-PriorityQueue<int[]> heap = new PriorityQueue<>(
-    (a, b) -> a[0] - b[0]  // Only compares x-coordinate!
-);
-
-// CORRECT - Compare distances
-PriorityQueue<int[]> heap = new PriorityQueue<>(
-    (a, b) -> (a[0] * a[0] + a[1] * a[1]) - (b[0] * b[0] + b[1] * b[1])
-);
-```
+For custom objects (e.g. points), compare the full key — full distance `x² + y²`, not just `x[0]`. Comparing one field gives the wrong ordering.
 
 ---
 
@@ -331,17 +171,16 @@ PriorityQueue<int[]> heap = new PriorityQueue<>(
 - [x] [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/) - Medium
 - [x] [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) - Medium
 
+---
 
 ## Key Takeaways
 
-1. **Heap Choice**: K **largest** → **min-heap**, K **smallest** → **max-heap** (opposite!)
-2. **Time Complexity**: Heap = O(n log k), Quickselect = O(n) average
-3. **Space Efficiency**: Heap uses O(k) space, very efficient
-4. **Custom Comparator**: Use lambda `(a, b) -> compare(a, b)` for custom objects
-5. **Heap as Gatekeeper**: Heap "guards" the top K by removing unwanted elements
-6. **Check Size**: Always verify heap size before polling to avoid errors
-7. **When to Use Heap**: Finding top K from stream, maintaining sliding window of K elements
-8. **When to Use Quickselect**: Only need Kth element, can modify array, want O(n) average
+1. **Heap choice is opposite**: K largest → min-heap, K smallest → max-heap
+2. **Heap = gatekeeper**: poll the unwanted extreme to keep size at K
+3. **Complexity**: heap O(n log k); quickselect O(n) average
+4. **Custom objects**: supply a comparator over the full key (e.g. squared distance for points)
+5. **Min-heap generates in sorted order** (Ugly Number II); a multi-pointer DP can replace it for O(n)
+6. **Quickselect** when you only need the Kth element and can mutate the array
 
 ---
 
