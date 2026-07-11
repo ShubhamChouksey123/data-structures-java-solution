@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `192/202 problems completed`
+Track your overall progress: `193/203 problems completed`
 
 ---
 
@@ -34,7 +34,7 @@ Date Format is DD-MM-YYYY
 | 14 | [Top 'K' Elements](#14-top-k-elements) | [📝](../notes/top-k-elements/Notes.md) | 4 | ✅      | ✅ | 30-06-2026                         |
 | 15 | [K-way Merge](#15-k-way-merge) | [📝](../notes/k-way-merge/Notes.md) | 4 | ✅      | ✅ | 01-07-2026                         |
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
-| 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 6 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
+| 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 7 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 42 | ✅    | ✅ | 23-06-2026                         |
 | 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | [ ] |                                    |
@@ -256,13 +256,14 @@ Date Format is DD-MM-YYYY
 
 **Description**: A monotonic stack helps solve range queries by maintaining a stack of elements in increasing or decreasing order.
 
-**Problems (6)**:
+**Problems (7)**:
 - [x] [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/) - Medium
 - [x] [Next Greater Node In Linked List](https://leetcode.com/problems/next-greater-node-in-linked-list/) - Medium
 - [x] [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) - Medium
 - [x] [Online Stock Span](https://leetcode.com/problems/online-stock-span/) - Medium
 - [x] [Maximum Width Ramp](https://leetcode.com/problems/maximum-width-ramp/) - Medium
 - [x] [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) - Hard
+- [x] [Maximum Score From Removing Substrings](https://leetcode.com/problems/maximum-score-from-removing-substrings/) - Medium *(Greedy + Stack)*
 
 ---
 ## 18. Trees
