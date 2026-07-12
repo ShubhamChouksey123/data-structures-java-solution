@@ -10,7 +10,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `8/188 problems completed`
+Track your overall progress: `9/188 problems completed`
 
 - 🔥 **Frequency** = how often the problem appeared in Salesforce interviews (higher = higher priority)
 - Sorted **high → low** by frequency
@@ -30,7 +30,7 @@ Track your overall progress: `8/188 problems completed`
 | 7 | [Smallest Substring With Identical Characters II](https://leetcode.com/problems/smallest-substring-with-identical-characters-ii) | Hard | 72.5 | [ ] |
 | 8 | [Remove Adjacent Almost-Equal Characters](https://leetcode.com/problems/remove-adjacent-almost-equal-characters) | Medium | 71.3 | ✅ |
 | 9 | [Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k) | Medium | 70.1 | ✅ |
-| 10 | [LRU Cache](https://leetcode.com/problems/lru-cache) | Medium | 67.4 | [ ] |
+| 10 | [LRU Cache](https://leetcode.com/problems/lru-cache) | Medium | 67.4 | ✅ |
 | 11 | [Maximum Number of Occurrences of a Substring](https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring) | Medium | 67.4 | ✅ |
 | 12 | [Maximum Palindromes After Operations](https://leetcode.com/problems/maximum-palindromes-after-operations) | Medium | 67.4 | [ ] |
 | 13 | [Maximum Product of Three Numbers](https://leetcode.com/problems/maximum-product-of-three-numbers) | Easy | 65.8 | ✅ |
