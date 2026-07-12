@@ -313,7 +313,7 @@ int w = stack.isEmpty() ? i : i - stack.peek() - 1;
 - [x] [Online Stock Span](https://leetcode.com/problems/online-stock-span/) - Medium
 - [x] [Maximum Width Ramp](https://leetcode.com/problems/maximum-width-ramp/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) - Hard ⭐ **IMPORTANT** ⭐
-- [x] [Maximum Score From Removing Substrings](https://leetcode.com/problems/maximum-score-from-removing-substrings/) - Medium *(Greedy + Stack)*
+- [x] [Maximum Score From Removing Substrings](https://leetcode.com/problems/maximum-score-from-removing-substrings/) - Medium
 
 ### Maximum Width Ramp ⭐ **IMPORTANT** ⭐
 

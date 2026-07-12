@@ -34,7 +34,7 @@ Date Format is DD-MM-YYYY
 | 14 | [Top 'K' Elements](#14-top-k-elements) | [📝](../notes/top-k-elements/Notes.md) | 4 | ✅      | ✅ | 30-06-2026                         |
 | 15 | [K-way Merge](#15-k-way-merge) | [📝](../notes/k-way-merge/Notes.md) | 4 | ✅      | ✅ | 01-07-2026                         |
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
-| 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 7 | ✅      | [ ] | 29-03-2026, 03-04-2026             |
+| 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 7 | ✅      | ✅ | 29-03-2026, 03-04-2026, 12-07-2026 |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 42 | ✅    | ✅ | 23-06-2026                         |
 | 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | [ ] |                                    |
@@ -263,7 +263,7 @@ Date Format is DD-MM-YYYY
 - [x] [Online Stock Span](https://leetcode.com/problems/online-stock-span/) - Medium
 - [x] [Maximum Width Ramp](https://leetcode.com/problems/maximum-width-ramp/) - Medium
 - [x] [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) - Hard
-- [x] [Maximum Score From Removing Substrings](https://leetcode.com/problems/maximum-score-from-removing-substrings/) - Medium *(Greedy + Stack)*
+- [x] [Maximum Score From Removing Substrings](https://leetcode.com/problems/maximum-score-from-removing-substrings/) - Medium
 
 ---
 ## 18. Trees
