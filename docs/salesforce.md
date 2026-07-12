@@ -10,7 +10,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `9/188 problems completed`
+Track your overall progress: `10/188 problems completed`
 
 - 🔥 **Frequency** = how often the problem appeared in Salesforce interviews (higher = higher priority)
 - Sorted **high → low** by frequency
@@ -140,7 +140,7 @@ Track your overall progress: `9/188 problems completed`
 | 117 | [Network Delay Time](https://leetcode.com/problems/network-delay-time) | Medium | 36.1 | [ ] |
 | 118 | [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary) | Hard | 36.1 | [ ] |
 | 119 | [Missing Number](https://leetcode.com/problems/missing-number) | Easy | 36.1 | [ ] |
-| 120 | [Design Twitter](https://leetcode.com/problems/design-twitter) | Medium | 36.1 | [ ] |
+| 120 | [Design Twitter](https://leetcode.com/problems/design-twitter) | Medium | 36.1 | ✅ |
 | 121 | [Diameter of N-Ary Tree](https://leetcode.com/problems/diameter-of-n-ary-tree) | Medium | 36.1 | [ ] |
 | 122 | [Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit) | Medium | 36.1 | [ ] |
 | 123 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string) | Medium | 36.1 | [ ] |

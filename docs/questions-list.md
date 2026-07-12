@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `194/203 problems completed`
+Track your overall progress: `195/203 problems completed`
 
 ---
 
@@ -39,7 +39,7 @@ Date Format is DD-MM-YYYY
 | 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 42 | ✅    | ✅ | 23-06-2026                         |
 | 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | [📝](../notes/greedy/Notes.md) | 7 | ✅      | [ ] |                                    |
-| 22 | [Design Data Structure](#22-design-data-structure) | - | 6 | 1/6    | [ ] |                                    |
+| 22 | [Design Data Structure](#22-design-data-structure) | [📝](../notes/design-data-structure/Notes.md) | 6 | 2/6    | [ ] |                                    |
 
 **📖 [Useful Learning Resources](#useful-articles-on-leetcode)**
 
@@ -465,7 +465,7 @@ Date Format is DD-MM-YYYY
 **Description**: Building custom data structures to efficiently handle specific operations, like managing data access, updates, and memory usage. Focuses on optimizing performance and resource management.
 
 **Problems (6)**:
-- [ ] [Design Twitter](https://leetcode.com/problems/design-twitter/) - Medium
+- [x] [Design Twitter](https://leetcode.com/problems/design-twitter/) - Medium
 - [ ] [Design Browser History](https://leetcode.com/problems/design-browser-history/) - Medium
 - [ ] [Design Circular Deque](https://leetcode.com/problems/design-circular-deque/) - Medium
 - [ ] [Snapshot Array](https://leetcode.com/problems/snapshot-array/) - Medium
