@@ -117,8 +117,8 @@ Use dummy `head`/`tail` sentinels in the DLL so insert/remove never special-case
 
 ## Problems
 
-- [ ] [Design Twitter](https://leetcode.com/problems/design-twitter/) - Medium *(HashMap + heap merge)*
-- [ ] [Design Browser History](https://leetcode.com/problems/design-browser-history/) - Medium *(array/stacks)*
+- [x] [Design Twitter](https://leetcode.com/problems/design-twitter/) - Medium *(HashMap + heap merge)*
+- [x] [Design Browser History](https://leetcode.com/problems/design-browser-history/) - Medium *(array/stacks)*
 - [ ] [Design Circular Deque](https://leetcode.com/problems/design-circular-deque/) - Medium *(ring buffer)*
 - [ ] [Snapshot Array](https://leetcode.com/problems/snapshot-array/) - Medium *(versioned + binary search)*
 - [x] [LRU Cache](https://leetcode.com/problems/lru-cache/) - Medium ⭐ **IMPORTANT** ⭐
