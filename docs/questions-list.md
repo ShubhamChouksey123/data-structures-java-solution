@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `198/203 problems completed`
+Track your overall progress: `198/204 problems completed`
 
 ---
 
@@ -34,7 +34,7 @@ Date Format is DD-MM-YYYY
 | 14 | [Top 'K' Elements](#14-top-k-elements) | [📝](../notes/top-k-elements/Notes.md) | 4 | ✅      | ✅ | 30-06-2026                         |
 | 15 | [K-way Merge](#15-k-way-merge) | [📝](../notes/k-way-merge/Notes.md) | 4 | ✅      | ✅ | 01-07-2026                         |
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
-| 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 7 | ✅      | ✅ | 29-03-2026, 03-04-2026, 12-07-2026 |
+| 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 8 | 7/8    | ✅ | 29-03-2026, 03-04-2026, 12-07-2026 |
 | 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 42 | ✅    | ✅ | 23-06-2026                         |
 | 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | [ ] |                                    |
@@ -154,7 +154,7 @@ Date Format is DD-MM-YYYY
 
 **Description**: BFS explores nodes level by level using a queue. It is particularly useful for shortest path problems.
 
-**Problems (4)**:
+**Problems (5)**:
 - [x] [Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/) - Medium
 - [x] [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) - Medium
 - [x] [As Far from Land as Possible](https://leetcode.com/problems/as-far-from-land-as-possible/) - Medium
@@ -166,7 +166,7 @@ Date Format is DD-MM-YYYY
 
 **Description**: DFS explores as far as possible along a branch before backtracking. It's useful for graph traversal, pathfinding, and connected components.
 
-**Problems (5)**:
+**Problems (6)**:
 - [x] [Number of Closed Islands](https://leetcode.com/problems/number-of-closed-islands/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Coloring a Border](https://leetcode.com/problems/coloring-a-border/) - Medium
 - [x] [Number of Enclaves](https://leetcode.com/problems/number-of-enclaves/) - Medium *(DFS from boundary)*
@@ -256,7 +256,7 @@ Date Format is DD-MM-YYYY
 
 **Description**: A monotonic stack helps solve range queries by maintaining a stack of elements in increasing or decreasing order.
 
-**Problems (7)**:
+**Problems (8)**:
 - [x] [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/) - Medium
 - [x] [Next Greater Node In Linked List](https://leetcode.com/problems/next-greater-node-in-linked-list/) - Medium
 - [x] [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) - Medium
@@ -264,6 +264,7 @@ Date Format is DD-MM-YYYY
 - [x] [Maximum Width Ramp](https://leetcode.com/problems/maximum-width-ramp/) - Medium
 - [x] [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) - Hard
 - [x] [Maximum Score From Removing Substrings](https://leetcode.com/problems/maximum-score-from-removing-substrings/) - Medium
+- [ ] [Remove Duplicate Letters](https://leetcode.com/problems/remove-duplicate-letters/) - Medium
 
 ---
 ## 18. Trees
