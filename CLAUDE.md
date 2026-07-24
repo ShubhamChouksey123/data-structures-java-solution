@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Java 21 data structures & algorithms practice repository, built with Maven and Spring Boot 3.4.1 (Spring Boot is used for dependency management only — this is **not** a web application). Alongside the Java solutions, the repo maintains a substantial **revision-notes and progress-tracking system** under `notes/`, `concepts/`, and `docs/` — see [Documentation System](#documentation-system) below, as it is where much of the ongoing work happens.
+Java 21 data structures & algorithms practice repository, built with Maven and Spring Boot 3.4.1 (Spring Boot is used for dependency management only — this is **not** a web application). Alongside the Java solutions, the repo maintains a substantial **revision-notes, progress-tracking, and interview-prep system** under `notes/`, `concepts/`, `docs/`, and `practice/` — see [Documentation System](#documentation-system) below, as it is where much of the ongoing work happens.
 
 ## Build and Development Commands
 
@@ -55,6 +55,12 @@ Three parallel documentation trees, each with its own authoring rules. **Read th
 ### `docs/` — Trackers
 - `docs/questions-list.md` — the master pattern-based study guide: a Table-of-Contents table (22 topics) plus per-topic problem checklists. **Date format is DD-MM-YYYY.**
 - `docs/salesforce.md` — company-wise list (188 problems from the liquidslr company-wise repo), frequency-sorted, with its own solved-progress counter.
+
+### `practice/` — Mock-interview log (repo root, **not** under `docs/`)
+- One `NN.java` per mock interview, each holding the question (as comments), the code written during the session, and the interviewer's feedback verbatim.
+- `practice/README.md` — the running log: a Sessions table (problem, pattern, verdict, and the three per-axis scores — Coding / Problem Solving / Communication), per-session summaries, consolidated tips, and a "How to Improve" section.
+- `practice/narration-script.md` — a read-aloud rehearsal script (six-beat template + worked transcripts) for the communication axis.
+- **When adding a session**: append a row to the Sessions table (linking `NN.java`), add a session summary, update the communication-score tally, and fold any new feedback into the tips. Links from these files to `notes/`/`concepts/` use a single `../` (the folder sits one level below root). In interview prep/review, lead with **communication coaching** — across all logged sessions it is the consistent weak axis, while coding/problem-solving already pass.
 
 ## Progress-Tracking Conventions (docs/)
 

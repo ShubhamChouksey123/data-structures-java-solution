@@ -22,7 +22,7 @@ Each `NN.java` file in this folder contains the question (as comments), the code
 | [09](09.java) | Merge Two Sorted Arrays | Two pointers (merge) | ✅ Pass | 3.5/4 | 3.5/4 | 3/4 |
 | [10](10.java) | Reverse Words in String | String parse + reverse (reverse-twice) | ✅ Pass | 3/4 | 3/4 | 3/4 |
 
-**Related notes**: [Monotonic Stack](../../notes/monotonic-stack/Notes.md) (02) · [Overlapping Intervals](../../notes/overlapping-intervals/Notes.md) (03) · [Top 'K' Elements](../../notes/top-k-elements/Notes.md) (01) · [Sliding Window](../../notes/sliding-window/Notes.md) (04) · [Dynamic Programming](../../notes/dynamic-programming/Notes.md) (05) · [Trees](../../notes/trees/Notes.md) (06) · [Stack](../../concepts/stack/info.md) (07) · [Two Pointers](../../notes/two-pointers/Notes.md) (09) · [String](../../concepts/string/info.md) (10)
+**Related notes**: [Monotonic Stack](../notes/monotonic-stack/Notes.md) (02) · [Overlapping Intervals](../notes/overlapping-intervals/Notes.md) (03) · [Top 'K' Elements](../notes/top-k-elements/Notes.md) (01) · [Sliding Window](../notes/sliding-window/Notes.md) (04) · [Dynamic Programming](../notes/dynamic-programming/Notes.md) (05) · [Trees](../notes/trees/Notes.md) (06) · [Stack](../concepts/stack/info.md) (07) · [Two Pointers](../notes/two-pointers/Notes.md) (09) · [String](../concepts/string/info.md) (10)
 
 ---
 
