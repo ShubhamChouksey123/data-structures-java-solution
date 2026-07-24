@@ -314,7 +314,7 @@ int w = stack.isEmpty() ? i : i - stack.peek() - 1;
 - [x] [Maximum Width Ramp](https://leetcode.com/problems/maximum-width-ramp/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) - Hard ⭐ **IMPORTANT** ⭐
 - [x] [Maximum Score From Removing Substrings](https://leetcode.com/problems/maximum-score-from-removing-substrings/) - Medium
-- [ ] [Remove Duplicate Letters](https://leetcode.com/problems/remove-duplicate-letters/) - Medium *(monotonic stack on chars + seen set + last-occurrence)*
+- [x] [Remove Duplicate Letters](https://leetcode.com/problems/remove-duplicate-letters/) - Medium *(monotonic stack on chars + seen set + last-occurrence)*
 
 ### Maximum Width Ramp ⭐ **IMPORTANT** ⭐
 
