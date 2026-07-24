@@ -10,7 +10,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `10/188 problems completed`
+Track your overall progress: `13/188 problems completed`
 
 - 🔥 **Frequency** = how often the problem appeared in Salesforce interviews (higher = higher priority)
 - Sorted **high → low** by frequency
@@ -36,9 +36,9 @@ Track your overall progress: `10/188 problems completed`
 | 13 | [Maximum Product of Three Numbers](https://leetcode.com/problems/maximum-product-of-three-numbers) | Easy | 65.8 | ✅ |
 | 14 | [Minimize Malware Spread](https://leetcode.com/problems/minimize-malware-spread) | Hard | 65.8 | [ ] |
 | 15 | [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences) | Hard | 64.2 | [ ] |
-| 16 | [Power Grid Maintenance](https://leetcode.com/problems/power-grid-maintenance) | Medium | 64.2 | [ ] |
-| 17 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters) | Medium | 62.4 | [ ] |
-| 18 | [Count the Number of Fair Pairs](https://leetcode.com/problems/count-the-number-of-fair-pairs) | Medium | 62.4 | [ ] |
+| 16 | [Power Grid Maintenance](https://leetcode.com/problems/power-grid-maintenance) | Medium | 64.2 | ✅ |
+| 17 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters) | Medium | 62.4 | ✅ |
+| 18 | [Count the Number of Fair Pairs](https://leetcode.com/problems/count-the-number-of-fair-pairs) | Medium | 62.4 | ✅ |
 | 19 | [Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack) | Hard | 62.4 | [ ] |
 | 20 | [Minimize Maximum Component Cost](https://leetcode.com/problems/minimize-maximum-component-cost) | Medium | 62.4 | [ ] |
 | 21 | [Group Anagrams](https://leetcode.com/problems/group-anagrams) | Medium | 60.5 | [ ] |

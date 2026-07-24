@@ -18,8 +18,11 @@ Each `NN.java` file in this folder contains the question (as comments), the code
 | [04](04.java) | Sub Permutations | Sliding window + freq count (`missing` counter) | ✅ Pass | 3/4 | 3/4 | 2.5/4 |
 | [05](05.java) | Road Trip | DP (rolling variables, O(1) space) | ✅ Pass | 3.5/4 | 3/4 | 2.5/4 |
 | [06](06.java) | Aligned Chain | Tree DFS (depth down, chain length up, global max) | ✅ Pass | 3/4 | 3/4 | **3/4** |
+| [07](07.java) | Longest Balanced Subsequence | Stack matching + valid-index boolean array | ✅ Pass | 3.5/4 | 3/4 | 3/4 |
+| [09](09.java) | Merge Two Sorted Arrays | Two pointers (merge) | ✅ Pass | 3.5/4 | 3.5/4 | 3/4 |
+| [10](10.java) | Reverse Words in String | String parse + reverse (reverse-twice) | ✅ Pass | 3/4 | 3/4 | 3/4 |
 
-**Related notes**: [Monotonic Stack](../../notes/monotonic-stack/Notes.md) (02) · [Overlapping Intervals](../../notes/overlapping-intervals/Notes.md) (03) · [Top 'K' Elements](../../notes/top-k-elements/Notes.md) (01) · [Sliding Window](../../notes/sliding-window/Notes.md) (04) · [Dynamic Programming](../../notes/dynamic-programming/Notes.md) (05) · [Trees](../../notes/trees/Notes.md) (06)
+**Related notes**: [Monotonic Stack](../../notes/monotonic-stack/Notes.md) (02) · [Overlapping Intervals](../../notes/overlapping-intervals/Notes.md) (03) · [Top 'K' Elements](../../notes/top-k-elements/Notes.md) (01) · [Sliding Window](../../notes/sliding-window/Notes.md) (04) · [Dynamic Programming](../../notes/dynamic-programming/Notes.md) (05) · [Trees](../../notes/trees/Notes.md) (06) · [Stack](../../concepts/stack/info.md) (07) · [Two Pointers](../../notes/two-pointers/Notes.md) (09) · [String](../../concepts/string/info.md) (10)
 
 ---
 
@@ -103,9 +106,45 @@ Each `NN.java` file in this folder contains the question (as comments), the code
 
 ---
 
+### 07 — Longest Balanced Subsequence ✅ Pass
+
+**Problem**: Given a string of parentheses, return the longest balanced *subsequence* (delete the fewest characters to make it balanced).
+
+**Approach**: Single stack pass storing indices of unmatched `(`. On `)`, if the stack is non-empty, mark both that index and the popped `(` index as valid in a `boolean[]`. Build the result from the valid indices — unmatched `(` are whatever remains on the stack, unmatched `)` are those seen with an empty stack.
+
+**What went well**: Reached the optimal approach with **no hints**; clean, correct code; the `boolean[]` valid-index array (instead of a set) was a nice touch; correct complexity. Explained throughout and gave a clear walkthrough — second straight **3/4 communication**.
+
+**What hurt the score**: Jumped into coding before fully solidifying the approach; gave an *abstract* answer instead of tracing a concrete example when asked about output ordering; hadn't enumerated unmatched-closing-bracket case until prompted; walkthrough was thorough but verbose. Minor: `isValidIndex[i] = false` (line 35) is redundant — `boolean[]` defaults to false.
+
+---
+
+### 09 — Merge Two Sorted Arrays ✅ Pass — best scores yet (3.5/3.5/3)
+
+**Problem**: Merge two ascending-sorted arrays into one sorted array, keeping duplicates.
+
+**Approach**: Two pointers, one per array, writing into a size `n+m` result; at each step take the smaller element and advance that pointer, then append whatever remains once one array is exhausted. Neat touch: used `pointer1 + pointer2` as the write index.
+
+**What went well**: Identified two pointers instantly and handled the exhausted-pointer case cleanly; correct on all edge cases; highest coding + problem-solving marks so far. Clear walkthrough — third straight **3/4 communication**.
+
+**What hurt the score**: Explanation could be tighter/more structured (restate → approach → edge cases → code); didn't state complexity until it came up; the nested if-else is correct but three separate `while` loops (main merge, then drain each array) read cleaner.
+
+---
+
+### 10 — Reverse Words in String ✅ Pass
+
+**Problem**: Reverse the order of words in a sentence; collapse multiple/leading/trailing spaces to single separators, no leading/trailing space in output.
+
+**Approach**: Parse words with a `StringBuilder` (flush on space, skipping empties), then build the result from the last word backward. Correctly stated **O(n) time, O(n) space** and recognized the more space-efficient **reverse-twice** approach (reverse whole string, then each word) when nudged.
+
+**What went well**: Clean, correct code handling all the whitespace edge cases; clear complexity; showed awareness of the optimal in-place direction. Fourth straight **3/4 communication**.
+
+**What hurt the score**: Jumped into the first approach quickly instead of brainstorming 2–3 and comparing trade-offs; needed a nudge to reach the reverse-twice idea and leaned toward "I'm not sure" rather than driving the optimization; initial explanation could be more structured (numbered steps).
+
+---
+
 ## Consolidated Tips
 
-The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**) — but it is **trending up**, hitting a clean 3/4 in session 06. Keep drilling the polish items below. These tips are grouped by the axis interviewers score.
+The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **3**, **3**, **3**) — but it is **trending up**, holding a clean 3/4 across sessions 06, 07, 09, and 10. Keep drilling the polish items below. These tips are grouped by the axis interviewers score.
 
 ### Communication (highest priority)
 - **State the approach in plain English before writing any code.** Use explicit structure: *"Step 1: … Step 2: … Step 3: …"*
@@ -122,8 +161,13 @@ The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**) �
 - **Name variables precisely** — use `n1`/`n2`, not a single "n," when there are two inputs (04).
 - **String ops are O(length), not O(1)** — `substring()`, hashing, and comparison all cost O(length) (04).
 - **Lead with the reasoning**, then state the Big-O.
+- **State complexity proactively** (09) — the moment you finish coding, give time + space without waiting to be asked. It signals confidence.
 
 ### Problem Solving
+- **Brainstorm 2–3 approaches before coding** (10) — name the options and their trade-offs, then pick one. Jumping straight into the first idea reads as shallower problem-solving.
+- **Drive optimizations proactively** (10) — when asked "can this be better?", think out loud toward an answer instead of "I'm not sure." For string/array problems always ask **"can I do this in-place?"** — two-pointer swaps and the **reverse-twice** trick recur constantly.
+- **Think before you code** (07) — fully solidify the approach on the whiteboard, especially *how the output is constructed*, before typing. It worked out on an easy problem; on a hard one it saves debugging time.
+- **Enumerate all cases upfront** (07) — before coding, list every case the algorithm must handle. For parentheses: extra `(` (left on the stack) *and* extra `)` (seen with empty stack). Missing the second cost points until prompted.
 - **Identify tricky aspects early** (overflow/modulo in 01) *before* coding, not after.
 - **Generate your own edge cases** before the interviewer does: empty input, single element, all-equal, none/all overlapping, shared endpoints, `k = array length`.
 - After solving, **mention alternative approaches** even if you don't implement them (e.g. 02: reuse King Kong's logic for Godzilla by reversing/negating the array) — it shows depth.
@@ -131,7 +175,7 @@ The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**) �
 ### Coding
 - **Extract the solution into a method** with parameters and a return value — don't write everything in `main`.
 - **Remove debug print statements** before presenting the final answer (02 left prints on lines 35/53).
-- **Prefer the standard, readable form** of an algorithm over a clever variant (03: track `prevEnd` rather than grouping) — simpler code = fewer bugs and easier discussion.
+- **Prefer the standard, readable form** of an algorithm over a clever variant (03: track `prevEnd` rather than grouping; 09: three separate `while` loops for a merge — main + drain each — read cleaner than one nested if-else) — simpler code = fewer bugs and easier discussion.
 - **Drop redundant guards** — don't guard `HashSet.add()` with a `contains()` check; the set already dedups (04).
 - **Trace through at least one example** after writing, walking the interviewer through it.
 
@@ -151,11 +195,11 @@ The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**) �
 
 ### The diagnosis
 
-Coding and problem-solving are **already at a passing bar** — scores sit at 3–3.5, and the right pattern gets found fast every session. **Communication is the sole bottleneck**: 2 / 3 / 2 / 2.5 / 2.5, last place in all five sessions. The good news — this is the *most trainable* axis. It's a performance skill (like rehearsing a talk), not missing knowledge.
+Coding and problem-solving are **already at a passing bar** — scores sit at 3–3.5 (09 hit **3.5/3.5**), and the right pattern gets found fast every session. **Communication has historically been the bottleneck**: 2 / 3 / 2 / 2.5 / 2.5 / 3 / 3 / 3 / 3 across sessions 01–07, 09, and 10. The good news — this is the *most trainable* axis. It's a performance skill (like rehearsing a talk), not missing knowledge.
 
 **Implication**: grinding new problems won't move the needle much. Practicing *narration* will.
 
-**Update (after the 05 re-solve and session 06)**: the *structural* problem is solved — continuous narration, full template beats, proactive optimization + complexity — and **06 landed the first 3/4 communication score**. The remaining gap is **polish, not structure**: (1) cut filler ("uh"/"means"/"like") — replace with silence; (2) always include an example **trace**, before and after coding; (3) state the recurrence/framing precisely on the first try; (4) keep explanations concise. Trajectory is upward; keep the recorded re-solve habit going.
+**Update (after 05 re-solve and sessions 06, 07, 09, 10)**: the *structural* problem is solved — continuous narration, full template beats, proactive optimization + complexity — and communication has now held **3/4 for four straight sessions**. The remaining gap is **polish, not structure**, and it's the *same* two notes every time: **(a) be concise and structured** — lead with a tight 3–4 sentence, numbered summary (restate → approach → edge cases → code), and **(b) drive the conversation** — brainstorm 2–3 approaches upfront and push toward optimizations yourself instead of "I'm not sure." Also: state complexity the moment coding ends (09), always trace an example, cut filler. Trajectory is upward; the two moves above are what convert a 3 into a **3.5**.
 
 ### The opening script
 
@@ -169,7 +213,7 @@ Memorize this skeleton and fill the blanks out loud, every time. With a script y
 
 ### Drills (ranked by impact)
 
-1. **Re-solve, don't solve.** Re-do problems you've already done (01–04) *out loud on a timer*. The solution is easy the second time — that frees your whole brain for the talking, which is the weak part. Two recorded re-solves/week beats ten new problems.
+1. **Re-solve, don't solve.** Re-do problems you've already done (01–10) *out loud on a timer*. The solution is easy the second time — that frees your whole brain for the talking, which is the weak part. Two recorded re-solves/week beats ten new problems.
 2. **Record and rewatch.** Painful but decisive — you'll hear the mumbling, the "it works," the pauses you can't feel in the moment.
 3. **No silent gaps.** The instant you think silently, narrate what you're weighing: *"I'm deciding whether the window check is `<` or `≤`…"* An interviewer can't score a silent brain. This alone likely moves 2 → 3.
 4. **Narrate complexity as you write, not after.** When you add a heap, say "push is O(log heap size)"; when you call `substring`, say "that's O(length)." Bolt it to the code so you never recall it cold.

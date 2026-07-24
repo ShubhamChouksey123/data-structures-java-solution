@@ -15,8 +15,9 @@ Say these six beats **in order**, every time. Fill the blanks. It's meant to be 
    "Let me restate to make sure I understand: I have ___,
     and I need to ___. Let me confirm with the example: ___ → ___."
 
-2. APPROACH
-   "This looks like a ___ problem, because ___."
+2. APPROACH  (name 2–3 options, then commit)
+   "A brute-force way is ___. A better way is ___ because ___.
+    I'll go with ___." — briefly weighing options reads as depth.
 
 3. DATA STRUCTURE / STATE + WHY
    "I'll use ___ because ___."
@@ -78,6 +79,22 @@ Read this aloud. Notice how boring and structured it is — that is the target.
 
 ---
 
+## Worked Transcript C — Merge Two Sorted Arrays (Two Pointers)
+
+Short problems still get the full six beats — **and state complexity without being asked**.
+
+> "Let me restate: I'm given two ascending-sorted arrays and I need one merged sorted array, keeping duplicates. Confirm with the example — `[1,3,4,5]` and `[2,4,4]` → `[1,2,3,4,4,4,5]`.
+>
+> Both inputs are already sorted, so this is a **two-pointer merge** — I interleave them rather than concatenating and re-sorting.
+>
+> I'll keep pointer `i` on `arr1`, `j` on `arr2`, and a result array of size `n + m`. At each step I compare `arr1[i]` and `arr2[j]`, write the smaller, and advance that pointer. Once one array is exhausted, I append whatever remains of the other.
+>
+> Complexity — stating it now: every element is written exactly once, so **O(n + m) time** and **O(n + m) space** for the result.
+>
+> Edge cases: one array empty → return the other; very different lengths; all duplicates. Let me trace `[1,3]` + `[2]` → `1, 2, 3`. Now I'll code it as three loops — the main merge, then drain `arr1`, then drain `arr2` — which reads cleaner than one nested if-else."
+
+---
+
 ## Phrase Bank — for the moments you freeze
 
 **Opening (buys thinking time, sounds deliberate):**
@@ -97,6 +114,11 @@ Read this aloud. Notice how boring and structured it is — that is the target.
 - "Let me think out loud — the tricky part here is ___."
 - "One risk I see is ___ (e.g. integer overflow); let me handle that by ___."
 
+**Driving optimizations (never say "I'm not sure"):**
+- "A more space-efficient version would ___ — for a string/array, can I do this in-place?"
+- "The classic trick here is **reverse-twice**: reverse the whole thing, then reverse each piece."
+- "This is O(___) now; to improve it I'd look at ___."
+
 **Before finishing:**
 - "Let me trace one example through my code."
 - "Edge cases: empty input, single element, all-equal, `k` = length. Let me check each."
@@ -105,8 +127,8 @@ Read this aloud. Notice how boring and structured it is — that is the target.
 
 ## Daily Rehearsal Routine (~15 min)
 
-1. Pick one already-solved problem (01–05).
-2. Read its worked transcript (A or B) — or write your own from the template — **aloud**.
+1. Pick one already-solved problem (01–09).
+2. Read a worked transcript (A, B, or C) — or write your own from the template — **aloud**.
 3. Re-solve it out loud, **recording**, following the six beats.
 4. Play back and score yourself: **count the "uh"/"um"/"means"/"like"** (aim to halve it each week), silent gaps > 2s, any "it works" without a *why*, a missing trace, missed complexity.
 5. Immediately do a **second take**. It will be cleaner.
