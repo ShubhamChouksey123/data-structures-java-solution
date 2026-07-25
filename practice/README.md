@@ -21,6 +21,7 @@ Each `NN.java` file in this folder contains the question (as comments), the code
 | [07](07.java) | Longest Balanced Subsequence | Stack matching + valid-index boolean array | ✅ Pass | 3.5/4 | 3/4 | 3/4 |
 | [09](09.java) | Merge Two Sorted Arrays | Two pointers (merge) | ✅ Pass | 3.5/4 | 3.5/4 | 3/4 |
 | [10](10.java) | Reverse Words in String | String parse + reverse (reverse-twice) | ✅ Pass | 3/4 | 3/4 | 3/4 |
+| [11](11.java) | Has Duplicate | HashSet presence check (no sorting) | ✅ Pass | **4/4** | 3.5/4 | **3.5/4** |
 
 **Related notes**: [Monotonic Stack](../notes/monotonic-stack/Notes.md) (02) · [Overlapping Intervals](../notes/overlapping-intervals/Notes.md) (03) · [Top 'K' Elements](../notes/top-k-elements/Notes.md) (01) · [Sliding Window](../notes/sliding-window/Notes.md) (04) · [Dynamic Programming](../notes/dynamic-programming/Notes.md) (05) · [Trees](../notes/trees/Notes.md) (06) · [Stack](../concepts/stack/info.md) (07) · [Two Pointers](../notes/two-pointers/Notes.md) (09) · [String](../concepts/string/info.md) (10)
 
@@ -142,9 +143,21 @@ Each `NN.java` file in this folder contains the question (as comments), the code
 
 ---
 
+### 11 — Has Duplicate ✅ Pass — 🎉 first 4/4 coding & first 3.5 communication
+
+**Problem**: Given an integer array, return true if any value appears more than once (sorting not allowed).
+
+**Approach**: Single pass with a `HashSet` — return true on the first element already present, otherwise add it; return false if the pass completes. Correctly ruled out sorting (constraint) and refined from HashMap to HashSet on realizing only *presence*, not frequency, is needed.
+
+**What went well**: **Best session yet.** Correct on the first attempt, clean code with good naming and test cases (4/4 coding), accurate O(n)/O(n) analysis, relevant edge cases, and clear communication throughout — no hints needed. The refinement to HashSet showed real problem-solving.
+
+**What hurt the score**: Didn't state the brute-force O(n²) pair-comparison first to motivate the optimal (a small "progression of thought" miss); a couple of "return true"/"return false" slips; identified edge cases (empty, single-element) *after* coding rather than upfront; the Set-vs-Map refinement came after a nudge rather than proactively.
+
+---
+
 ## Consolidated Tips
 
-The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **3**, **3**, **3**) — but it is **trending up**, holding a clean 3/4 across sessions 06, 07, 09, and 10. Keep drilling the polish items below. These tips are grouped by the axis interviewers score.
+The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **3**, **3**, **3**, **3.5**) — but it is **trending up**, holding a clean 3/4 across sessions 06–10 and reaching a new high of **3.5/4 in session 11** (which also landed the first **4/4 coding**). Keep drilling the polish items below. These tips are grouped by the axis interviewers score.
 
 ### Communication (highest priority)
 - **State the approach in plain English before writing any code.** Use explicit structure: *"Step 1: … Step 2: … Step 3: …"*
@@ -152,7 +165,7 @@ The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **
 - **Explain WHY it's correct, not just THAT it works.** e.g. intervals: *"Picking the interval that ends earliest leaves the most room for future intervals, so it's always safe."*
 - **When asked to trace an example, do it out loud, step by step** — show the state at each iteration, don't jump to the answer. **Don't go silent while thinking** (04) — verbalize even half-formed reasoning.
 - **Restate the problem in your own words first**, and **clarify constraints upfront** (the `< k` vs `≤ k` confusion cost time in 02).
-- **Use precise terminology** — say "HashSet," "remove from the left of the window," not "headset" / "delete the top" (04). Precision signals competence.
+- **Use precise terminology** — say "HashSet," "remove from the left of the window," not "headset" / "delete the top" (04). Precision signals competence. Watch for **return-value slips** — saying "return false" when you mean "return true" (11) creates confusion; pause and be exact.
 - **Cut filler words** — replace "uh / um / means / like" with a **short silent pause** (05 re-solve had 40+ "uh"). Silence reads as thoughtful; filler reads as unsure. This is the current top polish item.
 
 ### Complexity Analysis
@@ -165,6 +178,8 @@ The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **
 
 ### Problem Solving
 - **Brainstorm 2–3 approaches before coding** (10) — name the options and their trade-offs, then pick one. Jumping straight into the first idea reads as shallower problem-solving.
+- **State the brute force and its complexity first** (11) — before the optimal, say e.g. *"comparing every pair is O(n²), which motivates a better approach."* Interviewers reward that progression of thought even when you go straight to the optimal.
+- **Justify the data-structure choice proactively, and refine it yourself** (11) — articulate *why* a `HashSet` beats a `HashMap` here (you need presence, not frequency) without waiting for a nudge.
 - **Drive optimizations proactively** (10) — when asked "can this be better?", think out loud toward an answer instead of "I'm not sure." For string/array problems always ask **"can I do this in-place?"** — two-pointer swaps and the **reverse-twice** trick recur constantly.
 - **Think before you code** (07) — fully solidify the approach on the whiteboard, especially *how the output is constructed*, before typing. It worked out on an easy problem; on a hard one it saves debugging time.
 - **Enumerate all cases upfront** (07) — before coding, list every case the algorithm must handle. For parentheses: extra `(` (left on the stack) *and* extra `)` (seen with empty stack). Missing the second cost points until prompted.
@@ -195,11 +210,11 @@ The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **
 
 ### The diagnosis
 
-Coding and problem-solving are **already at a passing bar** — scores sit at 3–3.5 (09 hit **3.5/3.5**), and the right pattern gets found fast every session. **Communication has historically been the bottleneck**: 2 / 3 / 2 / 2.5 / 2.5 / 3 / 3 / 3 / 3 across sessions 01–07, 09, and 10. The good news — this is the *most trainable* axis. It's a performance skill (like rehearsing a talk), not missing knowledge.
+Coding and problem-solving are **already at a passing bar** — scores sit at 3–4 (11 hit **4/4 coding**, 09 hit **3.5/3.5**), and the right pattern gets found fast every session. **Communication has historically been the bottleneck**: 2 / 3 / 2 / 2.5 / 2.5 / 3 / 3 / 3 / 3 / 3.5 across sessions 01–07, 09, 10, and 11. The good news — this is the *most trainable* axis. It's a performance skill (like rehearsing a talk), not missing knowledge.
 
 **Implication**: grinding new problems won't move the needle much. Practicing *narration* will.
 
-**Update (after 05 re-solve and sessions 06, 07, 09, 10)**: the *structural* problem is solved — continuous narration, full template beats, proactive optimization + complexity — and communication has now held **3/4 for four straight sessions**. The remaining gap is **polish, not structure**, and it's the *same* two notes every time: **(a) be concise and structured** — lead with a tight 3–4 sentence, numbered summary (restate → approach → edge cases → code), and **(b) drive the conversation** — brainstorm 2–3 approaches upfront and push toward optimizations yourself instead of "I'm not sure." Also: state complexity the moment coding ends (09), always trace an example, cut filler. Trajectory is upward; the two moves above are what convert a 3 into a **3.5**.
+**Update (after 05 re-solve and sessions 06–11)**: the *structural* problem is solved — continuous narration, full template beats, proactive optimization + complexity — and communication climbed from a four-session plateau at **3/4** to a new high of **3.5/4 in session 11**. The remaining gap is **polish, not structure**, and it's the *same* handful of notes: **(a) be concise and structured** — lead with a tight 3–4 sentence, numbered summary (restate → approach → edge cases → code); **(b) drive the conversation** — brainstorm 2–3 approaches upfront (including the brute force + its complexity) and push toward optimizations/refinements yourself instead of "I'm not sure"; and **(c) front-load edge cases** — name them *before* coding, not after. Also: state complexity the moment coding ends (09), always trace an example, cut filler, and be exact with return values. Trajectory is clearly upward — the moves above are what lock in **3.5** and reach for a **4**.
 
 ### The opening script
 
@@ -213,7 +228,7 @@ Memorize this skeleton and fill the blanks out loud, every time. With a script y
 
 ### Drills (ranked by impact)
 
-1. **Re-solve, don't solve.** Re-do problems you've already done (01–10) *out loud on a timer*. The solution is easy the second time — that frees your whole brain for the talking, which is the weak part. Two recorded re-solves/week beats ten new problems.
+1. **Re-solve, don't solve.** Re-do problems you've already done (01–11) *out loud on a timer*. The solution is easy the second time — that frees your whole brain for the talking, which is the weak part. Two recorded re-solves/week beats ten new problems.
 2. **Record and rewatch.** Painful but decisive — you'll hear the mumbling, the "it works," the pauses you can't feel in the moment.
 3. **No silent gaps.** The instant you think silently, narrate what you're weighing: *"I'm deciding whether the window check is `<` or `≤`…"* An interviewer can't score a silent brain. This alone likely moves 2 → 3.
 4. **Narrate complexity as you write, not after.** When you add a heap, say "push is O(log heap size)"; when you call `substring`, say "that's O(length)." Bolt it to the code so you never recall it cold.

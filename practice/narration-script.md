@@ -95,14 +95,36 @@ Short problems still get the full six beats — **and state complexity without b
 
 ---
 
+## Worked Transcript D — Has Duplicate (HashSet)
+
+Easy problem, but it earned the **highest scores yet** by nailing two things: **stating the brute force first**, and **justifying Set-over-Map without being asked**. Model those beats.
+
+> "Let me restate: I'm given an integer array and I need to return true if any value appears more than once, false otherwise — and I'm not allowed to sort. Confirm with the example — `[3,2,1,2]` → true because 2 repeats; `[1,3,2,4]` → false.
+>
+> The **brute-force** way is to compare every pair of elements — that's **O(n²)** time, O(1) space. That motivates a better approach: I can trade space for time with a hash structure and get it in one pass.
+>
+> I'll use a **HashSet**, not a HashMap — I only need to know whether I've *seen* a value, not how many times, so presence is enough and a Set is the leaner choice. I walk the array once: if the current element is already in the set, I return true immediately; otherwise I add it. If I finish the pass, I return false.
+>
+> Complexity — stating it now: each `contains`/`add` is O(1) average, done n times, so **O(n) time**; the set can hold up to n elements, so **O(n) space**. That beats the O(n²) brute force, and sorting is off the table anyway.
+>
+> Edge cases, before I code: empty array → false; single element → false; all-equal like `[4,4,4,4]` → true on the second element. Let me code it… and trace `[3,2,1,2]`: add 3, add 2, add 1, see 2 already present → return true."
+
+**Note the precision trap**: say "return **true**" for a found duplicate and "return **false**" for none — mixing these up (a slip in session 11) confuses the interviewer. Pause and be exact.
+
+---
+
 ## Phrase Bank — for the moments you freeze
 
 **Opening (buys thinking time, sounds deliberate):**
 - "Let me restate the problem in my own words first."
 - "Before I code, let me lay out the full approach."
 
+**Stating the brute force first (progression of thought):**
+- "The brute-force way is ___, which is O(___). That motivates a better approach: ___."
+
 **Justifying WHY (not just what):**
 - "I'm choosing ___ because it gives me ___ in O(___)."
+- "I'll use a Set, not a Map, because I only need presence, not counts."
 - Greedy: "Picking ___ first is safe because it leaves the most room for later choices."
 
 **Complexity, stated confidently:**
@@ -127,8 +149,8 @@ Short problems still get the full six beats — **and state complexity without b
 
 ## Daily Rehearsal Routine (~15 min)
 
-1. Pick one already-solved problem (01–09).
-2. Read a worked transcript (A, B, or C) — or write your own from the template — **aloud**.
+1. Pick one already-solved problem (01–11).
+2. Read a worked transcript (A, B, C, or D) — or write your own from the template — **aloud**.
 3. Re-solve it out loud, **recording**, following the six beats.
 4. Play back and score yourself: **count the "uh"/"um"/"means"/"like"** (aim to halve it each week), silent gaps > 2s, any "it works" without a *why*, a missing trace, missed complexity.
 5. Immediately do a **second take**. It will be cleaner.
