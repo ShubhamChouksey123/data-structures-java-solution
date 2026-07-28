@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `199/204 problems completed`
+Track your overall progress: `200/204 problems completed`
 
 ---
 
@@ -35,7 +35,7 @@ Date Format is DD-MM-YYYY
 | 15 | [K-way Merge](#15-k-way-merge) | [📝](../notes/k-way-merge/Notes.md) | 4 | ✅      | ✅ | 01-07-2026                         |
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 8 | ✅      | ✅ | 29-03-2026, 03-04-2026, 12-07-2026 |
-| 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 29/32  | [ ] |                                    |
+| 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 30/32  | [ ] |                                    |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 42 | ✅    | ✅ | 23-06-2026                         |
 | 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | [📝](../notes/greedy/Notes.md) | 7 | ✅      | [ ] |                                    |
@@ -279,12 +279,12 @@ Date Format is DD-MM-YYYY
 - [x] [Deepest Leaves Sum](https://leetcode.com/problems/deepest-leaves-sum/) - Medium
 - [x] [Add One Row to Tree](https://leetcode.com/problems/add-one-row-to-tree/) - Medium
 - [x] [Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/) - Medium
-- [ ] [All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) - Medium
+- [x] [All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) - Medium
 
 ### Tree Construction - 4 problems
 - [x] [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) - Medium
 - [x] [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) - Medium
-- [x] [Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/) - Medium
+- [x] [Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/) - Medium ⭐ **IMPORTANT** ⭐ *(monotonic stack)*
 - [x] [Construct Binary Search Tree from Preorder Traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/) - Medium
 
 ### Height Related Problems - 4 problems

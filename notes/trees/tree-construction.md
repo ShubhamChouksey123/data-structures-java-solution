@@ -190,7 +190,7 @@ int leftSize = inRoot - inStart;
 
 - [x] [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) - Medium                                
-- [x] [Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/) - Medium                                                                                                              
+- [x] [Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/) - Medium ⭐ **IMPORTANT** ⭐ *(monotonic stack)*                                                                                                              
 - [x] [Construct Binary Search Tree from Preorder Traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/) - Medium
 
 ### Construct Binary Tree from Preorder and Inorder Traversal ⭐ **IMPORTANT** ⭐
@@ -253,6 +253,53 @@ private TreeNode build(int[] preorder, int preStart, int preEnd,
 - **leftSize = inRoot - inStart** → accounts for offset
 - **HashMap optimization** → O(1) lookup vs O(n) linear search
 - Common mistake: using `inRoot` directly instead of `inRoot - inStart`
+
+### Maximum Binary Tree ⭐ **IMPORTANT** ⭐
+
+**Problem**: [Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/) - Medium
+
+**Why Important**: Bridges **tree construction** and **monotonic stack**. The naive "find max, recurse on left/right slice" is O(n²); a monotonic decreasing stack builds the same tree in a single **O(n)** pass. The way nodes are rewired as you pop is non-obvious.
+
+**Approach**:
+1. Iterate left → right, wrapping each value in a `TreeNode cur`.
+2. Maintain a **monotonic decreasing stack** of nodes (by value).
+3. While the top's value `< num`: pop it and set it as `cur.left` — the last (smallest) popped node ends up as cur's left child, with earlier pops chained beneath it.
+4. If the stack is still non-empty, the surviving top is larger and to the left, so `cur` becomes its **right** child.
+5. Push `cur`. The **root is the bottom of the stack** (the global maximum).
+
+**Complexity**: O(n) time (each node pushed and popped at most once), O(n) space.
+
+**Solution**:
+```java
+public TreeNode constructMaximumBinaryTree(int[] nums) {
+    Deque<TreeNode> stack = new ArrayDeque<>();   // monotonic decreasing by val
+
+    for (int num : nums) {
+        TreeNode cur = new TreeNode(num);
+
+        // Pop smaller nodes; the last one popped becomes cur's left child
+        while (!stack.isEmpty() && stack.peekLast().val < num) {
+            cur.left = stack.pollLast();
+        }
+
+        // Remaining top is larger → cur hangs off its right
+        if (!stack.isEmpty()) {
+            stack.peekLast().right = cur;
+        }
+
+        stack.offerLast(cur);
+    }
+
+    return stack.isEmpty() ? null : stack.pollFirst();   // bottom of stack = max = root
+}
+```
+
+**Key Points**:
+- **Monotonic decreasing stack** of nodes → O(n) vs the O(n²) recursive "find-max-and-split".
+- Each pop reassigns `cur.left`, so the **last (smallest) popped node becomes the left child**; earlier pops stay chained under it.
+- After popping, the surviving top is greater and to the left, so `cur` attaches as its **right** child.
+- **Root = bottom of stack** (`pollFirst`) — the overall maximum.
+- Common mistake: pushing **values** instead of **nodes** — you need node references to rewire `left` / `right`.
 
 ---
 

@@ -160,7 +160,7 @@ for (int i = 0; i < levelSize; i++) {
 - [x] [Deepest Leaves Sum](https://leetcode.com/problems/deepest-leaves-sum/) - Medium
 - [x] [Add One Row to Tree](https://leetcode.com/problems/add-one-row-to-tree/) - Medium
 - [x] [Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/) - Medium
-- [ ] [All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) - Medium
+- [x] [All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) - Medium
 
 ### Reverse Odd Levels of Binary Tree ⭐ **IMPORTANT** ⭐
 

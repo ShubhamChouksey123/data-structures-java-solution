@@ -17,7 +17,7 @@ mvn spotless:apply                # Auto-fix formatting
 
 ### Running / "Testing" a Topic
 
-There is **no JUnit test runner and no `src/test` directory**. Tests are `assertEquals`/`assertTrue`/`assertFalse` calls embedded in each topic's `MainClass.java`, executed by running that class's `main`:
+There is **no JUnit test runner and no `src/test` directory**. Tests are `assertEquals`/`assertTrue`/`assertFalse` calls embedded in each topic's `MainClass.java` — these come from `import static org.junit.jupiter.api.Assertions.*` (JUnit Jupiter API is a dependency, but only for the static assertions; there is no Surefire run). Executed by running that class's `main`:
 
 ```bash
 mvn compile exec:java -Dexec.mainClass="dev.shubham.algorithms.<topic>.MainClass"
@@ -28,9 +28,11 @@ To run a "single test", edit the relevant `MainClass.java` to call only the asse
 
 **Spotless runs during the `compile` phase and fails the build on violations** — run `mvn spotless:apply` first if a build fails on formatting. Rules: 4-space indent, organized imports (order `org`, `com`, `java|javax|jakarta`, static), no unused imports, platform-native line endings.
 
+**`--enable-preview` is enabled** in the `maven-compiler-plugin` (release 21). Preview-language-feature code is therefore allowed; classes are compiled as preview bytecode, so a bare `java` run of a compiled class would need `--enable-preview` at runtime (the `mvn exec:java` path above handles this).
+
 ## Java Code Architecture
 
-- All solution code lives under `src/main/java/dev/shubham/algorithms/`, organized **one package per topic** (`array`, `tree`, `graph`, `dynamicprogramming`, `backtracking`, `binarysearch`, `bitmanupulation`, `doublelinkedlist`, `segmenttree`, `lambda`, `streams`, `optional`, `innerclass`, `serialization`, etc.).
+- All solution code lives under `src/main/java/dev/shubham/algorithms/`, organized **one package per topic**. The 25 topic packages are: `array`, `backtracking`, `binarysearch`, `bitmanupulation`, `doublelinkedlist`, `dynamicprogramming`, `general`, `graph`, `heap`, `innerclass`, `lambda`, `linkedlist`, `map`, `math`, `matrix`, `optional`, `priorityqueue`, `queue`, `segmenttree`, `serialization`, `set`, `stack`, `streams`, `string`, `tree`. (A stub `MainClass.java`/`Solution.java` also sit at the `algorithms` package root.)
 - Each topic package is **self-contained** — no cross-package dependencies. A package typically holds:
   - `MainClass.java` — entry point with embedded assertion-based test cases
   - `Solution.java` — the solution methods (often several per file)
