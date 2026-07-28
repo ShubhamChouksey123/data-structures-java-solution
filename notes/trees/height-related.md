@@ -6,188 +6,88 @@
 
 ## When to Use
 
-✅ **Use height-based algorithms for problems involving tree depth, balance, or diameter calculations**
+✅ **Problems involving tree depth, balance, or diameter.**
 
-### Keywords
-- "height" / "depth"
-- "balanced"
-- "diameter"
-- "maximum depth"
-- "minimum depth"
-- "distance between nodes"
+**Keywords**: height / depth, balanced, diameter, maximum / minimum depth, longest path.
 
-### Examples
-- Check if tree is balanced
-- Find longest path in tree
-- Calculate tree depth
-- Find minimum depth to leaf
-- Verify height constraints
+**Examples**: check if a tree is balanced, find the longest path, compute tree depth, shortest root→leaf depth.
 
 ---
 
 ## Core Concept
 
-**Height** is the longest path from a node to any leaf in its subtree. **Depth** is the distance from root to a node.
+- **Height** = longest path from a node down to a leaf. **Depth** = distance from root down to a node.
+- **Height(node) = 1 + max(left height, right height)**; computed **bottom-up** (postorder).
+- **Null = 0, leaf = 1** (or null = −1, leaf = 0 — pick one and stay consistent).
+- **Diameter** = longest path between any two nodes (need not pass through root).
 
-**Key Relationships**:
-- **Height of node** = 1 + max(left height, right height)
-- **Height of null** = 0 (or -1 in some definitions)
-- **Height of leaf** = 1 (or 0 in some definitions)
-- **Diameter** = max path length between any two nodes
-
-**Complexity**: O(n) time, O(h) space where h = height
+**Complexity** (all patterns): O(n) time, O(h) recursion-stack space.
 
 ---
 
 ## Pattern 1: Maximum Depth (Height)
 
-**Use Case**: Find the height of the tree (longest path from root to leaf)
-
-**Algorithm**:
-1. Base case: null node has height 0
-2. Recursively calculate left and right heights
-3. Return 1 + max(left, right)
-
-**Complexity**: O(n) time, O(h) space
-
-### Template
+**Algorithm**: null → 0; otherwise `1 + max(left, right)`.
 
 ```java
 public int maxDepth(TreeNode root) {
     if (root == null) return 0;
-
-    int leftHeight = maxDepth(root.left);
-    int rightHeight = maxDepth(root.right);
-
-    return 1 + Math.max(leftHeight, rightHeight);
+    return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 }
-```
-
-### Visual Example
-
-```
-Tree:       3
-          /   \
-         9    20
-             /  \
-            15   7
-
-Heights:
-- Node 9: 1
-- Node 15: 1
-- Node 7: 1
-- Node 20: 1 + max(1,1) = 2
-- Node 3: 1 + max(1,2) = 3
-
-Max Depth = 3
 ```
 
 ---
 
 ## Pattern 2: Minimum Depth
 
-**Use Case**: Find shortest path from root to any leaf
-
-**Algorithm**:
-1. Base case: null node returns infinity (or large value)
-2. Leaf node returns 1
-3. Return 1 + min(left, right)
-4. **Important**: If one subtree is null, use the other (not null subtree might have leaf)
-
-**Complexity**: O(n) time, O(h) space
-
-### Template
+**Algorithm**: shortest root→leaf. A leaf returns 1. **If one child is null, recurse into the other** (a null child is not a leaf) — otherwise use `min` of both.
 
 ```java
 public int minDepth(TreeNode root) {
     if (root == null) return 0;
-
-    // Leaf node
-    if (root.left == null && root.right == null) {
-        return 1;
-    }
-
-    // If one subtree is null, use the other
-    if (root.left == null) return 1 + minDepth(root.right);
+    if (root.left == null)  return 1 + minDepth(root.right);   // one side null → take the other
     if (root.right == null) return 1 + minDepth(root.left);
-
-    // Both subtrees exist
     return 1 + Math.min(minDepth(root.left), minDepth(root.right));
 }
 ```
 
 ---
 
-## Pattern 3: Balanced Binary Tree
+## Pattern 3: Balanced Binary Tree ⭐ **IMPORTANT** ⭐
 
-**Use Case**: Check if tree is height-balanced (left and right heights differ by at most 1)
+**Use Case**: is every node's left/right height differing by ≤ 1?
 
-**Algorithm**:
-1. Calculate height of each subtree
-2. Check if |left height - right height| ≤ 1
-3. Recursively check if left and right subtrees are balanced
-4. **Optimization**: Return -1 for unbalanced, combine height check with balance check
+**Algorithm**: single-pass — a helper returns the height, or **`-1` to signal "unbalanced"** and short-circuit up the tree.
 
-**Complexity**: O(n) time, O(h) space
-
-### Template
+**Complexity**: O(n) time, O(h) space.
 
 ```java
 public boolean isBalanced(TreeNode root) {
     return height(root) != -1;
 }
 
-// Returns height if balanced, -1 if unbalanced
-private int height(TreeNode root) {
+private int height(TreeNode root) {              // -1 = unbalanced somewhere below
     if (root == null) return 0;
 
-    int leftHeight = height(root.left);
-    if (leftHeight == -1) return -1;  // Left subtree unbalanced
+    int left = height(root.left);
+    if (left == -1) return -1;
+    int right = height(root.right);
+    if (right == -1) return -1;
 
-    int rightHeight = height(root.right);
-    if (rightHeight == -1) return -1;  // Right subtree unbalanced
-
-    // Check if current node is balanced
-    if (Math.abs(leftHeight - rightHeight) > 1) {
-        return -1;
-    }
-
-    return 1 + Math.max(leftHeight, rightHeight);
+    if (Math.abs(left - right) > 1) return -1;
+    return 1 + Math.max(left, right);
 }
-```
-
-### Visual Example
-
-```
-Balanced:       Unbalanced:
-    1               1
-   / \             /
-  2   3           2
- / \             /
-4   5           3
-                /
-               4
-
-Left: height=3   Left: height=4
-Right: height=2  Right: height=0
-|3-2|=1 ✓        |4-0|=4 ✗
 ```
 
 ---
 
 ## Pattern 4: Diameter of Binary Tree ⭐ **IMPORTANT** ⭐
 
-**Use Case**: Find longest path between any two nodes (may not pass through root)
+**Use Case**: longest path between any two nodes — **may not pass through the root**.
 
-**Algorithm**:
-1. Diameter at node = left height + right height
-2. Track global maximum diameter
-3. Return height for parent calculation
-4. **Key Insight**: Diameter may not pass through root, check all nodes
+**Algorithm**: while computing height, at each node the longest path *through* it is `left + right`; track that in a global max.
 
-**Complexity**: O(n) time, O(h) space
-
-### Template
+**Complexity**: O(n) time, O(h) space.
 
 ```java
 class Solution {
@@ -200,101 +100,31 @@ class Solution {
 
     private int height(TreeNode root) {
         if (root == null) return 0;
-
-        int leftHeight = height(root.left);
-        int rightHeight = height(root.right);
-
-        // Update diameter: path through current node
-        maxDiameter = Math.max(maxDiameter, leftHeight + rightHeight);
-
-        return 1 + Math.max(leftHeight, rightHeight);
+        int left = height(root.left);
+        int right = height(root.right);
+        maxDiameter = Math.max(maxDiameter, left + right);   // path through this node
+        return 1 + Math.max(left, right);
     }
 }
 ```
 
-### Visual Example
+**Visual** (diameter need not go through root):
 
 ```
-Tree:       1
-          /   \
-         2     3
-        / \
-       4   5
-
-At node 1: diameter = 2+1 = 3
-At node 2: diameter = 1+1 = 2
-At node 3: diameter = 0+0 = 0
-At node 4: diameter = 0+0 = 0
-At node 5: diameter = 0+0 = 0
-
-Max Diameter = 3 (path: 4→2→5 or 4→2→1)
+        1
+      /   \
+     2     3        Max diameter = 3, path 4→2→5 (or 4→2→1)
+    / \
+   4   5
 ```
 
 ---
 
 ## Common Mistakes
 
-### ❌ Mistake 1: Minimum Depth - Not Handling One Null Child
-
-```java
-// WRONG - returns 1 for tree with only right child
-public int minDepth(TreeNode root) {
-    if (root == null) return 0;
-    return 1 + Math.min(minDepth(root.left), minDepth(root.right));
-}
-// For tree: 1 → 2 (only right child), returns 1 instead of 2
-
-// CORRECT - check for null children
-public int minDepth(TreeNode root) {
-    if (root == null) return 0;
-    if (root.left == null) return 1 + minDepth(root.right);
-    if (root.right == null) return 1 + minDepth(root.left);
-    return 1 + Math.min(minDepth(root.left), minDepth(root.right));
-}
-```
-
-### ❌ Mistake 2: Confusing Height Definitions
-
-```java
-// Two common definitions:
-// Definition 1: Null = 0, Leaf = 1
-int height(TreeNode root) {
-    if (root == null) return 0;
-    return 1 + Math.max(height(root.left), height(root.right));
-}
-
-// Definition 2: Null = -1, Leaf = 0
-int height(TreeNode root) {
-    if (root == null) return -1;
-    return 1 + Math.max(height(root.left), height(root.right));
-}
-
-// Be consistent with the definition!
-```
-
-### ❌ Mistake 3: Diameter - Not Checking All Nodes
-
-```java
-// WRONG - only checks diameter through root
-public int diameter(TreeNode root) {
-    if (root == null) return 0;
-    return height(root.left) + height(root.right);
-}
-
-// CORRECT - checks all nodes
-private int maxDiameter = 0;
-public int diameter(TreeNode root) {
-    height(root);
-    return maxDiameter;
-}
-private int height(TreeNode root) {
-    if (root == null) return 0;
-    int left = height(root.left);
-    int right = height(root.right);
-    maxDiameter = Math.max(maxDiameter, left + right);
-    return 1 + Math.max(left, right);
-}
-```
+1. **Min depth with one null child** — `1 + min(left, right)` wrongly returns 1 for a node with a single child. A null child isn't a leaf; recurse into the non-null side.
+2. **Inconsistent height base case** — decide null = 0 (leaf = 1) *or* null = −1 (leaf = 0) and use it everywhere.
+3. **Diameter only through root** — the longest path can sit entirely in a subtree, so update a **global** max at every node, don't just return `leftHeight + rightHeight` at the root.
 
 ---
 
@@ -308,13 +138,11 @@ private int height(TreeNode root) {
 
 ## Key Takeaways
 
-1. **Height**: Bottom-up calculation using post-order
-2. **Minimum depth**: Handle one null child specially
-3. **Balanced check**: Use -1 to signal unbalanced, optimize to single pass
-4. **Diameter**: Track globally, may not pass through root
-5. **Common pattern**: Return value for parent, update global state
-6. **Null definitions**: Be consistent (0 or -1)
-7. **Complexity**: O(n) time, O(h) space for all patterns
+1. **Height is bottom-up** (postorder): `1 + max(left, right)`.
+2. **Min depth**: handle a single null child specially.
+3. **Balanced**: return `-1` to short-circuit — single pass, O(n).
+4. **Diameter**: track a global max (`left + right`); may not pass through root.
+5. **Pattern**: return a value for the parent while updating global state.
 
 ---
 
