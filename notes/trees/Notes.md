@@ -19,6 +19,8 @@
 A **tree** is nodes connected by edges; a **binary tree** node has ≤ 2 children (`left`, `right`).
 
 - **Root** = no parent · **Leaf** = no children · **Height** = longest root→leaf path · **Depth** = root→node distance · **Balanced** = subtree heights differ by ≤ 1.
+- **Balanced height**: for a balanced tree with **N** nodes, height **H = O(log N)** (each level ~doubles the node count). A skewed/unbalanced tree degrades to **H = O(N)** — this is why balance keeps operations O(log n).
+- **Array representation**: store a tree in an array so a node at index `i` has **left child at `2*i + 1`**, **right child at `2*i + 2`**, and **parent at `(i - 1) / 2`** (0-indexed). Compact for complete/perfect trees; used by heaps and segment trees.
 - **BST complexity**: search / insert / delete O(log n) average, O(n) worst. Traversal O(n) time, O(h) recursion-stack space.
 
 ```java
@@ -36,7 +38,7 @@ class TreeNode { int val; TreeNode left, right; TreeNode(int v) { val = v; } }
 | 1 | [Level Order Traversal](level-order-traversal.md) | BFS level-by-level | 8/8 ✅ | 28-07-2026 |
 | 2 | [Tree Construction](tree-construction.md) | build from pre / in / post-order | 4/4 ✅ | 28-07-2026 |
 | 3 | [Height Related](height-related.md) | `height = 1 + max(L, R)` | 4/4 ✅ | 28-07-2026 |
-| 4 | [Root to Leaf Paths](root-to-leaf-paths.md) | backtracking with path | 7/7 ✅ |  |
+| 4 | [Root to Leaf Paths](root-to-leaf-paths.md) | backtracking with path | 7/7 ✅ | 29-07-2026 |
 | 5 | [Ancestor Problems](ancestor-problems.md) | LCA via post-order | 2/4 |  |
 | 6 | [Binary Search Tree](binary-search-tree.md) | `left < root < right` | 5/5 ✅ |  |
 
