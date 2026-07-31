@@ -194,46 +194,49 @@ class Solution {
 
 ---
 
-## Pattern 4: Kth Ancestor
+## Pattern 4: Kth Ancestor — Binary Lifting (DP Table)
 
-**Use Case**: Find the kth ancestor of a given node
+**Use Case**: Answer **many** "kth ancestor of a node" queries fast. A path walk is O(k) *per query* (O(n·q) total); binary lifting precomputes a DP table so each query is O(log k).
 
-**Algorithm**:
-1. Build parent pointers or path from root
-2. Use binary lifting for efficient queries
-3. Or DFS to find path and return kth node
+**Key Idea**: `up[i][j]` = the **`2^j`-th ancestor** of node `i`. Any k decomposes into powers of two (its binary bits), so k jumps become at most `log k` table lookups.
 
-**Complexity**:
-- O(n) preprocessing, O(log n) query (binary lifting)
-- O(n) time, O(h) space (simple DFS)
+**DP Table**:
+- **Base** `up[i][0] = parent[i]` (the 1st ancestor).
+- **Transition** `up[i][j] = up[ up[i][j-1] ][j-1]` — the `2^j`-th ancestor is the `2^(j-1)`-th ancestor *of* the `2^(j-1)`-th ancestor. Guard with `-1` (root has no parent) so jumps off the tree stay `-1`.
+- `LOG = 20` covers n up to ~10^5 (since `2^20 > 10^6`).
 
-### Template (Simple Approach)
+**Complexity**: build **O(n log n)** time & space; each query **O(log k)**.
+
+### Template
 
 ```java
-class Solution {
-    public TreeNode findKthAncestor(TreeNode root, TreeNode target, int k) {
-        List<TreeNode> path = new ArrayList<>();
-        if (!findPath(root, target, path)) return null;
+class TreeAncestor {
+    private static final int LOG = 20;
+    private final int[][] up;   // up[i][j] = 2^j-th ancestor of i, -1 if none
 
-        // kth ancestor is at position (path.size() - 1 - k)
-        int ancestorIndex = path.size() - 1 - k;
-        return ancestorIndex >= 0 ? path.get(ancestorIndex) : null;
+    public TreeAncestor(int n, int[] parent) {
+        up = new int[n][LOG];
+        for (int[] row : up) Arrays.fill(row, -1);
+
+        // Base: 2^0-th ancestor = direct parent
+        for (int i = 0; i < n; i++) up[i][0] = parent[i];
+
+        // Transition: 2^j-th ancestor via two 2^(j-1) jumps
+        for (int j = 1; j < LOG; j++) {
+            for (int i = 0; i < n; i++) {
+                int mid = up[i][j - 1];
+                if (mid != -1) up[i][j] = up[mid][j - 1];
+            }
+        }
     }
 
-    private boolean findPath(TreeNode node, TreeNode target, List<TreeNode> path) {
-        if (node == null) return false;
-
-        path.add(node);
-
-        if (node == target) return true;
-
-        if (findPath(node.left, target, path) ||
-            findPath(node.right, target, path)) {
-            return true;
+    public int getKthAncestor(int node, int k) {
+        int cur = node;
+        // Jump by each set bit of k: 2^i steps when bit i is 1
+        for (int i = 0; i < LOG && cur != -1; i++) {
+            if (((k >> i) & 1) == 1) cur = up[cur][i];
         }
-
-        path.remove(path.size() - 1);
-        return false;
+        return cur;
     }
 }
 ```
@@ -353,7 +356,7 @@ int depth(TreeNode root) {
 - [x] [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Maximum Difference Between Node and Ancestor](https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/) - Medium
 - [x] [Lowest Common Ancestor of Deepest Leaves](https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/) - Medium
-- [ ] [Kth Ancestor of a Tree Node](https://leetcode.com/problems/kth-ancestor-of-a-tree-node/) - Hard
+- [x] [Kth Ancestor of a Tree Node](https://leetcode.com/problems/kth-ancestor-of-a-tree-node/) - Hard *(binary lifting)*
 
 ### Lowest Common Ancestor of a Binary Tree ⭐ **IMPORTANT** ⭐
 

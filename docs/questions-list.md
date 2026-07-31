@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `201/204 problems completed`
+Track your overall progress: `202/204 problems completed`
 
 ---
 
@@ -35,7 +35,7 @@ Date Format is DD-MM-YYYY
 | 15 | [K-way Merge](#15-k-way-merge) | [📝](../notes/k-way-merge/Notes.md) | 4 | ✅      | ✅ | 01-07-2026                         |
 | 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
 | 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 8 | ✅      | ✅ | 29-03-2026, 03-04-2026, 12-07-2026 |
-| 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | 31/32  | [ ] |                                    |
+| 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | ✅      | [ ] |                                    |
 | 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 42 | ✅    | ✅ | 23-06-2026                         |
 | 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | [ ] |                                    |
 | 21 | [Greedy](#21-greedy) | [📝](../notes/greedy/Notes.md) | 7 | ✅      | [ ] |                                    |
@@ -307,7 +307,7 @@ Date Format is DD-MM-YYYY
 - [x] [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) - Medium
 - [x] [Maximum Difference Between Node and Ancestor](https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/) - Medium
 - [x] [Lowest Common Ancestor of Deepest Leaves](https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/) - Medium
-- [ ] [Kth Ancestor of a Tree Node](https://leetcode.com/problems/kth-ancestor-of-a-tree-node/) - Hard
+- [x] [Kth Ancestor of a Tree Node](https://leetcode.com/problems/kth-ancestor-of-a-tree-node/) - Hard
 
 ### Binary Search Tree - 5 problems
 - [x] [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) - Medium
