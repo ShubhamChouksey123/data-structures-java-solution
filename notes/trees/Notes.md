@@ -39,8 +39,8 @@ class TreeNode { int val; TreeNode left, right; TreeNode(int v) { val = v; } }
 | 2 | [Tree Construction](tree-construction.md) | build from pre / in / post-order | 4/4 ✅ | 28-07-2026 |
 | 3 | [Height Related](height-related.md) | `height = 1 + max(L, R)` | 4/4 ✅ | 28-07-2026 |
 | 4 | [Root to Leaf Paths](root-to-leaf-paths.md) | backtracking with path | 7/7 ✅ | 29-07-2026 |
-| 5 | [Ancestor Problems](ancestor-problems.md) | LCA via post-order | 4/4 ✅ |  |
-| 6 | [Binary Search Tree](binary-search-tree.md) | `left < root < right` | 5/5 ✅ |  |
+| 5 | [Ancestor Problems](ancestor-problems.md) | LCA via post-order | 4/4 ✅ | 31-07-2026 |
+| 6 | [Binary Search Tree](binary-search-tree.md) | `left < root < right` | 5/5 ✅ | 01-08-2026 |
 
 **Total: 32/32 (100%) ✅** · append dates comma-separated after each revision.
 
