@@ -223,6 +223,19 @@ Track your overall progress: `13/188 problems completed`
 
 ---
 
+## 📝 Additional Problems (Not in Frequency Source)
+
+> Salesforce-relevant problems added manually, outside the frequency-ranked source CSV.
+
+Progress: `2/2 problems completed`
+
+| # | Problem | Difficulty | Solved |
+|---|---------|------------|--------|
+| 1 | [Ways to Split Array Into Three Subarrays](https://leetcode.com/problems/ways-to-split-array-into-three-subarrays) | Medium | ✅ |
+| 2 | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1) | Medium | ✅ |
+
+---
+
 > **📖 See also**: [Pattern-Based Study Guide](questions-list.md)
 
 **Happy LeetCoding !**
