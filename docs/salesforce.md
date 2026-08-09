@@ -10,7 +10,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `13/188 problems completed`
+Track your overall progress: `14/188 problems completed`
 
 - 🔥 **Frequency** = how often the problem appeared in Salesforce interviews (higher = higher priority)
 - Sorted **high → low** by frequency
@@ -130,7 +130,7 @@ Track your overall progress: `13/188 problems completed`
 | 107 | [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence) | Medium | 36.1 | [ ] |
 | 108 | [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum) | Hard | 36.1 | [ ] |
 | 109 | [Reorganize String](https://leetcode.com/problems/reorganize-string) | Medium | 36.1 | [ ] |
-| 110 | [Number of Visible People in a Queue](https://leetcode.com/problems/number-of-visible-people-in-a-queue) | Hard | 36.1 | [ ] |
+| 110 | [Number of Visible People in a Queue](https://leetcode.com/problems/number-of-visible-people-in-a-queue) | Hard | 36.1 | ✅ |
 | 111 | [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii) | Medium | 36.1 | [ ] |
 | 112 | [Optimal Account Balancing](https://leetcode.com/problems/optimal-account-balancing) | Hard | 36.1 | [ ] |
 | 113 | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists) | Easy | 36.1 | [ ] |
@@ -227,12 +227,14 @@ Track your overall progress: `13/188 problems completed`
 
 > Salesforce-relevant problems added manually, outside the frequency-ranked source CSV.
 
-Progress: `2/2 problems completed`
+Progress: `4/4 problems completed`
 
 | # | Problem | Difficulty | Solved |
 |---|---------|------------|--------|
 | 1 | [Ways to Split Array Into Three Subarrays](https://leetcode.com/problems/ways-to-split-array-into-three-subarrays) | Medium | ✅ |
 | 2 | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1) | Medium | ✅ |
+| 3 | [Number of Visible People in a Queue](https://leetcode.com/problems/number-of-visible-people-in-a-queue) | Hard | ✅ |
+| 4 | [Minimum Additions to Make Valid String](https://leetcode.com/problems/minimum-additions-to-make-valid-string) | Medium | ✅ |
 
 ---
 

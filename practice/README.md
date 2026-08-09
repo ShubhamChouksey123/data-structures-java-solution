@@ -22,8 +22,9 @@ Each `NN.java` file in this folder contains the question (as comments), the code
 | [09](09.java) | Merge Two Sorted Arrays | Two pointers (merge) | ✅ Pass | 3.5/4 | 3.5/4 | 3/4 |
 | [10](10.java) | Reverse Words in String | String parse + reverse (reverse-twice) | ✅ Pass | 3/4 | 3/4 | 3/4 |
 | [11](11.java) | Has Duplicate | HashSet presence check (no sorting) | ✅ Pass | **4/4** | 3.5/4 | **3.5/4** |
+| [12](12.java) | Distance in Weighted Graph | Dijkstra (min-heap + lazy deletion) | ✅ Pass | 3.5/4 | 3.5/4 | 3/4 |
 
-**Related notes**: [Monotonic Stack](../notes/monotonic-stack/Notes.md) (02) · [Overlapping Intervals](../notes/overlapping-intervals/Notes.md) (03) · [Top 'K' Elements](../notes/top-k-elements/Notes.md) (01) · [Sliding Window](../notes/sliding-window/Notes.md) (04) · [Dynamic Programming](../notes/dynamic-programming/Notes.md) (05) · [Trees](../notes/trees/Notes.md) (06) · [Stack](../concepts/stack/info.md) (07) · [Two Pointers](../notes/two-pointers/Notes.md) (09) · [String](../concepts/string/info.md) (10)
+**Related notes**: [Monotonic Stack](../notes/monotonic-stack/Notes.md) (02) · [Overlapping Intervals](../notes/overlapping-intervals/Notes.md) (03) · [Top 'K' Elements](../notes/top-k-elements/Notes.md) (01) · [Sliding Window](../notes/sliding-window/Notes.md) (04) · [Dynamic Programming](../notes/dynamic-programming/Notes.md) (05) · [Trees](../notes/trees/Notes.md) (06) · [Stack](../concepts/stack/info.md) (07) · [Two Pointers](../notes/two-pointers/Notes.md) (09) · [String](../concepts/string/info.md) (10) · [Graphs](../notes/graphs/Notes.md) (12)
 
 ---
 
@@ -155,15 +156,28 @@ Each `NN.java` file in this folder contains the question (as comments), the code
 
 ---
 
+### 12 — Distance in Weighted Graph ✅ Pass
+
+**Problem**: Given a directed, positively-weighted graph (edge list `(u, v, w)`), `V`, and a `source`, return an array of shortest distances from `source` to every node (`inf` if unreachable).
+
+**Approach**: Dijkstra — build an adjacency list, min-heap keyed on distance, pop the nearest unsettled node and relax its neighbours. Used **lazy deletion** (skip a popped `{node, dist}` when `minDist[node] < dist`) to handle obsolete heap copies.
+
+**What went well**: Identified Dijkstra immediately and understood the key nuance — **handling obsolete/stale heap entries** via the lazy-deletion check (problem-solving 3.5/4). **Clean, correct, well-structured code** — solid adjacency-list construction and Dijkstra implementation (coding 3.5/4). Correct output formatting for the unreachable (`inf`) case, and reached the right time + space complexity.
+
+**What hurt the score**: Needed a small **nudge on time complexity** (target: `O(E log V)` stated confidently, unprompted). Explanations could be **more structured and concise** — lay out numbered steps *before* coding. **Wrote the code first, then asked for review** instead of narrating line-by-line as it was written. Redundant correctness guard: keeping **both** a `visited[]` array **and** the `minDist[node] < dist` lazy-deletion check — either alone suffices.
+
+---
+
 ## Consolidated Tips
 
-The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **3**, **3**, **3**, **3.5**) — but it is **trending up**, holding a clean 3/4 across sessions 06–10 and reaching a new high of **3.5/4 in session 11** (which also landed the first **4/4 coding**). Keep drilling the polish items below. These tips are grouped by the axis interviewers score.
+The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **3**, **3**, **3**, **3.5**, 3) — but it is **trending up**, holding a clean 3/4 across sessions 06–10, reaching a high of **3.5/4 in session 11** (which also landed the first **4/4 coding**), and staying at a solid 3/4 in session 12. Keep drilling the polish items below. These tips are grouped by the axis interviewers score.
 
 ### Communication (highest priority)
 - **State the approach in plain English before writing any code.** Use explicit structure: *"Step 1: … Step 2: … Step 3: …"*
 - **Use the template**: *"My approach is X. I'll use data structure Y because Z. The time complexity is A because B."*
 - **Explain WHY it's correct, not just THAT it works.** e.g. intervals: *"Picking the interval that ends earliest leaves the most room for future intervals, so it's always safe."*
 - **When asked to trace an example, do it out loud, step by step** — show the state at each iteration, don't jump to the answer. **Don't go silent while thinking** (04) — verbalize even half-formed reasoning.
+- **Narrate line-by-line as you write, don't code-then-review** (12) — talking through each line as you type shows your thought process and lets the interviewer course-correct early. Writing silently then asking "can you review this?" hides the reasoning that's being scored.
 - **Restate the problem in your own words first**, and **clarify constraints upfront** (the `< k` vs `≤ k` confusion cost time in 02).
 - **Use precise terminology** — say "HashSet," "remove from the left of the window," not "headset" / "delete the top" (04). Precision signals competence. Watch for **return-value slips** — saying "return false" when you mean "return true" (11) creates confusion; pause and be exact.
 - **Cut filler words** — replace "uh / um / means / like" with a **short silent pause** (05 re-solve had 40+ "uh"). Silence reads as thoughtful; filler reads as unsure. This is the current top polish item.
@@ -174,7 +188,7 @@ The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **
 - **Name variables precisely** — use `n1`/`n2`, not a single "n," when there are two inputs (04).
 - **String ops are O(length), not O(1)** — `substring()`, hashing, and comparison all cost O(length) (04).
 - **Lead with the reasoning**, then state the Big-O.
-- **State complexity proactively** (09) — the moment you finish coding, give time + space without waiting to be asked. It signals confidence.
+- **State complexity proactively** (09, 12) — the moment you finish coding, give time + space without waiting to be asked. It signals confidence. Session 12 needed a nudge for Dijkstra's `O(E log V)`; derive complexity *while designing* the approach, not after.
 
 ### Problem Solving
 - **Brainstorm 2–3 approaches before coding** (10) — name the options and their trade-offs, then pick one. Jumping straight into the first idea reads as shallower problem-solving.
@@ -191,7 +205,7 @@ The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **
 - **Extract the solution into a method** with parameters and a return value — don't write everything in `main`.
 - **Remove debug print statements** before presenting the final answer (02 left prints on lines 35/53).
 - **Prefer the standard, readable form** of an algorithm over a clever variant (03: track `prevEnd` rather than grouping; 09: three separate `while` loops for a merge — main + drain each — read cleaner than one nested if-else) — simpler code = fewer bugs and easier discussion.
-- **Drop redundant guards** — don't guard `HashSet.add()` with a `contains()` check; the set already dedups (04).
+- **Drop redundant guards** — don't guard `HashSet.add()` with a `contains()` check; the set already dedups (04). In Dijkstra, a `visited[]` array **and** the `minDist[node] < dist` lazy-deletion check are redundant — either alone is correct (12).
 - **Trace through at least one example** after writing, walking the interviewer through it.
 
 ---
