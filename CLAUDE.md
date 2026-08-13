@@ -15,6 +15,8 @@ mvn spotless:check                # Verify formatting
 mvn spotless:apply                # Auto-fix formatting
 ```
 
+(`./mvnw` works identically if Maven isn't installed system-wide.)
+
 ### Running / "Testing" a Topic
 
 There is **no JUnit test runner and no `src/test` directory**. Tests are `assertEquals`/`assertTrue`/`assertFalse` calls embedded in each topic's `MainClass.java` — these come from `import static org.junit.jupiter.api.Assertions.*` (JUnit Jupiter API is a dependency, but only for the static assertions; there is no Surefire run). Executed by running that class's `main`:
