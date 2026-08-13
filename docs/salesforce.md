@@ -10,7 +10,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `20/188 problems completed`
+Track your overall progress: `22/188 problems completed`
 
 - 🔥 **Frequency** = how often the problem appeared in Salesforce interviews (higher = higher priority)
 - Sorted **high → low** by frequency
@@ -46,8 +46,8 @@ Track your overall progress: `20/188 problems completed`
 | 23 | [Check Whether Two Strings are Almost Equivalent](https://leetcode.com/problems/check-whether-two-strings-are-almost-equivalent) | Easy | 60.5 | ✅ |
 | 24 | [Number of Islands](https://leetcode.com/problems/number-of-islands) | Medium | 60.5 | ✅ |
 | 25 | [Course Schedule II](https://leetcode.com/problems/course-schedule-ii) | Medium | 60.5 | ✅ |
-| 26 | [Beautiful Towers II](https://leetcode.com/problems/beautiful-towers-ii) | Medium | 60.5 | [ ] |
-| 27 | [Beautiful Towers I](https://leetcode.com/problems/beautiful-towers-i) | Medium | 60.5 | [ ] |
+| 26 | [Beautiful Towers II](https://leetcode.com/problems/beautiful-towers-ii) | Medium | 60.5 | ✅ |
+| 27 | [Beautiful Towers I](https://leetcode.com/problems/beautiful-towers-i) | Medium | 60.5 | ✅ |
 | 28 | [Check If a Number Is Majority Element in a Sorted Array](https://leetcode.com/problems/check-if-a-number-is-majority-element-in-a-sorted-array) | Easy | 60.5 | [ ] |
 | 29 | [Height Checker](https://leetcode.com/problems/height-checker) | Easy | 60.5 | [ ] |
 | 30 | [Matrix Similarity After Cyclic Shifts](https://leetcode.com/problems/matrix-similarity-after-cyclic-shifts) | Easy | 60.5 | [ ] |
