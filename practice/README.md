@@ -23,8 +23,9 @@ Each `NN.java` file in this folder contains the question (as comments), the code
 | [10](10.java) | Reverse Words in String | String parse + reverse (reverse-twice) | ✅ Pass | 3/4 | 3/4 | 3/4 |
 | [11](11.java) | Has Duplicate | HashSet presence check (no sorting) | ✅ Pass | **4/4** | 3.5/4 | **3.5/4** |
 | [12](12.java) | Distance in Weighted Graph | Dijkstra (min-heap + lazy deletion) | ✅ Pass | 3.5/4 | 3.5/4 | 3/4 |
+| [13](13.java) | Most Sales In K Days | Sliding window (fixed-size max-sum window) | ✅ Pass | 4/4 | **4/4** | 3/4 |
 
-**Related notes**: [Monotonic Stack](../notes/monotonic-stack/Notes.md) (02) · [Overlapping Intervals](../notes/overlapping-intervals/Notes.md) (03) · [Top 'K' Elements](../notes/top-k-elements/Notes.md) (01) · [Sliding Window](../notes/sliding-window/Notes.md) (04) · [Dynamic Programming](../notes/dynamic-programming/Notes.md) (05) · [Trees](../notes/trees/Notes.md) (06) · [Stack](../concepts/stack/info.md) (07) · [Two Pointers](../notes/two-pointers/Notes.md) (09) · [String](../concepts/string/info.md) (10) · [Graphs](../notes/graphs/Notes.md) (12)
+**Related notes**: [Monotonic Stack](../notes/monotonic-stack/Notes.md) (02) · [Overlapping Intervals](../notes/overlapping-intervals/Notes.md) (03) · [Top 'K' Elements](../notes/top-k-elements/Notes.md) (01) · [Sliding Window](../notes/sliding-window/Notes.md) (04, 13) · [Dynamic Programming](../notes/dynamic-programming/Notes.md) (05) · [Trees](../notes/trees/Notes.md) (06) · [Stack](../concepts/stack/info.md) (07) · [Two Pointers](../notes/two-pointers/Notes.md) (09) · [String](../concepts/string/info.md) (10) · [Graphs](../notes/graphs/Notes.md) (12)
 
 ---
 
@@ -168,9 +169,21 @@ Each `NN.java` file in this folder contains the question (as comments), the code
 
 ---
 
+### 13 — Most Sales In K Days ✅ Pass — 🎉 first 4/4 problem solving
+
+**Problem**: Given `sales` and `k` (`1 ≤ k ≤ len(sales)`), find the k-day period with the highest total sales. Return the first day of that period (ties broken by the earliest-starting window).
+
+**Approach**: Fixed-size sliding window of length `k` — compute the initial window sum, then slide by adding the incoming element and subtracting the outgoing one, tracking the max sum and its start index.
+
+**What went well**: Recognized the sliding-window pattern immediately and went straight to the optimal O(n) time, O(1) space solution with no hints, including the incremental-sum insight (avoid recomputing the window from scratch). Clean, bug-free code — first-ever **4/4 problem solving**, tying the record **4/4 coding** from session 11.
+
+**What hurt the score**: Left two of the three provided examples commented out instead of running them before declaring done — a thoroughness gap. Needed a prompt to surface the tie-breaking rule (multiple windows with the same max sum) rather than raising it proactively. The closing trace-through got a little jumbled — needed a clearer per-step structure (window bounds, sum, running max). Left an unrelated boilerplate `ArrayList<String>` demo snippet from the pad template in the final code.
+
+---
+
 ## Consolidated Tips
 
-The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **3**, **3**, **3**, **3.5**, 3) — but it is **trending up**, holding a clean 3/4 across sessions 06–10, reaching a high of **3.5/4 in session 11** (which also landed the first **4/4 coding**), and staying at a solid 3/4 in session 12. Keep drilling the polish items below. These tips are grouped by the axis interviewers score.
+The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **3**, **3**, **3**, **3.5**, 3, 3) — but it is **trending up**, holding a clean 3/4 across sessions 06–10, reaching a high of **3.5/4 in session 11** (which also landed the first **4/4 coding**), and staying at a solid 3/4 in sessions 12–13 (13 also landed the first **4/4 problem solving**). Keep drilling the polish items below. These tips are grouped by the axis interviewers score.
 
 ### Communication (highest priority)
 - **State the approach in plain English before writing any code.** Use explicit structure: *"Step 1: … Step 2: … Step 3: …"*
@@ -203,7 +216,8 @@ The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **
 
 ### Coding
 - **Extract the solution into a method** with parameters and a return value — don't write everything in `main`.
-- **Remove debug print statements** before presenting the final answer (02 left prints on lines 35/53).
+- **Remove debug print statements and leftover boilerplate** before presenting the final answer (02 left prints on lines 35/53; 13 left an unrelated `ArrayList<String>` demo snippet from the pad template).
+- **Run every provided test case before declaring done** — don't leave examples commented out (13 left two of the three given test cases unexecuted).
 - **Prefer the standard, readable form** of an algorithm over a clever variant (03: track `prevEnd` rather than grouping; 09: three separate `while` loops for a merge — main + drain each — read cleaner than one nested if-else) — simpler code = fewer bugs and easier discussion.
 - **Drop redundant guards** — don't guard `HashSet.add()` with a `contains()` check; the set already dedups (04). In Dijkstra, a `visited[]` array **and** the `minDist[node] < dist` lazy-deletion check are redundant — either alone is correct (12).
 - **Trace through at least one example** after writing, walking the interviewer through it.
@@ -224,7 +238,7 @@ The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **
 
 ### The diagnosis
 
-Coding and problem-solving are **already at a passing bar** — scores sit at 3–4 (11 hit **4/4 coding**, 09 hit **3.5/3.5**), and the right pattern gets found fast every session. **Communication has historically been the bottleneck**: 2 / 3 / 2 / 2.5 / 2.5 / 3 / 3 / 3 / 3 / 3.5 across sessions 01–07, 09, 10, and 11. The good news — this is the *most trainable* axis. It's a performance skill (like rehearsing a talk), not missing knowledge.
+Coding and problem-solving are **already at a passing bar** — scores sit at 3–4 (11 and 13 hit **4/4 coding**, 13 also landed the first **4/4 problem solving**, 09 hit **3.5/3.5**), and the right pattern gets found fast every session. **Communication has historically been the bottleneck**: 2 / 3 / 2 / 2.5 / 2.5 / 3 / 3 / 3 / 3 / 3.5 / 3 / 3 across sessions 01–07, 09–13. The good news — this is the *most trainable* axis. It's a performance skill (like rehearsing a talk), not missing knowledge.
 
 **Implication**: grinding new problems won't move the needle much. Practicing *narration* will.
 
