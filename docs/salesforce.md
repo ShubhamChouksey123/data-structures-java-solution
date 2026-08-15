@@ -10,7 +10,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `24/188 problems completed`
+Track your overall progress: `25/188 problems completed`
 
 - 🔥 **Frequency** = how often the problem appeared in Salesforce interviews (higher = higher priority)
 - Sorted **high → low** by frequency
@@ -57,7 +57,7 @@ Track your overall progress: `24/188 problems completed`
 | 34 | [Equalize Strings by Adding or Removing Characters at Ends](https://leetcode.com/problems/equalize-strings-by-adding-or-removing-characters-at-ends) | Medium | 60.5 | [ ] |
 | 35 | [Count the Number of Inversions](https://leetcode.com/problems/count-the-number-of-inversions) | Hard | 60.5 | [ ] |
 | 36 | [Find the Minimum Area to Cover All Ones II](https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-ii) | Hard | 60.5 | [ ] |
-| 37 | [Find the Minimum Area to Cover All Ones I](https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-i) | Medium | 60.5 | [ ] |
+| 37 | [Find the Minimum Area to Cover All Ones I](https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-i) | Medium | 60.5 | ✅ |
 | 38 | [Maximum Height of a Triangle](https://leetcode.com/problems/maximum-height-of-a-triangle) | Easy | 60.5 | [ ] |
 | 39 | [Maximize Grid Happiness](https://leetcode.com/problems/maximize-grid-happiness) | Hard | 60.5 | [ ] |
 | 40 | [Average Waiting Time](https://leetcode.com/problems/average-waiting-time) | Medium | 60.5 | [ ] |
