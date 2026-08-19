@@ -24,8 +24,9 @@ Each `NN.java` file in this folder contains the question (as comments), the code
 | [11](11.java) | Has Duplicate | HashSet presence check (no sorting) | ✅ Pass | **4/4** | 3.5/4 | **3.5/4** |
 | [12](12.java) | Distance in Weighted Graph | Dijkstra (min-heap + lazy deletion) | ✅ Pass | 3.5/4 | 3.5/4 | 3/4 |
 | [13](13.java) | Most Sales In K Days | Sliding window (fixed-size max-sum window) | ✅ Pass | 4/4 | **4/4** | 3/4 |
+| [14](14.java) | Redundant Parentheses | Stack (operator-between-parens check) | ✅ Pass | 4/4 | 4/4 | 3/4 |
 
-**Related notes**: [Monotonic Stack](../notes/monotonic-stack/Notes.md) (02) · [Overlapping Intervals](../notes/overlapping-intervals/Notes.md) (03) · [Top 'K' Elements](../notes/top-k-elements/Notes.md) (01) · [Sliding Window](../notes/sliding-window/Notes.md) (04, 13) · [Dynamic Programming](../notes/dynamic-programming/Notes.md) (05) · [Trees](../notes/trees/Notes.md) (06) · [Stack](../concepts/stack/info.md) (07) · [Two Pointers](../notes/two-pointers/Notes.md) (09) · [String](../concepts/string/info.md) (10) · [Graphs](../notes/graphs/Notes.md) (12)
+**Related notes**: [Monotonic Stack](../notes/monotonic-stack/Notes.md) (02) · [Overlapping Intervals](../notes/overlapping-intervals/Notes.md) (03) · [Top 'K' Elements](../notes/top-k-elements/Notes.md) (01) · [Sliding Window](../notes/sliding-window/Notes.md) (04, 13) · [Dynamic Programming](../notes/dynamic-programming/Notes.md) (05) · [Trees](../notes/trees/Notes.md) (06) · [Stack](../concepts/stack/info.md) (07, 14) · [Two Pointers](../notes/two-pointers/Notes.md) (09) · [String](../concepts/string/info.md) (10) · [Graphs](../notes/graphs/Notes.md) (12)
 
 ---
 
@@ -181,9 +182,21 @@ Each `NN.java` file in this folder contains the question (as comments), the code
 
 ---
 
+### 14 — Redundant Parentheses ✅ Pass
+
+**Problem**: Given a mathematical expression string, return whether it contains redundant parentheses (a pair that doesn't group two or more operands).
+
+**Approach**: Single stack pass — push operators and `(` onto a stack, skip operands. On `)`, pop until the matching `(`, marking the pair redundant only if no operator was seen along the way.
+
+**What went well**: Identified the optimal stack-based approach independently, with no hints, and correctly zeroed in on the key insight — checking for an operator between the matching parens. Clean, correct code (`Deque` as a stack) passing all test cases including edge cases, and an accurate complexity analysis with a clear defense of why the nested `while` loop is still O(n) overall. Matches the record **4/4 coding** and **4/4 problem solving** set in session 13.
+
+**What hurt the score**: Initial explanation was a bit scattered — jumped toward the approach before laying it out crisply. A tight upfront summary (e.g. *"skip operands, push operators/open-parens, and on a close-paren check whether an operator appeared before the matching open-paren"*) would have been a cleaner opening.
+
+---
+
 ## Consolidated Tips
 
-The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **3**, **3**, **3**, **3.5**, 3, 3) — but it is **trending up**, holding a clean 3/4 across sessions 06–10, reaching a high of **3.5/4 in session 11** (which also landed the first **4/4 coding**), and staying at a solid 3/4 in sessions 12–13 (13 also landed the first **4/4 problem solving**). Keep drilling the polish items below. These tips are grouped by the axis interviewers score.
+The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **3**, **3**, **3**, **3.5**, 3, 3, 3) — but it is **trending up**, holding a clean 3/4 across sessions 06–10, reaching a high of **3.5/4 in session 11** (which also landed the first **4/4 coding**), and staying at a solid 3/4 in sessions 12–14 (13 landed the first **4/4 problem solving**, and 14 matched both 4/4 marks). Keep drilling the polish items below. These tips are grouped by the axis interviewers score.
 
 ### Communication (highest priority)
 - **State the approach in plain English before writing any code.** Use explicit structure: *"Step 1: … Step 2: … Step 3: …"*
@@ -238,7 +251,7 @@ The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **
 
 ### The diagnosis
 
-Coding and problem-solving are **already at a passing bar** — scores sit at 3–4 (11 and 13 hit **4/4 coding**, 13 also landed the first **4/4 problem solving**, 09 hit **3.5/3.5**), and the right pattern gets found fast every session. **Communication has historically been the bottleneck**: 2 / 3 / 2 / 2.5 / 2.5 / 3 / 3 / 3 / 3 / 3.5 / 3 / 3 across sessions 01–07, 09–13. The good news — this is the *most trainable* axis. It's a performance skill (like rehearsing a talk), not missing knowledge.
+Coding and problem-solving are **already at a passing bar** — scores sit at 3–4 (11, 13, and 14 hit **4/4 coding**; 13 and 14 also hit **4/4 problem solving**; 09 hit **3.5/3.5**), and the right pattern gets found fast every session. **Communication has historically been the bottleneck**: 2 / 3 / 2 / 2.5 / 2.5 / 3 / 3 / 3 / 3 / 3.5 / 3 / 3 / 3 across sessions 01–07, 09–14. The good news — this is the *most trainable* axis. It's a performance skill (like rehearsing a talk), not missing knowledge.
 
 **Implication**: grinding new problems won't move the needle much. Practicing *narration* will.
 
