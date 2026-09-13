@@ -10,7 +10,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `25/188 problems completed`
+Track your overall progress: `28/188 problems completed`
 
 - 🔥 **Frequency** = how often the problem appeared in Salesforce interviews (higher = higher priority)
 - Sorted **high → low** by frequency
@@ -104,7 +104,7 @@ Track your overall progress: `25/188 problems completed`
 | 81 | [Word Ladder](https://leetcode.com/problems/word-ladder) | Hard | 41.9 | [ ] |
 | 82 | [Magnetic Force Between Two Balls](https://leetcode.com/problems/magnetic-force-between-two-balls) | Medium | 41.9 | [ ] |
 | 83 | [Largest Number After Digit Swaps by Parity](https://leetcode.com/problems/largest-number-after-digit-swaps-by-parity) | Easy | 41.9 | [ ] |
-| 84 | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray) | Medium | 41.9 | [ ] |
+| 84 | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray) | Medium | 41.9 | ✅ |
 | 85 | [Minimum Absolute Difference](https://leetcode.com/problems/minimum-absolute-difference) | Easy | 41.9 | [ ] |
 | 86 | [Gas Station](https://leetcode.com/problems/gas-station) | Medium | 41.9 | [ ] |
 | 87 | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays) | Hard | 41.9 | [ ] |
@@ -207,7 +207,7 @@ Track your overall progress: `25/188 problems completed`
 | 184 | [Minimum Replacements to Sort the Array](https://leetcode.com/problems/minimum-replacements-to-sort-the-array) | Hard | 28.2 | [ ] |
 | 185 | [Partition Array Into Two Arrays to Minimize Sum Difference](https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference) | Hard | 28.2 | [ ] |
 | 186 | [Minimum Edge Reversals So Every Node Is Reachable](https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable) | Hard | 28.2 | [ ] |
-| 187 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k) | Medium | 28.2 | [ ] |
+| 187 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k) | Medium | 28.2 | ✅ |
 | 188 | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram) | Hard | 28.2 | [ ] |
 
 ---
@@ -227,7 +227,7 @@ Track your overall progress: `25/188 problems completed`
 
 > Salesforce-relevant problems added manually, outside the frequency-ranked source CSV.
 
-Progress: `4/4 problems completed`
+Progress: `5/5 problems completed`
 
 | # | Problem | Difficulty | Solved |
 |---|---------|------------|--------|
@@ -235,6 +235,7 @@ Progress: `4/4 problems completed`
 | 2 | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1) | Medium | ✅ |
 | 3 | [Number of Visible People in a Queue](https://leetcode.com/problems/number-of-visible-people-in-a-queue) | Hard | ✅ |
 | 4 | [Minimum Additions to Make Valid String](https://leetcode.com/problems/minimum-additions-to-make-valid-string) | Medium | ✅ |
+| 5 | [Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k) | Medium | ✅ |
 
 ---
 

@@ -101,6 +101,109 @@ prefix  = [0, 2, 6, 12, 20, 30]  // size n+1, dummy 0 at start
 
 ---
 
+## Pattern 6: Maximum Subarray Sum (Kadane's Algorithm)
+
+**Algorithm**:
+1. Track `curSum` = best sum of a subarray ending at the current position
+2. At each position: `curSum = max(arr[i], curSum + arr[i])` — either extend or start fresh
+3. Update global `maxSum` with `curSum` at every step
+
+**Complexity**: O(n) time, O(1) space
+
+**Why it's a prefix-sum relative**: `curSum` is really "running prefix sum, reset to 0 whenever it would go negative" — dropping a prefix as soon as it stops helping is the whole trick.
+
+**Key Insight**: Unlike Maximum Product Subarray (Pattern 5), sums don't flip sign — so there's no need to track a running minimum, only a running maximum.
+
+### Template
+
+```java
+public int maxSubArray(int[] nums) {
+    int curSum = nums[0], maxSum = nums[0];
+
+    for (int i = 1; i < nums.length; i++) {
+        curSum = Math.max(nums[i], curSum + nums[i]);
+        maxSum = Math.max(maxSum, curSum);
+    }
+
+    return maxSum;
+}
+```
+
+---
+
+## Pattern 7: Subarray Sum Equals K (Prefix Sum + HashMap) ⭐ **IMPORTANT** ⭐
+
+**⚠️ Key Pattern - Review Regularly**
+
+**Algorithm**:
+1. Maintain a running `prefixSum` and a `HashMap<Integer, Integer>` of `prefixSum → count of times seen` — seed with `{0: 1}` (empty prefix)
+2. At each index: `prefixSum += arr[i]`
+3. A subarray ending here sums to `k` iff some earlier prefix equalled `prefixSum - k` → add `map.getOrDefault(prefixSum - k, 0)` to the answer
+4. Increment `map[prefixSum]` **after** checking (don't let the current index count against itself)
+
+**Complexity**: O(n) time, O(n) space
+
+**Why important**: The seed `{0: 1}` is the single most-missed detail — it accounts for subarrays starting at index 0. The lookup key `prefixSum - k` (not `prefixSum + k`) is the second most-missed detail.
+
+**Trick**: `sum(i, j) = prefix[j] - prefix[i] = k` rearranges to `prefix[i] = prefix[j] - k` — for each `j`, count how many earlier prefixes equal `prefix[j] - k`.
+
+### Template
+
+```java
+public int subarraySum(int[] nums, int k) {
+    // prefixSumFrequency[s] = how many prefixes so far have summed to s
+    Map<Integer, Integer> prefixSumFrequency = new HashMap<>();
+    prefixSumFrequency.put(0, 1);  // empty prefix — accounts for subarrays starting at index 0
+
+    int prefixSum = 0;
+    int subarrayCount = 0;
+
+    for (int num : nums) {
+        prefixSum += num;
+
+        // A subarray ending here sums to k iff an earlier prefix equalled (prefixSum - k)
+        int neededPrefixSum = prefixSum - k;
+        subarrayCount += prefixSumFrequency.getOrDefault(neededPrefixSum, 0);
+
+        // Record this prefix AFTER checking, so the current index never counts against itself
+        prefixSumFrequency.merge(prefixSum, 1, Integer::sum);
+    }
+
+    return subarrayCount;
+}
+```
+
+### Variant: Subarray Sums Divisible by K
+
+**Same exact technique** — only the hashmap key changes from the raw prefix sum to its **remainder mod K**, since two prefixes are "equivalent" for divisibility purposes whenever they share a remainder.
+
+**Algorithm**:
+1. Same as above, but map key is `((prefixSum % k) + k) % k` — the `+ k) % k` normalizes negative remainders in Java
+2. Seed with `{0: 1}` for the same reason (empty prefix has remainder 0)
+
+```java
+public int subarraysDivByK(int[] nums, int k) {
+    Map<Integer, Integer> seen = new HashMap<>();
+    seen.put(0, 1);
+
+    int prefixSum = 0, count = 0;
+    for (int num : nums) {
+        prefixSum += num;
+        int remainder = ((prefixSum % k) + k) % k;  // normalize negative remainders
+        count += seen.getOrDefault(remainder, 0);
+        seen.merge(remainder, 1, Integer::sum);
+    }
+
+    return count;
+}
+```
+
+**Key Points**:
+- **Negative remainders**: Java's `%` can return negative values for negative dividends — always normalize with `((x % k) + k) % k`
+- Same seed, same lookup logic, same off-by-one pitfalls as the exact-sum version — only the map key changes
+
+---
+
 ## Common Use Cases
 
 | Pattern | Description | Complexity | Space |
@@ -110,7 +213,9 @@ prefix  = [0, 2, 6, 12, 20, 30]  // size n+1, dummy 0 at start
 | **2D Range Sum** | Sum of submatrix | O(1) query | O(m×n) |
 | **Split Array** | Find equilibrium/pivot | O(n) | O(1) |
 | **Max Product** | Maximum product subarray | O(n) | O(1) |
-| **Subarray Sum = K** | Count/find subarrays | O(n) | O(n) with HashMap |
+| **Max Sum (Kadane's)** | Maximum subarray sum | O(n) | O(1) |
+| **Subarray Sum = K** | Count subarrays summing to K | O(n) | O(n) with HashMap |
+| **Subarray Sum % K** | Count subarrays divisible by K | O(n) | O(n) with HashMap |
 
 ---
 
@@ -173,6 +278,9 @@ for (int i = 1; i < n; i++) {
 - [x] [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) - Medium ⭐ **IMPORTANT** ⭐
 - [x] [Number of Ways to Split Array](https://leetcode.com/problems/number-of-ways-to-split-array/) - Medium
 - [x] [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) - Medium
+- [x] [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/) - Medium
 
 ---
 

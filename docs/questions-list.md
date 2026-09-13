@@ -8,7 +8,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `202/204 problems completed`
+Track your overall progress: `205/207 problems completed`
 
 ---
 
@@ -20,14 +20,14 @@ Date Format is DD-MM-YYYY
 |---|-------|-------|-----------|--------|---|------------------------------------|
 | 1 | [Fast and Slow Pointer](#1-fast-and-slow-pointer) | [📝](../notes/fast-and-slow-pointer/Notes.md) | 4 | ✅      | [ ] | 29-03-2026                         |
 | 2 | [Overlapping Intervals](#2-overlapping-intervals) | [📝](../notes/overlapping-intervals/Notes.md) | 5 | 4/5    | [ ] | 30-03-2026, 03-04-2026             |
-| 3 | [Prefix Sum](#3-prefix-sum) | [📝](../notes/prefix-sum/Notes.md) | 5 | ✅      | ✅ | 01-02-2026, 30-03-2026, 03-04-2026 |
+| 3 | [Prefix Sum](#3-prefix-sum) | [📝](../notes/prefix-sum/Notes.md) | 8 | ✅      | ✅ | 01-02-2026, 30-03-2026, 03-04-2026 |
 | 4 | [Sliding Window](#4-sliding-window) | [📝](../notes/sliding-window/Notes.md) | 13 | ✅      | [ ] | 04-04-2026                         |
 | 5 | [Two Pointers](#5-two-pointers) | [📝](../notes/two-pointers/Notes.md) | 6 | ✅      | [ ] |                                    |
 | 6 | [Cyclic Sort](#6-cyclic-sort-index-based) | [📝](../notes/cyclic-sort/Notes.md) | 4 | ✅      | [ ] |                                    |
 | 7 | [Reversal of Linked List](#7-reversal-of-linked-list-in-place) | [📝](../notes/reversal-of-linked-list/Notes.md) | 3 | ✅      | [ ] |                                    |
 | 8 | [Matrix Manipulation](#8-matrix-manipulation) | [📝](../notes/matrix-manipulation/Notes.md) | 4 | ✅      | [ ] |                                    |
 | 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | [📝](../notes/breadth-first-search/Notes.md) | 5 | ✅     | ✅ | 15-04-2026, 19-07-2026, 11-09-2026 |
-| 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | [📝](../notes/depth-first-search/Notes.md) | 6 | ✅     | ✅ | 16-04-2026, 19-07-2026             |
+| 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | [📝](../notes/depth-first-search/Notes.md) | 6 | ✅     | ✅ | 16-04-2026, 19-07-2026, 12-09-2026 |
 | 11 | [Backtracking](#11-backtracking) | [📝](../notes/backtracking/Notes.md) | 7 | ✅      | ✅ | 07-03-2026, 03-06-2026             |
 | 12 | [Modified Binary Search](#12-modified-binary-search) | [📝](../notes/binary-search/Notes.md) | 9 | ✅      | ✅ | 28-06-2026                         |
 | 13 | [Bitwise XOR](#13-bitwise-xor) | [📝](../notes/bitwise-xor/Notes.md) | 5 | ✅      | ✅ | 29-06-2026                         |
@@ -73,12 +73,15 @@ Date Format is DD-MM-YYYY
 
 **Description**: Prefix Sums/Products are techniques that store cumulative sums or products up to each index, allowing for quick subarray range queries.
 
-**Problems (5)**:
+**Problems (8)**:
 - [x] [Find the Middle Index in Array](https://leetcode.com/problems/find-the-middle-index-in-array/) - Easy
 - [x] [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) - Medium
 - [x] [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) - Medium
 - [x] [Number of Ways to Split Array](https://leetcode.com/problems/number-of-ways-to-split-array/) - Medium
 - [x] [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) - Medium
+- [x] [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) - Medium
+- [x] [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) - Medium ⭐ **IMPORTANT** ⭐
+- [x] [Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/) - Medium
 
 ---
 ## 4. Sliding Window

@@ -118,6 +118,69 @@ public int countWays(int[] items, int target) {
 
 ---
 
+## Pattern: Memoization (Top-Down)
+
+**Use Case**: Same unbounded knapsack (maximize value) — recursive approach with caching. The only change from 0/1 knapsack's memoization is that `include` recurses on the **same index** (item can be reused) instead of moving to `index - 1`.
+
+**Algorithm**:
+1. Define `solve(index, remainingCapacity)` = max value using items `0..index` with given capacity, each reusable
+2. Base case: `index == 0` → take as many copies of item 0 as fit: `(remainingCapacity / wt[0]) * val[0]`
+3. Cache result in `memo[index][remainingCapacity]` before returning
+4. At each step: `max(exclude, include)` where:
+   - `exclude` moves to `index - 1` (skip item entirely, never use it)
+   - `include` **stays at `index`** (item can be reused again) and reduces capacity by `wt[index]`
+
+**Complexity**: O(n × W) time, O(n × W) space (memo); recursion depth up to O(n + W) since repeated `include` calls don't decrement `index`
+
+### Template
+
+```java
+class Solution {
+
+    private int[][] memo;
+
+    private int knapsackUtil(int[] val, int[] wt, int index, int remainingCapacity) {
+        if (index == 0) {
+            return (remainingCapacity / wt[0]) * val[0];
+        }
+
+        if (memo[index][remainingCapacity] != -1) {
+            return memo[index][remainingCapacity];
+        }
+
+        int exclude = knapsackUtil(val, wt, index - 1, remainingCapacity);
+        int include = 0;
+        if (remainingCapacity >= wt[index]) {
+            // stays at same index — item can be reused
+            include = val[index] + knapsackUtil(val, wt, index, remainingCapacity - wt[index]);
+        }
+
+        return memo[index][remainingCapacity] = Math.max(include, exclude);
+    }
+
+    public int knapsack(int W, int[] val, int[] wt) {
+        int n = val.length;
+        memo = new int[n][W + 1];
+        for (int[] row : memo) Arrays.fill(row, -1);
+        return knapsackUtil(val, wt, n - 1, W);
+    }
+}
+```
+
+### Comparison: Memoization vs 1D Tabulation
+
+| | Memoization (Top-Down) | 1D Tabulation |
+|---|---|---|
+| **Direction** | `n-1` → `0` (recursive) | `0` → `n-1`, **low→high** |
+| **Space** | O(n × W) + stack | O(W) |
+| **Include transition** | Stays at same `index` (reuse) | Reads `dp[j - item]` in the *same forward* pass (already updated this pass) |
+| **Ease** | Natural recursive thinking — mirrors 0/1 with one line changed | Compact, no stack overflow |
+| **When to prefer** | Deriving from scratch / understanding reuse | Interviews, optimal space |
+
+**Key contrast with 0/1 knapsack memoization**: in 0/1, `include` recurses on `index - 1` (item consumed, can't reuse). In unbounded, `include` recurses on `index` itself (item stays available) — that one-line change is the *entire* difference between the two recursive formulations, just as the loop-direction flip is the entire difference between their 1D tabulation forms.
+
+---
+
 ## Common Mistakes
 
 ### ❌ Reverse Iteration (Treats as 0/1 Knapsack)
@@ -257,6 +320,7 @@ public int change(int amount, int[] coins) {
 5. **Sentinel `amount+1`**: safer than `Integer.MAX_VALUE` (avoids overflow on `+1`)
 6. **Perfect Squares**: same as Coin Change — treat squares as coins (`1, 4, 9, 16...`)
 7. **Min Cost Tickets**: day-indexed DP, not capacity DP — distinct pattern from classic knapsack
+8. **Memoization mirrors 0/1**: same recursive skeleton, but `include` recurses on the same `index` (reuse) instead of `index - 1`
 
 ---
 
