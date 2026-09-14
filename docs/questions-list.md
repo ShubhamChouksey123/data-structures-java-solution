@@ -16,30 +16,30 @@ Track your overall progress: `205/207 problems completed`
 
 Date Format is DD-MM-YYYY
 
-| # | Topic | Notes | Questions | Solved | Revised | Last Revision                      |
-|---|-------|-------|-----------|--------|---|------------------------------------|
-| 1 | [Fast and Slow Pointer](#1-fast-and-slow-pointer) | [📝](../notes/fast-and-slow-pointer/Notes.md) | 4 | ✅      | [ ] | 29-03-2026                         |
-| 2 | [Overlapping Intervals](#2-overlapping-intervals) | [📝](../notes/overlapping-intervals/Notes.md) | 5 | 4/5    | [ ] | 30-03-2026, 03-04-2026             |
-| 3 | [Prefix Sum](#3-prefix-sum) | [📝](../notes/prefix-sum/Notes.md) | 8 | ✅      | ✅ | 01-02-2026, 30-03-2026, 03-04-2026 |
-| 4 | [Sliding Window](#4-sliding-window) | [📝](../notes/sliding-window/Notes.md) | 13 | ✅      | [ ] | 04-04-2026                         |
-| 5 | [Two Pointers](#5-two-pointers) | [📝](../notes/two-pointers/Notes.md) | 6 | ✅      | [ ] |                                    |
-| 6 | [Cyclic Sort](#6-cyclic-sort-index-based) | [📝](../notes/cyclic-sort/Notes.md) | 4 | ✅      | [ ] |                                    |
-| 7 | [Reversal of Linked List](#7-reversal-of-linked-list-in-place) | [📝](../notes/reversal-of-linked-list/Notes.md) | 3 | ✅      | [ ] |                                    |
-| 8 | [Matrix Manipulation](#8-matrix-manipulation) | [📝](../notes/matrix-manipulation/Notes.md) | 4 | ✅      | [ ] |                                    |
-| 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | [📝](../notes/breadth-first-search/Notes.md) | 5 | ✅     | ✅ | 15-04-2026, 19-07-2026, 11-09-2026 |
-| 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | [📝](../notes/depth-first-search/Notes.md) | 6 | ✅     | ✅ | 16-04-2026, 19-07-2026, 12-09-2026 |
-| 11 | [Backtracking](#11-backtracking) | [📝](../notes/backtracking/Notes.md) | 7 | ✅      | ✅ | 07-03-2026, 03-06-2026             |
-| 12 | [Modified Binary Search](#12-modified-binary-search) | [📝](../notes/binary-search/Notes.md) | 9 | ✅      | ✅ | 28-06-2026                         |
-| 13 | [Bitwise XOR](#13-bitwise-xor) | [📝](../notes/bitwise-xor/Notes.md) | 5 | ✅      | ✅ | 29-06-2026                         |
-| 14 | [Top 'K' Elements](#14-top-k-elements) | [📝](../notes/top-k-elements/Notes.md) | 4 | ✅      | ✅ | 30-06-2026                         |
-| 15 | [K-way Merge](#15-k-way-merge) | [📝](../notes/k-way-merge/Notes.md) | 4 | ✅      | ✅ | 01-07-2026                         |
-| 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                         |
-| 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 8 | ✅      | ✅ | 29-03-2026, 03-04-2026, 12-07-2026 |
-| 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | ✅      | ✅ | 01-08-2026                         |
-| 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 42 | ✅    | ✅ | 23-06-2026                         |
-| 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | ✅ | 11-09-2026                          |
-| 21 | [Greedy](#21-greedy) | [📝](../notes/greedy/Notes.md) | 7 | ✅      | [ ] |                                    |
-| 22 | [Design Data Structure](#22-design-data-structure) | [📝](../notes/design-data-structure/Notes.md) | 6 | 5/6    | [ ] |                                    |
+| # | Topic | Notes | Questions | Solved | Revised | Last Revision                                  |
+|---|-------|-------|-----------|--------|---|------------------------------------------------|
+| 1 | [Fast and Slow Pointer](#1-fast-and-slow-pointer) | [📝](../notes/fast-and-slow-pointer/Notes.md) | 4 | ✅      | [ ] | 29-03-2026                                     |
+| 2 | [Overlapping Intervals](#2-overlapping-intervals) | [📝](../notes/overlapping-intervals/Notes.md) | 5 | 4/5    | [ ] | 30-03-2026, 03-04-2026                         |
+| 3 | [Prefix Sum](#3-prefix-sum) | [📝](../notes/prefix-sum/Notes.md) | 8 | ✅      | ✅ | 01-02-2026, 30-03-2026, 03-04-2026, 13-09-2026 |
+| 4 | [Sliding Window](#4-sliding-window) | [📝](../notes/sliding-window/Notes.md) | 13 | ✅      | ✅ | 04-04-2026, 13-09-2026                         |
+| 5 | [Two Pointers](#5-two-pointers) | [📝](../notes/two-pointers/Notes.md) | 6 | ✅      | [ ] |                                                |
+| 6 | [Cyclic Sort](#6-cyclic-sort-index-based) | [📝](../notes/cyclic-sort/Notes.md) | 4 | ✅      | [ ] |                                                |
+| 7 | [Reversal of Linked List](#7-reversal-of-linked-list-in-place) | [📝](../notes/reversal-of-linked-list/Notes.md) | 3 | ✅      | [ ] |                                                |
+| 8 | [Matrix Manipulation](#8-matrix-manipulation) | [📝](../notes/matrix-manipulation/Notes.md) | 4 | ✅      | [ ] |                                                |
+| 9 | [Breadth First Search (BFS)](#9-breadth-first-search-bfs) | [📝](../notes/breadth-first-search/Notes.md) | 5 | ✅     | ✅ | 15-04-2026, 19-07-2026, 11-09-2026             |
+| 10 | [Depth First Search (DFS)](#10-depth-first-search-dfs) | [📝](../notes/depth-first-search/Notes.md) | 6 | ✅     | ✅ | 16-04-2026, 19-07-2026, 12-09-2026             |
+| 11 | [Backtracking](#11-backtracking) | [📝](../notes/backtracking/Notes.md) | 7 | ✅      | ✅ | 07-03-2026, 03-06-2026                         |
+| 12 | [Modified Binary Search](#12-modified-binary-search) | [📝](../notes/binary-search/Notes.md) | 9 | ✅      | ✅ | 28-06-2026                                     |
+| 13 | [Bitwise XOR](#13-bitwise-xor) | [📝](../notes/bitwise-xor/Notes.md) | 5 | ✅      | ✅ | 29-06-2026                                     |
+| 14 | [Top 'K' Elements](#14-top-k-elements) | [📝](../notes/top-k-elements/Notes.md) | 4 | ✅      | ✅ | 30-06-2026, 13-09-2026                                   |
+| 15 | [K-way Merge](#15-k-way-merge) | [📝](../notes/k-way-merge/Notes.md) | 4 | ✅      | ✅ | 01-07-2026                                     |
+| 16 | [Two Heaps](#16-two-heaps) | [📝](../notes/two-heaps/Notes.md) | 3 | ✅      | [ ] | 17-03-2026                                     |
+| 17 | [Monotonic Stack](#17-monotonic-stack) | [📝](../notes/monotonic-stack/Notes.md) | 8 | ✅      | ✅ | 29-03-2026, 03-04-2026, 12-07-2026             |
+| 18 | [Trees](#18-trees) | [📝](../notes/trees/Notes.md) | 32 | ✅      | ✅ | 01-08-2026                                     |
+| 19 | [Dynamic Programming](#19-dynamic-programming) | [📝](../notes/dynamic-programming/Notes.md) | 42 | ✅    | ✅ | 23-06-2026, 13-09-2026                         |
+| 20 | [Graphs](#20-graphs) | [📝](../notes/graphs/Notes.md) | 22 | ✅     | ✅ | 11-09-2026                                     |
+| 21 | [Greedy](#21-greedy) | [📝](../notes/greedy/Notes.md) | 7 | ✅      | [ ] |                                                |
+| 22 | [Design Data Structure](#22-design-data-structure) | [📝](../notes/design-data-structure/Notes.md) | 6 | 5/6    | [ ] |                                                |
 
 **📖 [Useful Learning Resources](#useful-articles-on-leetcode)**
 
