@@ -19,7 +19,7 @@ DSA rounds for the SMTS level in Salesforce Hyderabad test algorithmic efficienc
 
 #### Graphs & Shortest Paths
 
-* [ ] **Shortest Cycle in a Graph:** Find the shortest cycle length in a Directed Acyclic Graph (DAG) or directed graph. — [LeetCode 2608](https://leetcode.com/problems/shortest-cycle-in-a-graph/)
+* [x] **Shortest Cycle in a Graph:** Find the shortest cycle length in a Directed Acyclic Graph (DAG) or directed graph. — [LeetCode 2608](https://leetcode.com/problems/shortest-cycle-in-a-graph/)
 * [x] **Social Network Connectivity:** Given connections between users as an undirected graph, answer queries asking how many profile pages a specific user can view (using Connected Components via BFS/DFS or Disjoint Set Union). — [LeetCode 323](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) / [LeetCode 547](https://leetcode.com/problems/number-of-provinces/)
 * [x] **Rotten Oranges / Grid Traversal:** Multi-source BFS to calculate the minimum time required for all items in a grid to transition states. — [LeetCode 994](https://leetcode.com/problems/rotting-oranges/)
 
