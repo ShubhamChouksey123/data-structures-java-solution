@@ -27,7 +27,7 @@ DSA rounds for the SMTS level in Salesforce Hyderabad test algorithmic efficienc
 
 * [x] **Subsequences Divisible by 4:** Given a large number string (length up to $10^5$), return the count of subsequences divisible by 4 modulo $10^9 + 7$. — Related: [LeetCode 974](https://leetcode.com/problems/subarray-sums-divisible-by-k/) & [LeetCode 115](https://leetcode.com/problems/distinct-subsequences/)
 * [x] **Longest Substring Without Repeating Characters:** Optimized using sliding window and two-pointer technique. Candidates are probed on space complexity ($O(1)$ bound based on character set size vs $O(N)$). — [LeetCode 3](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
-* [ ] **ZigZag Traversal & Keypad Combinations:** Convert a string into ZigZag format across $K$ rows; generate letter combinations of a phone number using backtracking. — [LeetCode 6](https://leetcode.com/problems/zigzag-conversion/) / [LeetCode 17](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
+* [x] **ZigZag Traversal & Keypad Combinations:** Convert a string into ZigZag format across $K$ rows; generate letter combinations of a phone number using backtracking. — [LeetCode 6](https://leetcode.com/problems/zigzag-conversion/) / [LeetCode 17](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
 * [ ] **Maximum Profit Triplet:** Dynamic programming and array optimization to find valid triplets maximizing profit criteria. — [LeetCode 2874](https://leetcode.com/problems/maximum-value-of-an-ordered-triplet-ii/) / [LeetCode 2908](https://leetcode.com/problems/minimum-sum-of-mountain-triplets-i/)
 
 #### Arrays, Sliding Window & Heaps
@@ -41,9 +41,9 @@ DSA rounds for the SMTS level in Salesforce Hyderabad test algorithmic efficienc
 
 #### Trees & Backtracking
 
-* [ ] **Vertical Order Traversal:** Print binary tree nodes column by column, optimizing space/time complexity by avoiding unnecessary sorting structures. — [LeetCode 987](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/) / [LeetCode 314](https://leetcode.com/problems/binary-tree-vertical-order-traversal/)
-* [ ] **Nodes at Distance Y:** Given a binary tree, a target node $X$, and a distance $Y$, return all nodes located at distance $Y$. — [LeetCode 863](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/)
-* [ ] **Sudoku Solver:** Implement a complete backtracking solver with constraint propagation and run custom test cases. — [LeetCode 37](https://leetcode.com/problems/sudoku-solver/)
+* [x] **Vertical Order Traversal:** Print binary tree nodes column by column, optimizing space/time complexity by avoiding unnecessary sorting structures. — [LeetCode 987](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/) / [LeetCode 314](https://leetcode.com/problems/binary-tree-vertical-order-traversal/)
+* [x] **Nodes at Distance Y:** Given a binary tree, a target node $X$, and a distance $Y$, return all nodes located at distance $Y$. — [LeetCode 863](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/)
+* [x] **Sudoku Solver:** Implement a complete backtracking solver with constraint propagation and run custom test cases. — [LeetCode 37](https://leetcode.com/problems/sudoku-solver/)
 
 ---
 
