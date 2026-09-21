@@ -25,8 +25,8 @@ DSA rounds for the SMTS level in Salesforce Hyderabad test algorithmic efficienc
 
 #### Dynamic Programming & String Processing
 
-* [ ] **Subsequences Divisible by 4:** Given a large number string (length up to $10^5$), return the count of subsequences divisible by 4 modulo $10^9 + 7$. — Related: [LeetCode 974](https://leetcode.com/problems/subarray-sums-divisible-by-k/) & [LeetCode 115](https://leetcode.com/problems/distinct-subsequences/)
-* [ ] **Longest Substring Without Repeating Characters:** Optimized using sliding window and two-pointer technique. Candidates are probed on space complexity ($O(1)$ bound based on character set size vs $O(N)$). — [LeetCode 3](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+* [x] **Subsequences Divisible by 4:** Given a large number string (length up to $10^5$), return the count of subsequences divisible by 4 modulo $10^9 + 7$. — Related: [LeetCode 974](https://leetcode.com/problems/subarray-sums-divisible-by-k/) & [LeetCode 115](https://leetcode.com/problems/distinct-subsequences/)
+* [x] **Longest Substring Without Repeating Characters:** Optimized using sliding window and two-pointer technique. Candidates are probed on space complexity ($O(1)$ bound based on character set size vs $O(N)$). — [LeetCode 3](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 * [ ] **ZigZag Traversal & Keypad Combinations:** Convert a string into ZigZag format across $K$ rows; generate letter combinations of a phone number using backtracking. — [LeetCode 6](https://leetcode.com/problems/zigzag-conversion/) / [LeetCode 17](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
 * [ ] **Maximum Profit Triplet:** Dynamic programming and array optimization to find valid triplets maximizing profit criteria. — [LeetCode 2874](https://leetcode.com/problems/maximum-value-of-an-ordered-triplet-ii/) / [LeetCode 2908](https://leetcode.com/problems/minimum-sum-of-mountain-triplets-i/)
 
