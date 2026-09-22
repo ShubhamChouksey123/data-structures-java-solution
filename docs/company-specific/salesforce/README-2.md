@@ -58,13 +58,13 @@ The LLD round evaluates object-oriented design (SOLID principles), concurrency h
 
 #### Systems & Domain Modeling
 
-* [ ] **Stock Trading & Order Matching Engine:** Design an LLD for a stock trading platform handling Limit and Market orders, portfolio updates, execution engine logic, and thread safety.
-* [ ] **In-Memory Connection Pool:** Design a connection pool with an internal request queue.
+* [x] **Stock Trading & Order Matching Engine:** Design an LLD for a stock trading platform handling Limit and Market orders, portfolio updates, execution engine logic, and thread safety.
+* [x] **In-Memory Connection Pool:** Design a connection pool with an internal request queue.
   * Fixed number of active connections.
   * Blocking requests using synchronization primitives (`ReentrantLock`, `Condition`, `Semaphore`) when all connections are checked out.
-* [ ] **Elevator System:** Design a multi-lift elevator controller. Use the **State Pattern** to represent lift movements (Idle, Moving Up, Moving Down) and the **Strategy Pattern** for optimal floor request dispatching.
-* [ ] **Parking Lot System:** Design a multi-floor parking lot supporting spot allocation strategies, pricing rules, and concurrent spot updates.
-* [ ] **Meeting Room Scheduler:** Design a booking system handling time-interval overlaps, recurrent meetings, room capacities, and booking cancellations.
+* [x] **Elevator System:** Design a multi-lift elevator controller. Use the **State Pattern** to represent lift movements (Idle, Moving Up, Moving Down) and the **Strategy Pattern** for optimal floor request dispatching.
+* [x] **Parking Lot System:** Design a multi-floor parking lot supporting spot allocation strategies, pricing rules, and concurrent spot updates.
+* [x] **Meeting Room Scheduler:** Design a booking system handling time-interval overlaps, recurrent meetings, room capacities, and booking cancellations.
 
 ---
 
@@ -74,7 +74,7 @@ HLD rounds for SMTS demand focus on multi-tenant cloud architectures, data parti
 
 #### Distributed Systems Infrastructure
 
-* [ ] **Distributed Rate Limiter:**
+* [x] **Distributed Rate Limiter:**
   * Compare Token Bucket, Leaky Bucket, and Sliding Window Counter algorithms.
   * Architect a centralized Redis-backed rate limiter vs local in-memory caching layers, handling network latencies and race conditions across clusters.
 * [ ] **Social Media Celebrity Problem (High-Fanout System):**
