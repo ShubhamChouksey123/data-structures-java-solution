@@ -53,7 +53,7 @@ The LLD round evaluates object-oriented design (SOLID principles), concurrency h
 
 #### Cache Engineering
 
-* [ ] **LRU Cache Implementation:** Implement an in-memory Least Recently Used cache using a hash map and a doubly linked list.
+* [x] **LRU Cache Implementation:** Implement an in-memory Least Recently Used cache using a hash map and a doubly linked list.
 * [ ] **LFU Cache Implementation:** Implement a Least Frequently Used cache handling tie-breakers for equal frequencies using a double hash map with doubly linked lists.
 
 #### Systems & Domain Modeling
@@ -77,7 +77,7 @@ HLD rounds for SMTS demand focus on multi-tenant cloud architectures, data parti
 * [x] **Distributed Rate Limiter:**
   * Compare Token Bucket, Leaky Bucket, and Sliding Window Counter algorithms.
   * Architect a centralized Redis-backed rate limiter vs local in-memory caching layers, handling network latencies and race conditions across clusters.
-* [ ] **Social Media Celebrity Problem (High-Fanout System):**
+* [x] **Social Media Celebrity Problem (High-Fanout System):**
   * Design a post/feed fan-out system handling high-follower accounts.
   * Compare Push vs Pull feed models, message queues (Kafka), and write/read amplification mitigation strategies.
 * [ ] **Real-time Messaging Platform (Slack / WhatsApp Web):**
@@ -91,7 +91,7 @@ HLD rounds for SMTS demand focus on multi-tenant cloud architectures, data parti
   * Prevent double bookings using two-step API reservation (`POST /reserve` with temporary TTL hold via Redis distributed locks and `POST /confirm` post-payment).
   * Sync database changes to Elasticsearch under 500ms using Change Data Capture (CDC) via Debezium/Kafka.
   * Handle asynchronous bulk updating of thousands of merchant properties without blocking real-time reads.
-* [ ] **Deployment & Rollout Infrastructure:**
+* [x] **Deployment & Rollout Infrastructure:**
   * Design zero-downtime deployment pipelines utilizing Blue-Green/Canary strategies for microservices.
   * Build a feature flag and incremental rollout system for mobile client feature releases.
 
