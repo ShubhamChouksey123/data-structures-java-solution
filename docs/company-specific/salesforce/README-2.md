@@ -2,13 +2,13 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `0/33 items completed`
+Track your overall progress: `18/33 items completed`
 
 | Round | Progress |
 |-------|----------|
-| DSA Round | `0/13` |
-| LLD / Machine Coding Round | `0/7` |
-| HLD / System Design Round | `0/5` |
+| DSA Round | `9/13` |
+| LLD / Machine Coding Round | `6/7` |
+| HLD / System Design Round | `3/5` |
 | HM / Behavioral Round | `0/8` |
 
 ---
