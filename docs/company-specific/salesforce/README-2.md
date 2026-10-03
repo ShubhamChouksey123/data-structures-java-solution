@@ -2,13 +2,13 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `18/33 items completed`
+Track your overall progress: `20/33 items completed`
 
 | Round | Progress |
 |-------|----------|
 | DSA Round | `9/13` |
 | LLD / Machine Coding Round | `6/7` |
-| HLD / System Design Round | `3/5` |
+| HLD / System Design Round | `5/5` |
 | HM / Behavioral Round | `0/8` |
 
 ---
@@ -80,13 +80,13 @@ HLD rounds for SMTS demand focus on multi-tenant cloud architectures, data parti
 * [x] **Social Media Celebrity Problem (High-Fanout System):**
   * Design a post/feed fan-out system handling high-follower accounts.
   * Compare Push vs Pull feed models, message queues (Kafka), and write/read amplification mitigation strategies.
-* [ ] **Real-time Messaging Platform (Slack / WhatsApp Web):**
+* [x] **Real-time Messaging Platform (Slack / WhatsApp Web):**
   * Design core messaging, channel/group threads, user tagging, and presence notifications.
   * Select protocols (WebSockets vs Server-Sent Events vs MQTT), storage architecture (Cassandra/ScyllaDB for messages, Redis for online status), and message delivery status (Sent, Delivered, Read).
 
 #### Cloud & Business Applications
 
-* [ ] **Scalable Property Search & Reservation System:**
+* [x] **Scalable Property Search & Reservation System:**
   * Design a cloud-native property platform handling listing, search, and booking concurrency.
   * Prevent double bookings using two-step API reservation (`POST /reserve` with temporary TTL hold via Redis distributed locks and `POST /confirm` post-payment).
   * Sync database changes to Elasticsearch under 500ms using Change Data Capture (CDC) via Debezium/Kafka.
