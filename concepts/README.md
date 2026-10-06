@@ -51,6 +51,12 @@ This directory contains comprehensive reference documentation for Java data stru
 | **LinkedHashMap** | [linkedhashmap.md](map/linkedhashmap.md) | O(1) operations with insertion/access order, perfect for LRU cache |
 | **TreeMap** | [treemap.md](map/treemap.md) | O(log n) operations, sorted keys, range queries, NavigableMap |
 
+### Trees
+
+| Data Structure | Files | Description |
+|----------------|-------|-------------|
+| **Trie** | [info.md](trie/info.md) | Prefix tree for O(L) insert/search/startsWith, autocomplete, word search |
+
 ---
 
 ## 🎯 Quick Navigation
@@ -84,6 +90,9 @@ This directory contains comprehensive reference documentation for Java data stru
 - [HashMap](map/hashmap.md) - Fast lookups (O(1)), frequency counting, Two Sum
 - [TreeMap](map/treemap.md) - Sorted keys (O(log n)), range queries, floor/ceiling
 - [LinkedHashMap](map/linkedhashmap.md) - Ordered keys (O(1)), LRU cache
+
+**Prefix-Based Problems**
+- [Trie](trie/info.md) - Autocomplete, word search on a grid, longest common prefix
 
 ---
 
@@ -122,6 +131,7 @@ Each concept file follows this 11-section format:
 - **HashMap**: O(1) operations - use for frequency counting and Two Sum
 - **TreeMap**: O(log n) operations - use for sorted keys and range queries
 - **LinkedHashMap**: O(1) operations with insertion/access order - perfect for LRU cache
+- **Trie**: O(L) insert/search/startsWith regardless of dictionary size - use for prefix queries and autocomplete
 
 ---
 
@@ -148,7 +158,7 @@ When adding new concept documentation:
 | **Queues, Stacks & Deques** | ✅ Complete | 4 files (Queue, Deque, Stack, PriorityQueue) |
 | **Sets** | ✅ Complete | 3 files (HashSet, TreeSet, LinkedHashSet) |
 | **Maps** | ✅ Complete | 3 files (HashMap, TreeMap, LinkedHashMap) |
-| **Trees** | ⏳ Pending | Binary Tree, BST |
+| **Trees** | 🟡 Partial | Trie complete; Binary Tree, BST pending |
 | **Graphs** | ⏳ Pending | Graph representations, traversals |
 | **Heaps** | ✅ Complete | PriorityQueue |
 
