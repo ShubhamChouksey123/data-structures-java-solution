@@ -12,33 +12,43 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `3/33 items completed`
+Track your overall progress: `6/37 items completed`
 
 | Section | Progress |
 |---------|----------|
 | Concurrency & Data Structure Fundamentals | `0/4` |
-| Coding — Actually-Reported Questions | `3/10` |
-| Coding — Additional Practice (Lower Confidence) | `0/5` |
-| Coding — Concurrency Practice | `0/4` |
-| System Design Talking Points (Escalating) | `0/4` |
+| Coding — Actually-Reported Questions | `5/10` |
+| Coding — Additional Practice (Lower Confidence) | `0/8` |
+| Coding — Concurrency Practice | `0/5` |
+| System Design Talking Points (Escalating) | `1/4` |
 | Fallback: Karat-Run Screen Fundamentals & DSA | `0/6` |
 
 ---
 
 ## About the Round
 
-**Source**: recruiter email confirming the actual process for this role (authoritative — treat as the primary expected format). A second, **unconfirmed fallback format** is kept further below in case the actual call doesn't match the email — recruiter emails are templated and the person sending it may not have full visibility into which interviewer/process variant you'll actually get.
+**Interview confirmed**: Tuesday, Oct 13, 2026, 6:45–7:30 PM IST — **"Backend Technical Screen Interview"** with **Addison Chung (Senior Software Engineer)** at Atlassian, via Zoom, with a **HackerRank CodePair** link offered as a fallback if a local IDE isn't available. This is a direct Atlassian-engineer-run screen — **not** the Karat-branded round (see the Fallback section below), confirmed by: a named Atlassian SWE as interviewer (Karat uses its own interviewers, never Atlassian employees), Zoom + HackerRank CodePair rather than Karat's own platform, and the invite's own title.
+
+**Sources, in order of authority**:
+1. **Atlassian's own official candidate-prep PDFs** (found via web search on Atlassian's CDN) — the most authoritative source, most likely what the invite's "Engineering Interview Handbook" link points to:
+   - [P30-P50 Backend Interview Guide](https://wac-cdn.atlassian.com/dam/jcr:cf9c7fc1-ab28-47d6-bb56-9c01fb09b871/P30-P50-Backend-Interview-Guide.pdf)
+   - [Backend.pdf](https://wac-cdn.atlassian.com/dam/jcr:931efbe4-fa94-4988-9867-7ad172981257/Backend.pdf)
+   - [P60 Backend Engineer Guide](https://wac-cdn.atlassian.com/dam/jcr:7a71f595-39ee-48d1-979b-80f027b9c2d9/P60%20Backend%20Engineer%20Guide.pdf)
+   - [Engineering interviewing resource hub](https://www.atlassian.com/company/careers/resources/interviewing/engineering)
+2. Recruiter email for this role (templated, lower confidence than the official guide where the two conflict — see correction below).
+
+**⚠️ Correction (per the official guide, supersedes the recruiter email's fixed split)**: the official guide describes this specific 45-minute screen as **coding-focused**, assessing coding skill, problem-solving, code quality, and communication. **System design may come up if time allows, but there is no confirmed fixed 20-min-coding/25-min-design split** — treat the "Part 1/Part 2 with a hard cutover at 25 min" structure below as the recruiter's (unconfirmed, possibly templated) description, not an official guarantee. Prepare coding as the primary focus; have a system-design mental model ready as a secondary possibility, not a certainty.
 
 - **Format**: 45-minute **video call with an Atlassian engineer** (not a third-party screener). First technical conversation in the process. Designed for **breadth over depth**.
-- **Part 1 — Coding (20 min)**: One **multi-part** question that **escalates in complexity** as you progress (e.g., basic solution → add a constraint → handle concurrency/scale → optimize). Assessed on:
+- **Part 1 — Coding (primary focus; ~20 min per the recruiter's description, unconfirmed by the official guide)**: One **multi-part** question that **escalates in complexity** as you progress (e.g., basic solution → add a constraint → handle concurrency/scale → optimize). Assessed on:
   - Conceptual thinking and how you write code (not just "does it run").
   - Adaptability — how you modify your existing solution when the problem evolves, rather than starting over.
   - Domain-specific concepts for backend: **data structures and concurrency** explicitly called out.
-  - Your own language/IDE, or the **CodePair** link from the CX coordinator if you don't have one set up — **have this ready before the call**.
+  - Your own language/IDE, or the **CodePair** link if you don't have one set up — **have this ready before the call** (confirmed in the actual invite).
   - **No AI tools** (Copilot, ChatGPT, etc.) — disable AI plugins in your IDE beforehand. Debugging, docs, print statements, Stack Overflow, Google are fine.
   - The interviewer may screenshot/save your code for later reference.
-- **Hard cutover at the 25-minute mark**: the call moves to system design regardless of coding progress. Don't panic if you're not "done" — partial progress with clear reasoning is the signal, not completion.
-- **Part 2 — System Design (15 min)**: Conversation-based, also **escalates in complexity** (e.g., single-node solution → add scale → add a new requirement). Assessed on:
+- **Possible cutover around the 25-minute mark** (recruiter-described, not officially confirmed): the call *may* move to system design regardless of coding progress. Don't panic if you're not "done" — partial progress with clear reasoning is the signal, not completion. If it doesn't happen, be ready to keep going deeper on the coding problem instead.
+- **Part 2 — System Design (secondary, time-permitting — not guaranteed per the official guide)**: Conversation-based, also **escalates in complexity** (e.g., single-node solution → add scale → add a new requirement). Assessed on:
   - Building a workable solution and reasoning about it out loud.
   - Decision discussion — justify trade-offs when asked "why this over that?"
   - Systems thinking — how components interact, not just a list of buzzwords.
@@ -60,7 +70,9 @@ Called out explicitly as a backend-specific assessment area within the coding ro
 
 ## Coding — Actually-Reported Questions
 
-**Source**: aggregated from Atlassian candidate interview-experience posts (LeetCode Discuss interview-experience threads, GeeksforGeeks "Atlassian Interview Experience" posts) — Oct 2026. These are question **themes actually reported** for Atlassian technical/Karat screens, not generic pattern practice — prioritize these over the generic trackers in [`docs/questions-list.md`](../../questions-list.md) if time is short.
+**Source**: aggregated from Atlassian candidate interview-experience posts (LeetCode Discuss, GeeksforGeeks, Glassdoor) — Oct 2026 research pass, deliberately scoped to **exclude Karat-attributed questions** (those live only in the [Fallback: Karat-Run Screen](#fallback-karat-run-screen-unconfirmed--hedge-only) section below — Robot Factory Parts and Delivery Cart Routes are Karat-specific and are *not* duplicated here).
+
+**⚠️ Stage-attribution caveat**: no source found explicitly and unambiguously labels a question as "the single-Atlassian-engineer 45-min screen, specifically not Karat, not onsite." Atlassian interview-experience posts rarely name the screener's identity precisely enough to isolate this exact round. There's also a duration ambiguity worth flagging: some sources describe the **Karat-run** stage as 45 minutes, while Atlassian's own official guide describes the **direct-engineer coding round** as 60 minutes — your actual screen is 45 min but run by a named Atlassian engineer, so it may follow the Karat stage's *duration* while following the direct-engineer loop's *content/format* (per the official PDF: coding skill + code quality + communication, system design only if time allows). Treat everything below as **thematically** reported for Atlassian backend screens/loops in general, not confirmed to this exact round — prioritize the recurring *themes* (rate limiter/concurrency, small extensible OOD class design, string processing) over chasing an exact problem match.
 
 ### String & Stream Processing
 
@@ -75,24 +87,27 @@ Called out explicitly as a backend-specific assessment area within the coding ro
 
 ### Trees & Graphs
 
-* [ ] **Word Search in Matrix, Restricted Movement** (reported: find if a word exists in a 2D matrix, moving **only down or right** — a tighter DFS/DP variant of the classic Word Search, not the free-direction [LeetCode 79](https://leetcode.com/problems/word-search/)) — [source](https://leetcode.com/discuss/post/6344788/Atlassian-or-Senior-Software-Engineer-or-Offer/)
+* [x] **Word Search in Matrix, Restricted Movement** (reported: find if a word exists in a 2D matrix, moving **only down or right** — a tighter DFS/DP variant of the classic Word Search, not the free-direction [LeetCode 79](https://leetcode.com/problems/word-search/)) — [source](https://leetcode.com/discuss/post/6344788/Atlassian-or-Senior-Software-Engineer-or-Offer/)
 * [x] **Lowest Common Ancestor** of a binary tree, with a reported follow-up to **generalize to an N-ary tree** — [LeetCode 236](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/), follow-up [source (Bengaluru SSE report)](https://leetcode.com/discuss/post/6504813/atlassian-sse-interview-bengaluru-reject-o1jm/)
 
 ### Design / Simulation (multi-part, escalating — closest match to the recruiter-described format)
 
 * [ ] **Design Snake Game** (reported variant: "snake grows every 5 moves") — [LeetCode 353](https://leetcode.com/problems/design-snake-game/)
-* [ ] **Rate Limiter**: build incrementally — fixed window → sliding window → token bucket → make it thread-safe (`ConcurrentHashMap`) → make it distributed. No single LeetCode problem matches this; practice building it from scratch in Java, since it's the most consistently reported coding question for backend screens.
 * [ ] **Subscription/Billing Service** (reported with concrete numbers: JIRA $10/mo, CONFLUENCE $7.5/mo, BITBUCKET $8/mo; users buy any combination; given a year of usage (e.g. JIRA 14 days, CONFLUENCE 30 days, BITBUCKET 7 days) calculate monthly billing; follow-ups add discounts and trial periods, extensible design) — an OOP/LLD-style exercise, not a LeetCode problem; model it the way the Salesforce LLD checklist problems are modeled in [`docs/company-specific/salesforce/README-2.md`](../salesforce/README-2.md).
+* [ ] **Voting Algorithm**: determine the most-voted-for person from a stream of votes, with a reported follow-up to discuss extending it via the **Open-Closed Principle** — an OOD/extensibility exercise, not a pure algorithm problem. — [source](https://leetcode.com/discuss/interview-experience/5185865)
 
 ### Additional Practice (Lower Confidence)
 
-**Source**: generic aggregator summaries of Atlassian Senior Backend (P50/P40) interview prep — these titles are **not independently confirmed** by a specific candidate report the way the section above is; treat as reasonable backup practice rather than guaranteed questions.
+**Source**: generic aggregator summaries of Atlassian Senior Backend (P50/P40) interview prep, plus Glassdoor's role-filtered aggregate text for Senior Backend/Backend SWE — these titles are **not independently confirmed** by a specific candidate report the way the section above is; treat as reasonable backup practice rather than guaranteed questions.
 
 * [ ] **Merge Intervals** — [LeetCode 56](https://leetcode.com/problems/merge-intervals/)
 * [ ] **Top K Frequent Elements** — [LeetCode 347](https://leetcode.com/problems/top-k-frequent-elements/)
 * [ ] **Word Break** — [LeetCode 139](https://leetcode.com/problems/word-break/)
 * [ ] **Clone Graph** — [LeetCode 133](https://leetcode.com/problems/clone-graph/)
 * [ ] **LRU Cache with O(1) get/put** — [LeetCode 146](https://leetcode.com/problems/lru-cache/) (also doubles as backend-relevant: this is the most-cited LLD-adjacent coding problem for Atlassian senior backend loops specifically, even outside the technical screen).
+* [ ] **Trie Implementation** (insert/search/startsWith from scratch) — see [`concepts/trie/info.md`](../../../concepts/trie/info.md) for the reference implementation and patterns.
+* [ ] **Middleware Router with Regex Route Matching**: design a small HTTP-router-like class that registers path patterns (with wildcards/regex segments) and dispatches to the right handler — an OOD/string-matching hybrid, matches the "small system/class design over pure algorithm" theme.
+* [ ] **URL Shortener**: classic LLD — encode/decode scheme, collision handling, storage model; practice narrating the design even though it's framed as a coding exercise here, not the System Design round.
 
 ## Coding — Concurrency Practice
 
@@ -102,14 +117,17 @@ Practice these specifically to rehearse the "escalate to concurrency" twist the 
 * [ ] **Producer-Consumer with `BlockingQueue`**: implement from scratch using `wait`/`notify`, then again with `java.util.concurrent.BlockingQueue` — be ready to explain both.
 * [ ] **Thread-Safe Counter / Bank Account**: implement with `synchronized`, then re-implement with `AtomicLong` or `ReentrantLock` — articulate the trade-off.
 * [ ] **Thread-Safe LRU Cache**: take your LRU Cache solution above and make it safe for concurrent `get`/`put` — a very plausible "escalation" twist on a classic problem.
+* [ ] **Multithreaded Report Generation**: given files grouped by a collection ID, generate a report per collection using multiple threads safely (aggregation + thread-pool coordination) — [source](https://leetcode.com/discuss/interview-experience/5185865)
 
 ---
 
 ## System Design Talking Points (Escalating)
 
+**Repo split**: as of this pass, DSA-flavored coding problems are tracked and solved in *this* repo; system-design-flavored problems (scaling, concurrency-as-architecture, distributed state) are tracked and solved in the sibling [`system-design`](https://github.com/ShubhamChouksey123/system-design) repo under its own `docs/company-specific/atlassian/`. Rate Limiter moved there in full (see below) since it's reported as escalating specifically into distributed/concurrent territory.
+
 Practice walking each of these from a simple single-node version to a scaled, more complete version — mirroring how the real round escalates. For each: start with the simplest workable design, then layer on constraints (scale, consistency, new requirement) and narrate the trade-off at each step.
 
-* [ ] **Rate Limiter**: single-instance in-memory token bucket → distributed, Redis-backed, multi-instance consistent limiting.
+* [x] **Rate Limiter**: single-instance in-memory token bucket → distributed, Redis-backed, multi-instance consistent limiting. Problem writeup (scaling/distributed half): [`rate-limiter.md`](https://github.com/ShubhamChouksey123/system-design/blob/master/docs/company-specific/atlassian/rate-limiter.md) (`system-design` repo). **Solved** (class-design/algorithm half — pluggable fixed-window/sliding-window/token-bucket strategy): [`session-07-rate-limiter.md`](https://github.com/ShubhamChouksey123/low-level-design/blob/main/practice/session-07-rate-limiter.md) (`low-level-design` repo).
 * [ ] **Notification System**: simple single-channel send → multi-channel fan-out (email/in-app/push) with dedup and retry/backoff.
 * [ ] **Key-Value Store**: in-memory hash map → add TTL/eviction → add concurrent access safety → add sharding across nodes.
 * [ ] **Tagging / Hashtag Aggregation** (Atlassian-flavored — Jira issues, Confluence pages): single-table tag lookup → efficient cross-entity tag queries at scale → real-time index updates as tags change.
@@ -168,3 +186,5 @@ If this format shows up instead: the **Coding** and **System Design** problem li
 - Recruiter email confirming the actual Atlassian technical screen format for this role (primary source — Oct 2026).
 - [Atlassian: How to Nail Your Engineering Interview](https://www.atlassian.com/company/careers/resources/interviewing/how-to-nail-your-engineering-interview)
 - [Target job posting: Senior Backend Software Engineer @ Atlassian](https://simplify.jobs/p/470f544d-5181-41e5-ba1e-b9bc4fb32078/Senior-Backend-Software-Engineer)
+- https://leetcode.com/discuss/post/6817408/atlassian-interview-experience-p50-senio-t1zu/
+- https://www.glassdoor.co.in/Interview/Atlassian-Senior-Backend-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,42.htm
