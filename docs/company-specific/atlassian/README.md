@@ -12,12 +12,12 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `7/36 items completed`
+Track your overall progress: `10/36 items completed`
 
 | Section | Progress |
 |---------|----------|
 | Concurrency & Data Structure Fundamentals | `0/4` |
-| Coding — Actually-Reported Questions | `5/10` |
+| Coding — Actually-Reported Questions | `8/10` |
 | Coding — Additional Practice (Lower Confidence) | `1/7` |
 | Coding — Concurrency Practice | `0/5` |
 | System Design Talking Points (Escalating) | `1/4` |
@@ -94,9 +94,9 @@ Called out explicitly as a backend-specific assessment area within the coding ro
 
 ### Design / Simulation (multi-part, escalating — closest match to the recruiter-described format)
 
-* [ ] **`[LLD]`** **Design Snake Game** (reported variant: "snake grows every 5 moves") — [LeetCode 353](https://leetcode.com/problems/design-snake-game/). Confirmed `[LLD]`: reported solutions use a concrete deque + hash-set data structure for the snake body/collision check — [source](https://leetcode.com/discuss/post/6807250).
-* [ ] **`[LLD]`, with an `[HLD]` follow-up** **Subscription/Billing Service** (reported with concrete numbers: JIRA $10/mo, CONFLUENCE $7.5/mo, BITBUCKET $8/mo; users buy any combination; given a year of usage (e.g. JIRA 14 days, CONFLUENCE 30 days, BITBUCKET 7 days) calculate monthly billing; follow-ups add discounts and trial periods, extensible design) — an OOP/LLD-style exercise, not a LeetCode problem; model it the way the Salesforce LLD checklist problems are modeled in [`docs/company-specific/salesforce/README-2.md`](../salesforce/README-2.md). Confirmed `[LLD]`-first: source explicitly says "write modular, extensible code using OOP principles" with a concrete `monthlyCostList()`/`annualCost()` API; a separate report frames a "Cost Explorer" follow-up as partitioning/caching discussion (`[HLD]`) — [sources](https://leetcode.com/discuss/post/6907694).
-* [ ] **`[LLD]`** **Voting Algorithm**: determine the most-voted-for person from a stream of votes, with a reported follow-up to discuss extending it via the **Open-Closed Principle** — an OOD/extensibility exercise, not a pure algorithm problem. Confirmed `[LLD]` (medium confidence — exact source post couldn't be re-verified, closest match implements ballot processing with weighted points + tie-break logic using concrete data structures) — [source](https://leetcode.com/discuss/interview-question/6061641).
+* [x] **`[LLD]`** **Design Snake Game** (reported variant: "snake grows every 5 moves") — [LeetCode 353](https://leetcode.com/problems/design-snake-game/). Confirmed `[LLD]`: reported solutions use a concrete deque + hash-set data structure for the snake body/collision check — [source](https://leetcode.com/discuss/post/6807250). **Solved**: [`session-10-snake-game.md`](https://github.com/ShubhamChouksey123/low-level-design/blob/main/practice/session-10-snake-game.md) (`low-level-design` repo).
+* [x] **`[LLD]`, with an `[HLD]` follow-up** **Subscription/Billing Service** (reported with concrete numbers: JIRA $10/mo, CONFLUENCE $7.5/mo, BITBUCKET $8/mo; users buy any combination; given a year of usage (e.g. JIRA 14 days, CONFLUENCE 30 days, BITBUCKET 7 days) calculate monthly billing; follow-ups add discounts and trial periods, extensible design) — an OOP/LLD-style exercise, not a LeetCode problem; model it the way the Salesforce LLD checklist problems are modeled in [`docs/company-specific/salesforce/README-2.md`](../salesforce/README-2.md). Confirmed `[LLD]`-first: source explicitly says "write modular, extensible code using OOP principles" with a concrete `monthlyCostList()`/`annualCost()` API; a separate report frames a "Cost Explorer" follow-up as partitioning/caching discussion (`[HLD]`) — [sources](https://leetcode.com/discuss/post/6907694). **Solved** (`[LLD]` class-design half): [`session-08-subscription-billing.md`](https://github.com/ShubhamChouksey123/low-level-design/blob/main/practice/session-08-subscription-billing.md) (`low-level-design` repo).
+* [x] **`[LLD]`** **Voting Algorithm**: determine the most-voted-for person from a stream of votes, with a reported follow-up to discuss extending it via the **Open-Closed Principle** — an OOD/extensibility exercise, not a pure algorithm problem. Confirmed `[LLD]` (medium confidence — exact source post couldn't be re-verified, closest match implements ballot processing with weighted points + tie-break logic using concrete data structures) — [source](https://leetcode.com/discuss/interview-question/6061641). **Solved**: [`session-09-voting-algorithm.md`](https://github.com/ShubhamChouksey123/low-level-design/blob/main/practice/session-09-voting-algorithm.md) (`low-level-design` repo).
 
 ### Additional Practice (Lower Confidence)
 
