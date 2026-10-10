@@ -12,13 +12,13 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `6/37 items completed`
+Track your overall progress: `7/36 items completed`
 
 | Section | Progress |
 |---------|----------|
 | Concurrency & Data Structure Fundamentals | `0/4` |
 | Coding — Actually-Reported Questions | `5/10` |
-| Coding — Additional Practice (Lower Confidence) | `0/8` |
+| Coding — Additional Practice (Lower Confidence) | `1/7` |
 | Coding — Concurrency Practice | `0/5` |
 | System Design Talking Points (Escalating) | `1/4` |
 | Fallback: Karat-Run Screen Fundamentals & DSA | `0/6` |
@@ -74,6 +74,8 @@ Called out explicitly as a backend-specific assessment area within the coding ro
 
 **⚠️ Stage-attribution caveat**: no source found explicitly and unambiguously labels a question as "the single-Atlassian-engineer 45-min screen, specifically not Karat, not onsite." Atlassian interview-experience posts rarely name the screener's identity precisely enough to isolate this exact round. There's also a duration ambiguity worth flagging: some sources describe the **Karat-run** stage as 45 minutes, while Atlassian's own official guide describes the **direct-engineer coding round** as 60 minutes — your actual screen is 45 min but run by a named Atlassian engineer, so it may follow the Karat stage's *duration* while following the direct-engineer loop's *content/format* (per the official PDF: coding skill + code quality + communication, system design only if time allows). Treat everything below as **thematically** reported for Atlassian backend screens/loops in general, not confirmed to this exact round — prioritize the recurring *themes* (rate limiter/concurrency, small extensible OOD class design, string processing) over chasing an exact problem match.
 
+**🏷️ LLD vs. HLD tagging (Oct 2026 research pass)**: every item below is now tagged **`[LLD]`** (write actual code — class/interface design, OOP patterns, in a live IDE), **`[HLD]`** (verbal/whiteboard architecture only — scaling, DBs, caching, no code), or **`[LLD+HLD]`** (reported as both, usually a coding stage followed by a "now scale it" verbal follow-up). This matters because `[LLD]` items need hands-on code-writing reps; `[HLD]` items need verbal rehearsal only — don't spend code-writing time on an `[HLD]`-only item. Items confirmed `[HLD]`-only were cross-checked against the DSA-vs-system-design repo split and, where miscategorized, moved to the `system-design` repo (see URL Shortener below).
+
 ### String & Stream Processing
 
 * [x] **First Unique Character in a String** (reported follow-up: handle a streaming input / Unicode / huge strings) — [LeetCode 387](https://leetcode.com/problems/first-unique-character-in-a-string/)
@@ -92,32 +94,34 @@ Called out explicitly as a backend-specific assessment area within the coding ro
 
 ### Design / Simulation (multi-part, escalating — closest match to the recruiter-described format)
 
-* [ ] **Design Snake Game** (reported variant: "snake grows every 5 moves") — [LeetCode 353](https://leetcode.com/problems/design-snake-game/)
-* [ ] **Subscription/Billing Service** (reported with concrete numbers: JIRA $10/mo, CONFLUENCE $7.5/mo, BITBUCKET $8/mo; users buy any combination; given a year of usage (e.g. JIRA 14 days, CONFLUENCE 30 days, BITBUCKET 7 days) calculate monthly billing; follow-ups add discounts and trial periods, extensible design) — an OOP/LLD-style exercise, not a LeetCode problem; model it the way the Salesforce LLD checklist problems are modeled in [`docs/company-specific/salesforce/README-2.md`](../salesforce/README-2.md).
-* [ ] **Voting Algorithm**: determine the most-voted-for person from a stream of votes, with a reported follow-up to discuss extending it via the **Open-Closed Principle** — an OOD/extensibility exercise, not a pure algorithm problem. — [source](https://leetcode.com/discuss/interview-experience/5185865)
+* [ ] **`[LLD]`** **Design Snake Game** (reported variant: "snake grows every 5 moves") — [LeetCode 353](https://leetcode.com/problems/design-snake-game/). Confirmed `[LLD]`: reported solutions use a concrete deque + hash-set data structure for the snake body/collision check — [source](https://leetcode.com/discuss/post/6807250).
+* [ ] **`[LLD]`, with an `[HLD]` follow-up** **Subscription/Billing Service** (reported with concrete numbers: JIRA $10/mo, CONFLUENCE $7.5/mo, BITBUCKET $8/mo; users buy any combination; given a year of usage (e.g. JIRA 14 days, CONFLUENCE 30 days, BITBUCKET 7 days) calculate monthly billing; follow-ups add discounts and trial periods, extensible design) — an OOP/LLD-style exercise, not a LeetCode problem; model it the way the Salesforce LLD checklist problems are modeled in [`docs/company-specific/salesforce/README-2.md`](../salesforce/README-2.md). Confirmed `[LLD]`-first: source explicitly says "write modular, extensible code using OOP principles" with a concrete `monthlyCostList()`/`annualCost()` API; a separate report frames a "Cost Explorer" follow-up as partitioning/caching discussion (`[HLD]`) — [sources](https://leetcode.com/discuss/post/6907694).
+* [ ] **`[LLD]`** **Voting Algorithm**: determine the most-voted-for person from a stream of votes, with a reported follow-up to discuss extending it via the **Open-Closed Principle** — an OOD/extensibility exercise, not a pure algorithm problem. Confirmed `[LLD]` (medium confidence — exact source post couldn't be re-verified, closest match implements ballot processing with weighted points + tie-break logic using concrete data structures) — [source](https://leetcode.com/discuss/interview-question/6061641).
 
 ### Additional Practice (Lower Confidence)
 
 **Source**: generic aggregator summaries of Atlassian Senior Backend (P50/P40) interview prep, plus Glassdoor's role-filtered aggregate text for Senior Backend/Backend SWE — these titles are **not independently confirmed** by a specific candidate report the way the section above is; treat as reasonable backup practice rather than guaranteed questions.
 
-* [ ] **Merge Intervals** — [LeetCode 56](https://leetcode.com/problems/merge-intervals/)
-* [ ] **Top K Frequent Elements** — [LeetCode 347](https://leetcode.com/problems/top-k-frequent-elements/)
-* [ ] **Word Break** — [LeetCode 139](https://leetcode.com/problems/word-break/)
-* [ ] **Clone Graph** — [LeetCode 133](https://leetcode.com/problems/clone-graph/)
-* [ ] **LRU Cache with O(1) get/put** — [LeetCode 146](https://leetcode.com/problems/lru-cache/) (also doubles as backend-relevant: this is the most-cited LLD-adjacent coding problem for Atlassian senior backend loops specifically, even outside the technical screen).
-* [ ] **Trie Implementation** (insert/search/startsWith from scratch) — see [`concepts/trie/info.md`](../../../concepts/trie/info.md) for the reference implementation and patterns.
-* [ ] **Middleware Router with Regex Route Matching**: design a small HTTP-router-like class that registers path patterns (with wildcards/regex segments) and dispatches to the right handler — an OOD/string-matching hybrid, matches the "small system/class design over pure algorithm" theme.
-* [ ] **URL Shortener**: classic LLD — encode/decode scheme, collision handling, storage model; practice narrating the design even though it's framed as a coding exercise here, not the System Design round.
+* [ ] **`[LLD]`** **Merge Intervals** — [LeetCode 56](https://leetcode.com/problems/merge-intervals/)
+* [x] **`[LLD]`** **Top K Frequent Elements** — [LeetCode 347](https://leetcode.com/problems/top-k-frequent-elements/)
+* [ ] **`[LLD]`** **Word Break** — [LeetCode 139](https://leetcode.com/problems/word-break/)
+* [ ] **`[LLD]`** **Clone Graph** — [LeetCode 133](https://leetcode.com/problems/clone-graph/)
+* [ ] **`[LLD]`** **LRU Cache with O(1) get/put** — [LeetCode 146](https://leetcode.com/problems/lru-cache/) (also doubles as backend-relevant: this is the most-cited LLD-adjacent coding problem for Atlassian senior backend loops specifically, even outside the technical screen).
+* [ ] **`[LLD]`** **Trie Implementation** (insert/search/startsWith from scratch) — see [`concepts/trie/info.md`](../../../concepts/trie/info.md) for the reference implementation and patterns. Confirmed `[LLD]`: a standard coding-round question, not a standalone system-design one.
+* [ ] **`[LLD]` (lean, ambiguous source)** **Middleware Router with Regex Route Matching**: design a small HTTP-router-like class that registers path patterns (with wildcards/regex segments) and dispatches to the right handler — an OOD/string-matching hybrid, matches the "small system/class design over pure algorithm" theme. Source only confirms the *topic* (regex route matching), not code-vs-verbal framing — classified `[LLD]` by convention (it's phrased as "design a router *class*").
+
+**Moved to `system-design` repo (confirmed `[HLD]`-only, no code-writing signal in any source)**:
+- **URL Shortener** — every source frames this as a full system-design exercise (load balancer, cache, DB sharding, ID-generation scheme), never a coding exercise. Problem writeup: [`url-shortener.md`](https://github.com/ShubhamChouksey123/system-design/blob/master/docs/company-specific/atlassian/url-shortener.md).
 
 ## Coding — Concurrency Practice
 
-Practice these specifically to rehearse the "escalate to concurrency" twist the coding question may apply to a plain data-structure problem.
+**All `[LLD]`** — concurrency primitives are universally taught/asked as hands-on "write the class" exercises (`ReentrantLock` + condition variables, `LinkedHashMap`-based LRU, etc.), never as verbal-only system design, per general industry convention. Practice these specifically to rehearse the "escalate to concurrency" twist the coding question may apply to a plain data-structure problem.
 
-* [ ] **Design Bounded Blocking Queue** — [LeetCode 1188](https://leetcode.com/problems/design-bounded-blocking-queue/)
-* [ ] **Producer-Consumer with `BlockingQueue`**: implement from scratch using `wait`/`notify`, then again with `java.util.concurrent.BlockingQueue` — be ready to explain both.
-* [ ] **Thread-Safe Counter / Bank Account**: implement with `synchronized`, then re-implement with `AtomicLong` or `ReentrantLock` — articulate the trade-off.
-* [ ] **Thread-Safe LRU Cache**: take your LRU Cache solution above and make it safe for concurrent `get`/`put` — a very plausible "escalation" twist on a classic problem.
-* [ ] **Multithreaded Report Generation**: given files grouped by a collection ID, generate a report per collection using multiple threads safely (aggregation + thread-pool coordination) — [source](https://leetcode.com/discuss/interview-experience/5185865)
+* [ ] **`[LLD]`** **Design Bounded Blocking Queue** — [LeetCode 1188](https://leetcode.com/problems/design-bounded-blocking-queue/)
+* [ ] **`[LLD]`** **Producer-Consumer with `BlockingQueue`**: implement from scratch using `wait`/`notify`, then again with `java.util.concurrent.BlockingQueue` — be ready to explain both.
+* [ ] **`[LLD]`** **Thread-Safe Counter / Bank Account**: implement with `synchronized`, then re-implement with `AtomicLong` or `ReentrantLock` — articulate the trade-off.
+* [ ] **`[LLD]`** **Thread-Safe LRU Cache**: take your LRU Cache solution above and make it safe for concurrent `get`/`put` — a very plausible "escalation" twist on a classic problem.
+* [ ] **`[LLD]`** **Multithreaded Report Generation**: given files grouped by a collection ID, generate a report per collection using multiple threads safely (aggregation + thread-pool coordination). Confirmed `[LLD]`: source describes designing classes to aggregate file/collection sizes with explicit multithreading, not a verbal architecture discussion — [source](https://leetcode.com/discuss/post/6344788).
 
 ---
 
@@ -125,12 +129,14 @@ Practice these specifically to rehearse the "escalate to concurrency" twist the 
 
 **Repo split**: as of this pass, DSA-flavored coding problems are tracked and solved in *this* repo; system-design-flavored problems (scaling, concurrency-as-architecture, distributed state) are tracked and solved in the sibling [`system-design`](https://github.com/ShubhamChouksey123/system-design) repo under its own `docs/company-specific/atlassian/`. Rate Limiter moved there in full (see below) since it's reported as escalating specifically into distributed/concurrent territory.
 
+**All four items below confirmed `[HLD]`-only** (Oct 2026 research pass) — every source frames them as verbal/architecture discussions (partitioning, replication, consistency, caching), with no code-writing signal found anywhere, so no code-writing reps are needed for these specifically (beyond Rate Limiter's separately-tracked LLD half):
+
 Practice walking each of these from a simple single-node version to a scaled, more complete version — mirroring how the real round escalates. For each: start with the simplest workable design, then layer on constraints (scale, consistency, new requirement) and narrate the trade-off at each step.
 
-* [x] **Rate Limiter**: single-instance in-memory token bucket → distributed, Redis-backed, multi-instance consistent limiting. Problem writeup (scaling/distributed half): [`rate-limiter.md`](https://github.com/ShubhamChouksey123/system-design/blob/master/docs/company-specific/atlassian/rate-limiter.md) (`system-design` repo). **Solved** (class-design/algorithm half — pluggable fixed-window/sliding-window/token-bucket strategy): [`session-07-rate-limiter.md`](https://github.com/ShubhamChouksey123/low-level-design/blob/main/practice/session-07-rate-limiter.md) (`low-level-design` repo).
-* [ ] **Notification System**: simple single-channel send → multi-channel fan-out (email/in-app/push) with dedup and retry/backoff.
-* [ ] **Key-Value Store**: in-memory hash map → add TTL/eviction → add concurrent access safety → add sharding across nodes.
-* [ ] **Tagging / Hashtag Aggregation** (Atlassian-flavored — Jira issues, Confluence pages): single-table tag lookup → efficient cross-entity tag queries at scale → real-time index updates as tags change.
+* [x] **`[LLD+HLD]`** **Rate Limiter**: single-instance in-memory token bucket → distributed, Redis-backed, multi-instance consistent limiting. Problem writeup (`[HLD]` scaling/distributed half): [`rate-limiter.md`](https://github.com/ShubhamChouksey123/system-design/blob/master/docs/company-specific/atlassian/rate-limiter.md) (`system-design` repo). **Solved** (`[LLD]` class-design/algorithm half — pluggable fixed-window/sliding-window/token-bucket strategy): [`session-07-rate-limiter.md`](https://github.com/ShubhamChouksey123/low-level-design/blob/main/practice/session-07-rate-limiter.md) (`low-level-design` repo).
+* [ ] **`[HLD]`** **Notification System**: simple single-channel send → multi-channel fan-out (email/in-app/push) with dedup and retry/backoff.
+* [ ] **`[HLD]`** **Key-Value Store**: in-memory hash map → add TTL/eviction → add concurrent access safety → add sharding across nodes.
+* [ ] **`[HLD]`** **Tagging / Hashtag Aggregation** (Atlassian-flavored — Jira issues, Confluence pages): single-table tag lookup → efficient cross-entity tag queries at scale → real-time index updates as tags change. Confirmed `[HLD]`-only: the Karat-reported version of this question is explicitly framed as a "system design round" (API design, DB schema, scalability) in every source found — no report shows it as a code-writing exercise, so it correctly belongs only here and in the Karat fallback section below, not in any coding list.
 
 ---
 
