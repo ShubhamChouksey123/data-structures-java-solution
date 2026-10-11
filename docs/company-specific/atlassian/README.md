@@ -12,13 +12,13 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `10/36 items completed`
+Track your overall progress: `11/36 items completed`
 
 | Section | Progress |
 |---------|----------|
 | Concurrency & Data Structure Fundamentals | `0/4` |
 | Coding — Actually-Reported Questions | `8/10` |
-| Coding — Additional Practice (Lower Confidence) | `1/7` |
+| Coding — Additional Practice (Lower Confidence) | `2/7` |
 | Coding — Concurrency Practice | `0/5` |
 | System Design Talking Points (Escalating) | `1/4` |
 | Fallback: Karat-Run Screen Fundamentals & DSA | `0/6` |
@@ -106,7 +106,7 @@ Called out explicitly as a backend-specific assessment area within the coding ro
 * [x] **`[LLD]`** **Top K Frequent Elements** — [LeetCode 347](https://leetcode.com/problems/top-k-frequent-elements/)
 * [ ] **`[LLD]`** **Word Break** — [LeetCode 139](https://leetcode.com/problems/word-break/)
 * [ ] **`[LLD]`** **Clone Graph** — [LeetCode 133](https://leetcode.com/problems/clone-graph/)
-* [ ] **`[LLD]`** **LRU Cache with O(1) get/put** — [LeetCode 146](https://leetcode.com/problems/lru-cache/) (also doubles as backend-relevant: this is the most-cited LLD-adjacent coding problem for Atlassian senior backend loops specifically, even outside the technical screen).
+* [x] **`[LLD]`** **LRU Cache with O(1) get/put** — [LeetCode 146](https://leetcode.com/problems/lru-cache/) (also doubles as backend-relevant: this is the most-cited LLD-adjacent coding problem for Atlassian senior backend loops specifically, even outside the technical screen). **Solved**: [`session-11-lru-cache.md`](https://github.com/ShubhamChouksey123/low-level-design/blob/main/practice/session-11-lru-cache.md) (`low-level-design` repo).
 * [ ] **`[LLD]`** **Trie Implementation** (insert/search/startsWith from scratch) — see [`concepts/trie/info.md`](../../../concepts/trie/info.md) for the reference implementation and patterns. Confirmed `[LLD]`: a standard coding-round question, not a standalone system-design one.
 * [ ] **`[LLD]` (lean, ambiguous source)** **Middleware Router with Regex Route Matching**: design a small HTTP-router-like class that registers path patterns (with wildcards/regex segments) and dispatches to the right handler — an OOD/string-matching hybrid, matches the "small system/class design over pure algorithm" theme. Source only confirms the *topic* (regex route matching), not code-vs-verbal framing — classified `[LLD]` by convention (it's phrased as "design a router *class*").
 
