@@ -12,14 +12,14 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `11/36 items completed`
+Track your overall progress: `13/36 items completed`
 
 | Section | Progress |
 |---------|----------|
 | Concurrency & Data Structure Fundamentals | `0/4` |
-| Coding — Actually-Reported Questions | `8/10` |
+| Coding — Actually-Reported Questions | `9/10` |
 | Coding — Additional Practice (Lower Confidence) | `2/7` |
-| Coding — Concurrency Practice | `0/5` |
+| Coding — Concurrency Practice | `1/5` |
 | System Design Talking Points (Escalating) | `1/4` |
 | Fallback: Karat-Run Screen Fundamentals & DSA | `0/6` |
 
@@ -79,7 +79,7 @@ Called out explicitly as a backend-specific assessment area within the coding ro
 ### String & Stream Processing
 
 * [x] **First Unique Character in a String** (reported follow-up: handle a streaming input / Unicode / huge strings) — [LeetCode 387](https://leetcode.com/problems/first-unique-character-in-a-string/)
-* [ ] **First Unique Number in a Stream** — the natural escalation of the above when data arrives continuously instead of as a fixed string — [LeetCode 1429](https://leetcode.com/problems/first-unique-number/)
+* [x] **First Unique Number in a Stream** — the natural escalation of the above when data arrives continuously instead of as a fixed string — [LeetCode 1429](https://leetcode.com/problems/first-unique-number/). **Solved**: [`FirstUnique.java`](https://github.com/ShubhamChouksey123/low-level-design/blob/main/src/main/java/com/shubham/app/firstunique/practice/FirstUnique.java) (`low-level-design` repo).
 * [x] **Find Words That Can Be Formed by Characters** (reported as: "count the number of words that can be formed from a given string") — [LeetCode 1160](https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/)
 * [ ] **Word Wrap / Split a String Into Lines Without Breaking Words** (reported as: "count characters and split a string into lines without breaking words") — closest LeetCode equivalent: [LeetCode 68 - Text Justification](https://leetcode.com/problems/text-justification/)
 
@@ -120,7 +120,7 @@ Called out explicitly as a backend-specific assessment area within the coding ro
 * [ ] **`[LLD]`** **Design Bounded Blocking Queue** — [LeetCode 1188](https://leetcode.com/problems/design-bounded-blocking-queue/)
 * [ ] **`[LLD]`** **Producer-Consumer with `BlockingQueue`**: implement from scratch using `wait`/`notify`, then again with `java.util.concurrent.BlockingQueue` — be ready to explain both.
 * [ ] **`[LLD]`** **Thread-Safe Counter / Bank Account**: implement with `synchronized`, then re-implement with `AtomicLong` or `ReentrantLock` — articulate the trade-off.
-* [ ] **`[LLD]`** **Thread-Safe LRU Cache**: take your LRU Cache solution above and make it safe for concurrent `get`/`put` — a very plausible "escalation" twist on a classic problem.
+* [x] **`[LLD]`** **Thread-Safe LRU Cache**: take your LRU Cache solution above and make it safe for concurrent `get`/`put` — a very plausible "escalation" twist on a classic problem. **Solved** (link pending — add session reference when available).
 * [ ] **`[LLD]`** **Multithreaded Report Generation**: given files grouped by a collection ID, generate a report per collection using multiple threads safely (aggregation + thread-pool coordination). Confirmed `[LLD]`: source describes designing classes to aggregate file/collection sizes with explicit multithreading, not a verbal architecture discussion — [source](https://leetcode.com/discuss/post/6344788).
 
 ---
