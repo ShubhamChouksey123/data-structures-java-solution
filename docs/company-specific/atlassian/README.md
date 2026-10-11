@@ -12,16 +12,16 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `13/36 items completed`
+Track your overall progress: `19/36 items completed`
 
 | Section | Progress |
 |---------|----------|
-| Concurrency & Data Structure Fundamentals | `0/4` |
-| Coding — Actually-Reported Questions | `9/10` |
+| Concurrency & Data Structure Fundamentals | `3/4` |
+| Coding — Actually-Reported Questions | `10/10` |
 | Coding — Additional Practice (Lower Confidence) | `2/7` |
 | Coding — Concurrency Practice | `1/5` |
 | System Design Talking Points (Escalating) | `1/4` |
-| Fallback: Karat-Run Screen Fundamentals & DSA | `0/6` |
+| Fallback: Karat-Run Screen Fundamentals & DSA | `2/6` |
 
 ---
 
@@ -59,12 +59,12 @@ Track your overall progress: `13/36 items completed`
 
 ## Concurrency & Data Structure Fundamentals
 
-Called out explicitly as a backend-specific assessment area within the coding round — review before the call, not during it.
+Called out explicitly as a backend-specific assessment area within the coding round — review before the call, not during it. Condensed cheat sheet for all four: [`concurrency-ds-cheatsheet.md`](concurrency-ds-cheatsheet.md).
 
-* [ ] **Concurrency primitives**: `synchronized`, `ReentrantLock`, `Semaphore`, `volatile`, atomic variables (`AtomicInteger`, etc.) — know when each applies and why.
+* [x] **Concurrency primitives**: `synchronized`, `ReentrantLock`, `Semaphore`, `volatile`, atomic variables (`AtomicInteger`, etc.) — know when each applies and why. Moved to the `low-level-design` repo (generic Java/LLD knowledge, not Atlassian-specific): [`concepts/concurrency-primitives.md`](https://github.com/ShubhamChouksey123/low-level-design/blob/main/concepts/concurrency-primitives.md).
 * [ ] **`java.util.concurrent` toolkit**: `ConcurrentHashMap`, `BlockingQueue` family, `ExecutorService`/thread pools, `CountDownLatch`, `CyclicBarrier`.
-* [ ] **Common concurrency bugs**: race conditions, deadlock vs. livelock vs. starvation — be able to spot and name these in a code snippet, not just define them.
-* [ ] **Data structure complexity refresh**: Big-O for array/ArrayList, LinkedList, HashMap, TreeMap, Heap/PriorityQueue operations — the question will likely pick a structure and probe your reasoning as it escalates.
+* [x] **Common concurrency bugs**: race conditions, deadlock vs. livelock vs. starvation — be able to spot and name these in a code snippet, not just define them.
+* [x] **Data structure complexity refresh**: Big-O for array/ArrayList, LinkedList, HashMap, TreeMap, Heap/PriorityQueue operations — the question will likely pick a structure and probe your reasoning as it escalates.
 
 ---
 
@@ -81,7 +81,7 @@ Called out explicitly as a backend-specific assessment area within the coding ro
 * [x] **First Unique Character in a String** (reported follow-up: handle a streaming input / Unicode / huge strings) — [LeetCode 387](https://leetcode.com/problems/first-unique-character-in-a-string/)
 * [x] **First Unique Number in a Stream** — the natural escalation of the above when data arrives continuously instead of as a fixed string — [LeetCode 1429](https://leetcode.com/problems/first-unique-number/). **Solved**: [`FirstUnique.java`](https://github.com/ShubhamChouksey123/low-level-design/blob/main/src/main/java/com/shubham/app/firstunique/practice/FirstUnique.java) (`low-level-design` repo).
 * [x] **Find Words That Can Be Formed by Characters** (reported as: "count the number of words that can be formed from a given string") — [LeetCode 1160](https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/)
-* [ ] **Word Wrap / Split a String Into Lines Without Breaking Words** (reported as: "count characters and split a string into lines without breaking words") — closest LeetCode equivalent: [LeetCode 68 - Text Justification](https://leetcode.com/problems/text-justification/)
+* [x] **Word Wrap / Split a String Into Lines Without Breaking Words** (reported as: "count characters and split a string into lines without breaking words") — closest LeetCode equivalent: [LeetCode 68 - Text Justification](https://leetcode.com/problems/text-justification/). **⚠️ Scope note**: LC68 is a *superset* of what was actually reported — it adds space-padding/justification on top of the core "pack words into a line without breaking one" logic, which is all the reported description mentions. Solving LC68 covers the harder version (and thus the easier one too), but don't assume the real question wants justified/padded output — confirm scope before building that part. **Solved**: [`68-Text-Justification.java`](https://github.com/ShubhamChouksey123/problem-solving/blob/master/68-Text-Justification.java) (`problem-solving` repo).
 
 ### Search & Arrays
 
@@ -161,8 +161,8 @@ These are "explain your approach in a few minutes" style, not full whiteboard se
 
 **Karat-reported DSA coding problems** (distinct Karat-stage report, [source](https://leetcode.com/discuss/post/6926273/atlassian-p50-karat-stage-by-anonymous_u-yja9/)):
 
-* [ ] **Robot Factory Parts**: given a list of available parts and, for each robot, its list of required parts, return which robots can be fully built (multiset/frequency-count matching — `HashMap<String, Integer>` of available-part counts vs. each robot's requirement).
-* [ ] **Delivery Cart Routes**: given a set of directed routes between locations, identify valid start locations (no incoming edges) and all possible ending locations (leaf nodes) reachable from each start — build a graph, then DFS/BFS from origin nodes to leaves.
+* [x] **Robot Factory Parts**: given a list of available parts and, for each robot, its list of required parts, return which robots can be fully built (multiset/frequency-count matching — `HashMap<String, Integer>` of available-part counts vs. each robot's requirement). Problem writeup: [`robot-factory-parts.md`](robot-factory-parts.md). **Solved** (verified correct against the problem's worked example): [`RobotFactory.java`](../../../src/main/java/dev/shubham/problems/atlassian/RobotFactory.java).
+* [x] **Delivery Cart Routes**: given a set of directed routes between locations, identify valid start locations (no incoming edges) and all possible ending locations (leaf nodes) reachable from each start — build a graph, then DFS/BFS from origin nodes to leaves. Problem writeup: [`delivery-cart-routes.md`](delivery-cart-routes.md). **Solved** (verified correct, including cycle-safety via a `visited` set): [`DeliveryCart.java`](../../../src/main/java/dev/shubham/problems/atlassian/DeliveryCart.java).
 
 **Also worth knowing for this role level**: the same report stresses that for P50/P60 seniors, the **Values and Managerial rounds later in the loop** (not the technical screen) carry real weight — Atlassian can downlevel or reject on these even after strong technical rounds. Not actionable for *this* screen, but worth keeping in mind for the rounds that follow it.
 
