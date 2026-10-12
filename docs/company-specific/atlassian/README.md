@@ -12,15 +12,15 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `19/36 items completed`
+Track your overall progress: `21/36 items completed`
 
 | Section | Progress |
 |---------|----------|
 | Concurrency & Data Structure Fundamentals | `3/4` |
 | Coding — Actually-Reported Questions | `10/10` |
-| Coding — Additional Practice (Lower Confidence) | `2/7` |
+| Coding — Additional Practice (Lower Confidence) | `3/7` |
 | Coding — Concurrency Practice | `1/5` |
-| System Design Talking Points (Escalating) | `1/4` |
+| System Design Talking Points (Escalating) | `2/4` |
 | Fallback: Karat-Run Screen Fundamentals & DSA | `2/6` |
 
 ---
@@ -104,7 +104,7 @@ Called out explicitly as a backend-specific assessment area within the coding ro
 
 * [ ] **`[LLD]`** **Merge Intervals** — [LeetCode 56](https://leetcode.com/problems/merge-intervals/)
 * [x] **`[LLD]`** **Top K Frequent Elements** — [LeetCode 347](https://leetcode.com/problems/top-k-frequent-elements/)
-* [ ] **`[LLD]`** **Word Break** — [LeetCode 139](https://leetcode.com/problems/word-break/)
+* [x] **`[LLD]`** **Word Break** — [LeetCode 139](https://leetcode.com/problems/word-break/). **Solved**: [`139-Word-Break.java`](https://github.com/ShubhamChouksey123/problem-solving/blob/master/139-Word-Break.java) (`problem-solving` repo).
 * [ ] **`[LLD]`** **Clone Graph** — [LeetCode 133](https://leetcode.com/problems/clone-graph/)
 * [x] **`[LLD]`** **LRU Cache with O(1) get/put** — [LeetCode 146](https://leetcode.com/problems/lru-cache/) (also doubles as backend-relevant: this is the most-cited LLD-adjacent coding problem for Atlassian senior backend loops specifically, even outside the technical screen). **Solved**: [`session-11-lru-cache.md`](https://github.com/ShubhamChouksey123/low-level-design/blob/main/practice/session-11-lru-cache.md) (`low-level-design` repo).
 * [ ] **`[LLD]`** **Trie Implementation** (insert/search/startsWith from scratch) — see [`concepts/trie/info.md`](../../../concepts/trie/info.md) for the reference implementation and patterns. Confirmed `[LLD]`: a standard coding-round question, not a standalone system-design one.
@@ -136,7 +136,7 @@ Practice walking each of these from a simple single-node version to a scaled, mo
 * [x] **`[LLD+HLD]`** **Rate Limiter**: single-instance in-memory token bucket → distributed, Redis-backed, multi-instance consistent limiting. Problem writeup (`[HLD]` scaling/distributed half): [`rate-limiter.md`](https://github.com/ShubhamChouksey123/system-design/blob/master/docs/company-specific/atlassian/rate-limiter.md) (`system-design` repo). **Solved** (`[LLD]` class-design/algorithm half — pluggable fixed-window/sliding-window/token-bucket strategy): [`session-07-rate-limiter.md`](https://github.com/ShubhamChouksey123/low-level-design/blob/main/practice/session-07-rate-limiter.md) (`low-level-design` repo).
 * [ ] **`[HLD]`** **Notification System**: simple single-channel send → multi-channel fan-out (email/in-app/push) with dedup and retry/backoff.
 * [ ] **`[HLD]`** **Key-Value Store**: in-memory hash map → add TTL/eviction → add concurrent access safety → add sharding across nodes.
-* [ ] **`[HLD]`** **Tagging / Hashtag Aggregation** (Atlassian-flavored — Jira issues, Confluence pages): single-table tag lookup → efficient cross-entity tag queries at scale → real-time index updates as tags change. Confirmed `[HLD]`-only: the Karat-reported version of this question is explicitly framed as a "system design round" (API design, DB schema, scalability) in every source found — no report shows it as a code-writing exercise, so it correctly belongs only here and in the Karat fallback section below, not in any coding list.
+* [x] **`[HLD]`** **Tagging / Hashtag Aggregation** (Atlassian-flavored — Jira issues, Confluence pages): single-table tag lookup → efficient cross-entity tag queries at scale → real-time index updates as tags change. Confirmed `[HLD]`-only: the Karat-reported version of this question is explicitly framed as a "system design round" (API design, DB schema, scalability) in every source found — no report shows it as a code-writing exercise, so it correctly belongs only here and in the Karat fallback section below, not in any coding list.
 
 ---
 
