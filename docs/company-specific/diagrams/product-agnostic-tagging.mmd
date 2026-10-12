@@ -1,0 +1,25 @@
+flowchart TB
+    jira["Jira Issue<br/>(entity_type=issue)"]
+    confluence["Confluence Page<br/>(entity_type=page)"]
+    bitbucket["Bitbucket Repo<br/>(entity_type=repo)"]
+
+    tagService{{"Tag Service<br/>key: (entity_type, entity_id)"}}
+
+    forward[("Forward Mapping<br/>entity -&gt; [tags]")]
+    inverted[("Inverted Index<br/>tag -&gt; [entity_ids]")]
+    leaderboard{{"Redis Sorted Set<br/>ZINCRBY tag count"}}
+
+    jira -->|"add/remove tag"| tagService
+    confluence -->|"add/remove tag"| tagService
+    bitbucket -->|"add/remove tag"| tagService
+
+    tagService -->|"write"| forward
+    tagService -->|"write"| inverted
+    tagService -->|"increment/decrement count"| leaderboard
+
+    inverted -->|"view all content for tag X<br/>direct lookup, no scatter-gather"| client1[Client]
+    leaderboard -->|"top-N popular tags"| client2[Popular-Tags Dashboard]
+
+    style tagService fill:#f9d77e,stroke:#333
+    style inverted fill:#9ecae1,stroke:#333
+    style leaderboard fill:#9ecae1,stroke:#333

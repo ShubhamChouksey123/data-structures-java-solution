@@ -56,35 +56,83 @@ A: Max throughput = **min(10, 20, 50) = 10 docs/sec** — bounded by the slowest
 
 A: Model entities with a composite key **`(entity_type, entity_id)`** so tags don't care what they're attached to. Store the forward mapping, but build an **inverted index** (`tag → [entity_ids]`) so "all content for tag X" is a direct lookup, not a scatter-gather. For the popular-tags dashboard, maintain a running counter per tag in a cached leaderboard (Redis sorted set) rather than recomputing on every load.
 
+**Diagram**: ![Flowchart showing Jira, Confluence, and Bitbucket entities writing tags through a tag service into a forward mapping and an inverted index, with a Redis sorted set tracking per-tag counts for a popular-tags dashboard and the inverted index serving direct lookups for all content under a given tag.](../diagrams/product-agnostic-tagging.png)
+
 ---
 
 **Q6. Critique what goes wrong with consistent hashing for distributing load across music-streaming servers.**
 
-A: Consistent hashing solves *rebalancing cost* on node churn, not *load uniformity* — a viral song's requests still all hash to one node (**hot-key skew**), and node churn still remaps the keys in that node's arc, dumping load suddenly onto whoever inherits them. Fix: **virtual nodes** to smooth distribution, plus **replication** of specific hot keys so their load fans out across multiple nodes instead of sitting on one.
+**The setup:** music-streaming servers need to distribute load across many backend nodes — which node serves which song's stream requests. Consistent hashing is the standard tool: hash each song ID onto a ring, each server owns an arc of it. It's popular because it solves one problem well — **minimal remapping on churn**: add/remove a server and only the keys in that server's arc move, not the whole mapping (unlike plain `hash(key) % N`, which reshuffles almost everything when N changes).
+
+**The critique being asked for:** consistent hashing solves *rebalancing cost*, not *load uniformity* — that gap is the point:
+
+1. **Hot-key skew** — song popularity is power-law, not uniform. Whichever single node a viral song's key hashes to gets slammed with request volume regardless of how "consistent" the hashing is — the ring guarantees stable *placement*, not *balanced load*.
+2. **Non-zero remapping, concentrated badly on churn** — remapping is reduced vs. modulo hashing, but not zero. Adding/removing a node reassigns every key in that node's arc to its neighbor; if a popular song sits in that reassigned arc, its entire load suddenly dumps onto whoever inherits it.
+
+A: Consistent hashing solves *rebalancing cost* on node churn, not *load uniformity* — a viral song's requests still all hash to one node (**hot-key skew**), and node churn still remaps the keys in that node's arc, dumping load suddenly onto whoever inherits them.
+
+**Fix:**
+- **Virtual nodes** — give each physical server many points on the ring instead of one, so any single remap event only shifts a small, spread-out slice of load rather than one big arc.
+- **Replication of hot keys** — for a song actually going viral, don't rely on the ring alone; replicate its streaming load across multiple nodes so no single node bears all of it.
+
+**Note:** same shape as Q2 — **critique first** (name that it solves rebalancing-cost, not load-uniformity) before proposing virtual nodes/replication; that ordering is the graded skill.
 
 ---
 
 **Q7. Pros/cons of shipping hints bundled with the app vs. fetching them from the server at runtime.**
 
-A: **Pre-loaded** wins on latency/offline support but freezes content until the next release and bloats install size. **Server-loaded** wins on freshness/no-release-needed but costs a network round-trip and a connectivity dependency. **Middle ground:** ship a small default set pre-loaded for instant/offline fallback, then fetch and **cache with a TTL** server-side hints in the background.
+**What "hints" means:** small contextual tips the app shows — tooltip bubbles pointing at a new button, onboarding callouts the first time you open a screen, "Did you know?" nudges. Low-stakes, numerous content, not core app functionality — which is what makes the delivery mechanism a real design choice.
+
+**The two options:**
+- **(a) Bundled** — baked into the app binary at build/release time, available instantly with zero network call.
+- **(b) Server-loaded** — fetched from the backend at runtime, so hints can change without shipping a new app version.
+
+**The tension:**
+
+| | Bundled (pre-loaded) | Server-loaded |
+|---|---|---|
+| **Latency** | Instant — no network round-trip | Costs a request, which can fail/be slow |
+| **Offline** | Works with no connectivity | Needs connectivity (unless cached) |
+| **Freshness** | Frozen until the next release — can't fix or add a hint without shipping an update | Can change anytime — no release cycle |
+| **Install size** | Grows as the hint catalog grows | No bloat — hints live server-side |
+| **Flexibility** | None at runtime — same hints for everyone until next release | Can personalize/A-B test per user |
+
+A:
+- **Pre-loaded** wins on latency/offline support but freezes content until the next release and bloats install size.
+- **Server-loaded** wins on freshness/no-release-needed but costs a network round-trip and a connectivity dependency.
+- **Middle ground:** ship a small default set pre-loaded for instant/offline fallback, then fetch and **cache with a TTL** server-side hints in the background.
 
 ---
 
 **Q8. How do you process a file that doesn't fit in memory on a single machine?**
 
-A: **Stream it in chunks** rather than loading it whole. For sorting-type work, use **external merge sort** — sort chunks that fit in memory, write to disk, merge. **Memory-mapped files** are a middle option, letting the OS page data in/out. If it's a recurring large-scale need, distribute **across workers** (MapReduce-style: split, process in parallel, combine).
+A:
+- **Stream it in chunks** rather than loading it whole — read, process, discard each chunk, keeping only a bounded working set in memory.
+- For sorting-type work, use **external merge sort** — sort chunks that fit in memory, write each to disk, then merge the sorted chunks.
+- **Memory-mapped files** are a middle option — let the OS page data in/out instead of manually chunking.
+- If it's a recurring, large-scale need rather than a one-off, distribute **across workers** (MapReduce-style: split, process in parallel, combine).
 
 ---
 
 **Q9. Design considerations for a service that classifies sports news for bias using ML.**
 
+**The trap:** the prompt sounds like it wants an ML-modeling answer (features, training data, bias detection techniques). It doesn't — in a 2–3 minute backend slot, the real question is *"the model is a slow, black-box dependency — how do you design a system around it?"*, the same systems muscles as Q1/Q8 with a model swapped in as the expensive operation.
+
 A: This is unusually ML-flavored — grade on the *systems* half, not the model. Put the model behind an **async inference queue** so ingestion never blocks on inference latency; serve it via a scalable inference service (batch where possible); **cache classification results** alongside the article so repeat reads skip re-inference; close the loop with a **feedback/retraining pipeline** for flagged misclassifications.
+
+**Diagram**: ![Flowchart showing an article flowing through an async inference queue to a batched inference service, which writes its bias label into the article store for cached reads, alongside a feedback loop where flagged misclassifications feed a retraining pipeline that deploys an updated model back to the inference service.](../diagrams/sports-news-bias-classifier.png)
 
 ---
 
 **Q10. What backend changes are needed when a production app expands beyond a single country?**
 
-A: **Data residency/compliance** first (GDPR-style regional storage requirements) → drives regional data storage, not one global DB. **Latency** next — regional deployments or a CDN for cacheable content. **Locale/timezone handling** — don't bake in single-timezone/date-format assumptions. Finally, if data must sync across regions, that's an **eventual-consistency/conflict-resolution** problem, not a single-writer one.
+A:
+- **Data residency/compliance** first — GDPR-style regional rules require some user data to stay within region, which drives a **regional data-storage** design rather than one global DB.
+- **Latency** next — deploy regionally, or front cacheable content with a **CDN**, so users don't round-trip to a single distant region.
+  - **Read replicas in each region** so reads hit a local copy instead of round-tripping to the primary region's DB.
+  - **Replicate supporting services too, not just the DB** — e.g. a KMS encryption key — otherwise you've just moved the round-trip from the DB to that service, and tied every region's uptime to the primary region's.
+- **Locale/timezone handling** — don't bake in assumptions about a single timezone, date format, or currency.
+- **Multi-region consistency** — if data must sync across regions, that's an **eventual-consistency/conflict-resolution** problem, not a single-writer assumption anymore.
 
 ---
 

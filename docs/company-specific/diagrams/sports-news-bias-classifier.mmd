@@ -1,0 +1,24 @@
+flowchart LR
+    article[New Article Ingested]
+    queue[["Async Inference Queue"]]
+    infer{{"Inference Service<br/>(batched, scalable,<br/>model served behind it)"}}
+    store[("Article Store<br/>article + bias label cached together")]
+    client[Client / Reader]
+
+    article -->|"1 - enqueue, don't block ingestion"| queue
+    queue -->|"2 - batch requests"| infer
+    infer -->|"3 - write label alongside article"| store
+    store -->|"4 - repeat reads: cache hit, no re-inference"| client
+
+    flag[User flags misclassification]
+    retrain[["Feedback / Retraining Pipeline"]]
+    model[(Model Artifact)]
+
+    client -.->|"5 - flag if wrong"| flag
+    flag -.->|"6 - collect flagged samples"| retrain
+    retrain -.->|"7 - periodic retrain"| model
+    model -.->|"8 - deploy updated model"| infer
+
+    style queue fill:#f9d77e,stroke:#333
+    style store fill:#9ecae1,stroke:#333
+    style retrain fill:#9ecae1,stroke:#333
