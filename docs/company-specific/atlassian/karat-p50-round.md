@@ -4,11 +4,11 @@ Fresh research pass scoped **strictly to P50 (Senior)** candidate reports — P4
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `7/12 items completed`
+Track your overall progress: `12/12 items completed`
 
 | Section | Progress |
 |---------|----------|
-| System Design — Rapid Fire (10, 2 sources) | `5/10` |
+| System Design — Rapid Fire (10, 2 sources) | `10/10` |
 | Coding — Confirmed Karat Pairing | `2/2` |
 
 ---
@@ -37,11 +37,11 @@ Track your overall progress: `7/12 items completed`
 
 **Source B**: [Atlassian SSE Offer report](https://leetcode.com/discuss/post/6344788/atlassian-senior-software-engineer-offer-ywz3/) — P50, India-based — described as **"Round 1 – Third Party / Scenario Questions (20 min)"** (same ~20-min/5-question shape as Source A, "Third Party" strongly implying the same Karat-style vendor round even though not Karat-branded by name). Zero overlap with Source A's 5 questions.
 
-* [ ] **6. Consistent Hashing Issues in Music Streaming Servers**: critique/discuss what goes wrong with consistent hashing for distributing load across music-streaming servers. Talking points: node addition/removal causing minimal but non-zero remapping, hot-key skew if some songs are far more popular than others, virtual nodes to smooth distribution.
-* [ ] **7. Pre-loaded Hints vs. Server-loaded Hints**: pros/cons of shipping hints bundled with the app vs. fetching them from the server at runtime. Talking points: latency/offline-availability (client-side) vs. freshness/update-without-release (server-side), payload size trade-off, caching with TTL as a middle ground.
-* [ ] **8. Processing Files Larger Than RAM**: how do you process a file that doesn't fit in memory on a single machine? Talking points: streaming/chunked reads, external merge sort pattern, memory-mapped files, or distributing the file across workers (MapReduce-style) if it's a repeated/large-scale need.
-* [ ] **9. Sports News Classification Service (ML-based bias detection)**: design considerations for a service that classifies news content for bias using ML. Talking points: this is unusually ML/infra-flavored for a backend screen — focus on the *systems* half (ingestion pipeline, feature/model serving, async inference queue, feedback loop for retraining) rather than the ML modeling itself, since that's what a backend interviewer is actually grading.
-* [ ] **10. Backend Considerations for Going Multi-Country**: what backend changes are needed when a production app expands beyond a single country? Talking points: data residency/compliance (GDPR-style regional storage), latency via regional deployments/CDN, timezone/locale handling, multi-region data consistency trade-offs.
+* [x] **6. Consistent Hashing Issues in Music Streaming Servers**: critique/discuss what goes wrong with consistent hashing for distributing load across music-streaming servers. Talking points: node addition/removal causing minimal but non-zero remapping, hot-key skew if some songs are far more popular than others, virtual nodes to smooth distribution.
+* [x] **7. Pre-loaded Hints vs. Server-loaded Hints**: pros/cons of shipping hints bundled with the app vs. fetching them from the server at runtime. Talking points: latency/offline-availability (client-side) vs. freshness/update-without-release (server-side), payload size trade-off, caching with TTL as a middle ground.
+* [x] **8. Processing Files Larger Than RAM**: how do you process a file that doesn't fit in memory on a single machine? Talking points: streaming/chunked reads, external merge sort pattern, memory-mapped files, or distributing the file across workers (MapReduce-style) if it's a repeated/large-scale need.
+* [x] **9. Sports News Classification Service (ML-based bias detection)**: design considerations for a service that classifies news content for bias using ML. Talking points: this is unusually ML/infra-flavored for a backend screen — focus on the *systems* half (ingestion pipeline, feature/model serving, async inference queue, feedback loop for retraining) rather than the ML modeling itself, since that's what a backend interviewer is actually grading.
+* [x] **10. Backend Considerations for Going Multi-Country**: what backend changes are needed when a production app expands beyond a single country? Talking points: data residency/compliance (GDPR-style regional storage), latency via regional deployments/CDN, timezone/locale handling, multi-region data consistency trade-offs.
 
 **Also surfaced in Source B, NOT rapid-fire** (a separate full 30-min system-design round, kept here for awareness, not part of the 10 above): **Web Scraper** — crawl nested URLs and extract images. Worth a mental pass (BFS/queue over URLs, dedup via visited-set, rate-limiting per domain, distributed crawl queue at scale) but treat as lower priority than the 10 rapid-fire questions given the time constraint before this round.
 
