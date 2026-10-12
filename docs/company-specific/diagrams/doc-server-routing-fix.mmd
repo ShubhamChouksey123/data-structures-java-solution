@@ -1,0 +1,41 @@
+flowchart TB
+    subgraph before["Before - Round Robin"]
+        direction LR
+        client1[Client]
+        lb1{{"Round-robin LB<br/>(cycles by count only)"}}
+        s1a["Server A<br/>docs: 1, 4, 7"]
+        s1b["Server B (HOT)<br/>docs: 2, 5, 8<br/>incl. viral doc"]
+        s1c["Server C<br/>docs: 3, 6, 9"]
+
+        client1 --> lb1
+        lb1 --> s1a
+        lb1 -->|"all viral-doc<br/>traffic pinned here"| s1b
+        lb1 --> s1c
+    end
+
+    subgraph after["After - Consistent Hashing + Dynamic Routing + Replication"]
+        direction LR
+        client2[Client]
+        router{{"Load-aware router<br/>(checks hash ring +<br/>CPU / active connections)"}}
+        ring[("Consistent Hash Ring<br/>stable doc -&gt; server mapping")]
+        s2a["Server A<br/>docs: 1, 4, 7"]
+        s2b["Server B<br/>docs: 2, 5, 8 +<br/>viral-doc replica"]
+        s2c["Server C<br/>docs: 3, 6, 9 +<br/>viral-doc replica"]
+
+        client2 -->|"normal doc request"| router
+        client2 -->|"viral doc request"| router
+        router --> ring
+        ring -->|"normal doc"| s2a
+        ring -->|"normal doc"| s2b
+        ring -->|"normal doc"| s2c
+        router -.->|"viral doc: route to<br/>least-loaded replica"| s2b
+        router -.->|"viral doc: route to<br/>least-loaded replica"| s2c
+        s2b <-.->|"sync viral-doc<br/>replica"| s2c
+    end
+
+    before -.->|"fix"| after
+
+    style s1b fill:#f28b82,stroke:#333
+    style s2b fill:#9ecae1,stroke:#333
+    style s2c fill:#9ecae1,stroke:#333
+    style ring fill:#f9d77e,stroke:#333

@@ -1,0 +1,32 @@
+flowchart TB
+    client[Client]
+
+    subgraph read["Read Path - view a post + friend count"]
+        api[API Server]
+        cache{{"Redis Cache<br/>key: user_id -&gt; friend_count"}}
+        replica[("DB Read Replica<br/>(shard by user_id)")]
+    end
+
+    subgraph write["Write Path - friend add / remove"]
+        writeApi[API Server]
+        atomic["Atomic INCR / DECR<br/>on Redis counter"]
+        queue[["Async Write-Behind Queue"]]
+        primary[("Primary DB<br/>(shard by user_id)")]
+    end
+
+    client -->|"GET /post"| api
+    api -->|"1 - read friend_count"| cache
+    cache -->|"hit - return count"| api
+    cache -.->|"miss - populate from"| replica
+    replica -.->|"backfill cache"| cache
+    api -->|"2 - return post + count"| client
+
+    client -->|"POST /friend-request/accept"| writeApi
+    writeApi -->|"1 - atomic update, no lock"| atomic
+    atomic -->|"2 - enqueue durable write"| queue
+    queue -->|"3 - async persist"| primary
+    atomic -.->|"same cache instance"| cache
+
+    style cache fill:#f9d77e,stroke:#333
+    style primary fill:#9ecae1,stroke:#333
+    style replica fill:#9ecae1,stroke:#333
