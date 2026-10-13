@@ -12,7 +12,7 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `24/36 items completed`
+Track your overall progress: `25/36 items completed`
 
 | Section | Progress |
 |---------|----------|
@@ -21,7 +21,7 @@ Track your overall progress: `24/36 items completed`
 | Coding — Additional Practice (Lower Confidence) | `6/7` |
 | Coding — Concurrency Practice | `1/5` |
 | System Design Talking Points (Escalating) | `2/4` |
-| Fallback: Karat-Run Screen Fundamentals & DSA | `2/6` |
+| Fallback: Karat-Run Screen Fundamentals & DSA | `3/6` |
 
 ---
 
@@ -171,7 +171,7 @@ These are "explain your approach in a few minutes" style, not full whiteboard se
 * [ ] **OOP (Java-flavored)**: SOLID principles, inheritance vs. composition, polymorphism, interface vs. abstract class — one-line definition + quick Java example ready for each.
 * [ ] **Networking**: TCP vs. UDP, HTTP request lifecycle, DNS resolution, REST basics, latency vs. bandwidth, "what happens when you type a URL into a browser."
 * [ ] **OS fundamentals**: process vs. thread, CPU scheduling algorithms, deadlock vs. starvation, virtual memory basics — overlaps with the Concurrency Fundamentals section above, but phrased as rapid-fire short answers rather than applied coding.
-* [ ] **Experience talking points**: same 2–3 minute narration prepped above (a system you built/debugged, the trade-off you made, a mentoring example) — reusable regardless of which format shows up.
+* [x] **Experience talking points**: same 2–3 minute narration prepped above (a system you built/debugged, the trade-off you made, a mentoring example) — reusable regardless of which format shows up.
 
 If this format shows up instead: the **Coding** and **System Design** problem lists above still apply — a Karat-run screen typically still ends in one Easy/Medium coding problem and may fold in a lighter, less interactive system-design discussion.
 

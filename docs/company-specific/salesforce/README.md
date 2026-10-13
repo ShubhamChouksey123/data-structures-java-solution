@@ -1,12 +1,20 @@
 # Salesforce SMTS Interview Prep
 
+## 🏁 Interview Outcome (Oct 2026)
+
+**Result: Rejected**, after clearing the Online Assessment (HackerRank) and completing both the **DSA Round** and the **HLD / System Design Round**. No specific feedback was given — HR sent a generic rejection email with no detail on which round or area was the deciding factor. Kept here as a factual record, not as a diagnosis — don't assume a particular weak spot without evidence.
+
+**Post-mortem practice**: the actual DSA round question was a multi-part graph problem — (1) detect a cycle in a directed graph, (2) find the specific nodes involved in that cycle. Re-solved both parts afterward: **Solved**: [`CycleDetection.java`](../../../src/main/java/dev/shubham/problems/salesforce/CycleDetection.java).
+
+---
+
 ## 📊 Progress Tracking
 
-Track your overall progress: `20/33 items completed`
+Track your overall progress: `21/34 items completed`
 
 | Round | Progress |
 |-------|----------|
-| DSA Round | `9/13` |
+| DSA Round | `10/14` |
 | LLD / Machine Coding Round | `6/7` |
 | HLD / System Design Round | `5/5` |
 | HM / Behavioral Round | `0/8` |
@@ -22,6 +30,7 @@ DSA rounds for the SMTS level in Salesforce Hyderabad test algorithmic efficienc
 * [x] **Shortest Cycle in a Graph:** Find the shortest cycle length in a Directed Acyclic Graph (DAG) or directed graph. — [LeetCode 2608](https://leetcode.com/problems/shortest-cycle-in-a-graph/)
 * [x] **Social Network Connectivity:** Given connections between users as an undirected graph, answer queries asking how many profile pages a specific user can view (using Connected Components via BFS/DFS or Disjoint Set Union). — [LeetCode 323](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) / [LeetCode 547](https://leetcode.com/problems/number-of-provinces/)
 * [x] **Rotten Oranges / Grid Traversal:** Multi-source BFS to calculate the minimum time required for all items in a grid to transition states. — [LeetCode 994](https://leetcode.com/problems/rotting-oranges/)
+* [x] **Cycle Detection in a Directed Graph (multi-part):** First detect whether a directed graph has a cycle (Kahn's algorithm via in-degree/topological sort), then find the specific nodes involved in the cycle (DFS with a recursion-stack marker, trimming the path down to the back-edge target). **Solved**: [`CycleDetection.java`](../../../src/main/java/dev/shubham/problems/salesforce/CycleDetection.java).
 
 #### Dynamic Programming & String Processing
 
