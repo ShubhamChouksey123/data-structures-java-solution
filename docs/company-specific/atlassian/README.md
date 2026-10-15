@@ -59,6 +59,25 @@ Track your overall progress: `25/36 items completed`
 
 ---
 
+## 🏁 Round 1 Debrief (Oct 13, 2026 — Actual Confirmed Questions)
+
+This round is now complete — the content below is **first-hand, highest-confidence** (supersedes all speculation/aggregated-report sections further down). It confirms the official guide's framing: one escalating coding problem (primary), followed by a system-design question built directly on top of it (not a separate, unrelated topic).
+
+**Coding (escalating, single problem)**:
+1. Given a GET URL, fetch its data — write the code. *Answer: Java's `HttpClient`.*
+2. Escalation — what if there are multiple URLs to fetch? *Answer: fetch them concurrently using parallel threads (not a sequential loop) — matches the round's explicit concurrency emphasis.*
+3. Escalation — what if the input has duplicate URLs? *Answer: use a `Set` instead of a `List` to dedupe before fetching.*
+
+**System Design (built on the coding problem)**: *"Design a backend service that takes a list of URLs from a user and returns the responses."*
+- **Proposed architecture**: API Gateway → Web Server → Cache → External server (e.g. Google, YouTube).
+- **Follow-up — cache eviction policy?** *Answer: TTL-based eviction, plus a background sweeper job to proactively clean expired entries rather than relying solely on lazy/read-triggered eviction.*
+- **Follow-up — how to handle external-server failures (HTTP 500)?** *Answer: retry with exponential backoff; if the failure rate for a given URL is under ~1%, return a null response for that URL rather than blocking the whole batch. Also mentioned: a **circuit breaker** with Open/Closed (half-open) states for resilience — and tracking the set of URLs/hosts currently returning 500s so repeated failing requests can be short-circuited without wasting compute on retries that are likely to fail again.*
+- **Follow-up — cache writes add latency, which is especially bad on a cold cache — how do you handle that?** *Answer: fill the cache asynchronously via a queue (Kafka or an in-memory queue) instead of synchronously on the request path.*
+
+**Prep takeaway**: this round matches the "escalating multi-part coding problem, concurrency/data-structure-flavored, system design layered on top if time allows" shape documented in the official guide and the Concurrency & Data Structure Fundamentals section below — the escalation pattern (basic → constraint → scale/failure-handling) was the dominant structure in both halves.
+
+---
+
 ## Concurrency & Data Structure Fundamentals
 
 Called out explicitly as a backend-specific assessment area within the coding round — review before the call, not during it. Condensed cheat sheet for all four: [`concurrency-ds-cheatsheet.md`](concurrency-ds-cheatsheet.md).
@@ -196,3 +215,9 @@ If this format shows up instead: the **Coding** and **System Design** problem li
 - [Target job posting: Senior Backend Software Engineer @ Atlassian](https://simplify.jobs/p/470f544d-5181-41e5-ba1e-b9bc4fb32078/Senior-Backend-Software-Engineer)
 - https://leetcode.com/discuss/post/6817408/atlassian-interview-experience-p50-senio-t1zu/
 - https://www.glassdoor.co.in/Interview/Atlassian-Senior-Backend-Software-Engineer-Interview-Questions-EI_IE115699.0,9_KO10,42.htm
+- https://leetcode.com/discuss/post/6344788/atlassian-senior-software-engineer-offer-ywz3/
+- https://leetcode.com/discuss/post/6926273/atlassian-p50-karat-stage-by-anonymous_u-yja9/
+- https://leetcode.com/discuss/post/7099587/atlassian-p50-interview-experience-july-skb49/
+- https://leetcode.com/discuss/post/6504813/atlassian-sse-interview-bengaluru-reject-o1jm/
+- https://www.geeksforgeeks.org/interview-experiences/atlassian-interview-experience-for-sde-3-p50-backend-role/
+- 
