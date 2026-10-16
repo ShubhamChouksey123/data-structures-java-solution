@@ -10,6 +10,16 @@
 - Evaluates trade-offs across correctness, robustness, performance, space, time.
 - Mentors engineers, leads code reviews, drives projects autonomously — expect experience questions to probe seniority/leadership, not just raw coding.
 
+## 🏁 Interview Outcome (Oct 2026)
+
+**Result: Rejected**, after the Backend Technical Screen Interview with Renjie Xu on Oct 13, 2026. A **6-month cooling-off period** applies before reapplying to Atlassian roles.
+
+**Specific feedback received**:
+- **Coding**: Everything was inside the `main` function — no extraction into separate methods.
+- **Design**: Requirements clarification was missing, use cases weren't discussed, and trade-offs weren't discussed.
+
+---
+
 ## 📊 Progress Tracking
 
 Track your overall progress: `25/36 items completed`

@@ -228,12 +228,19 @@ The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **
 - After solving, **mention alternative approaches** even if you don't implement them (e.g. 02: reuse King Kong's logic for Godzilla by reversing/negating the array) — it shows depth.
 
 ### Coding
-- **Extract the solution into a method** with parameters and a return value — don't write everything in `main`.
+- **Extract the solution into a method** with parameters and a return value — don't write everything in `main`. **Confirmed by real interview feedback** (Atlassian Backend Technical Screen, Oct 2026 — see [atlassian/README.md](../docs/company-specific/atlassian/README.md)): this exact gap cost a rejection, not just mock points. Treat it as non-negotiable, not a style nitpick.
 - **Remove debug print statements and leftover boilerplate** before presenting the final answer (02 left prints on lines 35/53; 13 left an unrelated `ArrayList<String>` demo snippet from the pad template).
 - **Run every provided test case before declaring done** — don't leave examples commented out (13 left two of the three given test cases unexecuted).
 - **Prefer the standard, readable form** of an algorithm over a clever variant (03: track `prevEnd` rather than grouping; 09: three separate `while` loops for a merge — main + drain each — read cleaner than one nested if-else) — simpler code = fewer bugs and easier discussion.
 - **Drop redundant guards** — don't guard `HashSet.add()` with a `contains()` check; the set already dedups (04). In Dijkstra, a `visited[]` array **and** the `minDist[node] < dist` lazy-deletion check are redundant — either alone is correct (12).
 - **Trace through at least one example** after writing, walking the interviewer through it.
+
+### System Design (new, from real interview feedback — not yet drilled in mocks)
+- **Confirmed gap** (Atlassian Backend Technical Screen, Oct 2026 — see [atlassian/README.md](../docs/company-specific/atlassian/README.md)): a design round was failed on three missing beats, none of which this log's mock sessions (01–14, all DSA/coding) have exercised:
+  - **Clarify requirements first** — functional scope, scale (users/QPS/data size), latency/consistency needs — before proposing any architecture. Don't start designing off assumptions.
+  - **State concrete use cases** — walk through at least one or two real request flows end-to-end (e.g. "user posts a comment → service does X → stores Y") to ground the design, not just a components diagram.
+  - **Discuss trade-offs explicitly** — for each major choice (SQL vs NoSQL, sync vs async, cache strategy), say what you gain and what you give up. Silence on trade-offs reads as not understanding the alternatives, even if the chosen design is reasonable.
+- **Action**: this log has no system-design mock sessions yet — the DSA six-beat template in [narration-script.md](narration-script.md) doesn't cover this round type. Next prep cycle should add dedicated design-round practice (e.g. "design a URL shortener," rehearsed with: clarify → use cases → high-level design → trade-offs → deep dive), mirroring the structure that's already paying off for DSA.
 
 ---
 
