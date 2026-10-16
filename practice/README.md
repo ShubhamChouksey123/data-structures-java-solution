@@ -25,8 +25,9 @@ Each `NN.java` file in this folder contains the question (as comments), the code
 | [12](12.java) | Distance in Weighted Graph | Dijkstra (min-heap + lazy deletion) | ✅ Pass | 3.5/4 | 3.5/4 | 3/4 |
 | [13](13.java) | Most Sales In K Days | Sliding window (fixed-size max-sum window) | ✅ Pass | 4/4 | **4/4** | 3/4 |
 | [14](14.java) | Redundant Parentheses | Stack (operator-between-parens check) | ✅ Pass | 4/4 | 4/4 | 3/4 |
+| [15](15.java) | BST Duplicate Detection | Inorder traversal (sorted-order consecutive-value check) | ✅ Pass | 3/4 | 3.5/4 | 3/4 |
 
-**Related notes**: [Monotonic Stack](../notes/monotonic-stack/Notes.md) (02) · [Overlapping Intervals](../notes/overlapping-intervals/Notes.md) (03) · [Top 'K' Elements](../notes/top-k-elements/Notes.md) (01) · [Sliding Window](../notes/sliding-window/Notes.md) (04, 13) · [Dynamic Programming](../notes/dynamic-programming/Notes.md) (05) · [Trees](../notes/trees/Notes.md) (06) · [Stack](../concepts/stack/info.md) (07, 14) · [Two Pointers](../notes/two-pointers/Notes.md) (09) · [String](../concepts/string/info.md) (10) · [Graphs](../notes/graphs/Notes.md) (12)
+**Related notes**: [Monotonic Stack](../notes/monotonic-stack/Notes.md) (02) · [Overlapping Intervals](../notes/overlapping-intervals/Notes.md) (03) · [Top 'K' Elements](../notes/top-k-elements/Notes.md) (01) · [Sliding Window](../notes/sliding-window/Notes.md) (04, 13) · [Dynamic Programming](../notes/dynamic-programming/Notes.md) (05) · [Trees](../notes/trees/Notes.md) (06, 15) · [Stack](../concepts/stack/info.md) (07, 14) · [Two Pointers](../notes/two-pointers/Notes.md) (09) · [String](../concepts/string/info.md) (10) · [Graphs](../notes/graphs/Notes.md) (12)
 
 ---
 
@@ -194,9 +195,21 @@ Each `NN.java` file in this folder contains the question (as comments), the code
 
 ---
 
+### 15 — BST Duplicate Detection ✅ Pass
+
+**Problem**: Given the root of a BST, determine if it contains any duplicate values.
+
+**Approach**: Inorder traversal (sorted order for a BST) tracking the previous visited value in a variable; a duplicate is found the moment the current node's value equals the previous one. Recursive, so space is O(h) via the call stack, not O(1).
+
+**What went well**: Identified the optimal approach — inorder traversal exploiting BST sortedness — immediately, with no hints; correctly derived O(n) time; walked a clear trace through the example and both edge cases (null tree, single node) proactively.
+
+**What hurt the score**: Initially stated space complexity as O(1) before catching that recursion uses O(h) call-stack space — a nudge was needed. Used **static/global variables** (`lastNodeValue`, `foundDuplicateNode`) to carry state across recursive calls, which the interviewer flagged as a code-quality concern (not thread-safe, not reusable) — encapsulating state in an object or passing it through parameters would be cleaner. A few small typos while coding (class name, an incomplete method signature) cost minor time. Explanation was correct throughout but could be tighter/more structured.
+
+---
+
 ## Consolidated Tips
 
-The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **3**, **3**, **3**, **3.5**, 3, 3, 3) — but it is **trending up**, holding a clean 3/4 across sessions 06–10, reaching a high of **3.5/4 in session 11** (which also landed the first **4/4 coding**), and staying at a solid 3/4 in sessions 12–14 (13 landed the first **4/4 problem solving**, and 14 matched both 4/4 marks). Keep drilling the polish items below. These tips are grouped by the axis interviewers score.
+The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **3**, **3**, **3**, **3.5**, 3, 3, 3, 3) — but it is **trending up**, holding a clean 3/4 across sessions 06–10, reaching a high of **3.5/4 in session 11** (which also landed the first **4/4 coding**), and staying at a solid 3/4 in sessions 12–15 (13 landed the first **4/4 problem solving**, and 14 matched both 4/4 marks). Keep drilling the polish items below. These tips are grouped by the axis interviewers score.
 
 ### Communication (highest priority)
 - **State the approach in plain English before writing any code.** Use explicit structure: *"Step 1: … Step 2: … Step 3: …"*
@@ -215,6 +228,7 @@ The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **
 - **String ops are O(length), not O(1)** — `substring()`, hashing, and comparison all cost O(length) (04).
 - **Lead with the reasoning**, then state the Big-O.
 - **State complexity proactively** (09, 12) — the moment you finish coding, give time + space without waiting to be asked. It signals confidence. Session 12 needed a nudge for Dijkstra's `O(E log V)`; derive complexity *while designing* the approach, not after.
+- **Recursion uses call-stack space — don't default to O(1)** (15): a recursive traversal with no explicit data structure still costs O(h)/O(depth) space. Ask "what's holding the call stack?" before naming space complexity.
 
 ### Problem Solving
 - **Brainstorm 2–3 approaches before coding** (10) — name the options and their trade-offs, then pick one. Jumping straight into the first idea reads as shallower problem-solving.
@@ -234,6 +248,7 @@ The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **
 - **Prefer the standard, readable form** of an algorithm over a clever variant (03: track `prevEnd` rather than grouping; 09: three separate `while` loops for a merge — main + drain each — read cleaner than one nested if-else) — simpler code = fewer bugs and easier discussion.
 - **Drop redundant guards** — don't guard `HashSet.add()` with a `contains()` check; the set already dedups (04). In Dijkstra, a `visited[]` array **and** the `minDist[node] < dist` lazy-deletion check are redundant — either alone is correct (12).
 - **Trace through at least one example** after writing, walking the interviewer through it.
+- **Avoid static/global variables for state across recursive calls** (15) — flagged directly by the interviewer as a code-quality concern (not thread-safe, not reusable). Pass state through method parameters or encapsulate it in a small object instead.
 
 ### System Design (new, from real interview feedback — not yet drilled in mocks)
 - **Confirmed gap** (Atlassian Backend Technical Screen, Oct 2026 — see [atlassian/README.md](../docs/company-specific/atlassian/README.md)): a design round was failed on three missing beats, none of which this log's mock sessions (01–14, all DSA/coding) have exercised:
@@ -258,7 +273,7 @@ The historically weakest axis is **communication** (2, 3, 2, 2.5, 2.5, **3**, **
 
 ### The diagnosis
 
-Coding and problem-solving are **already at a passing bar** — scores sit at 3–4 (11, 13, and 14 hit **4/4 coding**; 13 and 14 also hit **4/4 problem solving**; 09 hit **3.5/3.5**), and the right pattern gets found fast every session. **Communication has historically been the bottleneck**: 2 / 3 / 2 / 2.5 / 2.5 / 3 / 3 / 3 / 3 / 3.5 / 3 / 3 / 3 across sessions 01–07, 09–14. The good news — this is the *most trainable* axis. It's a performance skill (like rehearsing a talk), not missing knowledge.
+Coding and problem-solving are **already at a passing bar** — scores sit at 3–4 (11, 13, and 14 hit **4/4 coding**; 13 and 14 also hit **4/4 problem solving**; 09 hit **3.5/3.5**), and the right pattern gets found fast every session. **Communication has historically been the bottleneck**: 2 / 3 / 2 / 2.5 / 2.5 / 3 / 3 / 3 / 3 / 3.5 / 3 / 3 / 3 / 3 across sessions 01–07, 09–15. The good news — this is the *most trainable* axis. It's a performance skill (like rehearsing a talk), not missing knowledge.
 
 **Implication**: grinding new problems won't move the needle much. Practicing *narration* will.
 
