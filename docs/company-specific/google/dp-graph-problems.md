@@ -10,11 +10,11 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `4/110 problems completed`
+Track your overall progress: `18/110 problems completed`
 
 | Topic | Progress |
 |-------|----------|
-| Dynamic Programming | `4/55` |
+| Dynamic Programming | `18/55` |
 | Graph | `0/55` |
 
 - 🔥 **Frequency** = how often the problem appeared in Google interviews (higher = higher priority)
@@ -31,22 +31,22 @@ Track your overall progress: `4/110 problems completed`
 | 2 | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs) | Easy | 63.5 | ✅ |
 | 3 | [Split Array Largest Sum](https://leetcode.com/problems/split-array-largest-sum) ⭐ **IMPORTANT** ⭐ | Hard | 57.6 | ✅ |
 | 4 | [House Robber](https://leetcode.com/problems/house-robber) | Medium | 57.2 | ✅ |
-| 5 | [Jump Game](https://leetcode.com/problems/jump-game) | Medium | 57.1 | [ ] |
-| 6 | [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle) | Easy | 57.1 | [ ] |
-| 7 | [Minimum Number of Increments on Subarrays to Form a Target Array](https://leetcode.com/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array) | Hard | 56.5 | [ ] |
-| 8 | [Russian Doll Envelopes](https://leetcode.com/problems/russian-doll-envelopes) | Hard | 52.7 | [ ] |
+| 5 | [Jump Game](https://leetcode.com/problems/jump-game) | Medium | 57.1 | ✅ |
+| 6 | [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle) | Easy | 57.1 | ✅ |
+| 7 | [Minimum Number of Increments on Subarrays to Form a Target Array](https://leetcode.com/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array) ⭐ **IMPORTANT** ⭐ | Hard | 56.5 | ✅ |
+| 8 | [Russian Doll Envelopes](https://leetcode.com/problems/russian-doll-envelopes) ⭐ **IMPORTANT** ⭐ | Hard | 52.7 | ✅ |
 | 9 | [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle) | Hard | 51.1 | [ ] |
-| 10 | [Unique Paths](https://leetcode.com/problems/unique-paths) | Medium | 49.3 | [ ] |
-| 11 | [Fibonacci Number](https://leetcode.com/problems/fibonacci-number) | Easy | 47.0 | [ ] |
-| 12 | [Sum of Subarray Minimums](https://leetcode.com/problems/sum-of-subarray-minimums) | Medium | 45.9 | [ ] |
-| 13 | [Word Break](https://leetcode.com/problems/word-break) | Medium | 44.6 | [ ] |
-| 14 | [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses) | Hard | 40.6 | [ ] |
-| 15 | [Is Subsequence](https://leetcode.com/problems/is-subsequence) | Easy | 39.0 | [ ] |
-| 16 | [Count Square Submatrices with All Ones](https://leetcode.com/problems/count-square-submatrices-with-all-ones) | Medium | 37.3 | [ ] |
-| 17 | [Predict the Winner](https://leetcode.com/problems/predict-the-winner) | Medium | 36.3 | [ ] |
-| 18 | [01 Matrix](https://leetcode.com/problems/01-matrix) | Medium | 36.3 | [ ] |
+| 10 | [Unique Paths](https://leetcode.com/problems/unique-paths) | Medium | 49.3 | ✅ |
+| 11 | [Fibonacci Number](https://leetcode.com/problems/fibonacci-number) | Easy | 47.0 | ✅ |
+| 12 | [Sum of Subarray Minimums](https://leetcode.com/problems/sum-of-subarray-minimums) | Medium | 45.9 | ✅ |
+| 13 | [Word Break](https://leetcode.com/problems/word-break) | Medium | 44.6 | ✅ |
+| 14 | [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses) ⭐ **IMPORTANT** ⭐ | Hard | 40.6 | ✅ |
+| 15 | [Is Subsequence](https://leetcode.com/problems/is-subsequence) | Easy | 39.0 | ✅ |
+| 16 | [Count Square Submatrices with All Ones](https://leetcode.com/problems/count-square-submatrices-with-all-ones) | Medium | 37.3 | ✅ |
+| 17 | [Predict the Winner](https://leetcode.com/problems/predict-the-winner) | Medium | 36.3 | ✅ |
+| 18 | [01 Matrix](https://leetcode.com/problems/01-matrix) | Medium | 36.3 | ✅ |
 | 19 | [Odd Even Jump](https://leetcode.com/problems/odd-even-jump) | Hard | 35.8 | [ ] |
-| 20 | [Number of Matching Subsequences](https://leetcode.com/problems/number-of-matching-subsequences) | Medium | 35.3 | [ ] |
+| 20 | [Number of Matching Subsequences](https://leetcode.com/problems/number-of-matching-subsequences) | Medium | 35.3 | ✅ |
 | 21 | [Race Car](https://leetcode.com/problems/race-car) | Hard | 35.3 | [ ] |
 | 22 | [Domino and Tromino Tiling](https://leetcode.com/problems/domino-and-tromino-tiling) | Medium | 34.8 | [ ] |
 | 23 | [Partition Array Into Two Arrays to Minimize Sum Difference](https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference) | Hard | 34.2 | [ ] |
