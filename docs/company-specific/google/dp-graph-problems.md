@@ -10,12 +10,12 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `18/110 problems completed`
+Track your overall progress: `28/110 problems completed`
 
 | Topic | Progress |
 |-------|----------|
-| Dynamic Programming | `18/55` |
-| Graph | `0/55` |
+| Dynamic Programming | `22/55` |
+| Graph | `6/55` |
 
 - 🔥 **Frequency** = how often the problem appeared in Google interviews (higher = higher priority)
 - Sorted **high → low** by frequency within each topic
@@ -48,12 +48,12 @@ Track your overall progress: `18/110 problems completed`
 | 19 | [Odd Even Jump](https://leetcode.com/problems/odd-even-jump) | Hard | 35.8 | [ ] |
 | 20 | [Number of Matching Subsequences](https://leetcode.com/problems/number-of-matching-subsequences) | Medium | 35.3 | ✅ |
 | 21 | [Race Car](https://leetcode.com/problems/race-car) | Hard | 35.3 | [ ] |
-| 22 | [Domino and Tromino Tiling](https://leetcode.com/problems/domino-and-tromino-tiling) | Medium | 34.8 | [ ] |
+| 22 | [Domino and Tromino Tiling](https://leetcode.com/problems/domino-and-tromino-tiling) | Medium | 34.8 | ✅ |
 | 23 | [Partition Array Into Two Arrays to Minimize Sum Difference](https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference) | Hard | 34.2 | [ ] |
 | 24 | [Minimum Time to Finish the Race](https://leetcode.com/problems/minimum-time-to-finish-the-race) | Hard | 34.2 | [ ] |
-| 25 | [Combination Sum IV](https://leetcode.com/problems/combination-sum-iv) | Medium | 33.7 | [ ] |
-| 26 | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs) | Easy | 33.7 | [ ] |
-| 27 | [Soup Servings](https://leetcode.com/problems/soup-servings) | Medium | 32.4 | [ ] |
+| 25 | [Combination Sum IV](https://leetcode.com/problems/combination-sum-iv) | Medium | 33.7 | ✅ |
+| 26 | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs) | Easy | 33.7 | ✅ |
+| 27 | [Soup Servings](https://leetcode.com/problems/soup-servings) | Medium | 32.4 | ✅ |
 | 28 | [Champagne Tower](https://leetcode.com/problems/champagne-tower) | Medium | 31.8 | [ ] |
 | 29 | [Sum of Distances in Tree](https://leetcode.com/problems/sum-of-distances-in-tree) | Hard | 31.8 | [ ] |
 | 30 | [Inverse Coin Change](https://leetcode.com/problems/inverse-coin-change) | Medium | 31.8 | [ ] |
@@ -92,15 +92,15 @@ Track your overall progress: `18/110 problems completed`
 | # | Problem | Difficulty | 🔥 Freq | Solved |
 |---|---------|------------|---------|--------|
 | 1 | [Apply Substitutions](https://leetcode.com/problems/apply-substitutions) | Medium | 42.7 | [ ] |
-| 2 | [Number of Provinces](https://leetcode.com/problems/number-of-provinces) | Medium | 42.4 | [ ] |
-| 3 | [Clone Graph](https://leetcode.com/problems/clone-graph) | Medium | 39.5 | [ ] |
-| 4 | [Find All Possible Recipes from Given Supplies](https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies) | Medium | 35.3 | [ ] |
-| 5 | [Path Existence Queries in a Graph I](https://leetcode.com/problems/path-existence-queries-in-a-graph-i) | Medium | 32.4 | [ ] |
+| 2 | [Number of Provinces](https://leetcode.com/problems/number-of-provinces) | Medium | 42.4 | ✅ |
+| 3 | [Clone Graph](https://leetcode.com/problems/clone-graph) | Medium | 39.5 | ✅ |
+| 4 | [Find All Possible Recipes from Given Supplies](https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies) | Medium | 35.3 | ✅ |
+| 5 | [Path Existence Queries in a Graph I](https://leetcode.com/problems/path-existence-queries-in-a-graph-i) | Medium | 32.4 | ✅ |
 | 6 | [Sum of Distances in Tree](https://leetcode.com/problems/sum-of-distances-in-tree) | Hard | 31.8 | [ ] |
 | 7 | [Minimum Weighted Subgraph With the Required Paths](https://leetcode.com/problems/minimum-weighted-subgraph-with-the-required-paths) | Hard | 31.8 | [ ] |
 | 8 | [Minimum Cost to Make at Least One Valid Path in a Grid](https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid) | Hard | 31.1 | [ ] |
-| 9 | [Detonate the Maximum Bombs](https://leetcode.com/problems/detonate-the-maximum-bombs) | Medium | 31.1 | [ ] |
-| 10 | [Keys and Rooms](https://leetcode.com/problems/keys-and-rooms) | Medium | 30.4 | [ ] |
+| 9 | [Detonate the Maximum Bombs](https://leetcode.com/problems/detonate-the-maximum-bombs) | Medium | 31.1 | ✅ |
+| 10 | [Keys and Rooms](https://leetcode.com/problems/keys-and-rooms) | Medium | 30.4 | ✅ |
 | 11 | [Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees) | Medium | 30.4 | [ ] |
 | 12 | [Shortest Path Visiting All Nodes](https://leetcode.com/problems/shortest-path-visiting-all-nodes) | Hard | 29.7 | [ ] |
 | 13 | [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree) | Medium | 28.9 | [ ] |
