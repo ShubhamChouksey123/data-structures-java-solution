@@ -10,12 +10,12 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `38/110 problems completed`
+Track your overall progress: `40/110 problems completed`
 
 | Topic | Progress |
 |-------|----------|
 | Dynamic Programming | `24/55` |
-| Graph | `14/55` |
+| Graph | `16/55` |
 
 - 🔥 **Frequency** = how often the problem appeared in Google interviews (higher = higher priority)
 - Sorted **high → low** by frequency within each topic
@@ -98,7 +98,7 @@ Track your overall progress: `38/110 problems completed`
 | 5 | [Path Existence Queries in a Graph I](https://leetcode.com/problems/path-existence-queries-in-a-graph-i) | Medium | 32.4 | ✅ |
 | 6 | [Sum of Distances in Tree](https://leetcode.com/problems/sum-of-distances-in-tree) ⭐ **IMPORTANT** ⭐ | Hard | 31.8 | ✅ |
 | 7 | [Minimum Weighted Subgraph With the Required Paths](https://leetcode.com/problems/minimum-weighted-subgraph-with-the-required-paths) | Hard | 31.8 | [ ] |
-| 8 | [Minimum Cost to Make at Least One Valid Path in a Grid](https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid) | Hard | 31.1 | [ ] |
+| 8 | [Minimum Cost to Make at Least One Valid Path in a Grid](https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid) | Hard | 31.1 | ✅ |
 | 9 | [Detonate the Maximum Bombs](https://leetcode.com/problems/detonate-the-maximum-bombs) | Medium | 31.1 | ✅ |
 | 10 | [Keys and Rooms](https://leetcode.com/problems/keys-and-rooms) | Medium | 30.4 | ✅ |
 | 11 | [Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees) | Medium | 30.4 | ✅ |
@@ -126,7 +126,7 @@ Track your overall progress: `38/110 problems completed`
 | 33 | [Build a Matrix With Conditions](https://leetcode.com/problems/build-a-matrix-with-conditions) | Hard | 20.9 | [ ] |
 | 34 | [Redundant Connection II](https://leetcode.com/problems/redundant-connection-ii) | Hard | 20.9 | [ ] |
 | 35 | [Parallel Courses](https://leetcode.com/problems/parallel-courses) | Medium | 20.9 | [ ] |
-| 36 | [Minimum Cost Path with Edge Reversals](https://leetcode.com/problems/minimum-cost-path-with-edge-reversals) | Medium | 20.9 | [ ] |
+| 36 | [Minimum Cost Path with Edge Reversals](https://leetcode.com/problems/minimum-cost-path-with-edge-reversals) | Medium | 20.9 | ✅ |
 | 37 | [The Maze II](https://leetcode.com/problems/the-maze-ii) | Medium | 19.5 | [ ] |
 | 38 | [All Paths from Source Lead to Destination](https://leetcode.com/problems/all-paths-from-source-lead-to-destination) | Medium | 19.5 | [ ] |
 | 39 | [Find the Town Judge](https://leetcode.com/problems/find-the-town-judge) | Easy | 19.5 | [ ] |
