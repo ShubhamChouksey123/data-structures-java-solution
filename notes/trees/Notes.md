@@ -31,7 +31,7 @@ class TreeNode { int val; TreeNode left, right; TreeNode(int v) { val = v; } }
 
 ## Sub-Topics & Revision Tracker
 
-> 32 problems across 6 sub-topics — too many for one day. Revise **one sub-topic per session**; log the date (DD-MM-YYYY) and revise the row with the **oldest / empty** date next.
+> 33 problems across 7 sub-topics — too many for one day. Revise **one sub-topic per session**; log the date (DD-MM-YYYY) and revise the row with the **oldest / empty** date next.
 
 | # | Sub-Topic | Focus | Solved | Last Revision          |
 |---|-----------|-------|--------|------------------------|
@@ -41,8 +41,9 @@ class TreeNode { int val; TreeNode left, right; TreeNode(int v) { val = v; } }
 | 4 | [Root to Leaf Paths](root-to-leaf-paths.md) | backtracking with path | 7/7 ✅ | 29-07-2026, 21-09-2026 |
 | 5 | [Ancestor Problems](ancestor-problems.md) | LCA via post-order | 4/4 ✅ | 31-07-2026, 21-09-2026 |
 | 6 | [Binary Search Tree](binary-search-tree.md) | `left < root < right` | 5/5 ✅ | 01-08-2026, 21-09-2026           |
+| 7 | [DP on Trees](dp-on-trees.md) | subtree DP + rerooting | 1/1 ✅ | 20-10-2026             |
 
-**Total: 32/32 (100%) ✅** · append dates comma-separated after each revision.
+**Total: 33/33 (100%) ✅** · append dates comma-separated after each revision.
 
 ---
 
