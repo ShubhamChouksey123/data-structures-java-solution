@@ -16,14 +16,16 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `2/26 items completed`
+Track your overall progress: `2/36 items completed`
 
 | Section | Progress |
 |---------|----------|
 | Recruiter Screen — Likely Questions | `0/7` |
 | Tech Stack & Role Talking Points to Prep | `0/6` |
-| Fallback: Later-Round Coding Patterns | `2/4` |
-| Fallback: Later-Round System Design Talking Points | `0/4` |
+| Fallback: Hiring Manager Round | `0/4` |
+| Fallback: Later-Round Coding Patterns | `2/6` |
+| Fallback: Take-Home Assignment (Select Teams) | `0/3` |
+| Fallback: Later-Round System Design Talking Points | `0/5` |
 | Fallback: Collaboration Panel (Behavioral) STAR Prep | `0/5` |
 
 ---
@@ -71,6 +73,17 @@ Not "questions" so much as **things to be ready to speak to fluently**, pulled d
 
 ---
 
+## Fallback: Hiring Manager Round (Prep Ahead, Not Confirmed Yet)
+
+**Why this section exists**: per aggregated process guides, **Software Engineer III and above** get a dedicated Hiring Manager round that runs *after* the recruiter screen and *before* the full technical loop — distinct from both the recruiter screen and the Collaboration Panel further down. The HM is assessing fit for the team's current roadmap, not coding ability — [source](https://www.finalroundai.com/blog/crowdstrike-interview-process).
+
+* [ ] **Technical leadership approach**: be ready to describe how you lead/influence technical direction on a team, not just execute tickets.
+* [ ] **Past architectural decisions**: one or two concrete examples of a system/service design decision you made and the trade-off reasoning behind it.
+* [ ] **Cross-functional dependency handling**: how you've worked with other teams (product, security, SRE) whose priorities didn't fully align with yours.
+* [ ] **On-call / scaling / error-handling framing**: reported as a recurring HM-stage theme alongside microservices and event-driven systems discussion — [source](https://leetcode.com/discuss/post/7349209/).
+
+---
+
 ## Fallback: Later-Round Coding Patterns (Prep Ahead, Not Confirmed Yet)
 
 **Why this section exists**: no technical round is scheduled yet, but CrowdStrike's loop moves fast once the recruiter screen clears, and the reported coding-round shape is consistent enough across sources to start warming up now rather than starting cold later.
@@ -81,6 +94,18 @@ Not "questions" so much as **things to be ready to speak to fluently**, pulled d
 * [x] **Sliding window / string & log-line parsing** — reported theme tied to CrowdStrike's log-processing domain. Practice: [Is Subsequence](https://leetcode.com/problems/is-subsequence/) (reported — [source](https://www.techprep.app/blog/crowdstrike-interview-process)) ✅ **Solved**, [Encode and Decode Strings](https://neetcode.io/problems/string-encode-and-decode/question) (reported — [source](https://www.techprep.app/blog/crowdstrike-interview-process); LeetCode 271 is premium-locked, using the NeetCode mirror instead) ✅ **Solved**.
 * [ ] **Streaming-input / can't-fit-in-memory variants** — practice re-solving a normal array/string problem using an **iterator/generator** instead of loading the full input, since interviewers reportedly ask you to extend a solution this way — [source](https://www.techprep.app/blog/crowdstrike-interview-process).
 * [ ] **Interval / scheduling problems** — reported: [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/description/) (priority-queue/heap-based) plus a custom "distribute N servers evenly across M nodes" variant — [source](https://leetcode.com/discuss/post/7585758/interview-experience-crowdstrike-sde-iii-w9cg/).
+* [ ] **Post-solve follow-up questions**: after a working solution, expect "what would change if data volume increased 100x?" and "how would you test this in production?" — framing answers around production safety/observability (not just correctness) is reported as what separates candidates who advance — [source](https://www.finalroundai.com/blog/crowdstrike-interview-process).
+* [ ] **Idiomatic language patterns**: if coding in Go, use interfaces and goroutines for any concurrency twist; if in Python, use generators for large/streaming data — reported as signaling alignment with the team's day-to-day languages (Go, Python, C++) even though any language is allowed — [source](https://www.finalroundai.com/blog/crowdstrike-interview-process).
+
+---
+
+## Fallback: Take-Home Assignment (Select Teams, Not Confirmed Yet)
+
+**Why this section exists**: some teams substitute a 2-day take-home for a second live coding round. Not confirmed for this role/team, but worth knowing the shape in case it's offered.
+
+* [ ] **Small REST API or log parser**: reported concrete task examples — building a small API, writing a log parser, or implementing a simplified event correlator — [source](https://www.finalroundai.com/blog/crowdstrike-interview-process).
+* [ ] **Evaluation criteria awareness**: graded on **code quality, test coverage, and design-decision documentation** — not just correctness. Write a short README/decision log alongside the code if submitting one — [source](https://www.finalroundai.com/blog/crowdstrike-interview-process).
+* [ ] **System-design-flavored take-home variant**: one reported candidate got a take-home framed as "design a VirusTotal-like system" (file uploads, hashing, blob storage, DB sharding, async event-driven flow) rather than a plain coding task — [source](https://leetcode.com/discuss/post/7349209/).
 
 ---
 
@@ -92,6 +117,7 @@ Not "questions" so much as **things to be ready to speak to fluently**, pulled d
 * [ ] **Rate limiter with mixed SLAs** — reported framing: one API serving both telemetry ingestion and threat-intel lookups with *different* latency/SLA requirements, not a plain single-tenant rate limiter — [source](https://www.finalroundai.com/blog/crowdstrike-interview-process).
 * [ ] **Real-time alerting on anomalous activity** — reported framing: detect anomalous process execution / brute-force-style patterns in a stream, with a connectors-specific variant (this role specifically): "integrate a new data source into Falcon Fusion" or "optimize an existing connector's performance" — [source](https://www.finalroundai.com/blog/crowdstrike-interview-process), [source](https://prachub.com/interview-guide/crowdstrike-software-engineer-interview-questions-guide-2026).
 * [ ] **Durability-first framing checklist**: have write-ahead logs, at-least-once delivery, and idempotent consumers ready as talking points for *any* of the above — reported as the single most commonly *missed* dimension by candidates from non-security backgrounds — [source](https://www.finalroundai.com/blog/crowdstrike-interview-process).
+* [ ] **Estimation-first discipline**: spend the first ~5 minutes on throughput/storage/latency numbers (write volume, read volume, storage/day, latency SLA) *before* drawing any architecture — reported as the single biggest differentiator between candidates who score well and those who jump straight to boxes — [source](https://www.finalroundai.com/blog/crowdstrike-interview-process).
 
 ---
 
@@ -104,6 +130,34 @@ CrowdStrike's later-stage behavioral round is reportedly called the **Collaborat
 * [ ] **Cross-team dependency management** — "how have you managed a dependency on another team when their timeline didn't align with yours."
 * [ ] **A time something went wrong / failure story** — reported as the category candidates most under-prepare for; needs a concrete lesson applied afterward, not a minimized or externally-blamed failure.
 * [ ] **Mentoring / remote collaboration example** — ties directly to the role's cross-stakeholder communication requirement from the posting.
+
+**⚠️ Vague-storytelling anti-pattern** (reported as the most common failure mode here): "we had an incident and I helped fix it" fails. A concrete, specific version — "the detection service started producing false positives at 3x normal rate during a deployment; I traced it to an unchecked schema migration that changed a field type, owned the rollback, and added a schema-validation step to the deployment checklist" — succeeds. Candidates reportedly score ~23% lower on failure/conflict questions than success/leadership ones, and CrowdStrike's panel probes the former more — prepare the harder category deliberately — [source](https://www.finalroundai.com/blog/crowdstrike-interview-process).
+
+---
+
+## Interview Timeline & What Comes Next (Informational)
+
+Not a checklist — context for what to expect **after** Monday's call, so later-stage silences don't read as rejections.
+
+- **Week 1**: recruiter screen (this round) completed; recruiter follow-up response time ranges from a few days to ~2 weeks depending on team urgency.
+- **Week 2**: hiring manager round (if applicable for this level) and the 60-min technical screen — some teams run both in the same week, others space them out.
+- **Weeks 3–4**: virtual onsite scheduled and completed (3–4 sub-rounds, often across 1–2 days).
+- **Weeks 4–6**: debrief, offer generation, background/employment-history check.
+- **Gaps of 10–14 days between stages are reported as normal**, not a rejection signal — a polite follow-up after ~10 business days is appropriate; avoid following up more than twice without a response.
+
+[Source](https://www.finalroundai.com/blog/crowdstrike-interview-process).
+
+---
+
+## Compensation Reference (Informational, 2026 Levels.fyi Data via FinalRound AI)
+
+Not interview-prep content, but useful to have in mind if compensation expectations come up in the recruiter screen's logistics questions:
+
+- **Engineer III**: ~$261,000 median total comp (base ~$170,000 + ~$76,800 stock + ~$13,500 bonus).
+- **Senior Engineer I**: $338,000–$390,000 median total comp.
+- RSUs vest over a 4-year schedule; for a senior offer, refresh-grant/cliff timing reportedly carries more negotiation leverage than base salary (which is level-band constrained).
+
+[Source](https://www.finalroundai.com/blog/crowdstrike-interview-process) — figures are third-party aggregated (Levels.fyi via FinalRound AI), not CrowdStrike's own disclosure; treat as directional, not exact.
 
 ---
 
