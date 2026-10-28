@@ -12,15 +12,19 @@
 - Bonus points: AWS/Azure/GCP, open-source contributions, Golang hands-on, prior cybersecurity/platform-integration experience.
 - "Proven experience utilizing AI technologies to enhance decision-making, streamline workflows" — be ready to talk about where you've actually used AI tools in your engineering workflow, not just that you're aware of them.
 
+## 🏁 Interview Outcome (Oct 2026)
+
+**Result: Withdrew after the technical screening round.** Recruiter screen passed; progressed to a technical screen with an HR/recruiter-facilitated round. Decided not to proceed further — the offer CrowdStrike would extend is **lower than current total compensation at New Relic**. Not a rejection or technical-performance issue; a self-initiated compensation-fit withdrawal.
+
 ---
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `2/36 items completed`
+Track your overall progress: `9/36 items completed`
 
 | Section | Progress |
 |---------|----------|
-| Recruiter Screen — Likely Questions | `0/7` |
+| Recruiter Screen — Likely Questions | `7/7` |
 | Tech Stack & Role Talking Points to Prep | `0/6` |
 | Fallback: Hiring Manager Round | `0/4` |
 | Fallback: Later-Round Coding Patterns | `2/6` |
@@ -48,13 +52,13 @@ Track your overall progress: `2/36 items completed`
 
 **Source**: aggregated from CrowdStrike recruiter-screen process guides and Glassdoor candidate reports (Oct 2026 research pass) — these are **thematic/reported patterns for a CrowdStrike recruiter screen in general**, not confirmed to this exact call with Suman Mandal.
 
-* [ ] **"Tell me about yourself / walk me through your background."** — tie it to backend distributed systems, microservices, and anything auth/integration-flavored (maps directly to the SOAR-connector role).
-* [ ] **"Why CrowdStrike?"** — reported as a near-universal recruiter-screen question; have a specific answer tied to the mission ("We Stop Breaches") and this specific team (Falcon Fusion / SOAR), not a generic "I like security" answer — [source](https://www.glassdoor.com/Interview/CrowdStrike-Interview-Questions-E795976.htm).
-* [ ] **Tech-stack fluency check**: which of Python, Go, AWS/Azure/GCP have you used *in production* vs. just read about? — [source](https://www.techprep.app/blog/crowdstrike-interview-process).
-* [ ] **Remote-work / async-collaboration fit**: CrowdStrike is remote-first; expect a question confirming you're comfortable with async, cross-timezone collaboration — [source](https://www.techprep.app/blog/crowdstrike-interview-process).
-* [ ] **On-call / incident-handling framing**: "how have you gone about responding to on-call incidents" was explicitly reported at the recruiter/HM stage — [source](https://www.glassdoor.com/Interview/CrowdStrike-Interview-Questions-E795976.htm).
-* [ ] **Role/level/logistics clarification**: expect the recruiter to confirm compensation expectations, notice period, and walk you through the rest of the loop (technical screen → possible take-home → virtual onsite) — [source](https://www.finalroundai.com/blog/crowdstrike-interview-process).
-* [ ] **Questions for them**: prepare 2–3 questions back — e.g. team size/structure for Falcon Fusion, what a typical connector-development cycle looks like, or what the biggest current challenge on the team is.
+* [x] **"Tell me about yourself / walk me through your background."** — tie it to backend distributed systems, microservices, and anything auth/integration-flavored (maps directly to the SOAR-connector role).
+* [x] **"Why CrowdStrike?"** — reported as a near-universal recruiter-screen question; have a specific answer tied to the mission ("We Stop Breaches") and this specific team (Falcon Fusion / SOAR), not a generic "I like security" answer — [source](https://www.glassdoor.com/Interview/CrowdStrike-Interview-Questions-E795976.htm).
+* [x] **Tech-stack fluency check**: which of Python, Go, AWS/Azure/GCP have you used *in production* vs. just read about? — [source](https://www.techprep.app/blog/crowdstrike-interview-process).
+* [x] **Remote-work / async-collaboration fit**: CrowdStrike is remote-first; expect a question confirming you're comfortable with async, cross-timezone collaboration — [source](https://www.techprep.app/blog/crowdstrike-interview-process).
+* [x] **On-call / incident-handling framing**: "how have you gone about responding to on-call incidents" was explicitly reported at the recruiter/HM stage — [source](https://www.glassdoor.com/Interview/CrowdStrike-Interview-Questions-E795976.htm).
+* [x] **Role/level/logistics clarification**: expect the recruiter to confirm compensation expectations, notice period, and walk you through the rest of the loop (technical screen → possible take-home → virtual onsite) — [source](https://www.finalroundai.com/blog/crowdstrike-interview-process).
+* [x] **Questions for them**: prepare 2–3 questions back — e.g. team size/structure for Falcon Fusion, what a typical connector-development cycle looks like, or what the biggest current challenge on the team is.
 
 ---
 
