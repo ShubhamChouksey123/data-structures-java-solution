@@ -1,5 +1,7 @@
 # Salesforce SMTS Interview Prep
 
+**See also**: [Company-Wise Questions (188 problems, frequency-ranked)](company-wise-questions.md)
+
 ## 🏁 Interview Outcome (Oct 2026)
 
 **Result: Rejected**, after clearing the Online Assessment (HackerRank) and completing both the **DSA Round** and the **HLD / System Design Round**. No specific feedback was given — HR sent a generic rejection email with no detail on which round or area was the deciding factor. Kept here as a factual record, not as a diagnosis — don't assume a particular weak spot without evidence.

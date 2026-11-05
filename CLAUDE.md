@@ -58,7 +58,7 @@ Three parallel documentation trees, each with its own authoring rules. **Read th
 
 ### `docs/` — Trackers
 - `docs/questions-list.md` — the master pattern-based study guide: a Table-of-Contents table (22 topics) plus per-topic problem checklists. **Date format is DD-MM-YYYY.**
-- `docs/salesforce.md` — company-wise list (188 problems from the liquidslr company-wise repo), frequency-sorted, with its own solved-progress counter.
+- `docs/company-specific/salesforce/company-wise-questions.md` — company-wise list (188 problems from the liquidslr company-wise repo), frequency-sorted, with its own solved-progress counter.
 
 ### `practice/` — Mock-interview log (repo root, **not** under `docs/`)
 - One `NN.java` per mock interview, each holding the question (as comments), the code written during the session, and the interviewer's feedback verbatim.
@@ -70,12 +70,12 @@ Three parallel documentation trees, each with its own authoring rules. **Read th
 
 These files are hand-maintained and must stay internally consistent. When a problem is solved or a topic revised, update **every** dependent field:
 
-- **Marking a problem solved**: flip its checkbox `[ ]` → `[x]` (or `✅` in `salesforce.md`), then update:
+- **Marking a problem solved**: flip its checkbox `[ ]` → `[x]` (or `✅` in `company-wise-questions.md`), then update:
   - the topic's `**Problems (N)**` list and, in `questions-list.md`, the TOC row's **Solved** cell (e.g. `1/6` → `2/6`, or `[ ]` → `✅` when all done);
-  - the top **Progress Tracking** counter (`X/Y problems completed`) in that file. Each tracker file has its own counter — update only the file(s) that contain the problem. Not every `questions-list.md` problem appears in `salesforce.md` and vice-versa.
+  - the top **Progress Tracking** counter (`X/Y problems completed`) in that file. Each tracker file has its own counter — update only the file(s) that contain the problem. Not every `questions-list.md` problem appears in `company-wise-questions.md` and vice-versa.
 - **Adding a problem** to a topic: bump both the `**Problems (N)**` heading count and the TOC **Questions** count, and increment the total in the Progress counter.
 - **Recording a revision**: set the TOC **Revised** cell to `✅` and append today's date to the comma-separated **Last Revision** list (DD-MM-YYYY).
-- The same problem may be tracked in multiple places (`questions-list.md`, `salesforce.md`, a `notes/*/Notes.md` Problems list, a `concepts/*/info.md` Common Problems list) — when asked to mark it solved, update each place the user names.
+- The same problem may be tracked in multiple places (`questions-list.md`, `company-wise-questions.md`, a `notes/*/Notes.md` Problems list, a `concepts/*/info.md` Common Problems list) — when asked to mark it solved, update each place the user names.
 
 ## Key Points
 

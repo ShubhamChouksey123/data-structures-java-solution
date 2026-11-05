@@ -239,6 +239,6 @@ Progress: `5/5 problems completed`
 
 ---
 
-> **📖 See also**: [Pattern-Based Study Guide](questions-list.md)
+> **📖 See also**: [Pattern-Based Study Guide](../../questions-list.md) · [Salesforce SMTS Interview Prep](README.md)
 
 **Happy LeetCoding !**
