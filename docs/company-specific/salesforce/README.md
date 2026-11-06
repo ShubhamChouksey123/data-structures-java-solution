@@ -2,7 +2,15 @@
 
 **See also**: [Company-Wise Questions (188 problems, frequency-ranked)](company-wise-questions.md)
 
-## 🏁 Interview Outcome (Oct 2026)
+This file now spans **two separate Salesforce SMTS processes** — an earlier **Infra Team** loop (closed, rejected) and a new **Availability Team** loop (active). The DSA / LLD / HLD prep below is **level-based, not team-specific**, and is reused across both; only the hiring-manager/culture round and the final outcome differ per process.
+
+## 🆕 Active Process — Availability Team
+
+**Interview confirmed**: **Fri, Nov 13, 2026**. A Salesforce HR recruiter called to restart the loop for a different team (**Availability**, not Infra). Treat this as a fresh process — the earlier Infra Team rejection (below) was for a different team and isn't assumed to carry any specific feedback forward.
+
+---
+
+## 🏁 Infra Team Process — Outcome (Closed, Sept–Oct 2026)
 
 **Result: Rejected**, after clearing the Online Assessment (HackerRank) and completing both the **DSA Round** and the **HLD / System Design Round**. No specific feedback was given — HR sent a generic rejection email with no detail on which round or area was the deciding factor. Kept here as a factual record, not as a diagnosis — don't assume a particular weak spot without evidence.
 
@@ -12,14 +20,14 @@
 
 ## 📊 Progress Tracking
 
-Track your overall progress: `21/34 items completed`
+Track your overall progress: `31/46 items completed`
 
 | Round | Progress |
 |-------|----------|
 | DSA Round | `10/14` |
 | LLD / Machine Coding Round | `6/7` |
-| HLD / System Design Round | `5/5` |
-| HM / Behavioral Round | `0/8` |
+| HLD / System Design Round | `5/8` |
+| HM / Behavioral Round | `10/17` |
 
 ---
 
@@ -81,7 +89,7 @@ The LLD round evaluates object-oriented design (SOLID principles), concurrency h
 
 ### High-Level Design (HLD) / System Design Round
 
-HLD rounds for SMTS demand focus on multi-tenant cloud architectures, data partitioning, caching, asynchronous processing, and API design.
+HLD rounds for SMTS demand focus on multi-tenant cloud architectures, data partitioning, caching, asynchronous processing, and API design. **This was the flagged weak round from the Infra Team process** — [`system-design-question-bank.md`](system-design-question-bank.md) has the full research pass (confirmed + thematic prompts, recurring deep-dive themes like Kafka internals, and a re-practice checklist) and should be worked through before Nov 13, including re-practicing the items already checked off below.
 
 #### Distributed Systems Infrastructure
 
@@ -106,25 +114,50 @@ HLD rounds for SMTS demand focus on multi-tenant cloud architectures, data parti
   * Design zero-downtime deployment pipelines utilizing Blue-Green/Canary strategies for microservices.
   * Build a feature flag and incremental rollout system for mobile client feature releases.
 
+#### Newly Added (from the Oct 2026 HLD research pass — not yet practiced)
+
+* [ ] **Notification Service**: high/low priority notifications, templates, per-user preferences, DND windows; heavy reported Kafka deep-dive (partitions, consumer groups, ordering, retries/dedup, consumer lag, scaling consumers vs. producers). Full detail: [`system-design-question-bank.md`](system-design-question-bank.md#1-notification-service--richest-reported-hld-round-found).
+* [ ] **Resource Allocation / Token Bucket System**: concurrent grant/release with locking, token expiry via min-heap, per-user limits. Full detail: [`system-design-question-bank.md`](system-design-question-bank.md#3-resource-allocation--token-bucket-system).
+* [ ] **Food Delivery App**: restaurant/menu search, order placement, delivery dispatch, real-time tracking, payment. Full detail: [`system-design-question-bank.md`](system-design-question-bank.md#5-food-delivery-app).
+
 ---
 
 ### Hiring Manager (HM) / Behavioral & Leadership Round
 
-This round combines architectural defense of past work with Salesforce leadership competencies.
+This round combines architectural defense of past work with Salesforce leadership competencies, scored against Salesforce's Core Values (Trust, Customer Success, Innovation, Equality, Sustainability). **Full prep doc, STAR(R) drafts, and the open action-item list** live in the separate [`behavioral-interview-prep`](https://github.com/ShubhamChouksey123/behavioral-interview-prep) repo — this checklist tracks status only; follow each link for the actual draft/answer.
 
-#### Technical Leadership & Architecture Deep-Dive
+**Primary system to walk through**: the Secrets Store platform (New Relic) — three-layer envelope encryption, 30K RPM, 99.99% SLA, with an evolution story (CDC pipeline added later) built in. Secondary backup: the Signing & Verification platform.
 
-* [ ] Walk through the end-to-end architecture of your most complex system. What components did you personally design, and what were the scaling constraints?
-* [ ] How do you draft, review, and finalize technical design documents (RFDs) with principal architects and security teams?
-* [ ] If you were asked to rebuild your current system from scratch with no cloud or vendor restrictions using open-source tools, what changes would you make?
-* [ ] Explain your strategy for zero-downtime database migrations, backward-compatible API versioning, automated testing, and rollback mechanisms.
+#### Technical Deep-Dive on Past Projects
 
-#### Situational & Behavioral Scenarios
+* [x] **Architecture & scale** — draw the three-layer encryption design from memory, name the trade-offs. **Ready**: [`docs/salesforce-hm-round-prep.md` §1](https://github.com/ShubhamChouksey123/behavioral-interview-prep/blob/master/docs/salesforce-hm-round-prep.md#1-technical-deep-dive-on-past-projects).
+* [x] **Non-functional (testing, deploy, monitoring, rollback)** — >90% test coverage, Terraform-managed infra; still missing an explicit zero-downtime migration/rollback story. **Adapt**: same doc, §1.
+* [ ] **"If redesigned today, what would you change?"** — a judgment question, needs a real opinion on the CDC pipeline's build-in-from-day-one trade-off, not a hedge. **Gap**.
+* [ ] **Hardest bug/outage investigated** — candidate: the connection-pool-exhaustion incident; needs a full STAR(R) draft (shared with the On-call item below — told with different emphasis each time). **Gap** (raw material exists).
 
-* [ ] **Conflict Resolution:** Describe a time you had a strong technical disagreement with a Senior Engineer, QA lead, or Product Manager. How did you resolve it and align the team on a direction?
-* [ ] **Incident Management & RCAs:** Walk through a critical production outage or bug caused by code you pushed. How did you handle the live incident, conduct the Root Cause Analysis (RCA), and implement preventive measures?
-* [ ] **Unclear Requirements & Deadlines:** How do you approach designing and delivering a project when business requirements are ambiguous or change mid-sprint?
-* [ ] **On-Call Pressure:** Share an example of a high-severity on-call incident you debugged under strict SLA constraints. How did you manage stakeholder communications?
+#### Senior Technical Leadership & Ownership
+
+* [x] **On-call & production incidents, RCAs** — full STAR(R) draft exists ([`notes/behavioral-question-bank.md` Q4](https://github.com/ShubhamChouksey123/behavioral-interview-prep/blob/master/notes/behavioral-question-bank.md)), currently generalized — needs re-angling toward *one specific instance* (the connection-pool-exhaustion incident) with leadership/prioritization emphasis. **Adapt**.
+* [ ] **Design Doc approval & consensus** — likely candidate: CDC-pipeline proposal pushback; needs a DACI/Influence-Ladder-framed reconstruction of who pushed back and how it was resolved. **Gap**.
+* [ ] **Mentorship & code reviews** — raw material: 200+ reviews, explicit mentoring; needs one concrete named PR/engineer instance, not the aggregate stat. **Gap**.
+
+#### Behavioral Scenarios & Salesforce Core Values
+
+* [x] **Trust & Accountability** — the immutable-map `NullPointerException` incident (PRs #383/#387/#388), self-caught and corrected next day. **Ready**: [`notes/behavioral-question-bank.md` Q5](https://github.com/ShubhamChouksey123/behavioral-interview-prep/blob/master/notes/behavioral-question-bank.md).
+* [x] **Conflict Resolution** — a real conflict story exists ([Q3](https://github.com/ShubhamChouksey123/behavioral-interview-prep/blob/master/notes/behavioral-question-bank.md)) but is process/approval-flavored, not technical-direction; decide whether to reframe it or draft the CDC-pipeline pushback instead as a more literal fit. **Adapt, partial fit**.
+* [x] **Innovation** — the SDD-workflow story (Q2) already is an Innovation story, filed under "Leading Without Authority"; just re-angle, no new drafting. **Adapt** (effectively ready).
+* [ ] **Customer Success** — needs an MVP-slicing-under-ambiguity story (likely the Signing & Verification platform build); name what was deferred and why. **Gap**.
+* [ ] **Equality** — no raw material exists; needs a genuine memory (mentoring across underrepresented groups, a bias-reducing process change), not a force-fit. **Gap**.
+* [ ] **Sustainability** — no raw material exists; needs a real long-term-maintainability/cost angle, not a generic "I care about the environment" answer. **Gap**.
+
+#### Questions to Ask the Hiring Manager
+
+* [x] "What are the biggest technical or scaling challenges this specific team is tackling over the next 2–3 quarters?"
+* [x] "How does the team balance long-term architecture refactoring with day-to-day feature delivery?"
+* [x] "What does success look like for an SMTS coming into this team in their first 90 days?"
+* [x] Secrets-Store-flavored addition: "Given [team]'s system operates at [scale/reliability bar], what's the current biggest gap between where the architecture is and where it needs to be for the next order of magnitude?" — swap `[team]` for **Availability** when asking.
+
+**Remaining gaps / before the next mock**: full open action-item list (connection-pool-exhaustion STAR(R) draft, CDC-pipeline pushback story, mentorship story, MVP-slicing story, the redesign-today opinion, "Why Salesforce" research, Equality and Sustainability stories) tracked in [`docs/salesforce-hm-round-prep.md` — "Before the next mock" section](https://github.com/ShubhamChouksey123/behavioral-interview-prep/blob/master/docs/salesforce-hm-round-prep.md#before-the-next-mock--action-items).
 
 ---
 
