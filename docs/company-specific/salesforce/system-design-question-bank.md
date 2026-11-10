@@ -61,7 +61,7 @@ Reported theme: high-volume data-stream processing using Kafka + Flink, with emp
 
 **Source confidence**: lower — these come from generic Salesforce-SWE prep-guide aggregations, not a specific candidate's writeup. Useful as backup practice, not guaranteed to appear.
 
-7. **Venue Rental/Booking System** — search, book, manage venues; concurrency handling to prevent double-booking; search indexing.
+7. **Venue Rental/Booking System** — search, book, manage venues; concurrency handling to prevent double-booking; search indexing. **Practiced**: [session 19](https://github.com/ShubhamChouksey123/system-design/blob/master/practice/19-session/README.md).
 8. **Movie Ticket Booking Platform** — seat inventory under high concurrency; optimistic vs. pessimistic locking; payment flow; eventual-consistency patterns.
 9. **Third-Party Tool Integration Platform** — securely connect external services; API gateway design; webhook handling and retry mechanisms. (Directly relevant if the Availability Team's domain touches integrations — worth promoting to high-priority practice regardless of confirmation status.)
 10. **Synchronized Watch Party System** — real-time video sync across users, chat, permissions; WebSocket vs. polling; state synchronization; scaling video streams.
@@ -99,7 +99,7 @@ Ordered by how often each showed up across the research pass (most-reported firs
 * [ ] Food Delivery App — high (named in both an aggregate-guide list and a specific hiring-drive writeup)
 * [ ] Messaging System — medium (one named-candidate report, but from the HM round specifically, not the dedicated HLD round)
 * [ ] Real-Time Analytics / Event-Processing Pipeline — medium (one aggregate-guide mention; Kafka + Flink)
-* [ ] Venue Rental/Booking System — low (aggregate-guide only, not individually confirmed)
+* [x] Venue Rental/Booking System — low (aggregate-guide only, not individually confirmed) — practiced in [session 19](https://github.com/ShubhamChouksey123/system-design/blob/master/practice/19-session/README.md)
 * [ ] Movie Ticket Booking Platform — low (aggregate-guide only, not individually confirmed)
 * [ ] Third-Party Tool Integration Platform — low by frequency, but worth promoting in practice order if the Availability Team's domain touches integrations
 * [ ] Synchronized Watch Party System — low (aggregate-guide only, not individually confirmed)
